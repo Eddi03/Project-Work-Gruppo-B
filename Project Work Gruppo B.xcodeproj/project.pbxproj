@@ -10,12 +10,16 @@
 		2F532B743C1F812489AAEEA9 /* Pods_Project_Work_Gruppo_B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C101320EC2888A2AD77A07AA /* Pods_Project_Work_Gruppo_B.framework */; };
 		6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */; };
 		6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171F21AE89EF0037FE62 /* ViewController.swift */; };
-		6CB3172321AE89EF0037FE62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172121AE89EF0037FE62 /* Main.storyboard */; };
+		6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */; };
 		6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172421AE89F20037FE62 /* Assets.xcassets */; };
 		6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */; };
 		6CB3173321AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173221AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift */; };
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
+		7F10A3BA21AEAACB00F48481 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */; };
+		7FE9CDB421AEAF6300001929 /* RegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */; };
+		7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */; };
+		7FE9CDB921AEB3C600001929 /* AdditionalDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */; };
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
 		96377BE821AEA8EC009CADBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE721AEA8EC009CADBD /* LoginViewController.swift */; };
 		96377BEA21AEA8FA009CADBD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE921AEA8FA009CADBD /* RegisterViewController.swift */; };
@@ -48,7 +52,7 @@
 		6CB3171A21AE89EF0037FE62 /* Project Work Gruppo B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Work Gruppo B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CB3171F21AE89EF0037FE62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6CB3172221AE89EF0037FE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6CB3172221AE89EF0037FE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WhiteStoryboard.storyboard; sourceTree = "<group>"; };
 		6CB3172421AE89F20037FE62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CB3172721AE89F20037FE62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CB3172921AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +63,10 @@
 		6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_Work_Gruppo_BUITests.swift; sourceTree = "<group>"; };
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterStoryboard.storyboard; sourceTree = "<group>"; };
+		7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalDataStoryboard.storyboard; sourceTree = "<group>"; };
 		96377BE421ADABF8009CADBD /* Xcode.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		96377BE721AEA8EC009CADBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96377BE921AEA8FA009CADBD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -140,14 +148,13 @@
 		6CB3171C21AE89EF0037FE62 /* Project Work Gruppo B */ = {
 			isa = PBXGroup;
 			children = (
+				7FE9CDB721AEB36900001929 /* Storyboards */,
 				6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */,
 				96377BE621AEA8C6009CADBD /* Authentication */,
 				96377BF121AEAAE6009CADBD /* Model */,
 				96377BF421AEABC6009CADBD /* Utils */,
 				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
-				6CB3172121AE89EF0037FE62 /* Main.storyboard */,
 				6CB3172421AE89F20037FE62 /* Assets.xcassets */,
-				6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */,
 				6CB3172921AE89F20037FE62 /* Info.plist */,
 				6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */,
 			);
@@ -172,32 +179,17 @@
 			path = "Project Work Gruppo BUITests";
 			sourceTree = "<group>";
 		};
-		96377BE621AEA8C6009CADBD /* Authentication */ = {
+		7FE9CDB721AEB36900001929 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				96377BE721AEA8EC009CADBD /* LoginViewController.swift */,
-				96377BE921AEA8FA009CADBD /* RegisterViewController.swift */,
-				96377BEB21AEA90B009CADBD /* SaveViewController.swift */,
+				6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */,
+				6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */,
+				7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */,
+				7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */,
+				7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */,
+				7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */,
 			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		96377BF121AEAAE6009CADBD /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				96377BF221AEAAF4009CADBD /* User.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		96377BF421AEABC6009CADBD /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				96377BED21AEA965009CADBD /* NetworkManager.swift */,
-				96377BEF21AEAA49009CADBD /* Extension.swift */,
-				96377BF521AEAC16009CADBD /* GeneralUtils.swift */,
-			);
-			path = Utils;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,7 +204,6 @@
 				6CB3171721AE89EF0037FE62 /* Frameworks */,
 				6CB3171821AE89EF0037FE62 /* Resources */,
 				2731D9F5BF4C44DCD8167601 /* [CP] Embed Pods Frameworks */,
-				A60068E3AAE6620E1C273416 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,8 +301,12 @@
 				6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */,
 				6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */,
 				96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */,
+				7FE9CDB921AEB3C600001929 /* AdditionalDataStoryboard.storyboard in Resources */,
+				7FE9CDB421AEAF6300001929 /* RegisterStoryboard.storyboard in Resources */,
+				7F10A3BA21AEAACB00F48481 /* LoginStoryboard.storyboard in Resources */,
 				6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */,
-				6CB3172321AE89EF0037FE62 /* Main.storyboard in Resources */,
+				7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */,
+				6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,8 +343,11 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -364,8 +362,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -394,28 +395,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A60068E3AAE6620E1C273416 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -469,12 +448,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6CB3172121AE89EF0037FE62 /* Main.storyboard */ = {
+		6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6CB3172221AE89EF0037FE62 /* Base */,
 			);
-			name = Main.storyboard;
+			name = WhiteStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */ = {
