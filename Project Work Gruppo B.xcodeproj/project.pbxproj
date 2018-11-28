@@ -14,6 +14,7 @@
 		6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */; };
 		6CB3173321AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173221AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift */; };
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
+		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		6CB3173921AE89F20037FE62 /* Project Work Gruppo BUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project Work Gruppo BUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_Work_Gruppo_BUITests.swift; sourceTree = "<group>"; };
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				6CB3172421AE89F20037FE62 /* Assets.xcassets */,
 				6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */,
 				6CB3172921AE89F20037FE62 /* Info.plist */,
+				6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */,
 			);
 			path = "Project Work Gruppo B";
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */,
+				6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */,
 				6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */,
 				6CB3172321AE89EF0037FE62 /* Main.storyboard in Resources */,
 			);
