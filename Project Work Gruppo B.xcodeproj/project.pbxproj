@@ -20,14 +20,14 @@
 		7FE9CDB421AEAF6300001929 /* RegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */; };
 		7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */; };
 		7FE9CDB921AEB3C600001929 /* AdditionalDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */; };
+		7FFB574B21AED757002E8DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574A21AED757002E8DB2 /* User.swift */; };
+		7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574E21AED7C2002E8DB2 /* Extension.swift */; };
+		7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */; };
+		7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575021AED7C2002E8DB2 /* NetworkManager.swift */; };
+		7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575521AED80C002E8DB2 /* LoginViewController.swift */; };
+		7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575621AED80C002E8DB2 /* SaveViewController.swift */; };
+		7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */; };
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
-		96377BE821AEA8EC009CADBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE721AEA8EC009CADBD /* LoginViewController.swift */; };
-		96377BEA21AEA8FA009CADBD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE921AEA8FA009CADBD /* RegisterViewController.swift */; };
-		96377BEC21AEA90B009CADBD /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BEB21AEA90B009CADBD /* SaveViewController.swift */; };
-		96377BEE21AEA965009CADBD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BED21AEA965009CADBD /* NetworkManager.swift */; };
-		96377BF021AEAA49009CADBD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BEF21AEAA49009CADBD /* Extension.swift */; };
-		96377BF321AEAAF4009CADBD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BF221AEAAF4009CADBD /* User.swift */; };
-		96377BF621AEAC16009CADBD /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BF521AEAC16009CADBD /* GeneralUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +67,13 @@
 		7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterStoryboard.storyboard; sourceTree = "<group>"; };
 		7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalDataStoryboard.storyboard; sourceTree = "<group>"; };
+		7FFB574A21AED757002E8DB2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7FFB574E21AED7C2002E8DB2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "Project Work Gruppo B/Utils/Extension.swift"; sourceTree = SOURCE_ROOT; };
+		7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = "Project Work Gruppo B/Utils/GeneralUtils.swift"; sourceTree = SOURCE_ROOT; };
+		7FFB575021AED7C2002E8DB2 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = "Project Work Gruppo B/Utils/NetworkManager.swift"; sourceTree = SOURCE_ROOT; };
+		7FFB575521AED80C002E8DB2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Project Work Gruppo B/Authentication/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
+		7FFB575621AED80C002E8DB2 /* SaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveViewController.swift; path = "Project Work Gruppo B/Authentication/SaveViewController.swift"; sourceTree = SOURCE_ROOT; };
+		7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Project Work Gruppo B/Authentication/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
 		96377BE421ADABF8009CADBD /* Xcode.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		96377BE721AEA8EC009CADBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96377BE921AEA8FA009CADBD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +139,7 @@
 				6CB3171B21AE89EF0037FE62 /* Products */,
 				3E01A9AACECFB3CB5BAA6A42 /* Pods */,
 				43599FDA912DCBA0CF4FE21B /* Frameworks */,
+				7FFB574921AECBCE002E8DB2 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,11 +156,11 @@
 		6CB3171C21AE89EF0037FE62 /* Project Work Gruppo B */ = {
 			isa = PBXGroup;
 			children = (
+				7FFB575421AED7EF002E8DB2 /* Authentication */,
+				7FFB574D21AED7B3002E8DB2 /* Utils */,
+				7FFB574C21AED762002E8DB2 /* Models */,
 				7FE9CDB721AEB36900001929 /* Storyboards */,
 				6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */,
-				96377BE621AEA8C6009CADBD /* Authentication */,
-				96377BF121AEAAE6009CADBD /* Model */,
-				96377BF421AEABC6009CADBD /* Utils */,
 				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
 				6CB3172421AE89F20037FE62 /* Assets.xcassets */,
 				6CB3172921AE89F20037FE62 /* Info.plist */,
@@ -190,6 +198,50 @@
 				7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		7FFB574921AECBCE002E8DB2 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				96377BED21AEA965009CADBD /* NetworkManager.swift */,
+				96377BE721AEA8EC009CADBD /* LoginViewController.swift */,
+				96377BEF21AEAA49009CADBD /* Extension.swift */,
+				96377BEB21AEA90B009CADBD /* SaveViewController.swift */,
+				96377BF221AEAAF4009CADBD /* User.swift */,
+				96377BF521AEAC16009CADBD /* GeneralUtils.swift */,
+				96377BE921AEA8FA009CADBD /* RegisterViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		7FFB574C21AED762002E8DB2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FFB574A21AED757002E8DB2 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7FFB574D21AED7B3002E8DB2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7FFB574E21AED7C2002E8DB2 /* Extension.swift */,
+				7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */,
+				7FFB575021AED7C2002E8DB2 /* NetworkManager.swift */,
+			);
+			name = Utils;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		7FFB575421AED7EF002E8DB2 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				7FFB575521AED80C002E8DB2 /* LoginViewController.swift */,
+				7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */,
+				7FFB575621AED80C002E8DB2 /* SaveViewController.swift */,
+			);
+			name = Authentication;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,15 +456,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96377BEE21AEA965009CADBD /* NetworkManager.swift in Sources */,
-				96377BE821AEA8EC009CADBD /* LoginViewController.swift in Sources */,
-				96377BF021AEAA49009CADBD /* Extension.swift in Sources */,
-				96377BEC21AEA90B009CADBD /* SaveViewController.swift in Sources */,
-				96377BF321AEAAF4009CADBD /* User.swift in Sources */,
+				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
+				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
+				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
+				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
-				96377BF621AEAC16009CADBD /* GeneralUtils.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
-				96377BEA21AEA8FA009CADBD /* RegisterViewController.swift in Sources */,
+				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,
+				7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */,
+				7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
