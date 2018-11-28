@@ -17,6 +17,13 @@
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
+		96377BE821AEA8EC009CADBD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE721AEA8EC009CADBD /* LoginViewController.swift */; };
+		96377BEA21AEA8FA009CADBD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BE921AEA8FA009CADBD /* RegisterViewController.swift */; };
+		96377BEC21AEA90B009CADBD /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BEB21AEA90B009CADBD /* SaveViewController.swift */; };
+		96377BEE21AEA965009CADBD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BED21AEA965009CADBD /* NetworkManager.swift */; };
+		96377BF021AEAA49009CADBD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BEF21AEAA49009CADBD /* Extension.swift */; };
+		96377BF321AEAAF4009CADBD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BF221AEAAF4009CADBD /* User.swift */; };
+		96377BF621AEAC16009CADBD /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377BF521AEAC16009CADBD /* GeneralUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,13 @@
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		96377BE421ADABF8009CADBD /* Xcode.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
+		96377BE721AEA8EC009CADBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		96377BE921AEA8FA009CADBD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		96377BEB21AEA90B009CADBD /* SaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveViewController.swift; sourceTree = "<group>"; };
+		96377BED21AEA965009CADBD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		96377BEF21AEAA49009CADBD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		96377BF221AEAAF4009CADBD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		96377BF521AEAC16009CADBD /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 		C101320EC2888A2AD77A07AA /* Pods_Project_Work_Gruppo_B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Work_Gruppo_B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D937F92E2F4042D1DDAA4A7B /* Pods-Project Work Gruppo B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Work Gruppo B.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */,
+				96377BE621AEA8C6009CADBD /* Authentication */,
+				96377BF121AEAAE6009CADBD /* Model */,
+				96377BF421AEABC6009CADBD /* Utils */,
 				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
 				6CB3172121AE89EF0037FE62 /* Main.storyboard */,
 				6CB3172421AE89F20037FE62 /* Assets.xcassets */,
@@ -153,6 +170,34 @@
 				6CB3173F21AE89F20037FE62 /* Info.plist */,
 			);
 			path = "Project Work Gruppo BUITests";
+			sourceTree = "<group>";
+		};
+		96377BE621AEA8C6009CADBD /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				96377BE721AEA8EC009CADBD /* LoginViewController.swift */,
+				96377BE921AEA8FA009CADBD /* RegisterViewController.swift */,
+				96377BEB21AEA90B009CADBD /* SaveViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		96377BF121AEAAE6009CADBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96377BF221AEAAF4009CADBD /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96377BF421AEABC6009CADBD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				96377BED21AEA965009CADBD /* NetworkManager.swift */,
+				96377BEF21AEAA49009CADBD /* Extension.swift */,
+				96377BF521AEAC16009CADBD /* GeneralUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,8 +425,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96377BEE21AEA965009CADBD /* NetworkManager.swift in Sources */,
+				96377BE821AEA8EC009CADBD /* LoginViewController.swift in Sources */,
+				96377BF021AEAA49009CADBD /* Extension.swift in Sources */,
+				96377BEC21AEA90B009CADBD /* SaveViewController.swift in Sources */,
+				96377BF321AEAAF4009CADBD /* User.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
+				96377BF621AEAC16009CADBD /* GeneralUtils.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
+				96377BEA21AEA8FA009CADBD /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
