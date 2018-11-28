@@ -26,8 +26,8 @@ class LoginViewController: UIViewController {
         NetworkManager.login(email: email, password: password){ (success) in
             if success{
                 self.dismiss(animated: true, completion:{
-                    self.performSegue(withIdentifier: R.segue.loginViewController.segueToHome.identifier, sender: self)})
+                    self.performSegue(withIdentifier: "", sender: self)})
             }
         }
     }
-}
+ }

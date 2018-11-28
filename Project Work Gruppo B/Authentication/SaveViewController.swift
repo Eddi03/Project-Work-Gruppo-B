@@ -6,6 +6,7 @@
 //  Copyright © 2018 Eddi. All rights reserved.
 //
 
+
 import UIKit
 import FirebaseAuth
 
@@ -16,7 +17,7 @@ class SaveViewController: UIViewController {
     @IBOutlet var emailOutlet: UITextField!
     @IBOutlet var nameOutlet: UITextField!
     @IBOutlet var surnameOutlet: UITextField!
-    @IBOutlet var supervisorOutlet: UISwitch
+    @IBOutlet var supervisorOutlet: UISwitch!
     var imageUser : Data?
     var email : String!
     var id : String!
@@ -76,7 +77,7 @@ class SaveViewController: UIViewController {
                 
                 
                 NetworkManager.addUser(user: user, completion: { (success) in
-                    self.performSegue(withIdentifier: R.segue.saveViewController.segueToMain, sender: self)
+                    self.performSegue(withIdentifier: "", sender: self)
                 })
             }
         }
@@ -84,7 +85,7 @@ class SaveViewController: UIViewController {
             let user = User(email: email, name: name, surname: surname, id: id, image: URLImage,supervisor:supervisor)
             
             NetworkManager.addUser(user: user, completion: { (success) in
-                self.performSegue(withIdentifier: R.segue.saveViewController.segueToMain, sender: self)
+                self.performSegue(withIdentifier: "", sender: self)
             })
         }
     }

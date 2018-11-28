@@ -20,8 +20,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="fqm-4x-0cA" kind="show" id="CvN-pm-kPu"/>
-                        <segue destination="gFY-Fk-yxB" kind="show" id="bie-so-uaA"/>
+                        <segue destination="fqm-4x-0cA" kind="show" identifier="segueToLogin" id="CvN-pm-kPu"/>
+                        <segue destination="gFY-Fk-yxB" kind="show" identifier="segueToMain" id="bie-so-uaA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

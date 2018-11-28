@@ -28,6 +28,8 @@
 		7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575621AED80C002E8DB2 /* SaveViewController.swift */; };
 		7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */; };
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
+		96377C3A21AEDCD7009CADBD /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3921AEDCD7009CADBD /* RealmUtils.swift */; };
+		96377C3E21AEE094009CADBD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3D21AEE094009CADBD /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		96377BEF21AEAA49009CADBD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		96377BF221AEAAF4009CADBD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		96377BF521AEAC16009CADBD /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
+		96377C3921AEDCD7009CADBD /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
+		96377C3D21AEE094009CADBD /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C101320EC2888A2AD77A07AA /* Pods_Project_Work_Gruppo_B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Work_Gruppo_B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D937F92E2F4042D1DDAA4A7B /* Pods-Project Work Gruppo B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Work Gruppo B.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -225,9 +229,11 @@
 		7FFB574D21AED7B3002E8DB2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				96377C3921AEDCD7009CADBD /* RealmUtils.swift */,
 				7FFB574E21AED7C2002E8DB2 /* Extension.swift */,
 				7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */,
 				7FFB575021AED7C2002E8DB2 /* NetworkManager.swift */,
+				96377C3D21AEE094009CADBD /* R.generated.swift */,
 			);
 			name = Utils;
 			path = "New Group";
@@ -252,10 +258,12 @@
 			buildConfigurationList = 6CB3174221AE89F20037FE62 /* Build configuration list for PBXNativeTarget "Project Work Gruppo B" */;
 			buildPhases = (
 				68761B4C4346DFBCEC4C3036 /* [CP] Check Pods Manifest.lock */,
+				96377C3C21AEE02E009CADBD /* ShellScript */,
 				6CB3171621AE89EF0037FE62 /* Sources */,
 				6CB3171721AE89EF0037FE62 /* Frameworks */,
 				6CB3171821AE89EF0037FE62 /* Resources */,
 				2731D9F5BF4C44DCD8167601 /* [CP] Embed Pods Frameworks */,
+				6020855B0AC2887B0EC530C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,11 +403,8 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -414,17 +419,36 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6020855B0AC2887B0EC530C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68761B4C4346DFBCEC4C3036 /* [CP] Check Pods Manifest.lock */ = {
@@ -449,6 +473,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		96377C3C21AEE02E009CADBD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -465,6 +506,8 @@
 				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,
 				7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */,
 				7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */,
+				96377C3E21AEE094009CADBD /* R.generated.swift in Sources */,
+				96377C3A21AEDCD7009CADBD /* RealmUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
