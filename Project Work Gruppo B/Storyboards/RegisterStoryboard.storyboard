@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9eX-Rx-Fcs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="cAI-eZ-PhX">
+            <objects>
+                <viewController id="9eX-Rx-Fcs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wdj-Or-Rid">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-W3-0LD">
+                                <rect key="frame" x="16" y="84" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFh-od-Gju">
+                                <rect key="frame" x="16" y="146" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayY-H0-BXi">
+                                <rect key="frame" x="16" y="208" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONM-Rz-vQY">
+                                <rect key="frame" x="155" y="270" width="65" height="30"/>
+                                <state key="normal" title="Registrati"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FJG-9W-N6D" firstAttribute="trailing" secondItem="f3E-W3-0LD" secondAttribute="trailing" constant="16" id="27c-IH-OaX"/>
+                            <constraint firstItem="ONM-Rz-vQY" firstAttribute="centerX" secondItem="wdj-Or-Rid" secondAttribute="centerX" id="9pJ-IQ-Up8"/>
+                            <constraint firstItem="f3E-W3-0LD" firstAttribute="leading" secondItem="FJG-9W-N6D" secondAttribute="leading" constant="16" id="IyX-eA-sn3"/>
+                            <constraint firstItem="ayY-H0-BXi" firstAttribute="leading" secondItem="FJG-9W-N6D" secondAttribute="leading" constant="16" id="M4N-Tr-YCo"/>
+                            <constraint firstItem="PFh-od-Gju" firstAttribute="leading" secondItem="FJG-9W-N6D" secondAttribute="leading" constant="16" id="Z8R-IY-ftK"/>
+                            <constraint firstItem="PFh-od-Gju" firstAttribute="top" secondItem="f3E-W3-0LD" secondAttribute="bottom" constant="32" id="aCV-W7-PBK"/>
+                            <constraint firstItem="FJG-9W-N6D" firstAttribute="trailing" secondItem="ayY-H0-BXi" secondAttribute="trailing" constant="16" id="aW6-aq-wFx"/>
+                            <constraint firstItem="f3E-W3-0LD" firstAttribute="top" secondItem="FJG-9W-N6D" secondAttribute="top" constant="64" id="eKf-QT-3s7"/>
+                            <constraint firstItem="ayY-H0-BXi" firstAttribute="top" secondItem="PFh-od-Gju" secondAttribute="bottom" constant="32" id="n0W-k4-bbj"/>
+                            <constraint firstItem="ONM-Rz-vQY" firstAttribute="top" secondItem="ayY-H0-BXi" secondAttribute="bottom" constant="32" id="ySS-gW-gC2"/>
+                            <constraint firstItem="FJG-9W-N6D" firstAttribute="trailing" secondItem="PFh-od-Gju" secondAttribute="trailing" constant="16" id="yTd-jd-nYt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FJG-9W-N6D"/>
+                    </view>
+                    <connections>
+                        <segue destination="7PM-gV-nIs" kind="show" id="e9V-6V-8GS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtu-1L-h8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="48"/>
+        </scene>
+        <!--AdditionalDataStoryboard-->
+        <scene sceneID="kyn-gI-sAZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AdditionalDataStoryboard" id="7PM-gV-nIs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wfh-dd-NXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="34"/>
+        </scene>
+    </scenes>
+</document>
