@@ -27,10 +27,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--LoginStoryboard-->
+        <!--Authentication-->
         <scene sceneID="uSe-9F-j3F">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginStoryboard" id="fqm-4x-0cA" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Authentication" id="fqm-4x-0cA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7K4-sh-Fo2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="685" y="26"/>

@@ -16,10 +16,8 @@
 		6CB3173321AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173221AE89F20037FE62 /* Project_Work_Gruppo_BTests.swift */; };
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
-		7F10A3BA21AEAACB00F48481 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */; };
-		7FE9CDB421AEAF6300001929 /* RegisterStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */; };
+		7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* Authentication.storyboard */; };
 		7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */; };
-		7FE9CDB921AEB3C600001929 /* AdditionalDataStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */; };
 		7FFB574B21AED757002E8DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574A21AED757002E8DB2 /* User.swift */; };
 		7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574E21AED7C2002E8DB2 /* Extension.swift */; };
 		7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */; };
@@ -65,10 +63,8 @@
 		6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_Work_Gruppo_BUITests.swift; sourceTree = "<group>"; };
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
-		7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RegisterStoryboard.storyboard; sourceTree = "<group>"; };
+		7F10A3B921AEAACB00F48481 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdditionalDataStoryboard.storyboard; sourceTree = "<group>"; };
 		7FFB574A21AED757002E8DB2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7FFB574E21AED7C2002E8DB2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "Project Work Gruppo B/Utils/Extension.swift"; sourceTree = SOURCE_ROOT; };
 		7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = "Project Work Gruppo B/Utils/GeneralUtils.swift"; sourceTree = SOURCE_ROOT; };
@@ -196,10 +192,8 @@
 			children = (
 				6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */,
 				6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */,
-				7F10A3B921AEAACB00F48481 /* LoginStoryboard.storyboard */,
-				7FE9CDB321AEAF6300001929 /* RegisterStoryboard.storyboard */,
+				7F10A3B921AEAACB00F48481 /* Authentication.storyboard */,
 				7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */,
-				7FE9CDB821AEB3C500001929 /* AdditionalDataStoryboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -263,7 +257,6 @@
 				6CB3171721AE89EF0037FE62 /* Frameworks */,
 				6CB3171821AE89EF0037FE62 /* Resources */,
 				2731D9F5BF4C44DCD8167601 /* [CP] Embed Pods Frameworks */,
-				6020855B0AC2887B0EC530C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,9 +354,7 @@
 				6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */,
 				6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */,
 				96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */,
-				7FE9CDB921AEB3C600001929 /* AdditionalDataStoryboard.storyboard in Resources */,
-				7FE9CDB421AEAF6300001929 /* RegisterStoryboard.storyboard in Resources */,
-				7F10A3BA21AEAACB00F48481 /* LoginStoryboard.storyboard in Resources */,
+				7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */,
 				6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */,
 				7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */,
 				6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */,
@@ -403,8 +394,11 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -419,36 +413,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6020855B0AC2887B0EC530C7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68761B4C4346DFBCEC4C3036 /* [CP] Check Pods Manifest.lock */ = {
