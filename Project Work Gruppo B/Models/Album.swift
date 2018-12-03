@@ -17,10 +17,11 @@ import RealmSwift
     dynamic var adminCreator: String!
     dynamic var id : String!
     dynamic var image : String?
+    dynamic var completed : Bool!
     
     private let photos : List<Photo> = List<Photo>()
     
-    convenience init(title : String? = nil, info : String? = nil, operatorAssigned : String? = nil, adminCreator : String? = nil, image : String? = nil) {
+    convenience init(title : String? = nil, info : String? = nil, operatorAssigned : String? = nil, adminCreator : String? = nil, image : String? = nil, completed : Bool? = nil) {
         self.init()
         self.id = UUID().uuidString
         self.title = title
@@ -28,6 +29,7 @@ import RealmSwift
         self.operatorAssigned = operatorAssigned
         self.adminCreator = adminCreator
         self.image = image
+        self.completed = completed
     }
     override class func primaryKey() -> String? {
         return "id"

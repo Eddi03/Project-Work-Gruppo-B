@@ -38,28 +38,28 @@ class NetworkManager : NSObject{
         })
     }
     
-    /*static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
-        let document = db?.collection("Users").document((Auth.auth().currentUser?.uid)!)
-        document.getDocument { (documentSnap, error) in
-            var shoppingList : [Item] = []
+    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void, role:String!,value:String!){
+        db!.collection("Albums").getDocuments { (documentSnap, error) in
+            var albumsToComplete : [Album] = []
             
             if let error = error{
                 print(error)
             }
             else{
-                guard let document = documentSnap?.data() else{ return }
-                for element in document{
-                    debugPrint(element)
-                    var values = element.value as! [String:Any]
-                    let album = Item(name: values["Name"] as! String, number: values["Number"] as! Int, id: element.key)
+                
+                guard let documentSnap = documentSnap else{ return }
+                for values in documentSnap.documents{
+                    if values[role]as? String == value{
+                        let album = Album(title: values["Title"] as? String, info: values["Info"] as? String,operatorAssigned: values["OperatorAssigned"] as? String, adminCreator: values["AdminCreator"] as? String, image: values["Image"] as? String)
+                        albumsToComplete.append(album)
+                    }
                 }
-                print(shoppingList)
+                print(albumsToComplete)
             }
-            completion(shoppingList)
+            completion(albumsToComplete)
         }
         
-    }*/
-    
+    }
     static func getUsers(completion : @escaping([User]) -> Void){
         db!.collection("Users").getDocuments { (documentSnap, error) in
             var usersList : [User] = []
