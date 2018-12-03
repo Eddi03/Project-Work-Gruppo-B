@@ -38,10 +38,10 @@ class NetworkManager : NSObject{
         })
     }
     
-    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
+    /*static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
         let document = db?.collection("Users").document((Auth.auth().currentUser?.uid)!)
-        document?.getDocument { (documentSnap, error) in
-            var shoppingList : [Album] = []
+        document.getDocument { (documentSnap, error) in
+            var shoppingList : [Item] = []
             
             if let error = error{
                 print(error)
@@ -52,14 +52,13 @@ class NetworkManager : NSObject{
                     debugPrint(element)
                     var values = element.value as! [String:Any]
                     let album = Item(name: values["Name"] as! String, number: values["Number"] as! Int, id: element.key)
-                    shoppingList.append(item)
                 }
                 print(shoppingList)
             }
             completion(shoppingList)
         }
         
-    }
+    }*/
     
     static func getUsers(completion : @escaping([User]) -> Void){
         db!.collection("Users").getDocuments { (documentSnap, error) in
