@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0b-9z-i31">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d0b-9z-i31">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,32 +25,20 @@
             </objects>
             <point key="canvasLocation" x="-710" y="162"/>
         </scene>
-        <!--Album List View Controller-->
+        <!--Operator View Controller-->
         <scene sceneID="Xyc-rH-2ir">
             <objects>
-                <viewController id="6Xn-RG-3iy" customClass="AlbumListViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Xn-RG-3iy" customClass="OperatorViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLs-ZN-pGV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLe-uw-mYr" userLabel="HOME">
-                                <rect key="frame" x="162.5" y="323" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="zLe-uw-mYr" firstAttribute="centerX" secondItem="gLs-ZN-pGV" secondAttribute="centerX" id="syW-BV-Vn0"/>
-                            <constraint firstItem="zLe-uw-mYr" firstAttribute="centerY" secondItem="gLs-ZN-pGV" secondAttribute="centerY" id="ziE-aH-cwD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jXV-vt-7Vg"/>
                     </view>
                     <navigationItem key="navigationItem" id="wlV-Fz-ZCP">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="Ze6-GZ-fdk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ze6-GZ-fdk">
                             <connections>
-                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="iAs-d3-KZG"/>
+                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="sSM-bo-ciV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
