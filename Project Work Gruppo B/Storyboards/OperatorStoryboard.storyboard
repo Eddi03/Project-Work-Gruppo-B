@@ -33,22 +33,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLe-uw-mYr" userLabel="HOME">
-                                <rect key="frame" x="162.5" y="323" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ibt-pM-gdz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="operatorCell" id="71l-sA-x3r">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="71l-sA-x3r" id="9qI-kJ-QlR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zLe-uw-mYr" firstAttribute="centerX" secondItem="gLs-ZN-pGV" secondAttribute="centerX" id="syW-BV-Vn0"/>
-                            <constraint firstItem="zLe-uw-mYr" firstAttribute="centerY" secondItem="gLs-ZN-pGV" secondAttribute="centerY" id="ziE-aH-cwD"/>
+                            <constraint firstItem="jXV-vt-7Vg" firstAttribute="bottom" secondItem="Ibt-pM-gdz" secondAttribute="bottom" id="NI5-rh-yzg"/>
+                            <constraint firstItem="Ibt-pM-gdz" firstAttribute="top" secondItem="jXV-vt-7Vg" secondAttribute="top" id="su3-46-ikS"/>
+                            <constraint firstItem="Ibt-pM-gdz" firstAttribute="leading" secondItem="jXV-vt-7Vg" secondAttribute="leading" id="uHa-uJ-b3x"/>
+                            <constraint firstItem="jXV-vt-7Vg" firstAttribute="trailing" secondItem="Ibt-pM-gdz" secondAttribute="trailing" id="uaP-ZU-aiT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jXV-vt-7Vg"/>
                     </view>
                     <navigationItem key="navigationItem" id="wlV-Fz-ZCP">
-                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="Ze6-GZ-fdk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ze6-GZ-fdk">
                             <connections>
                                 <action selector="logoutAction:" destination="6Xn-RG-3iy" id="sSM-bo-ciV"/>
                             </connections>
@@ -60,4 +70,5 @@
             <point key="canvasLocation" x="116" y="161"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.31902384757995605" green="0.33912843465805054" blue="0.77733594179153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
