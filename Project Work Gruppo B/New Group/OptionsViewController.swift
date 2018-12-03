@@ -19,7 +19,16 @@ class OptionsViewController: UIViewController {
         self.performSegue(withIdentifier: R.segue.optionsViewController.segueToOperator, sender: self)
        
         //da aggiungere admin/operator
-
+        NetworkManager.getUserLogged { (success) in
+            if success {
+                guard let isSupervisor = User.getUser(withid: NetworkManager.getMyID() ?? "")?.supervisor else { return }
+                if isSupervisor{
+                    self.performSegue(withIdentifier: "segueToAdmin", sender: nil)
+                } else {
+                    self.performSegue(withIdentifier: "segueToOperator", sender: nil)
+                }
+            }
+        }
 
     }
     

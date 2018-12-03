@@ -10,6 +10,9 @@
 import UIKit
 import FirebaseFirestore
 import Firebase
+import CodableFirebase
+
+
 class NetworkManager : NSObject{
     private static var ref : DocumentReference!
     
@@ -20,6 +23,10 @@ class NetworkManager : NSObject{
         FirebaseApp.configure()
         db = Firestore.firestore()
         storageRef = Storage.storage().reference()
+    }
+    
+    static func getMyID() -> String? {
+        return Auth.auth().currentUser?.uid
     }
     
     static func addUser(user : User,completion: @escaping (Bool)-> ()){
@@ -84,6 +91,32 @@ class NetworkManager : NSObject{
         }
         
     }
+    
+    static func getUserLogged(completion : @escaping(Bool) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        self.db?.collection("Users").document(uid).getDocument(completion: { (documentSnapshot, error) in
+            if let error = error{
+                print(error)
+                completion(false)
+            }
+            else{
+                if let document = documentSnapshot?.data(){
+                    do{
+                        try FirebaseDecoder().decode(User.self, from: document).save()
+                        completion(true)
+                    }catch{
+                        print(error)
+                        completion(false)
+                    }
+                }
+                
+        
+                
+                }
+        })
+                
+    }
+    
     static func signup(email: String,password: String, completion: @escaping (Bool)-> ()){
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in

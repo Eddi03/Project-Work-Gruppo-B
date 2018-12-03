@@ -77,7 +77,7 @@ class SaveViewController: UIViewController {
                 
                 
                 NetworkManager.addUser(user: user, completion: { (success) in
-                    self.performSegue(withIdentifier: "", sender: self)
+                    self.performSegue(withIdentifier: "segueToOptions", sender: self)
                 })
             }
         }
