@@ -21,14 +21,14 @@ class OperatorViewController: UIViewController {
 //            self.albumsToComplete = albumsToComplete
 //            self.tableView.delegate = self as? UITableViewDelegate
 //            self.tableView.dataSource = self as? UITableViewDataSource
-//            
+//
 //        }
 //    }
     @IBAction func logoutAction(_ sender: Any) {
-        
         NetworkManager.logOut()
-        self.view.window?.rootViewController!.dismiss(animated: true, completion: nil)
-    }
+        let storyboard = UIStoryboard(name: "WhiteStoryboard", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(viewController, animated: true, completion: nil)    }
     
 
     /*

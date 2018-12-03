@@ -58,9 +58,9 @@
                         <viewLayoutGuide key="safeArea" id="jXV-vt-7Vg"/>
                     </view>
                     <navigationItem key="navigationItem" id="wlV-Fz-ZCP">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Ze6-GZ-fdk">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="150-QG-bxx">
                             <connections>
-                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="sSM-bo-ciV"/>
+                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="fGA-K5-eDe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

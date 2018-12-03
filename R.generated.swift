@@ -243,7 +243,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -254,12 +254,20 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try whiteStoryboard.validate()
+    }
+    
     struct adminStoryboard: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UINavigationController
       
@@ -305,11 +313,20 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct whiteStoryboard: Rswift.StoryboardResourceWithInitialControllerType {
+    struct whiteStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = ViewController
       
       let bundle = R.hostingBundle
       let name = "WhiteStoryboard"
+      let viewController = StoryboardViewControllerResource<ViewController>(identifier: "ViewController")
+      
+      func viewController(_: Void = ()) -> ViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: viewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.whiteStoryboard().viewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'viewController' could not be loaded from storyboard 'WhiteStoryboard' as 'ViewController'.") }
+      }
       
       fileprivate init() {}
     }
