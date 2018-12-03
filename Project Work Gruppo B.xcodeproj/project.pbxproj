@@ -17,6 +17,7 @@
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
 		7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* Authentication.storyboard */; };
+		7FD89D1621B5672B00FEDCD0 /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD89D1521B5672B00FEDCD0 /* AdminStoryboard.storyboard */; };
 		7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */; };
 		7FFB574B21AED757002E8DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574A21AED757002E8DB2 /* User.swift */; };
 		7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574E21AED7C2002E8DB2 /* Extension.swift */; };
@@ -69,6 +70,7 @@
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F10A3B921AEAACB00F48481 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		7FD89D1521B5672B00FEDCD0 /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
 		7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		7FFB574A21AED757002E8DB2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7FFB574E21AED7C2002E8DB2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "Project Work Gruppo B/Utils/Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -192,6 +194,7 @@
 				6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */,
 				7F10A3B921AEAACB00F48481 /* Authentication.storyboard */,
 				7FE9CDB521AEB19F00001929 /* MainStoryboard.storyboard */,
+				7FD89D1521B5672B00FEDCD0 /* AdminStoryboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				6CB3172821AE89F20037FE62 /* LaunchScreen.storyboard in Resources */,
 				6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */,
 				96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */,
+				7FD89D1621B5672B00FEDCD0 /* AdminStoryboard.storyboard in Resources */,
 				7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */,
 				6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */,
 				7FE9CDB621AEB19F00001929 /* MainStoryboard.storyboard in Resources */,

@@ -26,12 +26,12 @@ class LoginViewController: UIViewController {
         NetworkManager.login(email: email, password: password){ (success) in
             if success{
                 self.dismiss(animated: true, completion:{
-                    self.performSegue(withIdentifier: R.segue.loginViewController.fromLoginToHome, sender: self)})
+                    self.performSegue(withIdentifier: "", sender: self)})
             }
         }
     }
     @IBAction func goToRegister(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.loginViewController.segueToRegister, sender: self)
+        self.performSegue(withIdentifier: "", sender: self)
     }
     
     @IBAction func resetP(_ sender: Any) {
