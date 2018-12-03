@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-710" y="162"/>
         </scene>
-        <!--Album List View Controller-->
+        <!--Operator View Controller-->
         <scene sceneID="Xyc-rH-2ir">
             <objects>
-                <viewController id="6Xn-RG-3iy" customClass="AlbumListViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Xn-RG-3iy" customClass="OperatorViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gLs-ZN-pGV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" id="wlV-Fz-ZCP">
                         <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="Ze6-GZ-fdk">
                             <connections>
-                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="iAs-d3-KZG"/>
+                                <action selector="logoutAction:" destination="6Xn-RG-3iy" id="sSM-bo-ciV"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

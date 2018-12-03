@@ -43,6 +43,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-rX-lAK">
                                 <rect key="frame" x="155" y="286" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
+                                <connections>
+                                    <segue destination="Ctk-q0-gBC" kind="show" id="kvg-d6-lJF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,9 +58,6 @@
                         <viewLayoutGuide key="safeArea" id="86J-3a-2Qc"/>
                     </view>
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
-                    <connections>
-                        <segue destination="Ctk-q0-gBC" kind="show" identifier="segueToRegister" id="S9c-IT-saS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QW-Te-2CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,31 +118,20 @@
                     <connections>
                         <outlet property="emailField" destination="oB8-FL-hNn" id="Fp8-Cl-pI6"/>
                         <outlet property="passwordField" destination="u3h-lB-17d" id="dsn-a6-NAH"/>
-                        <segue destination="lwk-9q-uDd" kind="showDetail" id="B0w-Ya-5sl"/>
+                        <segue destination="mOt-A6-kQL" kind="show" identifier="segueToOptions" id="q38-Zx-U2c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfE-d0-Hwr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46" y="-188"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="4EF-MZ-tQ5">
+        <!--Options-->
+        <scene sceneID="esZ-pm-xr7">
             <objects>
-                <viewController id="lwk-9q-uDd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0ln-ms-87k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="4Lb-5i-rqS"/>
-                    </view>
-                    <connections>
-                        <segue destination="QT2-gG-A96" kind="show" id="gRd-k7-H6z"/>
-                        <segue destination="r1C-AR-Cke" kind="show" id="fdD-Lt-hqK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2tR-bP-wkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Options" id="mOt-A6-kQL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRH-xa-hZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="-200"/>
+            <point key="canvasLocation" x="1047" y="-344"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="lXB-9h-Dcm">
@@ -221,22 +210,6 @@
             </objects>
             <point key="canvasLocation" x="934" y="773"/>
         </scene>
-        <!--MainStoryboard-->
-        <scene sceneID="0ct-el-Kci">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MainStoryboard" id="QT2-gG-A96" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YPT-QF-zfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1840" y="-422"/>
-        </scene>
-        <!--AdminStoryboard-->
-        <scene sceneID="6Jq-s5-g5l">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AdminStoryboard" id="r1C-AR-Cke" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sea-mH-CIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1834" y="-326"/>
-        </scene>
         <!--Save View Controller-->
         <scene sceneID="JGN-Dp-Muw">
             <objects>
@@ -280,6 +253,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu1-db-xma">
                                 <rect key="frame" x="155" y="327" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
+                                <connections>
+                                    <action selector="saveAction:" destination="bDy-rc-8gt" eventType="touchUpInside" id="LSH-6w-66f"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKO-KK-H6Q">
                                 <rect key="frame" x="16" y="212" width="343" height="30"/>
@@ -317,7 +293,7 @@
                         <outlet property="nameOutlet" destination="tVT-fl-Go9" id="s26-01-GfN"/>
                         <outlet property="supervisorOutlet" destination="0R8-hR-oD0" id="HOi-Du-Let"/>
                         <outlet property="surnameOutlet" destination="xPS-wm-sRv" id="nSd-Yj-4Wt"/>
-                        <segue destination="lwk-9q-uDd" kind="showDetail" id="2XK-yd-i3c"/>
+                        <segue destination="mOt-A6-kQL" kind="show" identifier="segueToOptions" id="mqP-S3-eaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfK-dF-hiJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,6 +302,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B0w-Ya-5sl"/>
+        <segue reference="q38-Zx-U2c"/>
     </inferredMetricsTieBreakers>
 </document>

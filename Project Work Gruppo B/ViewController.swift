@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: R.segue.viewController.segueToMain, sender: self)
+            self.performSegue(withIdentifier: R.segue.viewController.segueToOptions, sender: self)
         }
         else{
             self.performSegue(withIdentifier: R.segue.viewController.segueToLogin, sender: self)

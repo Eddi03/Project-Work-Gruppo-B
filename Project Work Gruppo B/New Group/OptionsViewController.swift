@@ -1,5 +1,5 @@
 //
-//  ListViewController.swift
+//  OptionsViewController.swift
 //  Project Work Gruppo B
 //
 //  Created by Jason Bourne on 03/12/18.
@@ -8,17 +8,19 @@
 
 import UIKit
 
-class OperatorViewController: UIViewController {
+class OptionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-    @IBAction func logoutAction(_ sender: Any) {
-        
-        NetworkManager.logOut()
-        self.view.window?.rootViewController!.dismiss(animated: true, completion: nil)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.performSegue(withIdentifier: R.segue.optionsViewController.segueToOperator, sender: self)
+       
+        //da aggiungere admin/operator
+
+
     }
     
 
