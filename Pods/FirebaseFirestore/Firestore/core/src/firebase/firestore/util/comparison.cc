@@ -19,13 +19,14 @@
 #include <cmath>
 #include <limits>
 
+using std::isnan;
+
 namespace firebase {
 namespace firestore {
 namespace util {
-using std::isnan;
 
-bool Comparator<absl::string_view>::operator()(absl::string_view left,
-                                               absl::string_view right) const {
+bool Comparator<absl::string_view>::operator()(
+    const absl::string_view& left, const absl::string_view& right) const {
   // TODO(wilhuff): truncation aware comparison
   return left < right;
 }

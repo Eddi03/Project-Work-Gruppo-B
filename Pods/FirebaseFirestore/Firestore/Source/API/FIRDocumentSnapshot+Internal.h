@@ -29,8 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)snapshotWithFirestore:(FIRFirestore *)firestore
                           documentKey:(firebase::firestore::model::DocumentKey)documentKey
                              document:(nullable FSTDocument *)document
-                            fromCache:(BOOL)fromCache
-                     hasPendingWrites:(BOOL)pendingWrites;
+                            fromCache:(BOOL)fromCache;
 
 @property(nonatomic, strong, readonly, nullable) FSTDocument *internalDocument;
 

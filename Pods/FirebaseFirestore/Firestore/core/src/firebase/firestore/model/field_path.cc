@@ -59,23 +59,6 @@ bool IsValidIdentifier(const std::string& segment) {
   return true;
 }
 
-/** A custom formatter to be used with absl::StrJoin(). */
-struct JoinEscaped {
-  static std::string escaped_segment(const std::string& segment) {
-    auto escaped = absl::StrReplaceAll(segment, {{"\\", "\\\\"}, {"`", "\\`"}});
-    const bool needs_escaping = !IsValidIdentifier(escaped);
-    if (needs_escaping) {
-      escaped.insert(escaped.begin(), '`');
-      escaped.push_back('`');
-    }
-    return escaped;
-  }
-
-  template <typename T>
-  void operator()(T* out, const std::string& segment) {
-    out->append(escaped_segment(segment));
-  }
-};
 }  // namespace
 
 FieldPath FieldPath::FromServerFormat(const absl::string_view path) {
@@ -160,7 +143,20 @@ bool FieldPath::IsKeyFieldPath() const {
 }
 
 std::string FieldPath::CanonicalString() const {
-  return absl::StrJoin(begin(), end(), ".", JoinEscaped());
+  const auto escaped_segment = [](const std::string& segment) {
+    auto escaped = absl::StrReplaceAll(segment, {{"\\", "\\\\"}, {"`", "\\`"}});
+    const bool needs_escaping = !IsValidIdentifier(escaped);
+    if (needs_escaping) {
+      escaped.insert(escaped.begin(), '`');
+      escaped.push_back('`');
+    }
+    return escaped;
+  };
+  return absl::StrJoin(
+      begin(), end(), ".",
+      [escaped_segment](std::string* out, const std::string& segment) {
+        out->append(escaped_segment(segment));
+      });
 }
 
 }  // namespace model

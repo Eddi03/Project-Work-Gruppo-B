@@ -77,12 +77,8 @@ public:
         return DescriptorType::Distinct;
     }
 
-    struct IndexPair {
-        size_t index_in_column;
-        size_t index_in_view;
-    };
     class Sorter;
-    virtual Sorter sorter(std::vector<IndexPair> const& rows) const;
+    virtual Sorter sorter(IntegerColumn const& row_indexes) const;
 
     // handover support
     DescriptorExport export_for_handover() const override;
@@ -111,7 +107,7 @@ public:
 
     void merge_with(SortDescriptor&& other);
 
-    Sorter sorter(std::vector<IndexPair> const& rows) const override;
+    Sorter sorter(IntegerColumn const& row_indexes) const override;
 
     // handover support
     DescriptorExport export_for_handover() const override;

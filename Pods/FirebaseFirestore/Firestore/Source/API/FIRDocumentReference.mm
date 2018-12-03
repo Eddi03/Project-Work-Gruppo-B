@@ -16,6 +16,8 @@
 
 #import "FIRDocumentReference.h"
 
+#import <GRPCClient/GRPCCall.h>
+
 #include <memory>
 #include <utility>
 
@@ -272,15 +274,10 @@ NS_ASSUME_NONNULL_BEGIN
     HARD_ASSERT(snapshot.documents.count <= 1, "Too many document returned on a document query");
     FSTDocument *document = [snapshot.documents documentForKey:key];
 
-    BOOL hasPendingWrites = document
-                                ? snapshot.mutatedKeys.contains(key)
-                                : NO;  // We don't raise `hasPendingWrites` for deleted documents.
-
     FIRDocumentSnapshot *result = [FIRDocumentSnapshot snapshotWithFirestore:firestore
                                                                  documentKey:key
                                                                     document:document
-                                                                   fromCache:snapshot.fromCache
-                                                            hasPendingWrites:hasPendingWrites];
+                                                                   fromCache:snapshot.fromCache];
     listener(result, nil);
   };
 

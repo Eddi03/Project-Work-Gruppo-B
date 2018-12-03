@@ -60,12 +60,11 @@ NS_ASSUME_NONNULL_BEGIN
     NSUInteger index = 0;
     NSMutableArray<FIRDocumentChange *> *changes = [NSMutableArray array];
     for (FSTDocumentViewChange *change in snapshot.documentChanges) {
-      FIRQueryDocumentSnapshot *document = [FIRQueryDocumentSnapshot
-          snapshotWithFirestore:firestore
-                    documentKey:change.document.key
-                       document:change.document
-                      fromCache:snapshot.isFromCache
-               hasPendingWrites:snapshot.mutatedKeys.contains(change.document.key)];
+      FIRQueryDocumentSnapshot *document =
+          [FIRQueryDocumentSnapshot snapshotWithFirestore:firestore
+                                              documentKey:change.document.key
+                                                 document:change.document
+                                                fromCache:snapshot.isFromCache];
       HARD_ASSERT(change.type == FSTDocumentViewChangeTypeAdded,
                   "Invalid event type for first snapshot");
       HARD_ASSERT(!lastDocument || snapshot.query.comparator(lastDocument, change.document) ==
@@ -87,12 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
         continue;
       }
 
-      FIRQueryDocumentSnapshot *document = [FIRQueryDocumentSnapshot
-          snapshotWithFirestore:firestore
-                    documentKey:change.document.key
-                       document:change.document
-                      fromCache:snapshot.isFromCache
-               hasPendingWrites:snapshot.mutatedKeys.contains(change.document.key)];
+      FIRQueryDocumentSnapshot *document =
+          [FIRQueryDocumentSnapshot snapshotWithFirestore:firestore
+                                              documentKey:change.document.key
+                                                 document:change.document
+                                                fromCache:snapshot.isFromCache];
 
       NSUInteger oldIndex = NSNotFound;
       NSUInteger newIndex = NSNotFound;

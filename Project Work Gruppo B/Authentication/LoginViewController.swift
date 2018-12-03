@@ -33,4 +33,34 @@ class LoginViewController: UIViewController {
     @IBAction func goToRegister(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.loginViewController.segueToRegister, sender: self)
     }
+    
+    @IBAction func resetP(_ sender: Any) {
+        resetPassword()
+    }
+    
+    
+    func resetPassword(){
+        
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Reset Password", message: "Immetti la tua email", preferredStyle: .alert)
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "email"
+        }
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            print("Text field: \(textField?.text)")
+            
+            //firebase
+            NetworkManager.resetPassword(email: (textField?.text ?? ""))
+            let alert2 = UIAlertController(title: "Reset Password", message: "è stata mandata una mail per resettare la password alla mail \(textField?.text)", preferredStyle: .alert)
+            let actionName = UIAlertAction(title: "Letto", style: .cancel, handler: nil)
+            alert2.addAction(actionName)
+            self.present(alert2, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+    }
 }

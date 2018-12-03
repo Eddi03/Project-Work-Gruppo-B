@@ -121,7 +121,6 @@ class LevelDbMutationKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The user that owns the mutation batches. */
@@ -185,7 +184,6 @@ class LevelDbDocumentMutationKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The user that owns the mutation batches. */
@@ -237,8 +235,7 @@ class LevelDbMutationQueueKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
-  bool Decode(absl::string_view key);
+  bool Decode(leveldb::Slice key);
 
   const std::string& user_id() const {
     return user_id_;
@@ -262,7 +259,6 @@ class LevelDbTargetGlobalKey {
    * Decodes the contents of a target global key, essentially just verifying
    * that the key has the correct table name.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(leveldb::Slice key);
 };
 
@@ -285,7 +281,6 @@ class LevelDbTargetKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(leveldb::Slice key);
 
   model::TargetId target_id() {
@@ -327,7 +322,6 @@ class LevelDbQueryTargetKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The canonical_id derived from the query. */
@@ -376,7 +370,6 @@ class LevelDbTargetDocumentKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The target_id identifying a target. */
@@ -424,18 +417,6 @@ class LevelDbDocumentTargetKey {
   static std::string SentinelKey(const model::DocumentKey& document_key);
 
   /**
-   * Given a sequence number, encodes it for storage in a sentinel row.
-   */
-  static std::string EncodeSentinelValue(
-      model::ListenSequenceNumber sequence_number);
-
-  /**
-   * Given an encoded sentinel row, return the sequence number.
-   */
-  static model::ListenSequenceNumber DecodeSentinelValue(
-      absl::string_view slice);
-
-  /**
    * Decodes the contents of a document target key, storing the decoded values
    * in this instance.
    *
@@ -443,7 +424,6 @@ class LevelDbDocumentTargetKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The target_id identifying a target. */
@@ -507,7 +487,6 @@ class LevelDbRemoteDocumentKey {
    * returned, this instance is in an undefined state until the next call to
    * `Decode()`.
    */
-  ABSL_MUST_USE_RESULT
   bool Decode(absl::string_view key);
 
   /** The path to the document, as encoded in the key. */

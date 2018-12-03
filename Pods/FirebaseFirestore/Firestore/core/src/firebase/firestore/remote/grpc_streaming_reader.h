@@ -34,22 +34,20 @@ namespace firebase {
 namespace firestore {
 namespace remote {
 
-class GrpcConnection;
-
 /**
  * Sends a single request to the server, reads one or more streaming server
  * responses, and invokes the given callback with the accumulated responses.
  */
-class GrpcStreamingReader : public GrpcCall, public GrpcStreamObserver {
+class GrpcStreamingReader : public GrpcStreamObserver {
  public:
+  using MetadataT = GrpcStream::MetadataT;
   using ResponsesT = std::vector<grpc::ByteBuffer>;
-  using Callback = std::function<void(const util::StatusOr<ResponsesT>&)>;
+  using CallbackT = std::function<void(const util::StatusOr<ResponsesT>&)>;
 
   GrpcStreamingReader(
       std::unique_ptr<grpc::ClientContext> context,
       std::unique_ptr<grpc::GenericClientAsyncReaderWriter> call,
       util::AsyncQueue* worker_queue,
-      GrpcConnection* grpc_connection,
       const grpc::ByteBuffer& request);
 
   /**
@@ -57,7 +55,7 @@ class GrpcStreamingReader : public GrpcCall, public GrpcStreamObserver {
    * results of the call. If the call fails, the `callback` will be invoked with
    * a non-ok status.
    */
-  void Start(Callback&& callback);
+  void Start(CallbackT&& callback);
 
   /**
    * If the call is in progress, attempts to cancel the call; otherwise, it's
@@ -69,17 +67,14 @@ class GrpcStreamingReader : public GrpcCall, public GrpcStreamObserver {
    * If this function succeeds in cancelling the call, the callback will not be
    * invoked.
    */
-  void FinishImmediately() override;
-
-  void FinishAndNotify(const util::Status& status) override;
+  void Cancel();
 
   /**
    * Returns the metadata received from the server.
    *
-   * Can only be called once the `GrpcStreamingReader` has received the first
-   * message from the server.
+   * Can only be called once the `GrpcStreamingReader` has started.
    */
-  Metadata GetResponseHeaders() const override {
+  MetadataT GetResponseHeaders() const {
     return stream_->GetResponseHeaders();
   }
 
@@ -87,16 +82,11 @@ class GrpcStreamingReader : public GrpcCall, public GrpcStreamObserver {
   void OnStreamRead(const grpc::ByteBuffer& message) override;
   void OnStreamFinish(const util::Status& status) override;
 
-  /** For tests only */
-  grpc::ClientContext* context() override {
-    return stream_->context();
-  }
-
  private:
   std::unique_ptr<GrpcStream> stream_;
   grpc::ByteBuffer request_;
 
-  Callback callback_;
+  CallbackT callback_;
   ResponsesT responses_;
 };
 

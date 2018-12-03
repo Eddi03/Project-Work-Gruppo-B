@@ -86,20 +86,17 @@ NS_ASSUME_NONNULL_BEGIN
   }
 }
 
-- (DocumentKeySet)removeReferencesForID:(int)ID {
+- (void)removeReferencesForID:(int)ID {
   FSTDocumentReference *start =
       [[FSTDocumentReference alloc] initWithKey:DocumentKey::Empty() ID:ID];
   FSTDocumentReference *end =
       [[FSTDocumentReference alloc] initWithKey:DocumentKey::Empty() ID:(ID + 1)];
 
-  __block DocumentKeySet keys;
   [self.referencesByID enumerateObjectsFrom:start
                                          to:end
                                  usingBlock:^(FSTDocumentReference *reference, BOOL *stop) {
                                    [self removeReference:reference];
-                                   keys = keys.insert(reference.key);
                                  }];
-  return keys;
 }
 
 - (void)removeAllReferences {

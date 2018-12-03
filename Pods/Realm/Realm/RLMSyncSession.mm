@@ -221,7 +221,8 @@ static RLMSyncConnectionState convertConnectionState(SyncSession::ConnectionStat
     if (!config) {
         return nil;
     }
-    if (auto session = config->user->session_for_on_disk_path(realm->_realm->config().path)) {
+    auto path = SyncManager::shared().path_for_realm(*config->user, config->realm_url());
+    if (auto session = config->user->session_for_on_disk_path(path)) {
         return [[RLMSyncSession alloc] initWithSyncSession:session];
     }
     return nil;
