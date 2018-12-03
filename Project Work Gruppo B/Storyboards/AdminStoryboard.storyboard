@@ -39,9 +39,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtR-cG-gUB">
+                                <rect key="frame" x="166.5" y="352" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UtR-cG-gUB" firstAttribute="centerX" secondItem="zIz-WC-58u" secondAttribute="centerX" id="Mh2-wt-7ZT"/>
+                            <constraint firstItem="UtR-cG-gUB" firstAttribute="top" secondItem="qQO-AU-34j" secondAttribute="bottom" constant="8" id="XKY-Yp-Chh"/>
                             <constraint firstItem="qQO-AU-34j" firstAttribute="centerX" secondItem="zIz-WC-58u" secondAttribute="centerX" id="dyU-UW-lgP"/>
                             <constraint firstItem="qQO-AU-34j" firstAttribute="centerY" secondItem="zIz-WC-58u" secondAttribute="centerY" id="qfc-Mx-uK3"/>
                         </constraints>
