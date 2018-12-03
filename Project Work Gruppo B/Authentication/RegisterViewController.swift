@@ -35,7 +35,7 @@ class RegisterViewController: UIViewController {
             if success{
                 self.id = Auth.auth().currentUser?.uid
                 
-                self.performSegue(withIdentifier: "", sender: self)
+                self.performSegue(withIdentifier: R.segue.registerViewController.segueToAdditionalData, sender: self)
             }
         }
         

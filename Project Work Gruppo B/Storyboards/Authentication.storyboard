@@ -55,6 +55,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1h-2d-trY">
                                 <rect key="frame" x="155" y="330" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
+                                <connections>
+                                    <action selector="goToRegister:" destination="wsE-1e-CVY" eventType="touchUpInside" id="WI6-EE-Jog"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -213,7 +216,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-hR-oD0">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-hR-oD0">
                                 <rect key="frame" x="310" y="379" width="51" height="31"/>
                             </switch>
                         </subviews>
@@ -259,6 +262,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8bb-ju-z5S"/>
+        <segue reference="KVE-Rj-erK"/>
     </inferredMetricsTieBreakers>
 </document>
