@@ -304,4 +304,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="q38-Zx-U2c"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.49114131927490234" green="0.50191396474838257" blue="0.87531352043151855" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
