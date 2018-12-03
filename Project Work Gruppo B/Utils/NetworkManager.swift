@@ -27,7 +27,8 @@ class NetworkManager : NSObject{
             "Name": user.name,
             "Surname": user.surname,
             "Email" : user.email,
-            "Image" : user.image
+            "Image" : user.image,
+            "Supervisor" : user.supervisor
             ] ,merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -35,6 +36,29 @@ class NetworkManager : NSObject{
                 }
                 completion(true)
         })
+    }
+    
+    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
+        let document = db?.collection("Users").document((Auth.auth().currentUser?.uid)!)
+        document?.getDocument { (documentSnap, error) in
+            var shoppingList : [Album] = []
+            
+            if let error = error{
+                print(error)
+            }
+            else{
+                guard let document = documentSnap?.data() else{ return }
+                for element in document{
+                    debugPrint(element)
+                    var values = element.value as! [String:Any]
+                    let album = Item(name: values["Name"] as! String, number: values["Number"] as! Int, id: element.key)
+                    shoppingList.append(item)
+                }
+                print(shoppingList)
+            }
+            completion(shoppingList)
+        }
+        
     }
     
     static func getUsers(completion : @escaping([User]) -> Void){
@@ -52,7 +76,8 @@ class NetworkManager : NSObject{
                     let surname = document["Surname"] as! String
                     let image = document["Image"] as? String
                     let email = document["Email"] as! String
-                    let user = User(email: email, name: name, surname: surname, image: image)
+                    let supervisor = document["Supervisor"] as? Bool
+                    let user = User(email: email, name: name, surname: surname, image: image, supervisor:supervisor)
                     usersList.append(user)
                 }
             }

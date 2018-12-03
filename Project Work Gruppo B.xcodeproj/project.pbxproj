@@ -28,7 +28,9 @@
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
 		96377C3A21AEDCD7009CADBD /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3921AEDCD7009CADBD /* RealmUtils.swift */; };
 		96377C3E21AEE094009CADBD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3D21AEE094009CADBD /* R.generated.swift */; };
-		96377C4321B53545009CADBD /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4221B53545009CADBD /* AlbumListViewController.swift */; };
+		96377C4321B53545009CADBD /* OperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4221B53545009CADBD /* OperatorViewController.swift */; };
+		96377C4621B5653F009CADBD /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4521B5653F009CADBD /* Album.swift */; };
+		96377C4821B5653F009CADBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4721B5653F009CADBD /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +87,9 @@
 		96377BF521AEAC16009CADBD /* GeneralUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtils.swift; sourceTree = "<group>"; };
 		96377C3921AEDCD7009CADBD /* RealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUtils.swift; sourceTree = "<group>"; };
 		96377C3D21AEE094009CADBD /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		96377C4221B53545009CADBD /* AlbumListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
+		96377C4221B53545009CADBD /* OperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorViewController.swift; sourceTree = "<group>"; };
+		96377C4521B5653F009CADBD /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		96377C4721B5653F009CADBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +153,7 @@
 		6CB3171C21AE89EF0037FE62 /* Project Work Gruppo B */ = {
 			isa = PBXGroup;
 			children = (
-				96377C3F21B534E4009CADBD /* Main */,
+				96377C4421B5653F009CADBD /* Operator */,
 				7FFB575421AED7EF002E8DB2 /* Authentication */,
 				7FFB574D21AED7B3002E8DB2 /* Utils */,
 				7FFB574C21AED762002E8DB2 /* Models */,
@@ -210,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				7FFB574A21AED757002E8DB2 /* User.swift */,
+				96377C4521B5653F009CADBD /* Album.swift */,
+				96377C4721B5653F009CADBD /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,12 +244,12 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		96377C3F21B534E4009CADBD /* Main */ = {
+		96377C4421B5653F009CADBD /* Operator */ = {
 			isa = PBXGroup;
 			children = (
-				96377C4221B53545009CADBD /* AlbumListViewController.swift */,
+				96377C4221B53545009CADBD /* OperatorViewController.swift */,
 			);
-			path = Main;
+			path = Operator;
 			sourceTree = "<group>";
 		};
 		FA09C4B09A995A5F7EA8BA4F /* Pods */ = {
@@ -483,11 +489,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96377C4821B5653F009CADBD /* Photo.swift in Sources */,
+				96377C4621B5653F009CADBD /* Album.swift in Sources */,
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
 				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
-				96377C4321B53545009CADBD /* AlbumListViewController.swift in Sources */,
+				96377C4321B53545009CADBD /* OperatorViewController.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
 				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,

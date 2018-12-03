@@ -1,5 +1,5 @@
 //
-//  AlbumListViewController.swift
+//  ListViewController.swift
 //  Project Work Gruppo B
 //
 //  Created by Jason Bourne on 03/12/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlbumListViewController: UIViewController {
+class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
