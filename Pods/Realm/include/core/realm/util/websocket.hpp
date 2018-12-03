@@ -40,8 +40,6 @@ using ReadCompletionHandler =
 
 class Config {
 public:
-    virtual ~Config() {}
-
     /// The Socket uses the caller supplied logger for logging.
     virtual util::Logger& websocket_get_logger() noexcept = 0;
 

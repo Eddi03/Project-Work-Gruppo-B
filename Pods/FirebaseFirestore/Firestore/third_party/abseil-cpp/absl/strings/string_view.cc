@@ -22,6 +22,8 @@
 #include <ostream>
 
 #include "absl/strings/internal/memutil.h"
+#include "absl/strings/internal/resize_uninitialized.h"
+#include "absl/strings/match.h"
 
 namespace absl {
 

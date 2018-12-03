@@ -19,7 +19,6 @@
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
 
 #import "Firestore/Source/Core/FSTListenSequence.h"
 #import "Firestore/Source/Local/FSTMemoryMutationQueue.h"
@@ -155,8 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
   // This delegate should have the same lifetime as the persistence layer, but mark as
   // weak to avoid retain cycle.
   __weak FSTMemoryPersistence *_persistence;
-  // Tracks sequence numbers of when documents are used. Equivalent to sentinel rows in
-  // the leveldb implementation.
   std::unordered_map<DocumentKey, ListenSequenceNumber, DocumentKeyHash> _sequenceNumbers;
   FSTReferenceSet *_additionalReferences;
   FSTLRUGarbageCollector *_gc;
@@ -223,9 +220,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enumerateMutationsUsingBlock:
     (void (^)(const DocumentKey &key, ListenSequenceNumber sequenceNumber, BOOL *stop))block {
   BOOL stop = NO;
-  for (const auto &entry : _sequenceNumbers) {
-    ListenSequenceNumber sequenceNumber = entry.second;
-    const DocumentKey &key = entry.first;
+  for (auto it = _sequenceNumbers.begin(); !stop && it != _sequenceNumbers.end(); ++it) {
+    ListenSequenceNumber sequenceNumber = it->second;
+    const DocumentKey &key = it->first;
     if (![_persistence.queryCache containsKey:key]) {
       block(key, sequenceNumber, &stop);
     }
@@ -239,14 +236,9 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (int)removeOrphanedDocumentsThroughSequenceNumber:(ListenSequenceNumber)upperBound {
-  std::vector<DocumentKey> removed =
-      [(FSTMemoryRemoteDocumentCache *)_persistence.remoteDocumentCache
-          removeOrphanedDocuments:self
-            throughSequenceNumber:upperBound];
-  for (const auto &key : removed) {
-    _sequenceNumbers.erase(key);
-  }
-  return static_cast<int>(removed.size());
+  return [(FSTMemoryRemoteDocumentCache *)_persistence.remoteDocumentCache
+      removeOrphanedDocuments:self
+        throughSequenceNumber:upperBound];
 }
 
 - (void)addReference:(const DocumentKey &)key {
@@ -259,8 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)mutationQueuesContainKey:(const DocumentKey &)key {
   const MutationQueues &queues = [_persistence mutationQueues];
-  for (const auto &entry : queues) {
-    if ([entry.second containsKey:key]) {
+  for (auto it = queues.begin(); it != queues.end(); ++it) {
+    if ([it->second containsKey:key]) {
       return YES;
     }
   }
@@ -297,8 +289,8 @@ NS_ASSUME_NONNULL_BEGIN
   count += [_persistence.queryCache byteSizeWithSerializer:_serializer];
   count += [_persistence.remoteDocumentCache byteSizeWithSerializer:_serializer];
   const MutationQueues &queues = [_persistence mutationQueues];
-  for (const auto &entry : queues) {
-    count += [entry.second byteSizeWithSerializer:_serializer];
+  for (auto it = queues.begin(); it != queues.end(); ++it) {
+    count += [it->second byteSizeWithSerializer:_serializer];
   }
   return count;
 }
@@ -377,8 +369,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)mutationQueuesContainKey:(const DocumentKey &)key {
   const MutationQueues &queues = [_persistence mutationQueues];
-  for (const auto &entry : queues) {
-    if ([entry.second containsKey:key]) {
+  for (auto it = queues.begin(); it != queues.end(); ++it) {
+    if ([it->second containsKey:key]) {
       return YES;
     }
   }
@@ -386,7 +378,8 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)commitTransaction {
-  for (const auto &key : *_orphaned) {
+  for (auto it = _orphaned->begin(); it != _orphaned->end(); ++it) {
+    const DocumentKey key = *it;
     if (![self isReferenced:key]) {
       [[_persistence remoteDocumentCache] removeEntryForKey:key];
     }

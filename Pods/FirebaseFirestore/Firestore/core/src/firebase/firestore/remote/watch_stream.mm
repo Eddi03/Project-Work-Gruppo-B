@@ -69,7 +69,7 @@ std::unique_ptr<GrpcStream> WatchStream::CreateGrpcStream(
 }
 
 void WatchStream::TearDown(GrpcStream* grpc_stream) {
-  grpc_stream->FinishImmediately();
+  grpc_stream->Finish();
 }
 
 void WatchStream::NotifyStreamOpen() {

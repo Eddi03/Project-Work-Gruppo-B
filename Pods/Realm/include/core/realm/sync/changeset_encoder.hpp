@@ -22,18 +22,14 @@
 #define REALM_SYNC_CHANGESET_ENCODER_HPP
 
 #include <realm/sync/changeset.hpp>
-#include <realm/util/metered/unordered_map.hpp>
-#include <realm/util/metered/string.hpp>
 
 namespace realm {
 namespace sync {
 
 struct ChangesetEncoder: InstructionHandler {
-    using Buffer = util::AppendBuffer<char, AllocationMetric>;
-
-    Buffer release() noexcept;
+    util::AppendBuffer<char> release() noexcept;
     void reset() noexcept;
-    const Buffer& buffer() const noexcept;
+    const util::AppendBuffer<char>& buffer() const noexcept;
     InternString intern_string(StringData);
 
     void set_intern_string(uint32_t index, StringBufferRange) override;
@@ -46,8 +42,6 @@ struct ChangesetEncoder: InstructionHandler {
 #define REALM_DEFINE_INSTRUCTION_HANDLER(X) void operator()(const Instruction::X&);
     REALM_FOR_EACH_INSTRUCTION_TYPE(REALM_DEFINE_INSTRUCTION_HANDLER)
 #undef REALM_DEFINE_INSTRUCTION_HANDLER
-
-    void encode_single(const Changeset& log);
 
 protected:
     template<class E> static void encode(E& encoder, const Instruction&);
@@ -75,18 +69,19 @@ private:
     void append_value(sync::ObjectID);
     void append_value(Timestamp);
 
-    Buffer m_buffer;
-    util::metered::unordered_map<std::string, uint32_t> m_intern_strings_rev;
+    util::AppendBuffer<char> m_buffer;
+    std::unordered_map<std::string, uint32_t> m_intern_strings_rev;
     StringData m_string_range;
 };
 
-template <class Allocator>
-void encode_changeset(const Changeset&, util::AppendBuffer<char, Allocator>& out_buffer);
+void encode_changeset(const Changeset&, util::AppendBuffer<char>& out_buffer);
+
+
 
 
 // Implementation
 
-inline auto ChangesetEncoder::buffer() const noexcept -> const Buffer&
+inline const util::AppendBuffer<char>& ChangesetEncoder::buffer() const noexcept
 {
     return m_buffer;
 }
@@ -106,15 +101,6 @@ inline StringData ChangesetEncoder::get_string(StringBufferRange range) const no
     const char* data = m_string_range.data() + range.offset;
     std::size_t size = std::size_t(range.size);
     return StringData{data, size};
-}
-
-template <class Allocator>
-void encode_changeset(const Changeset& log, util::AppendBuffer<char, Allocator>& out_buffer)
-{
-    ChangesetEncoder encoder;
-    encoder.encode_single(log); // Throws
-    auto& buffer = encoder.buffer();
-    out_buffer.append(buffer.data(), buffer.size()); // Throws
 }
 
 } // namespace sync

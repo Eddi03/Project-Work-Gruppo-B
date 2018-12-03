@@ -60,15 +60,10 @@ std::string ToHexString(const grpc::ByteBuffer& buffer) {
   return output.str();
 }
 
-NSData* ConvertToNsData(const grpc::ByteBuffer& buffer, NSError** out_error) {
+NSData* ConvertToNsData(const grpc::ByteBuffer& buffer) {
   std::vector<grpc::Slice> slices;
   grpc::Status status = buffer.Dump(&slices);
-  if (!status.ok()) {
-    *out_error =
-        MakeNSError(Status{FirestoreErrorCode::Internal,
-                           "Trying to convert an invalid grpc::ByteBuffer"});
-    return nil;
-  }
+  HARD_ASSERT(status.ok(), "Trying to convert an invalid grpc::ByteBuffer");
 
   if (slices.size() == 1) {
     return [NSData dataWithBytes:slices.front().begin()
@@ -91,13 +86,10 @@ grpc::ByteBuffer ConvertToByteBuffer(NSData* data) {
 template <typename Proto>
 Proto* ToProto(const grpc::ByteBuffer& message, Status* out_status) {
   NSError* error = nil;
-  NSData* data = ConvertToNsData(message, &error);
+  Proto* proto = [Proto parseFromData:ConvertToNsData(message) error:&error];
   if (!error) {
-    Proto* proto = [Proto parseFromData:data error:&error];
-    if (!error) {
-      *out_status = Status::OK();
-      return proto;
-    }
+    *out_status = Status::OK();
+    return proto;
   }
 
   std::string error_description = StringFormat(
@@ -230,24 +222,6 @@ NSString* WriteStreamSerializer::Describe(GCFSWriteResponse* response) {
 }
 
 // DatastoreSerializer
-
-GCFSCommitRequest* DatastoreSerializer::CreateCommitRequest(
-    NSArray<FSTMutation*>* mutations) const {
-  GCFSCommitRequest* request = [GCFSCommitRequest message];
-  request.database = [serializer_ encodedDatabaseID];
-
-  NSMutableArray<GCFSWrite*>* mutationProtos = [NSMutableArray array];
-  for (FSTMutation* mutation in mutations) {
-    [mutationProtos addObject:[serializer_ encodedMutation:mutation]];
-  }
-  request.writesArray = mutationProtos;
-
-  return request;
-}
-
-grpc::ByteBuffer DatastoreSerializer::ToByteBuffer(GCFSCommitRequest* request) {
-  return ConvertToByteBuffer([request data]);
-}
 
 GCFSBatchGetDocumentsRequest* DatastoreSerializer::CreateLookupRequest(
     const std::vector<DocumentKey>& keys) const {

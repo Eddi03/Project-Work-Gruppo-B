@@ -32,8 +32,6 @@ list(APPEND TYPE_TRAITS_TEST_SRC
 absl_header_library(
   TARGET
     absl_meta
-  PUBLIC_LIBRARIES
-    absl::base
   EXPORT_NAME
     meta
  )
@@ -44,9 +42,5 @@ absl_test(
   SOURCES
     ${TYPE_TRAITS_TEST_SRC}
   PUBLIC_LIBRARIES
-    absl::base
-    absl::meta
+    ${TYPE_TRAITS_TEST_PUBLIC_LIBRARIES} absl::meta
 )
-
-
-

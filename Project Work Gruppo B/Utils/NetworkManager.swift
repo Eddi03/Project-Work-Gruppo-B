@@ -96,6 +96,12 @@ class NetworkManager : NSObject{
         }
     }
     
+    static func resetPassword(email: String){
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            print(error)
+        }
+    }
+    
     static func logOut(){
         if Auth.auth().currentUser != nil {
             do {
@@ -106,6 +112,8 @@ class NetworkManager : NSObject{
             }
         }
     }
+    
+    
     static func uploadImageProfile(withData data: Data, forUserID id: String, completion: @escaping (String?) -> ()) {
         
         guard let storageRef = storageRef else { completion(nil); return }

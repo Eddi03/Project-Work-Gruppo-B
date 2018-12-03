@@ -22,10 +22,9 @@
 
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
-#include "absl/container/fixed_array.h"
 #include "absl/strings/str_cat.h"
 
-#include "absl/strings/internal/escaping_test_common.h"
+#include "absl/strings/internal/escaping_test_common.inc"
 
 namespace {
 
@@ -543,19 +542,18 @@ static struct {
     {"abcdefghijklmnopqrstuvwxyz", "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo="},
 };
 
-template <typename StringType>
-void TestEscapeAndUnescape() {
+TEST(Base64, EscapeAndUnescape) {
   // Check the short strings; this tests the math (and boundaries)
   for (const auto& tc : base64_tests) {
-    StringType encoded("this junk should be ignored");
+    std::string encoded("this junk should be ignored");
     absl::Base64Escape(tc.plaintext, &encoded);
     EXPECT_EQ(encoded, tc.cyphertext);
 
-    StringType decoded("this junk should be ignored");
+    std::string decoded("this junk should be ignored");
     EXPECT_TRUE(absl::Base64Unescape(encoded, &decoded));
     EXPECT_EQ(decoded, tc.plaintext);
 
-    StringType websafe(tc.cyphertext);
+    std::string websafe(tc.cyphertext);
     for (int c = 0; c < websafe.size(); ++c) {
       if ('+' == websafe[c]) websafe[c] = '-';
       if ('/' == websafe[c]) websafe[c] = '_';
@@ -576,8 +574,8 @@ void TestEscapeAndUnescape() {
   }
 
   // Now try the long strings, this tests the streaming
-  for (const auto& tc : absl::strings_internal::base64_strings()) {
-    StringType buffer;
+  for (const auto& tc : base64_strings) {
+    std::string buffer;
     absl::WebSafeBase64Escape(tc.plaintext, &buffer);
     EXPECT_EQ(tc.cyphertext, buffer);
   }
@@ -587,16 +585,12 @@ void TestEscapeAndUnescape() {
     absl::string_view data_set[] = {"ab-/", absl::string_view("\0bcd", 4),
                                     absl::string_view("abc.\0", 5)};
     for (absl::string_view bad_data : data_set) {
-      StringType buf;
+      std::string buf;
       EXPECT_FALSE(absl::Base64Unescape(bad_data, &buf));
       EXPECT_FALSE(absl::WebSafeBase64Unescape(bad_data, &buf));
       EXPECT_TRUE(buf.empty());
     }
   }
-}
-
-TEST(Base64, EscapeAndUnescape) {
-  TestEscapeAndUnescape<std::string>();
 }
 
 TEST(Base64, DISABLED_HugeData) {

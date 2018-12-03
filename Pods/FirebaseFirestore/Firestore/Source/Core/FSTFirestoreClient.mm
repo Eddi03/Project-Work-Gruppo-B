@@ -128,12 +128,11 @@ NS_ASSUME_NONNULL_BEGIN
     _workerDispatchQueue = workerDispatchQueue;
 
     auto userPromise = std::make_shared<std::promise<User>>();
-    bool initialized = false;
 
-    __weak __typeof__(self) weakSelf = self;
-    auto credentialChangeListener = [initialized, userPromise, weakSelf,
+    __weak typeof(self) weakSelf = self;
+    auto credentialChangeListener = [initialized = false, userPromise, weakSelf,
                                      workerDispatchQueue](User user) mutable {
-      __typeof__(self) strongSelf = weakSelf;
+      typeof(self) strongSelf = weakSelf;
       if (!strongSelf) return;
 
       if (!initialized) {
@@ -227,6 +226,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)applyChangedOnlineState:(OnlineState)onlineState {
   [self.syncEngine applyChangedOnlineState:onlineState];
+  [self.eventManager applyChangedOnlineState:onlineState];
 }
 
 - (void)disableNetworkWithCompletion:(nullable FSTVoidErrorBlock)completion {
@@ -286,20 +286,13 @@ NS_ASSUME_NONNULL_BEGIN
     FSTMaybeDocument *maybeDoc = [self.localStore readDocument:doc.key];
     FIRDocumentSnapshot *_Nullable result = nil;
     NSError *_Nullable error = nil;
-
-    if ([maybeDoc isKindOfClass:[FSTDocument class]]) {
-      FSTDocument *document = (FSTDocument *)maybeDoc;
+    if (maybeDoc) {
+      FSTDocument *_Nullable document =
+          ([maybeDoc isKindOfClass:[FSTDocument class]]) ? (FSTDocument *)maybeDoc : nil;
       result = [FIRDocumentSnapshot snapshotWithFirestore:doc.firestore
                                               documentKey:doc.key
                                                  document:document
-                                                fromCache:YES
-                                         hasPendingWrites:document.hasLocalMutations];
-    } else if ([maybeDoc isKindOfClass:[FSTDeletedDocument class]]) {
-      result = [FIRDocumentSnapshot snapshotWithFirestore:doc.firestore
-                                              documentKey:doc.key
-                                                 document:nil
-                                                fromCache:YES
-                                         hasPendingWrites:NO];
+                                                fromCache:YES];
     } else {
       error = [NSError errorWithDomain:FIRFirestoreErrorDomain
                                   code:FIRFirestoreErrorCodeUnavailable
