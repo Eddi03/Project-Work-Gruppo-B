@@ -78,6 +78,7 @@
                                         <connections>
                                             <outlet property="descriptionAlbum" destination="3hy-fQ-XGr" id="EgQ-Hf-ZFq"/>
                                             <outlet property="titleAlbum" destination="3qe-hf-dFd" id="eq6-ZK-Kac"/>
+                                            <segue destination="DTG-YB-0fr" kind="show" identifier="segueToAlbum" id="wEy-hf-Ozk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -160,6 +161,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhL-k7-Gtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="16"/>
+        </scene>
+        <!--Show Album View Controller-->
+        <scene sceneID="w5l-R0-XJh">
+            <objects>
+                <viewController id="DTG-YB-0fr" customClass="ShowAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NU5-AR-i8O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JzW-BS-FNc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7g2-4S-Bfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1003" y="677"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
