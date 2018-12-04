@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="-693.10344827586209"/>
+            <point key="canvasLocation" x="1239" y="16"/>
         </scene>
         <!--Admin View Controller-->
         <scene sceneID="L17-3Q-ERi">
@@ -150,9 +150,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionAlbum" destination="3hy-fQ-XGr" id="EgQ-Hf-ZFq"/>
-                                            <outlet property="titleAlbum" destination="3qe-hf-dFd" id="eq6-ZK-Kac"/>
-                                            <segue destination="DTG-YB-0fr" kind="show" identifier="segueToAlbum" id="wEy-hf-Ozk"/>
+                                            <outlet property="infoTopic" destination="3hy-fQ-XGr" id="iIc-xe-bVR"/>
+                                            <outlet property="titleTopic" destination="3qe-hf-dFd" id="eOX-Un-3Bg"/>
+                                            <segue destination="ABr-h1-HAy" kind="show" id="ccW-fZ-k6Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,7 +198,7 @@
                 <viewControllerPlaceholder storyboardName="Authentication" id="Jb6-pe-xnS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAI-8e-sUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="710" y="-479"/>
+            <point key="canvasLocation" x="787" y="-89"/>
         </scene>
         <!--Create Topic Controller-->
         <scene sceneID="3XE-ky-Idv">
@@ -241,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhL-k7-Gtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1046" y="16"/>
+            <point key="canvasLocation" x="1238" y="-647"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
