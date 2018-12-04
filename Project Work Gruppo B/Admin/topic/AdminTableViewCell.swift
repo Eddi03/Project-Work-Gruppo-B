@@ -17,9 +17,9 @@ class AdminTableViewCell: UITableViewCell {
 
   
     
-    @IBOutlet weak var titleAlbum: UITextField!
+    @IBOutlet weak var titleTopic: UITextField!
     
-    @IBOutlet weak var descriptionAlbum: UITextField!
+    @IBOutlet weak var infoTopic: UITextField!
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
