@@ -85,7 +85,7 @@ class SaveViewController: UIViewController {
             let user = User(email: email, name: name, surname: surname, id: id, image: URLImage,supervisor:supervisor)
             
             NetworkManager.addUser(user: user, completion: { (success) in
-                self.performSegue(withIdentifier: "", sender: self)
+                self.performSegue(withIdentifier: R.segue.saveViewController.segueToOptions, sender: self)
             })
         }
     }

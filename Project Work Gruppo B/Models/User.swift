@@ -17,6 +17,7 @@ import RealmSwift
     dynamic var supervisor : Bool!
     dynamic var id : String!
     
+    
     convenience init(email : String? = nil, name : String? = nil, surname : String? = nil, id : String? = nil, image : String? = nil, supervisor : Bool? = nil) {
         self.init()
         self.email = email
