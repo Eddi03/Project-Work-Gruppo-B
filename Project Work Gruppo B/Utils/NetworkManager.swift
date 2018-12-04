@@ -72,8 +72,21 @@ class NetworkManager : NSObject{
                 
                 guard let documentSnap = documentSnap else{ return }
                 for values in documentSnap.documents{
-                    let album = Album(title: values["Title"] as? String, info: values["Info"] as? String)
-                    albumsToComplete.append(album)
+                    if let completed = values["Completed"] as? Bool, !completed{
+                        
+                        let album = Album(title: values["Title"] as? String, info: values["Info"] as? String, completed: false)
+                        if let users = values["Users"] as? [String]{
+                            for i in users{
+                            album.addingUser(id: i)
+                            }
+                        }
+                        if let photos = values["Photos"] as? [Photo]{
+                            for i in photos{
+                                album.addingPhoto(photo: i)
+                            }
+                        }
+                        albumsToComplete.append(album)
+                    }
                 }
                 print(albumsToComplete)
             }
