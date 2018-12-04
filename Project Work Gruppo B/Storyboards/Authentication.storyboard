@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1793" y="80"/>
         </scene>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="y78-7e-Smu">
             <objects>
-                <viewController id="x4F-Gg-vm9" sceneMemberID="viewController">
+                <viewController id="x4F-Gg-vm9" customClass="StartViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cnd-5W-EAy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,14 +37,14 @@
                                 <rect key="frame" x="164" y="128" width="47" height="30"/>
                                 <state key="normal" title="Accedi"/>
                                 <connections>
-                                    <segue destination="wsE-1e-CVY" kind="show" identifier="segueToLogin" id="fmI-Ag-4Lu"/>
+                                    <action selector="toLoginAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="pmK-ZV-ofa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-rX-lAK">
                                 <rect key="frame" x="155" y="286" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
                                 <connections>
-                                    <segue destination="Ctk-q0-gBC" kind="show" id="kvg-d6-lJF"/>
+                                    <action selector="toRegisterAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="kQS-ox-7lX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,6 +58,10 @@
                         <viewLayoutGuide key="safeArea" id="86J-3a-2Qc"/>
                     </view>
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
+                    <connections>
+                        <segue destination="wsE-1e-CVY" kind="show" identifier="toLoginSegue" id="gqi-db-yrv"/>
+                        <segue destination="Ctk-q0-gBC" kind="show" identifier="toRegisterSegue" id="aUx-h7-g81"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7QW-Te-2CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
