@@ -21,7 +21,7 @@
 		<key>CodableFirebase.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>17</integer>
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
@@ -129,7 +129,7 @@
 		<key>gRPC-ProtoRPC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>20</integer>
 		</dict>
 		<key>gRPC-RxLibrary.xcscheme</key>
 		<dict>
@@ -141,7 +141,7 @@
 		<key>gRPC-RxLibrary.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>21</integer>
 		</dict>
 		<key>gRPC-gRPCCertificates.xcscheme</key>
 		<dict>
@@ -153,7 +153,7 @@
 		<key>gRPC-gRPCCertificates.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>19</integer>
 		</dict>
 		<key>gRPC.xcscheme</key>
 		<dict>
@@ -165,7 +165,7 @@
 		<key>gRPC.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>18</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

@@ -63,7 +63,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `AdminTableViewCell`.
     static let adminTableViewCell: Rswift.ReuseIdentifier<AdminTableViewCell> = Rswift.ReuseIdentifier(identifier: "AdminTableViewCell")
     /// Reuse identifier `operatorCell`.
-    static let operatorCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "operatorCell")
+    static let operatorCell: Rswift.ReuseIdentifier<AlbumOperatorTableViewCell> = Rswift.ReuseIdentifier(identifier: "operatorCell")
     
     fileprivate init() {}
   }
@@ -300,6 +300,7 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try authentication.validate()
       try whiteStoryboard.validate()
     }
     
@@ -312,11 +313,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct authentication: Rswift.StoryboardResourceWithInitialControllerType {
+    struct authentication: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "Authentication"
+      let saveViewController = StoryboardViewControllerResource<SaveViewController>(identifier: "SaveViewController")
+      
+      func saveViewController(_: Void = ()) -> SaveViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: saveViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
+      }
       
       fileprivate init() {}
     }

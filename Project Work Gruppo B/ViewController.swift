@@ -18,7 +18,20 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: R.segue.viewController.segueToOptions, sender: self)
+            
+            NetworkManager.checkIfDataIsFilled { (success) in
+                if success {
+                    
+                    self.performSegue(withIdentifier: R.segue.viewController.segueToOptions, sender: self)
+                }
+                else{
+                    
+                    let storyboard = UIStoryboard(name: "Authentication", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "SaveViewController") as! SaveViewController
+                    self.present(viewController, animated: true, completion: nil)
+
+                }
+            }
         }
         else{
             self.performSegue(withIdentifier: R.segue.viewController.segueToLogin, sender: self)

@@ -19,8 +19,8 @@ class SaveViewController: UIViewController {
     @IBOutlet var surnameOutlet: UITextField!
     @IBOutlet var supervisorOutlet: UISwitch!
     var imageUser : Data?
-    var email : String!
-    var id : String!
+    var email : String! = Auth.auth().currentUser?.email
+    var id :String! = Auth.auth().currentUser?.uid
     var URLImage : String?
     override func viewDidLoad() {
         super.viewDidLoad()
