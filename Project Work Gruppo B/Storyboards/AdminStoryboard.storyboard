@@ -151,11 +151,18 @@
                                 <rect key="frame" x="142" y="366" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="avanti"/>
+                                <connections>
+                                    <action selector="avantiActionButton:" destination="c2o-Ib-4Jo" eventType="touchUpInside" id="imW-Wo-2IB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="J8j-F2-nSA"/>
                     </view>
+                    <connections>
+                        <outlet property="infoAlbumTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
+                        <outlet property="titleAlbumTextField" destination="tTm-Sy-kFR" id="RM1-At-jtt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhL-k7-Gtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
