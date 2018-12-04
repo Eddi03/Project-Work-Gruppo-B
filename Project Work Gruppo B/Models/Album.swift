@@ -29,6 +29,14 @@ import RealmSwift
         return "id"
     }
     
+    func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.add(self, update: true)
+            }
+        } catch {}
+    }
+    
     func getPhotos() -> [Photo] {
         return Array(photos)
     }

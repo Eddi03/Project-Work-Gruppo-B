@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CreateAlbumController: UIViewController {
+class CreateTopicController: UIViewController {
 
-    var titleAlbum : String = ""
-    var infoAlbum : String = ""
+    var titleTopic : String = ""
+    var infoTopic : String = ""
+    //var topic : Topic = Topic()
    
-    @IBOutlet weak var infoAlbumTextField: UITextField!
-    @IBOutlet weak var titleAlbumTextField: UITextField!
+    @IBOutlet weak var infoTopicTextField: UITextField!
+    @IBOutlet weak var titleTopicTextField: UITextField!
     
     
     override func viewDidLoad() {
@@ -24,14 +25,24 @@ class CreateAlbumController: UIViewController {
     }
     
     @IBAction func avantiActionButton(_ sender: Any) {
-        titleAlbum = titleAlbumTextField.text ?? ""
-        infoAlbum = infoAlbumTextField.text ?? ""
+        titleTopic = titleTopicTextField.text ?? ""
+        infoTopic = infoTopicTextField.text ?? ""
         
-        guard !titleAlbum.isEmpty && !infoAlbum.isEmpty else {
+        guard !titleTopic.isEmpty && !infoTopic.isEmpty else {
             self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
             return
         }
-        
+        /*topic = Topic(title: titleAlbum, info: infoAlbum, completed: nil)
+        NetworkManager.addAlbum(album: album) { (success) in
+            if success{
+                self.album.save()
+                self.performSegue(withIdentifier: "segueToAddUserToAlbum", sender: self)
+            }else{
+                self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "operazione non riuscita"), animated: true, completion: nil)
+            }
+            
+        }
+ */
         
     }
     /*

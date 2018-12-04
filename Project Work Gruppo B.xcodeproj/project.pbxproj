@@ -10,7 +10,10 @@
 		0B7057CECCE54E5A94304BEA /* Pods_Project_Work_Gruppo_B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60745EA08D4615827C601718 /* Pods_Project_Work_Gruppo_B.framework */; };
 		3756697E21B673A2003F1089 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756697D21B673A2003F1089 /* AdminViewController.swift */; };
 		3756698021B6A1F0003F1089 /* AdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756697F21B6A1F0003F1089 /* AdminTableViewCell.swift */; };
-		3756698221B6B405003F1089 /* CreateAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698121B6B405003F1089 /* CreateAlbumController.swift */; };
+		3756698221B6B405003F1089 /* CreateTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698121B6B405003F1089 /* CreateTopicController.swift */; };
+		3756698621B6CB60003F1089 /* AdminListaAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698521B6CB60003F1089 /* AdminListaAlbumController.swift */; };
+		3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698921B6CD94003F1089 /* ListaAlbumTableViewCell.swift */; };
+		3756698C21B6D031003F1089 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698B21B6D031003F1089 /* Topic.swift */; };
 		6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */; };
 		6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171F21AE89EF0037FE62 /* ViewController.swift */; };
 		6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */; };
@@ -64,7 +67,10 @@
 		20AE7E646B28A5D7C7532568 /* Pods-Project Work Gruppo B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Work Gruppo B.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B.release.xcconfig"; sourceTree = "<group>"; };
 		3756697D21B673A2003F1089 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		3756697F21B6A1F0003F1089 /* AdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTableViewCell.swift; sourceTree = "<group>"; };
-		3756698121B6B405003F1089 /* CreateAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlbumController.swift; sourceTree = "<group>"; };
+		3756698121B6B405003F1089 /* CreateTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTopicController.swift; sourceTree = "<group>"; };
+		3756698521B6CB60003F1089 /* AdminListaAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListaAlbumController.swift; sourceTree = "<group>"; };
+		3756698921B6CD94003F1089 /* ListaAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaAlbumTableViewCell.swift; sourceTree = "<group>"; };
+		3756698B21B6D031003F1089 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		60745EA08D4615827C601718 /* Pods_Project_Work_Gruppo_B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Work_Gruppo_B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171A21AE89EF0037FE62 /* Project Work Gruppo B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Work Gruppo B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,11 +145,29 @@
 		3756697C21B67375003F1089 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				3756697D21B673A2003F1089 /* AdminViewController.swift */,
-				3756697F21B6A1F0003F1089 /* AdminTableViewCell.swift */,
-				3756698121B6B405003F1089 /* CreateAlbumController.swift */,
+				3756698821B6CCD8003F1089 /* topic */,
+				3756698721B6CCCA003F1089 /* album */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		3756698721B6CCCA003F1089 /* album */ = {
+			isa = PBXGroup;
+			children = (
+				3756698521B6CB60003F1089 /* AdminListaAlbumController.swift */,
+				3756698921B6CD94003F1089 /* ListaAlbumTableViewCell.swift */,
+			);
+			path = album;
+			sourceTree = "<group>";
+		};
+		3756698821B6CCD8003F1089 /* topic */ = {
+			isa = PBXGroup;
+			children = (
+				3756697D21B673A2003F1089 /* AdminViewController.swift */,
+				3756697F21B6A1F0003F1089 /* AdminTableViewCell.swift */,
+				3756698121B6B405003F1089 /* CreateTopicController.swift */,
+			);
+			path = topic;
 			sourceTree = "<group>";
 		};
 		5A500CA9DD0AF50FEDE10322 /* Frameworks */ = {
@@ -247,6 +271,7 @@
 				7FFB574A21AED757002E8DB2 /* User.swift */,
 				96377C4521B5653F009CADBD /* Album.swift */,
 				96377C4721B5653F009CADBD /* Photo.swift */,
+				3756698B21B6D031003F1089 /* Topic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -532,13 +557,16 @@
 				96377C4821B5653F009CADBD /* Photo.swift in Sources */,
 				96377C4621B5653F009CADBD /* Album.swift in Sources */,
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
-				3756698221B6B405003F1089 /* CreateAlbumController.swift in Sources */,
+				3756698221B6B405003F1089 /* CreateTopicController.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
+				3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */,
 				96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */,
 				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
+				3756698621B6CB60003F1089 /* AdminListaAlbumController.swift in Sources */,
 				96377C4321B53545009CADBD /* OperatorViewController.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
+				3756698C21B6D031003F1089 /* Topic.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
 				96377C4C21B57A3B009CADBD /* OptionsViewController.swift in Sources */,
 				7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */,

@@ -25,6 +25,80 @@
             </objects>
             <point key="canvasLocation" x="-720" y="16"/>
         </scene>
+        <!--Admin Lista Album Controller-->
+        <scene sceneID="MNU-Aa-9E6">
+            <objects>
+                <viewController id="ABr-h1-HAy" customClass="AdminListaAlbumController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YxI-XB-zcZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BOE-KR-cxY">
+                                <rect key="frame" x="0.0" y="32" width="375" height="635"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListaAlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="ListaAlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9U3-Es-oQ1" id="eoD-Ph-cyL">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-DQ-xX9">
+                                                    <rect key="frame" x="16" y="8" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="Mzn-BI-3Jb"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Vx8-in-04U"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Album" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-NB-qza">
+                                                    <rect key="frame" x="151" y="27" width="199" height="24"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qualcosasaasasasa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hpx-1B-5uO">
+                                                    <rect key="frame" x="151" y="59" width="199" height="21"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CzI-DQ-xX9" firstAttribute="leading" secondItem="eoD-Ph-cyL" secondAttribute="leading" constant="16" id="8YE-Vl-GoI"/>
+                                                <constraint firstItem="Hpx-1B-5uO" firstAttribute="leading" secondItem="CzI-DQ-xX9" secondAttribute="trailing" constant="35" id="92k-k1-IfY"/>
+                                                <constraint firstItem="CzI-DQ-xX9" firstAttribute="centerY" secondItem="eoD-Ph-cyL" secondAttribute="centerY" id="LSK-vg-XLD"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jbk-NB-qza" secondAttribute="trailing" constant="10" id="M1O-1Z-9Ic"/>
+                                                <constraint firstItem="Jbk-NB-qza" firstAttribute="leading" secondItem="CzI-DQ-xX9" secondAttribute="trailing" constant="35" id="RK9-pJ-Bhj"/>
+                                                <constraint firstItem="Hpx-1B-5uO" firstAttribute="top" secondItem="Jbk-NB-qza" secondAttribute="bottom" constant="8" id="fX0-mf-hny"/>
+                                                <constraint firstItem="Jbk-NB-qza" firstAttribute="top" secondItem="eoD-Ph-cyL" secondAttribute="topMargin" constant="16" id="umz-hT-vU2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Hpx-1B-5uO" secondAttribute="trailing" constant="10" id="xoz-ES-J8J"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="infoAlbumTextField" destination="Hpx-1B-5uO" id="6uN-Gn-bzA"/>
+                                            <outlet property="titleAlbumTextField" destination="Jbk-NB-qza" id="Lck-qJ-SYM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ABr-h1-HAy" id="i1d-1G-1lB"/>
+                                    <outlet property="delegate" destination="ABr-h1-HAy" id="cqm-uJ-JbD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HNS-7t-I8W"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-693.10344827586209"/>
+        </scene>
         <!--Admin View Controller-->
         <scene sceneID="L17-3Q-ERi">
             <objects>
@@ -51,7 +125,7 @@
                                                         <constraint firstAttribute="height" constant="100" id="ja2-u5-c76"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Album" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qe-hf-dFd">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Topic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qe-hf-dFd">
                                                     <rect key="frame" x="151" y="27" width="199" height="24"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -76,8 +150,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionAlbum" destination="3hy-fQ-XGr" id="EgQ-Hf-ZFq"/>
-                                            <outlet property="titleAlbum" destination="3qe-hf-dFd" id="eq6-ZK-Kac"/>
+                                            <outlet property="infoTopic" destination="3hy-fQ-XGr" id="EgQ-Hf-ZFq"/>
+                                            <outlet property="titleTopic" destination="3qe-hf-dFd" id="eq6-ZK-Kac"/>
+                                            <segue destination="ABr-h1-HAy" kind="show" identifier="" id="spI-xz-qrN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -115,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9G-0H-39L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="15.742128935532236"/>
+            <point key="canvasLocation" x="116" y="16"/>
         </scene>
         <!--Authentication-->
         <scene sceneID="1G6-25-XUb">
@@ -125,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="710" y="-479"/>
         </scene>
-        <!--Create Album Controller-->
+        <!--Create Topic Controller-->
         <scene sceneID="3XE-ky-Idv">
             <objects>
-                <viewController id="c2o-Ib-4Jo" customClass="CreateAlbumController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c2o-Ib-4Jo" customClass="CreateTopicController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnR-vq-3Tg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,13 +235,54 @@
                         <viewLayoutGuide key="safeArea" id="J8j-F2-nSA"/>
                     </view>
                     <connections>
-                        <outlet property="infoAlbumTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
-                        <outlet property="titleAlbumTextField" destination="tTm-Sy-kFR" id="RM1-At-jtt"/>
+                        <outlet property="infoTopicTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
+                        <outlet property="titleTopicTextField" destination="tTm-Sy-kFR" id="RM1-At-jtt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhL-k7-Gtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="16"/>
+            <point key="canvasLocation" x="1046" y="16"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lKt-iw-MYf">
+            <objects>
+                <viewController id="uNO-4I-88O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gIC-pI-qfL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="80U-HZ-757">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="98" id="Abr-xv-1t5">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Abr-xv-1t5" id="QSh-mS-XT5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="97.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uNO-4I-88O" id="aIk-R4-f7J"/>
+                                    <outlet property="delegate" destination="uNO-4I-88O" id="be5-ZE-lf9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="80U-HZ-757" firstAttribute="leading" secondItem="eE8-PD-xK1" secondAttribute="leading" id="CjH-EL-K5U"/>
+                            <constraint firstItem="eE8-PD-xK1" firstAttribute="bottom" secondItem="80U-HZ-757" secondAttribute="bottom" id="VUz-6Z-Rm9"/>
+                            <constraint firstItem="80U-HZ-757" firstAttribute="top" secondItem="eE8-PD-xK1" secondAttribute="top" id="ZPP-c0-eEm"/>
+                            <constraint firstItem="eE8-PD-xK1" firstAttribute="trailing" secondItem="80U-HZ-757" secondAttribute="trailing" id="goN-Uh-nqv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eE8-PD-xK1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X7W-Ko-uDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="15.742128935532236"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
