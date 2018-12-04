@@ -13,6 +13,8 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonOutlet.layer.cornerRadius = 18
+        buttonOutlet.clipsToBounds = true
         
         // Do any additional setup after loading the view.
     }
@@ -23,6 +25,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var repeatPasswordField: UITextField!
+    @IBOutlet weak var buttonOutlet: UIButton!
+
     
     @IBAction func registerAction(_ sender: Any) {
         
