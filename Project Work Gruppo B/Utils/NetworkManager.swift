@@ -31,11 +31,11 @@ class NetworkManager : NSObject{
     
     static func addUser(user : User,completion: @escaping (Bool)-> ()){
         db!.collection("Users").document((Auth.auth().currentUser?.uid)!).setData([
-            "Name": user.name,
-            "Surname": user.surname,
-            "Email" : user.email,
-            "Image" : user.image,
-            "Supervisor" : user.supervisor
+            "Name": user.Name,
+            "Surname": user.Surname,
+            "Email" : user.Email,
+            "Image" : user.Image,
+            "Supervisor" : user.Supervisor
             ] ,merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -102,7 +102,9 @@ class NetworkManager : NSObject{
             else{
                 if let document = documentSnapshot?.data(){
                     do{
+                        debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
+                        debugPrint(User.getUser(withid: uid))
                         completion(true)
                     }catch{
                         print(error)

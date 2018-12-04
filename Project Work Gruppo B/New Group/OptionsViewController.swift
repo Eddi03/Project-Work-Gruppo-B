@@ -10,7 +10,7 @@ import UIKit
 
 class OptionsViewController: UIViewController {
 
-    var supervisor : Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +25,12 @@ class OptionsViewController: UIViewController {
         //da aggiungere admin/operator
         NetworkManager.getUserLogged { (success) in
             if success {
-                self.supervisor = User.getUser(withid: NetworkManager.getMyID() ?? "")?.supervisor ?? false
-                //guard let isSupervisor = User.getUser(withid: NetworkManager.getMyID() ?? "")?.supervisor else { return }
-                print("GGGGGGGGGGGGG", self.supervisor)
-                if self.supervisor{
+                
+                guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUser(withid: id)?.Supervisor else {
+                    return
+                }
+               
+                if isSupervisor{
                     self.performSegue(withIdentifier: "segueToAdmin", sender: nil)
                 } else {
                     self.performSegue(withIdentifier: "segueToOperator", sender: nil)

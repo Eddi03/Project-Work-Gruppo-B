@@ -18,7 +18,9 @@ class AdminViewController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         NetworkManager.logOut()
-        self.performSegue(withIdentifier: "segueToLogin", sender: nil)
+        let storyboard = UIStoryboard(name: "WhiteStoryboard", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        present(viewController, animated: true, completion: nil)
     }
     
     /*
