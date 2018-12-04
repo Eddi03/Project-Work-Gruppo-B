@@ -115,7 +115,9 @@ class NetworkManager : NSObject{
             else{
                 if let document = documentSnapshot?.data(){
                     do{
+                        debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
+                        debugPrint(User.getUser(withid: uid))
                         completion(true)
                     }catch{
                         print(error)
