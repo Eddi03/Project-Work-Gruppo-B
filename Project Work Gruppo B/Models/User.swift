@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class User: Object {
+@objcMembers class User: Object, Codable{
     dynamic var name : String!
     dynamic var surname : String!
     dynamic var email : String!
@@ -46,6 +46,9 @@ import RealmSwift
     }
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [User] {
         return Array(realm.objects(User.self))
+    }
+    static func getUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
+        return realm.object(ofType: User.self, forPrimaryKey: id)
     }
 }
 
