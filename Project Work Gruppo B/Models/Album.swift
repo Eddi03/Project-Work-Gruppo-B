@@ -13,22 +13,16 @@ import RealmSwift
 @objcMembers class Album: Object {
     dynamic var title : String!
     dynamic var info: String!
-    dynamic var operatorAssigned: String!
-    dynamic var adminCreator: String!
     dynamic var id : String!
-    dynamic var image : String?
     dynamic var completed : Bool!
-    
+    private let users : List<String> = List<String>()
     private let photos : List<Photo> = List<Photo>()
     
-    convenience init(title : String? = nil, info : String? = nil, operatorAssigned : String? = nil, adminCreator : String? = nil, image : String? = nil, completed : Bool? = nil) {
+    convenience init(title : String? = nil, info : String? = nil, completed : Bool? = nil) {
         self.init()
         self.id = UUID().uuidString
         self.title = title
         self.info = info
-        self.operatorAssigned = operatorAssigned
-        self.adminCreator = adminCreator
-        self.image = image
         self.completed = completed
     }
     override class func primaryKey() -> String? {
@@ -37,6 +31,9 @@ import RealmSwift
     
     func getPhotos() -> [Photo] {
         return Array(photos)
+    }
+    func getUsers() -> [String] {
+        return Array(users)
     }
     
     func addingPhoto(in realm: Realm = try! Realm(configuration: RealmUtils.config), photo : Photo) {
@@ -54,4 +51,21 @@ import RealmSwift
             }
         }catch {}
     }
+    
+    func addingUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
+        do {
+            try realm.write {
+                users.append(id)
+            }
+        }catch {}
+    }
+    
+    func removeUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
+        do {
+            try realm.write {
+                self.users.remove(at: index)
+            }
+        }catch {}
+    }
+    
 }

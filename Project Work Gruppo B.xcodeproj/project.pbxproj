@@ -36,6 +36,7 @@
 		96377C4A21B5736F009CADBD /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */; };
 		96377C4C21B57A3B009CADBD /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4B21B57A3B009CADBD /* OptionsViewController.swift */; };
 		96377C4E21B57C2D009CADBD /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96377C4D21B57C2D009CADBD /* Options.storyboard */; };
+		96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
 		96377C4B21B57A3B009CADBD /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		96377C4D21B57C2D009CADBD /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
+		96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				96377C4221B53545009CADBD /* OperatorViewController.swift */,
+				96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
+				96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */,
 				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
 				96377C4321B53545009CADBD /* OperatorViewController.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,

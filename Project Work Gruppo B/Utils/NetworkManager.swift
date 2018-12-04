@@ -30,13 +30,13 @@ class NetworkManager : NSObject{
     }
     
     static func addUser(user : User,completion: @escaping (Bool)-> ()){
-        db!.collection("Users").document((Auth.auth().currentUser?.uid)!).setData([
+        db!.collection("Users").document((Auth.auth().currentUser?.uid)!).setData([(Auth.auth().currentUser?.uid)!:[
             "Name": user.name,
             "Surname": user.surname,
             "Email" : user.email,
             "Image" : user.image,
             "Supervisor" : user.supervisor
-            ] ,merge: true,completion: { (err) in
+            ] ],merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
                     completion(false)
@@ -44,8 +44,24 @@ class NetworkManager : NSObject{
                 completion(true)
         })
     }
-    
-    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void, role:String!,value:String!){
+    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
+        db!.collection("Albums").document(album.id).setData([(album.id)!:[
+            "Title" : album.title,
+            "Info" : album.info,
+            "Users" : album.getUsers(),
+            "Photos" : album.getPhotos(),
+            "Completed" : false
+            ] ],merge: true,completion: { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completion(false)
+                }
+                completion(true)
+        })
+    }
+
+    static func getAlbumsToComplete(id:String!, completion : @escaping([Album]) -> Void){
+        var c : String!
         db!.collection("Albums").getDocuments { (documentSnap, error) in
             var albumsToComplete : [Album] = []
             
@@ -56,16 +72,13 @@ class NetworkManager : NSObject{
                 
                 guard let documentSnap = documentSnap else{ return }
                 for values in documentSnap.documents{
-                    if values[role]as? String == value{
-                        let album = Album(title: values["Title"] as? String, info: values["Info"] as? String,operatorAssigned: values["OperatorAssigned"] as? String, adminCreator: values["AdminCreator"] as? String, image: values["Image"] as? String)
-                        albumsToComplete.append(album)
-                    }
+                    let album = Album(title: values["Title"] as? String, info: values["Info"] as? String)
+                    albumsToComplete.append(album)
                 }
                 print(albumsToComplete)
             }
             completion(albumsToComplete)
         }
-        
     }
     static func getUsers(completion : @escaping([User]) -> Void){
         db!.collection("Users").getDocuments { (documentSnap, error) in
@@ -102,7 +115,9 @@ class NetworkManager : NSObject{
             else{
                 if let document = documentSnapshot?.data(){
                     do{
+                        debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
+                        debugPrint(User.getUser(withid: uid))
                         completion(true)
                     }catch{
                         print(error)
