@@ -46,13 +46,14 @@ class NetworkManager : NSObject{
         })
     }
     static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
-        db!.collection("Albums").document(album.id).setData([(album.id)!:[
+        db!.collection("Albums").document(album.id).setData([
             "Title" : album.title,
             "Info" : album.info,
             "Users" : album.getUsers(),
             "Photos" : album.getPhotos(),
-            "Completed" : false
-            ] ],merge: true,completion: { (err) in
+            "Completed" : false,
+            "Id" : album.id
+            ],merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
                     completion(false)
@@ -60,7 +61,7 @@ class NetworkManager : NSObject{
                 completion(true)
         })
     }
-
+    
     static func getAlbumsToComplete(id:String!, completion : @escaping([Album]) -> Void){
         var c : String!
         db!.collection("Albums").getDocuments { (documentSnap, error) in
@@ -73,8 +74,33 @@ class NetworkManager : NSObject{
                 
                 guard let documentSnap = documentSnap else{ return }
                 for values in documentSnap.documents{
-                    let album = Album(title: values["Title"] as? String, info: values["Info"] as? String)
-                    albumsToComplete.append(album)
+                    var isMyAlbum = false
+                    if let completed = values["Completed"] as? Bool, !completed{
+                        if let users = values["Users"] as? [String]{
+                            for i in users{
+                                if i == id{
+                                    isMyAlbum = true
+                                }
+                                
+                            }
+                        }
+                        if isMyAlbum{
+                            let album = Album(title: values["Title"] as? String, info: values["Info"] as? String, completed: false)
+                            if let photos = values["Photos"] as? [Photo]{
+                                for i in photos{
+                                    album.addingPhoto(photo: i)
+                                }
+                            }
+                            if let users = values["Users"] as? [String]{
+                                for i in users{
+                                    album.addingUser(id: i)
+                                    
+                                }
+                            }
+                            
+                            albumsToComplete.append(album)}
+                        
+                    }
                 }
                 print(albumsToComplete)
             }
@@ -126,11 +152,11 @@ class NetworkManager : NSObject{
                     }
                 }
                 
-        
                 
-                }
+                
+            }
         })
-                
+        
     }
     
     static func signup(email: String,password: String, completion: @escaping (Bool)-> ()){
@@ -237,5 +263,34 @@ class NetworkManager : NSObject{
                 completion(image)
             }
         }    
+    }
+    static func uploadPhoto(withData data: Data, albumId: String, photoId: String, completion: @escaping (String?) -> ()) {
+        
+        guard let storageRef = storageRef else { completion(nil); return }
+        
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("Albums/id/\(photoId).jpg")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                completion(nil)
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            debugPrint(size)
+            // You can also access to download URL after upload.
+            riversRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    completion(nil)
+                    return
+                }
+                
+                debugPrint(downloadURL)
+                completion(downloadURL.absoluteString)
+            }
+        }
     }
 }
