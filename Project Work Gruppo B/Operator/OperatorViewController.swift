@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class OperatorViewController: UIViewController {
     var albumsToComplete : [Album] = []
@@ -16,14 +17,14 @@ class OperatorViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        NetworkManager.getAlbumsToComplete(role: "OperatorAssigned",value: ){ (albumsToComplete) in
+    override func viewWillAppear(_ animated: Bool) {
+//        NetworkManager.getAlbumsToComplete(id: Auth.auth().currentUser?.uid){ (albumsToComplete) in
 //            self.albumsToComplete = albumsToComplete
 //            self.tableView.delegate = self as? UITableViewDelegate
 //            self.tableView.dataSource = self as? UITableViewDataSource
-//
+//            
 //        }
-//    }
+    }
     @IBAction func logoutAction(_ sender: Any) {
         NetworkManager.logOut()
         let storyboard = UIStoryboard(name: "WhiteStoryboard", bundle: nil)

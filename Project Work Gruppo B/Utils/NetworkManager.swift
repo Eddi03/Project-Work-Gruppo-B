@@ -37,8 +37,41 @@ class NetworkManager : NSObject{
                 completion(true)
         })
     }
-    
-    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void, role:String!,value:String!){
+    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
+        db!.collection("Albums").document((Auth.auth().currentUser?.uid)!).setData([
+            "Title": album.title,
+            "Info": album.info,
+            "OperatorAssigned" : album.operatorAssigned,
+            "AdminCreator" : album.adminCreator,
+            "Image" : album.image
+            ] ,merge: true,completion: { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completion(false)
+                }
+                completion(true)
+        })
+    }
+
+    static func getAlbumsToComplete(id:String!, completion : @escaping([Album]) -> Void){
+        var c : String!
+        let document = db!.collection("Albums").document((Auth.auth().currentUser?.uid)!)
+            document.getDocument { (documentSnap, error) in
+            
+            if let error = error{
+                print(error)
+            }
+            else{
+                guard let document = documentSnap?.data() else{ return }
+                for element in document{
+                    debugPrint(element)
+                    var values = element.value as? [String:Any]
+                    c = values?["Title"] as? String
+                }
+            }
+        }
+        debugPrint("cd")
+        debugPrint(c)
         db!.collection("Albums").getDocuments { (documentSnap, error) in
             var albumsToComplete : [Album] = []
             
@@ -49,10 +82,8 @@ class NetworkManager : NSObject{
                 
                 guard let documentSnap = documentSnap else{ return }
                 for values in documentSnap.documents{
-                    if values[role]as? String == value{
                         let album = Album(title: values["Title"] as? String, info: values["Info"] as? String,operatorAssigned: values["OperatorAssigned"] as? String, adminCreator: values["AdminCreator"] as? String, image: values["Image"] as? String)
                         albumsToComplete.append(album)
-                    }
                 }
                 print(albumsToComplete)
             }
