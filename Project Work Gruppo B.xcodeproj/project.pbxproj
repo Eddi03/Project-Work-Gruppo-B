@@ -18,6 +18,7 @@
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
 		7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* Authentication.storyboard */; };
+		7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC61E6D21B6836300F42F15 /* StartViewController.swift */; };
 		7FE9CDB621AEB19F00001929 /* OperatorStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE9CDB521AEB19F00001929 /* OperatorStoryboard.storyboard */; };
 		7FFB574B21AED757002E8DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574A21AED757002E8DB2 /* User.swift */; };
 		7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574E21AED7C2002E8DB2 /* Extension.swift */; };
@@ -75,6 +76,7 @@
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F10A3B921AEAACB00F48481 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		7FC61E6D21B6836300F42F15 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7FE9CDB521AEB19F00001929 /* OperatorStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OperatorStoryboard.storyboard; sourceTree = "<group>"; };
 		7FFB574A21AED757002E8DB2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7FFB574E21AED7C2002E8DB2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "Project Work Gruppo B/Utils/Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -261,6 +263,7 @@
 				7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */,
 				7FFB575621AED80C002E8DB2 /* SaveViewController.swift */,
 				96377C4B21B57A3B009CADBD /* OptionsViewController.swift */,
+				7FC61E6D21B6836300F42F15 /* StartViewController.swift */,
 			);
 			name = Authentication;
 			path = "New Group";
@@ -527,6 +530,7 @@
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
 				96377C4C21B57A3B009CADBD /* OptionsViewController.swift in Sources */,
+				7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */,
 				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,
 				7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */,
 				3756697E21B673A2003F1089 /* AdminViewController.swift in Sources */,

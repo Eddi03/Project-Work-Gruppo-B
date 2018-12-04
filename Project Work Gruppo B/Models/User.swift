@@ -13,7 +13,7 @@ import RealmSwift
     dynamic var Name : String!
     dynamic var Surname : String!
     dynamic var Email : String!
-    dynamic var Image : String?
+    dynamic var Image : String!
     dynamic var Supervisor : Bool = false
     dynamic var Id : String!
     

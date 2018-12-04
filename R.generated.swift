@@ -161,16 +161,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `UIViewController`, and contains static references to 1 segues.
-    struct uiKitUIViewController {
-      /// Segue identifier `segueToLogin`.
-      static let segueToLogin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, UIKit.UIViewController, LoginViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToLogin")
+    /// This struct is generated for `StartViewController`, and contains static references to 2 segues.
+    struct startViewController {
+      /// Segue identifier `toLoginSegue`.
+      static let toLoginSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, StartViewController, LoginViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toLoginSegue")
+      /// Segue identifier `toRegisterSegue`.
+      static let toRegisterSegue: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, StartViewController, RegisterViewController> = Rswift.StoryboardSegueIdentifier(identifier: "toRegisterSegue")
       
-      /// Optionally returns a typed version of segue `segueToLogin`.
+      /// Optionally returns a typed version of segue `toLoginSegue`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToLogin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, UIKit.UIViewController, LoginViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.uiKitUIViewController.segueToLogin, segue: segue)
+      static func toLoginSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, StartViewController, LoginViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.startViewController.toLoginSegue, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `toRegisterSegue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func toRegisterSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, StartViewController, RegisterViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.startViewController.toRegisterSegue, segue: segue)
       }
       
       fileprivate init() {}
