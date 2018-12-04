@@ -15,7 +15,7 @@ import RealmSwift
     dynamic var Email : String!
     dynamic var Image : String?
     dynamic var Supervisor : Bool = false
-    dynamic var id : String!
+    dynamic var Id : String!
     
     
     convenience init(email : String? = nil, name : String? = nil, surname : String? = nil, id : String? = nil, image : String? = nil, supervisor : Bool? = nil) {
@@ -23,7 +23,7 @@ import RealmSwift
         self.Email = email
         self.Name = name
         self.Surname = surname
-        self.id = id
+        self.Id = id
         self.Image = image
         self.Supervisor = supervisor ?? false
     }
@@ -35,7 +35,7 @@ import RealmSwift
         return s
     }
     override class func primaryKey() -> String? {
-        return "id"
+        return "Id"
     }
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
