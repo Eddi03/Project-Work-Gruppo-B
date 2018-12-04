@@ -16,10 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="W10-pf-30j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="options" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3o-XM-xhl">
+                                <rect key="frame" x="46" y="151" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zu-6e-gpC">
+                                <rect key="frame" x="164" y="83" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logOut:" destination="L2g-de-VRe" eventType="touchUpInside" id="At8-oS-oqh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="n1P-d2-xg8"/>
                     </view>
                     <connections>
+                        <outlet property="logout" destination="6zu-6e-gpC" id="zcF-kw-BYb"/>
                         <segue destination="S24-B0-8VG" kind="show" identifier="segueToOperator" id="qMX-My-jxN"/>
                         <segue destination="hIX-bR-gCs" kind="show" identifier="segueToAdmin" id="mtQ-Fi-DYA"/>
                         <segue destination="J8v-Y3-6vh" kind="show" identifier="segueToLogin" id="bTh-0c-FpB"/>

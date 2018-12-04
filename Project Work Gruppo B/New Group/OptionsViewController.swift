@@ -10,17 +10,22 @@ import UIKit
 
 class OptionsViewController: UIViewController {
 
+    @IBOutlet weak var logout: UIButton!
     
+    @IBAction func logOut(_ sender: Any) {
+        NetworkManager.logOut()
+        self.performSegue(withIdentifier: "segueToLogin", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //NetworkManager.logOut()
-        //self.performSegue(withIdentifier: "segueToLogin", sender: nil)
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.performSegue(withIdentifier: R.segue.optionsViewController.segueToOperator, sender: self)
+    
        
         //da aggiungere admin/operator
         NetworkManager.getUserLogged { (success) in
@@ -35,9 +40,11 @@ class OptionsViewController: UIViewController {
                 } else {
                     self.performSegue(withIdentifier: "segueToOperator", sender: nil)
                 }
+            }else{
+                print("GGGGGGGGG")
             }
         }
-
+                 print("RGGGGGGGGG", NetworkManager.getMyID(), User.getUser(withid: NetworkManager.getMyID() ?? "")?.Supervisor)
     }
     
 
