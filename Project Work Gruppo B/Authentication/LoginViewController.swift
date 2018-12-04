@@ -13,13 +13,21 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loginButton.layer.cornerRadius = 18
+        loginButton.clipsToBounds = true
+        navbarTitle.title = "Accedi"
+        
         // Do any additional setup after loading the view.
     }
     var email : String!
     var password : String!
+    
+    @IBOutlet weak var navbarTitle: UINavigationItem!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBAction func loginAction(_ sender: Any) {
+    
         
         email = emailField.text
         password = passwordField.text
