@@ -13,6 +13,7 @@ import FirebaseAuth
 class SaveViewController: UIViewController {
     
     private var pickerController:UIImagePickerController?
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet var imageOutlet: UIButton!
     @IBOutlet var emailOutlet: UITextField!
     @IBOutlet var nameOutlet: UITextField!
@@ -24,6 +25,8 @@ class SaveViewController: UIViewController {
     var URLImage : String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerButton.layer.cornerRadius = 18
+        registerButton.clipsToBounds = true
         emailOutlet.text = email
         
         // Do any additional setup after loading the view.
