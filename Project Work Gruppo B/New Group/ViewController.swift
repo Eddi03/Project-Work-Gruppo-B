@@ -21,8 +21,20 @@ class ViewController: UIViewController {
             
             NetworkManager.checkIfDataIsFilled { (success) in
                 if success {
-                    
-                    self.performSegue(withIdentifier: R.segue.viewController.segueToOptions, sender: self)
+                    NetworkManager.getUserLogged { (success) in
+                        if success {
+                            
+                            guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUser(withid: id)?.Supervisor else {
+                                return
+                            }
+                            
+                            if isSupervisor{
+                                self.performSegue(withIdentifier: R.segue.viewController.segueToAdmin, sender: nil)
+                            } else {
+                                self.performSegue(withIdentifier: R.segue.viewController.segueToOperator, sender: nil)
+                            }
+                        }
+                    }
                 }
                 else{
                     
