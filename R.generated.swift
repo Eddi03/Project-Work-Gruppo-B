@@ -58,8 +58,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `AddUsersViewCell`.
+    static let addUsersViewCell: Rswift.ReuseIdentifier<AddUsersViewCell> = Rswift.ReuseIdentifier(identifier: "AddUsersViewCell")
     /// Reuse identifier `AdminTableViewCell`.
     static let adminTableViewCell: Rswift.ReuseIdentifier<AdminTableViewCell> = Rswift.ReuseIdentifier(identifier: "AdminTableViewCell")
     /// Reuse identifier `ListaAlbumTableViewCell`.
@@ -70,7 +72,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
   struct segue {
     /// This struct is generated for `AdminViewController`, and contains static references to 1 segues.
     struct adminViewController {
@@ -82,6 +84,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToLogin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminViewController.segueToLogin, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `CreateTopicController`, and contains static references to 1 segues.
+    struct createTopicController {
+      /// Segue identifier `segueToAddUser`.
+      static let segueToAddUser: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CreateTopicController, AddUsersTopicController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddUser")
+      
+      /// Optionally returns a typed version of segue `segueToAddUser`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAddUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CreateTopicController, AddUsersTopicController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.createTopicController.segueToAddUser, segue: segue)
       }
       
       fileprivate init() {}
