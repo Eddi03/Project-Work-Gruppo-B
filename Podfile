@@ -11,4 +11,5 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'RealmSwift'
+pod 'CodableFirebase'
 end
