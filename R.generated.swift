@@ -70,42 +70,18 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
-    /// This struct is generated for `AdminViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `AdminViewController`, and contains static references to 1 segues.
     struct adminViewController {
-      /// Segue identifier `segueToAlbum`.
-      static let segueToAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminViewController, ShowAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbum")
       /// Segue identifier `segueToLogin`.
       static let segueToLogin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToLogin")
-      
-      /// Optionally returns a typed version of segue `segueToAlbum`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminViewController, ShowAlbumViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminViewController.segueToAlbum, segue: segue)
-      }
       
       /// Optionally returns a typed version of segue `segueToLogin`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToLogin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminViewController.segueToLogin, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `CreateTopicController`, and contains static references to 1 segues.
-    struct createTopicController {
-      /// Segue identifier `segueToAddUserToAlbum`.
-      static let segueToAddUserToAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CreateTopicController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddUserToAlbum")
-      
-      /// Optionally returns a typed version of segue `segueToAddUserToAlbum`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAddUserToAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CreateTopicController, UIKit.UIViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.createTopicController.segueToAddUserToAlbum, segue: segue)
       }
       
       fileprivate init() {}
