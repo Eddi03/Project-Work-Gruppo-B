@@ -12,9 +12,13 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loginButton.layer.cornerRadius = 18
+        loginButton.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
+    
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBAction func toLoginAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: R.segue.startViewController.toLoginSegue, sender: self)
