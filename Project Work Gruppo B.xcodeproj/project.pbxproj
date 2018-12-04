@@ -27,6 +27,7 @@
 		7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575521AED80C002E8DB2 /* LoginViewController.swift */; };
 		7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575621AED80C002E8DB2 /* SaveViewController.swift */; };
 		7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */; };
+		962A215F21B6A07A002727A4 /* AddPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962A215E21B6A07A002727A4 /* AddPhotoViewController.swift */; };
 		96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 96377BE421ADABF8009CADBD /* Xcode.gitignore */; };
 		96377C3A21AEDCD7009CADBD /* RealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3921AEDCD7009CADBD /* RealmUtils.swift */; };
 		96377C3E21AEE094009CADBD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C3D21AEE094009CADBD /* R.generated.swift */; };
@@ -85,6 +86,7 @@
 		7FFB575521AED80C002E8DB2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Project Work Gruppo B/Authentication/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
 		7FFB575621AED80C002E8DB2 /* SaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SaveViewController.swift; path = "Project Work Gruppo B/Authentication/SaveViewController.swift"; sourceTree = SOURCE_ROOT; };
 		7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Project Work Gruppo B/Authentication/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
+		962A215E21B6A07A002727A4 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		96377BE421ADABF8009CADBD /* Xcode.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Xcode.gitignore; sourceTree = "<group>"; };
 		96377BE721AEA8EC009CADBD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96377BE921AEA8FA009CADBD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				96377C4221B53545009CADBD /* OperatorViewController.swift */,
 				96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */,
+				962A215E21B6A07A002727A4 /* AddPhotoViewController.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962A215F21B6A07A002727A4 /* AddPhotoViewController.swift in Sources */,
 				96377C4821B5653F009CADBD /* Photo.swift in Sources */,
 				96377C4621B5653F009CADBD /* Album.swift in Sources */,
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
