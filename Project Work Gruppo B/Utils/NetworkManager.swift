@@ -62,8 +62,8 @@ class NetworkManager : NSObject{
         })
     }
     
-    static func getAlbumsToComplete(id:String!, completion : @escaping([Album]) -> Void){
-        var c : String!
+    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
+    
         db!.collection("Albums").getDocuments { (documentSnap, error) in
             var albumsToComplete : [Album] = []
             
@@ -78,7 +78,7 @@ class NetworkManager : NSObject{
                     if let completed = values["Completed"] as? Bool, !completed{
                         if let users = values["Users"] as? [String]{
                             for i in users{
-                                if i == id{
+                                if i == Auth.auth().currentUser?.uid{
                                     isMyAlbum = true
                                 }
                                 
