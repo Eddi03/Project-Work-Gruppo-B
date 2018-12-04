@@ -14,6 +14,8 @@
 		3756698621B6CB60003F1089 /* AdminListaAlbumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698521B6CB60003F1089 /* AdminListaAlbumController.swift */; };
 		3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698921B6CD94003F1089 /* ListaAlbumTableViewCell.swift */; };
 		3756698C21B6D031003F1089 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698B21B6D031003F1089 /* Topic.swift */; };
+		3756698E21B6E5BF003F1089 /* AddUsersTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */; };
+		3756699021B6E5E0003F1089 /* AddUsersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */; };
 		6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */; };
 		6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171F21AE89EF0037FE62 /* ViewController.swift */; };
 		6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */; };
@@ -41,7 +43,6 @@
 		96377C4821B5653F009CADBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4721B5653F009CADBD /* Photo.swift */; };
 		96377C4A21B5736F009CADBD /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */; };
 		96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */; };
-		9670E9C521B6B5F90015A87B /* ShowAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670E9C421B6B5F90015A87B /* ShowAlbumViewController.swift */; };
 		9670E9C721B6B6890015A87B /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670E9C621B6B6890015A87B /* ImagePreview.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		3756698521B6CB60003F1089 /* AdminListaAlbumController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListaAlbumController.swift; sourceTree = "<group>"; };
 		3756698921B6CD94003F1089 /* ListaAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaAlbumTableViewCell.swift; sourceTree = "<group>"; };
 		3756698B21B6D031003F1089 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsersTopicController.swift; sourceTree = "<group>"; };
+		3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsersViewCell.swift; sourceTree = "<group>"; };
 		60745EA08D4615827C601718 /* Pods_Project_Work_Gruppo_B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Work_Gruppo_B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171A21AE89EF0037FE62 /* Project Work Gruppo B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Work Gruppo B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 				3756697D21B673A2003F1089 /* AdminViewController.swift */,
 				3756697F21B6A1F0003F1089 /* AdminTableViewCell.swift */,
 				3756698121B6B405003F1089 /* CreateTopicController.swift */,
+				3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */,
+				3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */,
 			);
 			path = topic;
 			sourceTree = "<group>";
@@ -565,9 +570,11 @@
 				96377C4621B5653F009CADBD /* Album.swift in Sources */,
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
 				3756698221B6B405003F1089 /* CreateTopicController.swift in Sources */,
+				3756699021B6E5E0003F1089 /* AddUsersViewCell.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
 				3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */,
+				3756698E21B6E5BF003F1089 /* AddUsersTopicController.swift in Sources */,
 				96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */,
 				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
 				3756698621B6CB60003F1089 /* AdminListaAlbumController.swift in Sources */,
