@@ -63,8 +63,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 6 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
+    /// This struct is generated for `AdminViewController`, and contains static references to 1 segues.
+    struct adminViewController {
+      /// Segue identifier `segueToLogin`.
+      static let segueToLogin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToLogin")
+      
+      /// Optionally returns a typed version of segue `segueToLogin`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToLogin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminViewController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminViewController.segueToLogin, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `LoginViewController`, and contains static references to 1 segues.
     struct loginViewController {
       /// Segue identifier `segueToOptions`.
@@ -80,10 +95,12 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `OptionsViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `OptionsViewController`, and contains static references to 3 segues.
     struct optionsViewController {
       /// Segue identifier `segueToAdmin`.
       static let segueToAdmin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, OptionsViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdmin")
+      /// Segue identifier `segueToLogin`.
+      static let segueToLogin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, OptionsViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToLogin")
       /// Segue identifier `segueToOperator`.
       static let segueToOperator: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, OptionsViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToOperator")
       
@@ -92,6 +109,13 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToAdmin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, OptionsViewController, UIKit.UINavigationController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.optionsViewController.segueToAdmin, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToLogin`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToLogin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, OptionsViewController, UIKit.UINavigationController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.optionsViewController.segueToLogin, segue: segue)
       }
       
       /// Optionally returns a typed version of segue `segueToOperator`.

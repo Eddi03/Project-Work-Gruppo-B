@@ -1,27 +1,26 @@
 //
-//  ListViewController.swift
+//  AdminViewController.swift
 //  Project Work Gruppo B
 //
-//  Created by Jason Bourne on 03/12/18.
+//  Created by Sarah Dal Santo on 04/12/18.
 //  Copyright © 2018 Eddi. All rights reserved.
 //
 
 import UIKit
 
-class OperatorViewController: UIViewController {
+class AdminViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func logoutAction(_ sender: Any) {
-        
+    
+    @IBAction func logout(_ sender: Any) {
         NetworkManager.logOut()
         self.performSegue(withIdentifier: "segueToLogin", sender: nil)
     }
     
-
     /*
     // MARK: - Navigation
 
