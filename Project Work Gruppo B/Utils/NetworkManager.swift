@@ -30,12 +30,12 @@ class NetworkManager : NSObject{
     }
     
     static func addUser(user : User,completion: @escaping (Bool)-> ()){
-        db!.collection("Users").document((Auth.auth().currentUser?.uid)!).setData([(Auth.auth().currentUser?.uid)!:[
-            "Name": user.name,
-            "Surname": user.surname,
-            "Email" : user.email,
-            "Image" : user.image,
-            "Supervisor" : user.supervisor
+        db!.collection("Users").document((Auth.auth().currentUser!.uid)).setData([(Auth.auth().currentUser!.uid):[
+            "Name": user.Name,
+            "Surname": user.Surname,
+            "Email" : user.Email,
+            "Image" : user.Image,
+            "Supervisor" : user.Supervisor
             ] ],merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
