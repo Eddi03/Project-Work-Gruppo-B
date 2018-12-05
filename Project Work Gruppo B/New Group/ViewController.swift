@@ -14,8 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        
     }
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             
@@ -50,6 +53,11 @@ class ViewController: UIViewController {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let sv = UIViewController.displaySpinner(onView: self.view)
+    }
 
 }
 

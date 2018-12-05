@@ -72,7 +72,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
   struct segue {
     /// This struct is generated for `AdminViewController`, and contains static references to 1 segues.
     struct adminViewController {
