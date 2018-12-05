@@ -1,27 +1,23 @@
 //
-//  AdminTableViewCell.swift
+//  ListaAlbumTableViewCell.swift
 //  Project Work Gruppo B
 //
 //  Created by Sarah Dal Santo on 04/12/18.
 //  Copyright © 2018 Eddi. All rights reserved.
 //
-
+//
 import UIKit
 
-class AdminTableViewCell: UITableViewCell {
+class ListaAlbumTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var titleAlbumTextField: UITextField!
+    @IBOutlet weak var infoAlbumTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-  
-    
-    @IBOutlet weak var titleTopic: UITextField!
-    
-    @IBOutlet weak var infoTopic: UITextField!
-    
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

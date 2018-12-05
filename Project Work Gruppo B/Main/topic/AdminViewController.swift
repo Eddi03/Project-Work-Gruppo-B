@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AdminViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var listaTopic : [Topic] = []
-    
+    var admin : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.listaTopic.append(Topic(title: "ciao", info: "idjwbocfh dhacw dbdc "))
@@ -40,7 +40,7 @@ class AdminViewController: UIViewController {
 
 }
 
-extension AdminViewController : UITableViewDelegate, UITableViewDataSource {
+extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     

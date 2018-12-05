@@ -21,8 +21,7 @@
                     </view>
                     <connections>
                         <segue destination="fqm-4x-0cA" kind="show" identifier="segueToLogin" id="CvN-pm-kPu"/>
-                        <segue destination="gFY-Fk-yxB" kind="show" identifier="segueToOperator" id="bie-so-uaA"/>
-                        <segue destination="OaN-oe-sMz" kind="show" identifier="segueToAdmin" id="se0-BU-Kcu"/>
+                        <segue destination="OaN-oe-sMz" kind="show" identifier="segueToMain" id="se0-BU-Kcu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -36,18 +35,10 @@
             </objects>
             <point key="canvasLocation" x="685" y="26"/>
         </scene>
-        <!--OperatorStoryboard-->
-        <scene sceneID="Whj-U3-0Rt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="OperatorStoryboard" id="gFY-Fk-yxB" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="whs-LB-z2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1110" y="197"/>
-        </scene>
-        <!--AdminStoryboard-->
+        <!--MainStoryboard-->
         <scene sceneID="dXU-FA-yCR">
             <objects>
-                <viewControllerPlaceholder storyboardName="AdminStoryboard" id="OaN-oe-sMz" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MainStoryboard" id="OaN-oe-sMz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="817-j3-gsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1094" y="-56"/>
