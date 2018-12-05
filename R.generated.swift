@@ -105,7 +105,7 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `MainViewController`, and contains static references to 3 segues.
     struct mainViewController {
       /// Segue identifier `segueToAccount`.
-      static let segueToAccount: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, CreateTopicController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAccount")
+      static let segueToAccount: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, AccountViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAccount")
       /// Segue identifier `segueToAddTopic`.
       static let segueToAddTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, CreateTopicController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddTopic")
       /// Segue identifier `segueToAlbums`.
@@ -114,7 +114,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `segueToAccount`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAccount(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainViewController, CreateTopicController>? {
+      static func segueToAccount(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainViewController, AccountViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainViewController.segueToAccount, segue: segue)
       }
       

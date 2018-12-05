@@ -320,7 +320,7 @@
         <!--Title-->
         <scene sceneID="BuW-tl-WqH">
             <objects>
-                <viewController id="kSb-Wo-CkQ" customClass="CreateTopicController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kSb-Wo-CkQ" customClass="AccountViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="daD-uG-4DU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -359,7 +359,7 @@
                     <navigationItem key="navigationItem" title="Title" id="otp-J4-2ke">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="r4Z-Qt-P7Y">
                             <connections>
-                                <segue destination="4cn-d2-FVY" kind="show" id="BHT-q6-xbA"/>
+                                <action selector="logoutAction:" destination="kSb-Wo-CkQ" id="vOY-5Y-7y8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -367,14 +367,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7H-J6-C6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="-708"/>
-        </scene>
-        <!--Authentication-->
-        <scene sceneID="UHL-s8-oX6">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Authentication" id="4cn-d2-FVY" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HeW-tF-QBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="318" y="-1086"/>
         </scene>
         <!--Title-->
         <scene sceneID="3XE-ky-Idv">
