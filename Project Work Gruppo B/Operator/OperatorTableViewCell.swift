@@ -8,13 +8,15 @@
 
 import UIKit
 
-class OperatorTableViewCell: UITableViewCell {
-static var kIdentifier = "operatorCell"
+class AlbumOperatorTableViewCell: UITableViewCell {
+static var kIdentifier = "AlbumOperatorCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    @IBOutlet var titleOutlet: UILabel!
+    @IBOutlet var infoOutlet: UILabel!
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

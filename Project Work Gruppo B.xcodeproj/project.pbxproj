@@ -42,8 +42,6 @@
 		96377C4621B5653F009CADBD /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4521B5653F009CADBD /* Album.swift */; };
 		96377C4821B5653F009CADBD /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4721B5653F009CADBD /* Photo.swift */; };
 		96377C4A21B5736F009CADBD /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */; };
-		96377C4C21B57A3B009CADBD /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4B21B57A3B009CADBD /* OptionsViewController.swift */; };
-		96377C4E21B57C2D009CADBD /* Options.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96377C4D21B57C2D009CADBD /* Options.storyboard */; };
 		96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */; };
 		9670E9C721B6B6890015A87B /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670E9C621B6B6890015A87B /* ImagePreview.swift */; };
 /* End PBXBuildFile section */
@@ -116,8 +114,6 @@
 		96377C4521B5653F009CADBD /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		96377C4721B5653F009CADBD /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
-		96377C4B21B57A3B009CADBD /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		96377C4D21B57C2D009CADBD /* Options.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Options.storyboard; sourceTree = "<group>"; };
 		96377C4F21B59420009CADBD /* OperatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorTableViewCell.swift; sourceTree = "<group>"; };
 		9670E9C421B6B5F90015A87B /* ShowAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlbumViewController.swift; sourceTree = "<group>"; };
 		9670E9C621B6B6890015A87B /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
@@ -222,7 +218,6 @@
 				7FFB574C21AED762002E8DB2 /* Models */,
 				7FE9CDB721AEB36900001929 /* Storyboards */,
 				6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */,
-				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
 				6CB3172421AE89F20037FE62 /* Assets.xcassets */,
 				6CB3172921AE89F20037FE62 /* Info.plist */,
 				6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */,
@@ -252,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				96377C4921B5736B009CADBD /* AdminStoryboard.storyboard */,
-				96377C4D21B57C2D009CADBD /* Options.storyboard */,
 				6CB3172621AE89F20037FE62 /* LaunchScreen.storyboard */,
 				6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */,
 				7F10A3B921AEAACB00F48481 /* Authentication.storyboard */,
@@ -305,7 +299,7 @@
 				7FFB575521AED80C002E8DB2 /* LoginViewController.swift */,
 				7FFB575721AED80C002E8DB2 /* RegisterViewController.swift */,
 				7FFB575621AED80C002E8DB2 /* SaveViewController.swift */,
-				96377C4B21B57A3B009CADBD /* OptionsViewController.swift */,
+				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
 				7FC61E6D21B6836300F42F15 /* StartViewController.swift */,
 			);
 			name = Authentication;
@@ -451,7 +445,6 @@
 				6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */,
 				96377BE521ADABF8009CADBD /* Xcode.gitignore in Resources */,
 				96377C4A21B5736F009CADBD /* AdminStoryboard.storyboard in Resources */,
-				96377C4E21B57C2D009CADBD /* Options.storyboard in Resources */,
 				7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */,
 				6CB3172521AE89F20037FE62 /* Assets.xcassets in Resources */,
 				7FE9CDB621AEB19F00001929 /* OperatorStoryboard.storyboard in Resources */,
@@ -590,7 +583,6 @@
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
 				3756698C21B6D031003F1089 /* Topic.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
-				96377C4C21B57A3B009CADBD /* OptionsViewController.swift in Sources */,
 				7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */,
 				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,
 				7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */,

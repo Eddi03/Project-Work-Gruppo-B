@@ -18,7 +18,6 @@ class RegisterViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    var id : String!
     var email : String!
     var password : String!
     var repeatPassword : String!
@@ -37,19 +36,8 @@ class RegisterViewController: UIViewController {
         
         NetworkManager.signup(email: email, password: password){ (success) in
             if success{
-                self.id = Auth.auth().currentUser?.uid
-                
                 self.performSegue(withIdentifier: R.segue.registerViewController.segueToAdditionalData, sender: self)
             }
         }
-        
-        
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationSegue = (segue.destination as? UINavigationController)?.viewControllers[0] as? SaveViewController{
-            destinationSegue.email = self.email
-            destinationSegue.id = self.id
-        }
-    }
-    
  }
