@@ -10,9 +10,13 @@ import UIKit
 
 class AddUsersTopicController: UIViewController {
 
+    var users : [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.users.append("Alessandro")
+        self.users.append("Giorgio")
         // Do any additional setup after loading the view.
     }
     
@@ -30,7 +34,7 @@ class AddUsersTopicController: UIViewController {
 
 }
 
-extension AddUsersViewCell : UITableViewDelegate, UITableViewDataSource {
+extension AddUsersTopicController : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     
@@ -41,14 +45,14 @@ extension AddUsersViewCell : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.users.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AddUsersViewCell", for: indexPath) as! AddUsersViewCell
         
-        cell.nameUserTextField.text = "Alessandro"
+        cell.nameUserTextField.text = self.users[indexPath.row]
         return cell
     }
     
