@@ -19,6 +19,24 @@ class StartViewController: UIViewController {
     }
     
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var bentornatoLabel: UILabel!
+    
+    var deviceName : String = UIDevice.current.name
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar on this view controllers
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.bentornatoLabel.text = "Bentornato, " + deviceName
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     
     @IBAction func toLoginAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: R.segue.startViewController.toLoginSegue, sender: self)

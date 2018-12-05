@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,11 +34,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ4-JP-tpJ">
-                                <rect key="frame" x="25" y="128" width="325" height="36"/>
+                                <rect key="frame" x="25" y="541" width="325" height="30"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="jB1-fP-yz7"/>
-                                </constraints>
                                 <state key="normal" title="Accedi">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -47,25 +44,45 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-rX-lAK">
-                                <rect key="frame" x="155" y="292" width="65" height="30"/>
+                                <rect key="frame" x="155" y="601" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
                                 <connections>
                                     <action selector="toRegisterAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="kQS-ox-7lX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITOLO APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-JL-83Q">
+                                <rect key="frame" x="16" y="94" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bentornato, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2F-07-sE6">
+                                <rect key="frame" x="16" y="145" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="centerX" secondItem="Cnd-5W-EAy" secondAttribute="centerX" id="9gl-Jb-mHN"/>
-                            <constraint firstItem="CQ4-JP-tpJ" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="64" id="Cp7-VD-kk8"/>
-                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="CQ4-JP-tpJ" secondAttribute="trailing" constant="25" id="Qgg-qi-Jf9"/>
-                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="top" secondItem="CQ4-JP-tpJ" secondAttribute="bottom" constant="128" id="cC0-XN-7bD"/>
-                            <constraint firstItem="CQ4-JP-tpJ" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="25" id="hNq-cF-r6u"/>
+                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="t2F-07-sE6" secondAttribute="trailing" constant="16" id="0EW-MP-g0p"/>
+                            <constraint firstItem="t2F-07-sE6" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="16" id="1lU-l5-gJn"/>
+                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="top" secondItem="CQ4-JP-tpJ" secondAttribute="bottom" constant="30" id="Bd8-zc-f9b"/>
+                            <constraint firstItem="Rb5-JL-83Q" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="16" id="D1k-Pi-epz"/>
+                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="ODZ-rX-lAK" secondAttribute="trailing" constant="155" id="H6b-zH-mNu"/>
+                            <constraint firstItem="t2F-07-sE6" firstAttribute="top" secondItem="Rb5-JL-83Q" secondAttribute="bottom" constant="15" id="OQL-w1-ySW"/>
+                            <constraint firstItem="CQ4-JP-tpJ" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="25" id="X84-7B-1jm"/>
+                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="Rb5-JL-83Q" secondAttribute="trailing" constant="16" id="lga-aW-XBL"/>
+                            <constraint firstItem="CQ4-JP-tpJ" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="477" id="n8E-bJ-LHb"/>
+                            <constraint firstItem="Rb5-JL-83Q" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="30" id="rle-PU-Buc"/>
+                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="155" id="spQ-iF-2Z3"/>
+                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="CQ4-JP-tpJ" secondAttribute="trailing" constant="25" id="zKK-gQ-fBg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="86J-3a-2Qc"/>
                     </view>
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
                     <connections>
+                        <outlet property="bentornatoLabel" destination="t2F-07-sE6" id="WF8-2k-RJy"/>
                         <outlet property="loginButton" destination="CQ4-JP-tpJ" id="gkm-ND-Aeu"/>
                         <segue destination="wsE-1e-CVY" kind="show" identifier="toLoginSegue" id="gqi-db-yrv"/>
                         <segue destination="Ctk-q0-gBC" kind="show" identifier="toRegisterSegue" id="aUx-h7-g81"/>
