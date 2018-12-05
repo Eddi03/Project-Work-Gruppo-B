@@ -15,6 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    var admin: Bool!
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
@@ -28,11 +29,8 @@ class ViewController: UIViewController {
                                 return
                             }
                             
-                            if isSupervisor{
-                                self.performSegue(withIdentifier: R.segue.viewController.segueToAdmin, sender: nil)
-                            } else {
-                                self.performSegue(withIdentifier: R.segue.viewController.segueToOperator, sender: nil)
-                            }
+                            self.admin = isSupervisor
+                            self.performSegue(withIdentifier: R.segue.viewController.segueToMain, sender: nil)
                         }
                     }
                 }
@@ -50,6 +48,11 @@ class ViewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? MainViewController {
+            destinationSegue.admin = self.admin
+        }
+    }
 
 }
 
