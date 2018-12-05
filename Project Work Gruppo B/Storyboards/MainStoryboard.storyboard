@@ -300,7 +300,11 @@
                         <viewLayoutGuide key="safeArea" id="vJg-Ps-rvp"/>
                     </view>
                     <navigationItem key="navigationItem" id="QsS-v3-kVA">
-                        <barButtonItem key="leftBarButtonItem" title="Account" id="K0x-v1-kYO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Account" id="K0x-v1-kYO">
+                            <connections>
+                                <action selector="actionToAccount:" destination="l8x-jM-OvA" id="F1W-3f-eCX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="zPA-dO-sOe" id="Y9m-X2-PcH"/>

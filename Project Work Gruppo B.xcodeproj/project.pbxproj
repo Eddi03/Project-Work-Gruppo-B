@@ -27,6 +27,7 @@
 		7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* Authentication.storyboard */; };
 		7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC61E6D21B6836300F42F15 /* StartViewController.swift */; };
 		7FE273B221B7D663003CC4EA /* AlbumStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE273B121B7D663003CC4EA /* AlbumStoryboard.storyboard */; };
+		7FE273B421B7E9AA003CC4EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE273B321B7E9AA003CC4EA /* AccountViewController.swift */; };
 		7FFB574B21AED757002E8DB2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574A21AED757002E8DB2 /* User.swift */; };
 		7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574E21AED7C2002E8DB2 /* Extension.swift */; };
 		7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */; };
@@ -92,6 +93,7 @@
 		7F10A3B921AEAACB00F48481 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
 		7FC61E6D21B6836300F42F15 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7FE273B121B7D663003CC4EA /* AlbumStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumStoryboard.storyboard; sourceTree = "<group>"; };
+		7FE273B321B7E9AA003CC4EA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		7FFB574A21AED757002E8DB2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7FFB574E21AED7C2002E8DB2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = "Project Work Gruppo B/Utils/Extension.swift"; sourceTree = SOURCE_ROOT; };
 		7FFB574F21AED7C2002E8DB2 /* GeneralUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralUtils.swift; path = "Project Work Gruppo B/Utils/GeneralUtils.swift"; sourceTree = SOURCE_ROOT; };
@@ -153,6 +155,7 @@
 				3756697F21B6A1F0003F1089 /* TopicTableViewCell.swift */,
 				3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */,
 				3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */,
+				7FE273B321B7E9AA003CC4EA /* AccountViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				3756699021B6E5E0003F1089 /* AddUsersViewCell.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
+				7FE273B421B7E9AA003CC4EA /* AccountViewController.swift in Sources */,
 				3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */,
 				3756698E21B6E5BF003F1089 /* AddUsersTopicController.swift in Sources */,
 				96377C5021B59420009CADBD /* OperatorTableViewCell.swift in Sources */,

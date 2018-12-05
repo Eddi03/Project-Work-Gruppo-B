@@ -28,6 +28,11 @@ class MainViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
     
+    @IBAction func actionToAccount(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.mainViewController.segueToAccount, sender: self)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
