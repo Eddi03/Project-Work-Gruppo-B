@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        let spinnerLoad = UIViewController.displaySpinner(onView: self.view)
         
     }
     var admin: Bool!
