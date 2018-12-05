@@ -1,22 +1,22 @@
 //
-//  OperatorTableViewCell.swift
+//  AddUsersViewCell.swift
 //  Project Work Gruppo B
 //
-//  Created by Jason Bourne on 03/12/18.
+//  Created by Sarah Dal Santo on 04/12/18.
 //  Copyright © 2018 Eddi. All rights reserved.
 //
 
 import UIKit
 
-class AlbumOperatorTableViewCell: UITableViewCell {
-static var kIdentifier = "AlbumOperatorCell"
+class AddUsersViewCell: UITableViewCell {
+
+    @IBOutlet weak var nameUserTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    @IBOutlet var titleOutlet: UILabel!
-    @IBOutlet var infoOutlet: UILabel!
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -32,6 +32,10 @@ class CreateTopicController: UIViewController {
             self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
             return
         }
+        
+        self.performSegue(withIdentifier: "segueToAddUser", sender: self)
+        
+        
         /*topic = Topic(title: titleAlbum, info: infoAlbum, completed: nil)
         NetworkManager.addAlbum(album: album) { (success) in
             if success{

@@ -158,6 +158,23 @@ class NetworkManager : NSObject{
         })
         
     }
+    static func checkIfDataIsFilled(completion : @escaping(Bool) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let document = db?.collection("Users").document(uid)
+        document?.getDocument(completion: { (documentSnapshot, error) in
+            if let error = error{
+                debugPrint(error)
+                completion(false)
+            }
+            else{
+                guard let document = documentSnapshot?.data() else{
+                    completion(false)
+                    return
+                }
+                completion(true)
+            }
+        })
+    }
     
     static func signup(email: String,password: String, completion: @escaping (Bool)-> ()){
         
@@ -269,7 +286,7 @@ class NetworkManager : NSObject{
         guard let storageRef = storageRef else { completion(nil); return }
         
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("Albums/id/\(photoId).jpg")
+        let riversRef = storageRef.child("Albums/\(albumId)/\(photoId).jpg")
         
         // Upload the file to the path "images/rivers.jpg"
         let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
