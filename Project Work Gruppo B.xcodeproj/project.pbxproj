@@ -16,6 +16,7 @@
 		3756698C21B6D031003F1089 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698B21B6D031003F1089 /* Topic.swift */; };
 		3756698E21B6E5BF003F1089 /* AddUsersTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */; };
 		3756699021B6E5E0003F1089 /* AddUsersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */; };
+		6C14A15221B7D235002AB9D6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C14A15121B7D235002AB9D6 /* LaunchScreenViewController.swift */; };
 		6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */; };
 		6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171F21AE89EF0037FE62 /* ViewController.swift */; };
 		6CB3172321AE89EF0037FE62 /* WhiteStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3172121AE89EF0037FE62 /* WhiteStoryboard.storyboard */; };
@@ -75,6 +76,7 @@
 		3756698D21B6E5BF003F1089 /* AddUsersTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsersTopicController.swift; sourceTree = "<group>"; };
 		3756698F21B6E5E0003F1089 /* AddUsersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsersViewCell.swift; sourceTree = "<group>"; };
 		60745EA08D4615827C601718 /* Pods_Project_Work_Gruppo_B.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Work_Gruppo_B.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C14A15121B7D235002AB9D6 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		6CB3171A21AE89EF0037FE62 /* Project Work Gruppo B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Work Gruppo B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CB3171F21AE89EF0037FE62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				7FFB575621AED80C002E8DB2 /* SaveViewController.swift */,
 				6CB3171F21AE89EF0037FE62 /* ViewController.swift */,
 				7FC61E6D21B6836300F42F15 /* StartViewController.swift */,
+				6C14A15121B7D235002AB9D6 /* LaunchScreenViewController.swift */,
 			);
 			name = Authentication;
 			path = "New Group";
@@ -555,6 +558,7 @@
 				3756698221B6B405003F1089 /* CreateTopicController.swift in Sources */,
 				3756699021B6E5E0003F1089 /* AddUsersViewCell.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
+				6C14A15221B7D235002AB9D6 /* LaunchScreenViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
 				3756698A21B6CD94003F1089 /* ListaAlbumTableViewCell.swift in Sources */,
 				3756698E21B6E5BF003F1089 /* AddUsersTopicController.swift in Sources */,
