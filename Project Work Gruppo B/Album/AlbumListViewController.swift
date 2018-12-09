@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminListaAlbumController: UIViewController {
+class AlbumListViewController: UIViewController {
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""

@@ -50,9 +50,9 @@ extension AddUsersTopicController : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AddUsersViewCell", for: indexPath) as! AddUsersViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AddUsersTableViewCell", for: indexPath) as! AddUsersTableViewCell
         
-        cell.nameUserTextField.text = self.users[indexPath.row]
+        cell.name.text = self.users[indexPath.row]
         return cell
     }
     
