@@ -69,3 +69,20 @@ class EmptyTableViewCell: UITableViewCell {
     }
     
 }
+
+class AddUsersTableViewCell: UITableViewCell {
+    static var kIdentifier = "AddUsersTableViewCell"
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    @IBOutlet var name: UITextField!
+    
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        // Configure the view for the selected state
+    }
+    
+}

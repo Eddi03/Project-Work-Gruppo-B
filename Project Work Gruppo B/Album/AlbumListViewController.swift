@@ -49,7 +49,7 @@ class AlbumListViewController: UIViewController {
 
 }
 
-extension AdminListaAlbumController : UITableViewDelegate, UITableViewDataSource {
+extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     
@@ -65,7 +65,7 @@ extension AdminListaAlbumController : UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListaAlbumTableViewCell", for: indexPath) as! ListaAlbumTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AlbumTableViewCell.kIdentifier, for: indexPath) as! AlbumTableViewCell
         
         cell.titleAlbumTextField.text = listaAlbum[indexPath.row].title
         cell.infoAlbumTextField.text = listaAlbum[indexPath.row].info

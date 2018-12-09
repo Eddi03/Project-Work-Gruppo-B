@@ -8,13 +8,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class TopicListViewController: UIViewController {
     private let EMPTY_LIST = 0
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
     
     @IBAction func addTopicAction(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.mainViewController.segueToAddTopic, sender: self)
+        self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
     var searched = [Topic]()
     var searching = false
@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.mainViewController.segueToAccount, sender: self)
+        self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAccount, sender: self)
     }
     
     
@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController : UITableViewDelegate, UITableViewDataSource {
+extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     
@@ -82,8 +82,9 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         if indexPath.section == TOPIC_INFO{
-            self.performSegue(withIdentifier: R.segue.mainViewController.segueToAlbums, sender: self)
+            self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -130,7 +131,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension MainViewController: UISearchBarDelegate {
+extension TopicListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searched = listaTopic.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddUsersTopicController: UIViewController {
+class AddUsersTopicViewController: UIViewController {
 
     var users : [String] = []
     
@@ -34,7 +34,7 @@ class AddUsersTopicController: UIViewController {
 
 }
 
-extension AddUsersTopicController : UITableViewDelegate, UITableViewDataSource {
+extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Table view data source
     

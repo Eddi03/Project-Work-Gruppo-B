@@ -10,32 +10,32 @@ import UIKit
 import RealmSwift
 
 @objcMembers class User: Object, Codable{
-    dynamic var Name : String!
-    dynamic var Surname : String!
-    dynamic var Email : String!
-    dynamic var Image : String!
-    dynamic var Supervisor : Bool = false
-    dynamic var Id : String!
+    dynamic var name : String!
+    dynamic var surname : String!
+    dynamic var email : String!
+    dynamic var image : String!
+    dynamic var supervisor : Bool = false
+    dynamic var id : String!
     
     
     convenience init(email : String? = nil, name : String? = nil, surname : String? = nil, id : String? = nil, image : String? = nil, supervisor : Bool? = nil) {
         self.init()
-        self.Email = email
-        self.Name = name
-        self.Surname = surname
-        self.Id = id
-        self.Image = image
-        self.Supervisor = supervisor ?? false
+        self.email = email
+        self.name = name
+        self.surname = surname
+        self.id = id
+        self.image = image
+        self.supervisor = supervisor ?? false
     }
     
     func getFullName() -> String{
-        var s = String(Name)
+        var s = String(name)
         s+=" "
-        s+=Surname
+        s+=surname
         return s
     }
     override class func primaryKey() -> String? {
-        return "Id"
+        return "id"
     }
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {

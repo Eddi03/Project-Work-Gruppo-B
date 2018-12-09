@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-720" y="16"/>
         </scene>
-        <!--Admin Lista Album Controller-->
+        <!--Album List View Controller-->
         <scene sceneID="MNU-Aa-9E6">
             <objects>
-                <viewController id="ABr-h1-HAy" customClass="AdminListaAlbumController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ABr-h1-HAy" customClass="AlbumListViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YxI-XB-zcZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sT2-Xb-cHM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyListAlbumsTableViewCell" id="sT2-Xb-cHM">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sT2-Xb-cHM" id="QWS-28-Hyy">
@@ -62,7 +62,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListaAlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="ListaAlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="AlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9U3-Es-oQ1" id="eoD-Ph-cyL">
@@ -105,7 +105,7 @@
                                             <outlet property="titleAlbumTextField" destination="Jbk-NB-qza" id="Lck-qJ-SYM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="128" id="8Zj-Ke-5oT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlbumTableViewCell" rowHeight="128" id="8Zj-Ke-5oT">
                                         <rect key="frame" x="0.0" y="188" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Zj-Ke-5oT" id="ZY9-Rc-7MF">
@@ -141,7 +141,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
-                        <segue destination="stU-nN-Dxg" kind="show" id="jhj-47-n5i"/>
+                        <segue destination="stU-nN-Dxg" kind="show" identifier="segueToAddAlbum" id="jhj-47-n5i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,7 +151,7 @@
         <!--Home-->
         <scene sceneID="L17-3Q-ERi">
             <objects>
-                <viewController id="l8x-jM-OvA" customClass="MainViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l8x-jM-OvA" customClass="TopicListViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zIz-WC-58u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pKN-ei-hEe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyTableViewCell" id="pKN-ei-hEe" customClass="EmptyTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKN-ei-hEe" id="RRz-6V-qqG">
@@ -173,19 +173,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9T-SW-rFd">
-                                                    <rect key="frame" x="166.5" y="11.5" width="42" height="21"/>
+                                                    <rect key="frame" x="40" y="11.5" width="295" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="n9T-SW-rFd" firstAttribute="centerX" secondItem="RRz-6V-qqG" secondAttribute="centerX" id="5u7-1g-pm6"/>
-                                                <constraint firstItem="n9T-SW-rFd" firstAttribute="centerY" secondItem="RRz-6V-qqG" secondAttribute="centerY" id="Z80-Xm-e8h"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="n9T-SW-rFd" secondAttribute="trailing" constant="25" id="9jt-BT-1mo"/>
+                                                <constraint firstItem="n9T-SW-rFd" firstAttribute="leading" secondItem="RRz-6V-qqG" secondAttribute="leadingMargin" constant="25" id="TyC-Mp-Hrn"/>
+                                                <constraint firstItem="n9T-SW-rFd" firstAttribute="centerX" secondItem="RRz-6V-qqG" secondAttribute="centerX" id="Xoa-eL-NBo"/>
+                                                <constraint firstItem="n9T-SW-rFd" firstAttribute="centerY" secondItem="RRz-6V-qqG" secondAttribute="centerY" id="yHG-bo-PJj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="message" destination="n9T-SW-rFd" id="CyJ-24-zmT"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdminTableViewCell" rowHeight="116" id="SLH-ro-43u" customClass="TopicTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicTableViewCell" rowHeight="116" id="SLH-ro-43u" customClass="TopicTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SLH-ro-43u" id="0AE-C4-xUp">
@@ -228,7 +233,7 @@
                                             <outlet property="titleTopic" destination="3qe-hf-dFd" id="eOX-Un-3Bg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="rBp-2N-RR4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddTopicTableViewCell" rowHeight="77" id="rBp-2N-RR4" customClass="AddTopicTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rBp-2N-RR4" id="nhM-R9-8i4">
@@ -236,15 +241,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJE-EI-YZh">
-                                                    <rect key="frame" x="152" y="21.5" width="71" height="34"/>
+                                                    <rect key="frame" x="40" y="13" width="295" height="51"/>
                                                     <state key="normal" title="Aggiungi">
                                                         <color key="titleColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addTopicAction:" destination="l8x-jM-OvA" eventType="touchUpInside" id="MCq-Se-Wim"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="centerX" secondItem="nhM-R9-8i4" secondAttribute="centerX" id="Aje-2L-gYV"/>
-                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="centerY" secondItem="nhM-R9-8i4" secondAttribute="centerY" id="Mx7-pl-lBu"/>
+                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="top" secondItem="nhM-R9-8i4" secondAttribute="topMargin" constant="2" id="01t-Ca-aBz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xJE-EI-YZh" secondAttribute="trailing" constant="25" id="GCz-pd-Ubx"/>
+                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="leading" secondItem="nhM-R9-8i4" secondAttribute="leadingMargin" constant="25" id="Lbf-1t-h4B"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xJE-EI-YZh" secondAttribute="bottom" constant="2" id="fPc-VK-WZ1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -275,6 +285,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="search" destination="qMb-1w-rcq" id="yFM-uH-l3e"/>
                         <outlet property="tableView" destination="zPA-dO-sOe" id="Y9m-X2-PcH"/>
                         <segue destination="kSb-Wo-CkQ" kind="show" identifier="segueToAccount" id="BGP-8H-9NP"/>
                         <segue destination="c2o-Ib-4Jo" kind="show" identifier="segueToAddTopic" id="5tE-Ei-XJb"/>
@@ -339,7 +350,7 @@
         <!--Nuovo topic-->
         <scene sceneID="3XE-ky-Idv">
             <objects>
-                <viewController id="c2o-Ib-4Jo" customClass="CreateTopicController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c2o-Ib-4Jo" customClass="AddTopicViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hnR-vq-3Tg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,7 +397,7 @@
         <!--Aggiungi membri-->
         <scene sceneID="RJ6-cR-fZO">
             <objects>
-                <viewController id="IeF-NS-0q6" customClass="AddUsersTopicController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IeF-NS-0q6" customClass="AddUsersTopicViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F9i-vq-fdK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,7 +415,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="FrZ-vw-EGl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyUsersListTableViewCell" id="FrZ-vw-EGl">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FrZ-vw-EGl" id="QEe-PS-jDG">
@@ -424,7 +435,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddUsersViewCell" rowHeight="120" id="xpG-Ug-4SY" customClass="AddUsersViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="120" id="xpG-Ug-4SY" customClass="AddUsersTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xpG-Ug-4SY" id="r7k-Gf-NqE">
@@ -452,7 +463,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameUserTextField" destination="wWk-rl-Qot" id="0tx-Au-ukz"/>
+                                            <outlet property="name" destination="wWk-rl-Qot" id="bxH-HP-LFb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -488,7 +499,7 @@
         <!--Nuovo album-->
         <scene sceneID="vGg-vq-lQT">
             <objects>
-                <viewController id="stU-nN-Dxg" customClass="CreateTopicController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="stU-nN-Dxg" customClass="AddTopicViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="685-HR-BXg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
