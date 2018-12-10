@@ -248,9 +248,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJE-EI-YZh">
-                                                    <rect key="frame" x="40" y="13" width="295" height="51"/>
+                                                    <rect key="frame" x="40" y="20.5" width="295" height="36"/>
+                                                    <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="zVG-qX-lTN"/>
+                                                    </constraints>
                                                     <state key="normal" title="Aggiungi">
-                                                        <color key="titleColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addTopicAction:" destination="l8x-jM-OvA" eventType="touchUpInside" id="MCq-Se-Wim"/>
@@ -258,10 +262,9 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="top" secondItem="nhM-R9-8i4" secondAttribute="topMargin" constant="2" id="01t-Ca-aBz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="xJE-EI-YZh" secondAttribute="trailing" constant="25" id="GCz-pd-Ubx"/>
                                                 <constraint firstItem="xJE-EI-YZh" firstAttribute="leading" secondItem="nhM-R9-8i4" secondAttribute="leadingMargin" constant="25" id="Lbf-1t-h4B"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="xJE-EI-YZh" secondAttribute="bottom" constant="2" id="fPc-VK-WZ1"/>
+                                                <constraint firstItem="xJE-EI-YZh" firstAttribute="centerY" secondItem="nhM-R9-8i4" secondAttribute="centerY" id="lQV-QI-a0I"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -335,8 +338,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doN-L5-bna">
-                                <rect key="frame" x="25" y="300" width="325" height="30"/>
+                                <rect key="frame" x="25" y="300" width="325" height="36"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="4bl-oD-zPu"/>
+                                </constraints>
                                 <state key="normal" title="Salva">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

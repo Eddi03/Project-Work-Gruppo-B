@@ -66,9 +66,15 @@ class SaveViewController: UIViewController {
     
     
     @IBAction func saveAction(_ sender: Any) {
+    
+        
         let name = nameOutlet.text
         let surname = surnameOutlet.text
         let supervisor = supervisorOutlet.isOn
+        
+        if name != "" && surname != ""
+        {
+        
         guard name != "" else{
             debugPrint("error")
             return
@@ -97,7 +103,13 @@ class SaveViewController: UIViewController {
             })
         }
     }
+ 
+    else{
+        
+            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
     
+        }
+    }
 }
 extension SaveViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
