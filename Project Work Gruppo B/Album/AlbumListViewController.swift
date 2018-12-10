@@ -104,11 +104,11 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case ALBUM_INFO:
-            return 140
+            return 100
         case EMPTY_LIST:
-            return 80
+            return 60
         case ADD_ALBUM:
-            return 80
+            return 60
         default:
             return 0
         }
