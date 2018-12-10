@@ -41,4 +41,57 @@ import RealmSwift
         return Array(realm.objects(Topic.self))
     }
     
+    
+    //UTENTI
+    
+    
+        func addingUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
+            do {
+                try realm.write {
+                    users.append(id)
+                }
+            }catch {}
+        }
+    
+        func removeUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
+            do {
+                try realm.write {
+                    self.users.remove(at: index)
+                }
+            }catch {}
+        }
+    
+    func getUsers() -> [String] {
+        return Array(users)
+    }
+    
+    
+    
+    // ALBUM
+    
+    func addingAlbum(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
+        do {
+            try realm.write {
+                albums.append(id)
+            }
+        }catch {}
+    }
+    
+    func removeAlbum(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
+        do {
+            try realm.write {
+                self.albums.remove(at: index)
+            }
+        }catch {}
+    }
+   
+    
+    func getAlbums() -> [String] {
+        return Array(albums)
+    }
+    
+//    func getAlbum(id: String) ->[String]{
+//        return Array(albums)
+//    }
+    
 }

@@ -16,7 +16,7 @@ import RealmSwift
     dynamic var id : String!
     dynamic var completed : Bool!
 
-    private let photos : List<Photo> = List<Photo>()
+    private let photos : List<String> = List<String>()
     
     convenience init(title : String? = nil, info : String? = nil, completed : Bool? = nil) {
         self.init()
@@ -37,17 +37,15 @@ import RealmSwift
         } catch {}
     }
     
-    func getPhotos() -> [Photo] {
+    func getPhotos() -> [String] {
         return Array(photos)
     }
-//    func getUsers() -> [String] {
-//        return Array(users)
-//    }
+
     
-    func addingPhoto(in realm: Realm = try! Realm(configuration: RealmUtils.config), photo : Photo) {
+    func addingPhoto(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
         do {
             try realm.write {
-                photos.append(photo)
+                photos.append(id)
             }
         }catch {}
     }
@@ -60,20 +58,6 @@ import RealmSwift
         }catch {}
     }
     
-//    func addingUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
-//        do {
-//            try realm.write {
-//                users.append(id)
-//            }
-//        }catch {}
-//    }
-//
-//    func removeUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
-//        do {
-//            try realm.write {
-//                self.users.remove(at: index)
-//            }
-//        }catch {}
-//    }
+
     
 }

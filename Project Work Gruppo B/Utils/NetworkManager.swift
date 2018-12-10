@@ -49,6 +49,7 @@ class NetworkManager : NSObject{
         db!.collection("Albums").document(album.id).setData([
             "title" : album.title,
             "info" : album.info,
+
             "photos" : album.getPhotos(),
             "completed" : false,
             "id" : album.id
@@ -61,51 +62,51 @@ class NetworkManager : NSObject{
         })
     }
     
-    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
-    
-        db!.collection("Albums").getDocuments { (documentSnap, error) in
-            var albumsToComplete : [Album] = []
-            
-            if let error = error{
-                print(error)
-            }
-            else{
-                
-                guard let documentSnap = documentSnap else{ return }
-                for values in documentSnap.documents{
-                    var isMyAlbum = false
-                    if let completed = values["completed"] as? Bool, !completed{
-                        if let users = values["users"] as? [String]{
-                            for i in users{
-                                if i == Auth.auth().currentUser?.uid{
-                                    isMyAlbum = true
-                                }
-                                
-                            }
-                        }
-                        if isMyAlbum{
-                            let album = Album(title: values["Title"] as? String, info: values["Info"] as? String, completed: false)
-                            if let photos = values["photos"] as? [Photo]{
-                                for i in photos{
-                                    album.addingPhoto(photo: i)
-                                }
-                            }
-                            if let users = values["users"] as? [String]{
-                                for i in users{
-                                    album.addingUser(id: i)
-                                    
-                                }
-                            }
-                            
-                            albumsToComplete.append(album)}
-                        
-                    }
-                }
-                print(albumsToComplete)
-            }
-            completion(albumsToComplete)
-        }
-    }
+//    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
+//
+//        db!.collection("Albums").getDocuments { (documentSnap, error) in
+//            var albumsToComplete : [Album] = []
+//
+//            if let error = error{
+//                print(error)
+//            }
+//            else{
+//
+//                guard let documentSnap = documentSnap else{ return }
+//                for values in documentSnap.documents{
+//                    var isMyAlbum = false
+//                    if let completed = values["completed"] as? Bool, !completed{
+//                        if let users = values["users"] as? [String]{
+//                            for i in users{
+//                                if i == Auth.auth().currentUser?.uid{
+//                                    isMyAlbum = true
+//                                }
+//
+//                            }
+//                        }
+//                        if isMyAlbum{
+//                            let album = Album(title: values["Title"] as? String, info: values["Info"] as? String, completed: false)
+//                            if let photos = values["photos"] as? [Photo]{
+//                                for i in photos{
+//                                    album.addingPhoto(photo: i)
+//                                }
+//                            }
+//                            if let users = values["users"] as? [String]{
+//                                for i in users{
+//                                //    Topic.addingUser(id: i)
+//
+//                                }
+//                            }
+//
+//                            albumsToComplete.append(album)}
+//
+//                    }
+//                }
+//                print(albumsToComplete)
+//            }
+//            completion(albumsToComplete)
+//        }
+//    }
     static func getUsers(completion : @escaping([User]) -> Void){
         db!.collection("Users").getDocuments { (documentSnap, error) in
             var usersList : [User] = []
