@@ -297,8 +297,278 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 24 localization keys.
+    struct localizable {
+      /// en translation: An e-mail was sent to your Account
+      /// 
+      /// Locales: en
+      static let kAlertMessageEmailSent = Rswift.StringResource(key: "kAlertMessageEmailSent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Back
+      /// 
+      /// Locales: en
+      static let kNavBarBackMessage = Rswift.StringResource(key: "kNavBarBackMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Cancel
+      /// 
+      /// Locales: en
+      static let kAlertCancelButton = Rswift.StringResource(key: "kAlertCancelButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Confirm Password
+      /// 
+      /// Locales: en
+      static let kSignUpConfirmPasswordTextField = Rswift.StringResource(key: "kSignUpConfirmPasswordTextField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Copyright (c) 2018 ITS - All Rights Reserved
+      /// 
+      /// Locales: en, it
+      static let kCopyright = Rswift.StringResource(key: "kCopyright", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static let kAlertEmailTextField = Rswift.StringResource(key: "kAlertEmailTextField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static let kLoginEmailTextField = Rswift.StringResource(key: "kLoginEmailTextField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static let kSignUpEmailTextField = Rswift.StringResource(key: "kSignUpEmailTextField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Error
+      /// 
+      /// Locales: en
+      static let kAlertErrorTitle = Rswift.StringResource(key: "kAlertErrorTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Login
+      /// 
+      /// Locales: en
+      static let kLoginTitle = Rswift.StringResource(key: "kLoginTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Login
+      /// 
+      /// Locales: en, it
+      static let kLoginButton = Rswift.StringResource(key: "kLoginButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Next
+      /// 
+      /// Locales: en
+      static let kSignUpNextButton = Rswift.StringResource(key: "kSignUpNextButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Ok
+      /// 
+      /// Locales: en
+      static let kAlertErrorOkButton = Rswift.StringResource(key: "kAlertErrorOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static let kLoginPasswordField = Rswift.StringResource(key: "kLoginPasswordField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static let kSignUpPasswordField = Rswift.StringResource(key: "kSignUpPasswordField", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Reset Password
+      /// 
+      /// Locales: en
+      static let kAlertResetPasswordTitle = Rswift.StringResource(key: "kAlertResetPasswordTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Reset Password
+      /// 
+      /// Locales: en
+      static let kResetPasswordButton = Rswift.StringResource(key: "kResetPasswordButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static let kAlertSendButton = Rswift.StringResource(key: "kAlertSendButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: SignUp
+      /// 
+      /// Locales: en
+      static let kNavBarTitle = Rswift.StringResource(key: "kNavBarTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: SignUp
+      /// 
+      /// Locales: en, it
+      static let kSignUpButton = Rswift.StringResource(key: "kSignUpButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: TITLE APP
+      /// 
+      /// Locales: en, it
+      static let kTitleApp = Rswift.StringResource(key: "kTitleApp", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: The password is invalid or the user does not have a passoword
+      /// 
+      /// Locales: en
+      static let kAlertErrorMessage = Rswift.StringResource(key: "kAlertErrorMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Type your e-mail
+      /// 
+      /// Locales: en
+      static let kAlertResetPasswordMessage = Rswift.StringResource(key: "kAlertResetPasswordMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Welcome, 
+      /// 
+      /// Locales: en, it
+      static let kWelcomeLabel = Rswift.StringResource(key: "kWelcomeLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      
+      /// en translation: An e-mail was sent to your Account
+      /// 
+      /// Locales: en
+      static func kAlertMessageEmailSent(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertMessageEmailSent", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Back
+      /// 
+      /// Locales: en
+      static func kNavBarBackMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kNavBarBackMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Cancel
+      /// 
+      /// Locales: en
+      static func kAlertCancelButton(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertCancelButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Confirm Password
+      /// 
+      /// Locales: en
+      static func kSignUpConfirmPasswordTextField(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpConfirmPasswordTextField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Copyright (c) 2018 ITS - All Rights Reserved
+      /// 
+      /// Locales: en, it
+      static func kCopyright(_: Void = ()) -> String {
+        return NSLocalizedString("kCopyright", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static func kAlertEmailTextField(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertEmailTextField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static func kLoginEmailTextField(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginEmailTextField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: E-Mail
+      /// 
+      /// Locales: en
+      static func kSignUpEmailTextField(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpEmailTextField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Error
+      /// 
+      /// Locales: en
+      static func kAlertErrorTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertErrorTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Login
+      /// 
+      /// Locales: en
+      static func kLoginTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Login
+      /// 
+      /// Locales: en, it
+      static func kLoginButton(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Next
+      /// 
+      /// Locales: en
+      static func kSignUpNextButton(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpNextButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Ok
+      /// 
+      /// Locales: en
+      static func kAlertErrorOkButton(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertErrorOkButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static func kLoginPasswordField(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginPasswordField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static func kSignUpPasswordField(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpPasswordField", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Reset Password
+      /// 
+      /// Locales: en
+      static func kAlertResetPasswordTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertResetPasswordTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Reset Password
+      /// 
+      /// Locales: en
+      static func kResetPasswordButton(_: Void = ()) -> String {
+        return NSLocalizedString("kResetPasswordButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static func kAlertSendButton(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertSendButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: SignUp
+      /// 
+      /// Locales: en
+      static func kNavBarTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kNavBarTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: SignUp
+      /// 
+      /// Locales: en, it
+      static func kSignUpButton(_: Void = ()) -> String {
+        return NSLocalizedString("kSignUpButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: TITLE APP
+      /// 
+      /// Locales: en, it
+      static func kTitleApp(_: Void = ()) -> String {
+        return NSLocalizedString("kTitleApp", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The password is invalid or the user does not have a passoword
+      /// 
+      /// Locales: en
+      static func kAlertErrorMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertErrorMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Type your e-mail
+      /// 
+      /// Locales: en
+      static func kAlertResetPasswordMessage(_: Void = ()) -> String {
+        return NSLocalizedString("kAlertResetPasswordMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Welcome, 
+      /// 
+      /// Locales: en, it
+      static func kWelcomeLabel(_: Void = ()) -> String {
+        return NSLocalizedString("kWelcomeLabel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
