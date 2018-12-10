@@ -57,6 +57,4 @@ class ViewController: UIViewController {
             destinationSegue.admin = self.admin
         }
     }
-
 }
-
