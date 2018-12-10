@@ -83,7 +83,6 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == TOPIC_INFO{
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
-            debugPrint("ciao")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
