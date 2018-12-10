@@ -100,12 +100,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `AlbumListViewController`, and contains static references to 1 segues.
     struct albumListViewController {
       /// Segue identifier `segueToAddAlbum`.
-      static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
+      static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       
       /// Optionally returns a typed version of segue `segueToAddAlbum`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAddAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, AddTopicViewController>? {
+      static func segueToAddAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAddAlbum, segue: segue)
       }
       

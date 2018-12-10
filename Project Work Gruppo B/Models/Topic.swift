@@ -16,7 +16,8 @@ import RealmSwift
     dynamic var id : String!
 
     private let users : List<String> = List<String>()
-    private let photos : List<Photo> = List<Photo>()
+    private let albums : List<String> = List<String>()
+   
     
     convenience init(title : String? = nil, info : String? = nil) {
         self.init()

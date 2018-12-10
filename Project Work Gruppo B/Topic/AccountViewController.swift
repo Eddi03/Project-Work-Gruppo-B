@@ -32,7 +32,12 @@ class AccountViewController: UIViewController {
     }
     
     @IBOutlet weak var buttonOutlet: UIButton!
-    @IBAction func buttonOutlet(_ sender: UIButton) {
+    @IBAction func buttonAction(_ sender: UIButton) {
+     
+        var currentName = nameOutlet.text
+        var currentSurname = surnameOutlet.text
+        
+        
     }
     @IBOutlet weak var surnameOutlet: UITextField!
     @IBOutlet weak var nameOutlet: UITextField!

@@ -49,7 +49,6 @@ class NetworkManager : NSObject{
         db!.collection("Albums").document(album.id).setData([
             "title" : album.title,
             "info" : album.info,
-            "users" : album.getUsers(),
             "photos" : album.getPhotos(),
             "completed" : false,
             "id" : album.id
