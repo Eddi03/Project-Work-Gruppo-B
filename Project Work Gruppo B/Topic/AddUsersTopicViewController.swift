@@ -7,11 +7,10 @@
 //
 
 import UIKit
-
 class AddUsersTopicViewController: UIViewController {
-
+    var addTopicDelegate : AddTopicDelegate!
     var users : [String] = []
-    
+    var topic : Topic!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,15 +21,10 @@ class AddUsersTopicViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addTopicAction(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
-    */
+    
 
 }
 
@@ -50,7 +44,7 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AddUsersTableViewCell", for: indexPath) as! AddUsersTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
         
         cell.name.text = self.users[indexPath.row]
         return cell

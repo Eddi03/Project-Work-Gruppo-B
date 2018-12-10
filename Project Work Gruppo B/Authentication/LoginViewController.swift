@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         
         loginButton.layer.cornerRadius = 18
         loginButton.clipsToBounds = true
-        navbarTitle.title = "Accedi"
+        
         
         // Do any additional setup after loading the view.
     }
