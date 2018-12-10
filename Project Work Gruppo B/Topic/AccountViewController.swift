@@ -12,7 +12,7 @@ class AccountViewController: UIViewController {
 
     var user : User!
     
-        
+    
     
     
     override func viewDidLoad() {

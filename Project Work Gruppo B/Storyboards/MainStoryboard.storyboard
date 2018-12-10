@@ -516,10 +516,19 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked" translatesAutoresizingMaskIntoConstraints="NO" id="CXk-cP-28x">
+                                                    <rect key="frame" x="304" y="40" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Gh7-1C-uXy"/>
+                                                        <constraint firstAttribute="height" constant="40" id="iZ1-lT-ENs"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="654-Y7-vRd"/>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="leading" secondItem="r7k-Gf-NqE" secondAttribute="leading" constant="16" id="KAA-g4-RoW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CXk-cP-28x" secondAttribute="trailing" constant="16" id="sfQ-WA-oDN"/>
+                                                <constraint firstItem="CXk-cP-28x" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="tGI-oQ-ySN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -604,6 +613,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Checked" width="243" height="243"/>
         <image name="Folder Icon" width="61.5" height="48"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
