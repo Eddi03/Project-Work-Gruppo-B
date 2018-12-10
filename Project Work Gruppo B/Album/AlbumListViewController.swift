@@ -9,11 +9,19 @@
 import UIKit
 
 class AlbumListViewController: UIViewController {
+    private let EMPTY_LIST = 0
+    private let ALBUM_INFO = 1
+    private let ADD_ALBUM = 2
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
     
+    var searched = [Album]()
+    var searching = false
+    
     var albums : [Album] = []
+    var admin : Bool!
+    @IBOutlet var search: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,17 +29,9 @@ class AlbumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
-        // Do any additional setup after loading the view.
-        /*
-         NetworkManager.getAlbumsToComplete { (listaAlbum) in
-         print("listaaaaaaaa", listaAlbum)
-         self.listaAlbum = listaAlbum
-         //aggiungo a realm gli album
-         for album in self.listaAlbum {
-         album.save()
-         }
-         }
-         */
+       search.delegate = self
+    }
+    @IBAction func addAlbumAction(_ sender: Any) {
     }
 }
 
@@ -41,26 +41,67 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return albums.count
+        if section == ALBUM_INFO{
+            if searching{
+                return searched.count
+            }
+            else{
+                return albums.count
+            }
+        }
+        if albums.isEmpty{
+            if section == EMPTY_LIST{
+                return 1
+            }
+        }
+        if section == ADD_ALBUM{
+            return 1
+        }
+        
+        return 0
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AlbumTableViewCell.kIdentifier, for: indexPath) as! AlbumTableViewCell
-        
-        cell.titleAlbumTextField.text = albums[indexPath.row].title
-        cell.infoAlbumTextField.text = albums[indexPath.row].info
-        
-        return cell
+        switch indexPath.section {
+        case ALBUM_INFO:
+            let cell = tableView.dequeueReusableCell(withIdentifier: AlbumTableViewCell.kIdentifier, for: indexPath) as! AlbumTableViewCell
+            
+            if searching {
+                cell.title.text = searched[indexPath.row].title
+                cell.info.text = searched[indexPath.row].info
+            } else {
+                cell.title.text = albums[indexPath.row].title
+                cell.info.text = albums[indexPath.row].info
+            }
+            return cell
+        case ADD_ALBUM:
+            let cell = tableView.dequeueReusableCell(withIdentifier: AddAlbumTableViewCell.kIdentifier, for: indexPath) as! AddAlbumTableViewCell
+            return cell
+        case EMPTY_LIST:
+            let cell = tableView.dequeueReusableCell(withIdentifier: EmptyListAlbumsTableViewCell.kIdentifier, for: indexPath) as! EmptyListAlbumsTableViewCell
+            cell.message.text = "non ghe se niente"
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        switch indexPath.section {
+        case ALBUM_INFO:
+            return 140
+        case EMPTY_LIST:
+            return 80
+        case ADD_ALBUM:
+            return 80
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -69,5 +110,22 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     
+    
+}
+
+extension AlbumListViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searched = albums.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
     
 }
