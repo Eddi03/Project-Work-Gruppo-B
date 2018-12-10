@@ -31,12 +31,12 @@ class NetworkManager : NSObject{
     
     static func addUser(user : User,completion: @escaping (Bool)-> ()){
         db!.collection("Users").document((Auth.auth().currentUser?.uid)!).setData([
-            "Name": user.Name,
-            "Surname": user.Surname,
-            "Email" : user.Email,
-            "Image" : user.Image,
-            "Supervisor" : user.Supervisor,
-            "Id" : Auth.auth().currentUser?.uid ?? ""
+            "name": user.name,
+            "surname": user.surname,
+            "email" : user.email,
+            "image" : user.image,
+            "supervisor" : user.supervisor,
+            "id" : Auth.auth().currentUser?.uid ?? ""
             ] ,merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -47,12 +47,12 @@ class NetworkManager : NSObject{
     }
     static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
         db!.collection("Albums").document(album.id).setData([
-            "Title" : album.title,
-            "Info" : album.info,
-            "Users" : album.getUsers(),
-            "Photos" : album.getPhotos(),
-            "Completed" : false,
-            "Id" : album.id
+            "title" : album.title,
+            "info" : album.info,
+            "users" : album.getUsers(),
+            "photos" : album.getPhotos(),
+            "completed" : false,
+            "id" : album.id
             ],merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")
@@ -75,8 +75,8 @@ class NetworkManager : NSObject{
                 guard let documentSnap = documentSnap else{ return }
                 for values in documentSnap.documents{
                     var isMyAlbum = false
-                    if let completed = values["Completed"] as? Bool, !completed{
-                        if let users = values["Users"] as? [String]{
+                    if let completed = values["completed"] as? Bool, !completed{
+                        if let users = values["users"] as? [String]{
                             for i in users{
                                 if i == Auth.auth().currentUser?.uid{
                                     isMyAlbum = true
@@ -86,12 +86,12 @@ class NetworkManager : NSObject{
                         }
                         if isMyAlbum{
                             let album = Album(title: values["Title"] as? String, info: values["Info"] as? String, completed: false)
-                            if let photos = values["Photos"] as? [Photo]{
+                            if let photos = values["photos"] as? [Photo]{
                                 for i in photos{
                                     album.addingPhoto(photo: i)
                                 }
                             }
-                            if let users = values["Users"] as? [String]{
+                            if let users = values["users"] as? [String]{
                                 for i in users{
                                     album.addingUser(id: i)
                                     
@@ -118,11 +118,11 @@ class NetworkManager : NSObject{
                 
                 guard let documentSnap = documentSnap else{ return }
                 for document in documentSnap.documents{
-                    let name = document["Name"] as! String
-                    let surname = document["Surname"] as! String
-                    let image = document["Image"] as? String
-                    let email = document["Email"] as! String
-                    let supervisor = document["Supervisor"] as? Bool
+                    let name = document["name"] as! String
+                    let surname = document["surname"] as! String
+                    let image = document["image"] as? String
+                    let email = document["email"] as! String
+                    let supervisor = document["supervisor"] as? Bool
                     let user = User(email: email, name: name, surname: surname, image: image, supervisor:supervisor)
                     usersList.append(user)
                 }
@@ -144,7 +144,7 @@ class NetworkManager : NSObject{
                     do{
                         debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
-                        debugPrint(User.getUser(withid: uid))
+                        debugPrint(User.getUser(withid: uid)!)
                         completion(true)
                     }catch{
                         print(error)
@@ -171,6 +171,7 @@ class NetworkManager : NSObject{
                     completion(false)
                     return
                 }
+                debugPrint(document)
                 completion(true)
             }
         })
@@ -189,6 +190,7 @@ class NetworkManager : NSObject{
                 completion(false)
                 return
             }
+            debugPrint(user)
             completion(true)
         }
         
@@ -207,6 +209,7 @@ class NetworkManager : NSObject{
                 completion(false)
                 return
             }
+            debugPrint(user)
             
             completion(true)
         }
@@ -214,7 +217,7 @@ class NetworkManager : NSObject{
     
     static func resetPassword(email: String){
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            print(error)
+            print(error!)
         }
     }
     

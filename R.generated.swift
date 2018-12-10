@@ -58,30 +58,55 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `AddUsersViewCell`.
-    static let addUsersViewCell: Rswift.ReuseIdentifier<AddUsersViewCell> = Rswift.ReuseIdentifier(identifier: "AddUsersViewCell")
-    /// Reuse identifier `AdminTableViewCell`.
-    static let adminTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "AdminTableViewCell")
-    /// Reuse identifier `ListaAlbumTableViewCell`.
-    static let listaAlbumTableViewCell: Rswift.ReuseIdentifier<ListaAlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "ListaAlbumTableViewCell")
+    /// Reuse identifier `AddAlbumTableViewCell`.
+    static let addAlbumTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
+    /// Reuse identifier `AddTopicTableViewCell`.
+    static let addTopicTableViewCell: Rswift.ReuseIdentifier<AddTopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddTopicTableViewCell")
+    /// Reuse identifier `AlbumTableViewCell`.
+    static let albumTableViewCell: Rswift.ReuseIdentifier<AlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AlbumTableViewCell")
+    /// Reuse identifier `EmptyListAlbumsTableViewCell`.
+    static let emptyListAlbumsTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyListAlbumsTableViewCell")
+    /// Reuse identifier `EmptyTableViewCell`.
+    static let emptyTableViewCell: Rswift.ReuseIdentifier<EmptyTableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyTableViewCell")
+    /// Reuse identifier `EmptyUsersListTableViewCell`.
+    static let emptyUsersListTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyUsersListTableViewCell")
+    /// Reuse identifier `TopicTableViewCell`.
+    static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
+    /// Reuse identifier `UserTableViewCell`.
+    static let userTableViewCell: Rswift.ReuseIdentifier<AddUsersTableViewCell> = Rswift.ReuseIdentifier(identifier: "UserTableViewCell")
     
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 7 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
   struct segue {
-    /// This struct is generated for `CreateTopicController`, and contains static references to 1 segues.
-    struct createTopicController {
+    /// This struct is generated for `AddTopicViewController`, and contains static references to 1 segues.
+    struct addTopicViewController {
       /// Segue identifier `segueToAddUser`.
-      static let segueToAddUser: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, CreateTopicController, AddUsersTopicController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddUser")
+      static let segueToAddUser: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AddTopicViewController, AddUsersTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddUser")
       
       /// Optionally returns a typed version of segue `segueToAddUser`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAddUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, CreateTopicController, AddUsersTopicController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.createTopicController.segueToAddUser, segue: segue)
+      static func segueToAddUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AddTopicViewController, AddUsersTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.addTopicViewController.segueToAddUser, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `AlbumListViewController`, and contains static references to 1 segues.
+    struct albumListViewController {
+      /// Segue identifier `segueToAddAlbum`.
+      static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
+      
+      /// Optionally returns a typed version of segue `segueToAddAlbum`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAddAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, AddTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAddAlbum, segue: segue)
       }
       
       fileprivate init() {}
@@ -97,39 +122,6 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToOptions(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueToOptions, segue: segue)
-      }
-      
-      fileprivate init() {}
-    }
-    
-    /// This struct is generated for `MainViewController`, and contains static references to 3 segues.
-    struct mainViewController {
-      /// Segue identifier `segueToAccount`.
-      static let segueToAccount: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, AccountViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAccount")
-      /// Segue identifier `segueToAddTopic`.
-      static let segueToAddTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, CreateTopicController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddTopic")
-      /// Segue identifier `segueToAlbums`.
-      static let segueToAlbums: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, MainViewController, AdminListaAlbumController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbums")
-      
-      /// Optionally returns a typed version of segue `segueToAccount`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAccount(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainViewController, AccountViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainViewController.segueToAccount, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `segueToAddTopic`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAddTopic(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainViewController, CreateTopicController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainViewController.segueToAddTopic, segue: segue)
-      }
-      
-      /// Optionally returns a typed version of segue `segueToAlbums`.
-      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
-      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAlbums(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, MainViewController, AdminListaAlbumController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.mainViewController.segueToAlbums, segue: segue)
       }
       
       fileprivate init() {}
@@ -184,6 +176,39 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func toRegisterSegue(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, StartViewController, RegisterViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.startViewController.toRegisterSegue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `TopicListViewController`, and contains static references to 3 segues.
+    struct topicListViewController {
+      /// Segue identifier `segueToAccount`.
+      static let segueToAccount: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TopicListViewController, AccountViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAccount")
+      /// Segue identifier `segueToAddTopic`.
+      static let segueToAddTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TopicListViewController, AddTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddTopic")
+      /// Segue identifier `segueToAlbums`.
+      static let segueToAlbums: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, TopicListViewController, AlbumListViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbums")
+      
+      /// Optionally returns a typed version of segue `segueToAccount`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAccount(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TopicListViewController, AccountViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.topicListViewController.segueToAccount, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToAddTopic`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAddTopic(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TopicListViewController, AddTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.topicListViewController.segueToAddTopic, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToAlbums`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAlbums(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, TopicListViewController, AlbumListViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.topicListViewController.segueToAlbums, segue: segue)
       }
       
       fileprivate init() {}

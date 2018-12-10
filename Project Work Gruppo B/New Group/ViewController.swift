@@ -15,7 +15,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Spinner
         _ = UIViewController.displaySpinner(onView: self.view)
         
     }
@@ -29,7 +28,7 @@ class ViewController: UIViewController {
                     NetworkManager.getUserLogged { (success) in
                         if success {
                             
-                            guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUser(withid: id)?.Supervisor else {
+                            guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUser(withid: id)?.supervisor else {
                                 return
                             }
                             
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationSegue = segue.destination as? MainViewController {
+        if let destinationSegue = (segue.destination as? UINavigationController)?.viewControllers[0] as? TopicListViewController{
             destinationSegue.admin = self.admin
         }
     }

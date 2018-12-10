@@ -55,11 +55,11 @@ class LoginViewController: UIViewController {
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
+            print("Text field: \(String(describing: textField?.text))")
             
             //firebase
             NetworkManager.resetPassword(email: (textField?.text ?? ""))
-            let alert2 = UIAlertController(title: "Reset Password", message: "è stata mandata una mail per resettare la password alla mail \(textField?.text)", preferredStyle: .alert)
+            let alert2 = UIAlertController(title: "Reset Password", message: "è stata mandata una mail per resettare la password alla mail \(String(describing: textField?.text))", preferredStyle: .alert)
             let actionName = UIAlertAction(title: "Letto", style: .cancel, handler: nil)
             alert2.addAction(actionName)
             self.present(alert2, animated: true, completion: nil)

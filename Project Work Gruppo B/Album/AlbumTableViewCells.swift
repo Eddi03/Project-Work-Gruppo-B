@@ -8,11 +8,11 @@
 //
 import UIKit
 
-class ListaAlbumTableViewCell: UITableViewCell {
+class AlbumTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleAlbumTextField: UITextField!
     @IBOutlet weak var infoAlbumTextField: UITextField!
-
+    static var kIdentifier = "AlbumTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

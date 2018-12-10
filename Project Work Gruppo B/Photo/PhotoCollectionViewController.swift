@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 
-class ShowAlbumViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
     var myCollectionView: UICollectionView!
     var imageArray=[UIImage]()

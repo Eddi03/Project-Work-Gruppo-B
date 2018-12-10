@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateTopicController: UIViewController {
+class AddTopicViewController: UIViewController {
 
     var titleTopic : String = ""
     var infoTopic : String = ""
