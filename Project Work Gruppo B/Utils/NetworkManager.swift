@@ -343,22 +343,33 @@ class NetworkManager : NSObject{
                 completion(false)
             } else {
                 print("Document successfully written!")
+                topic.save()
                 completion(true)
             }
         }
     }
     
-    static func getTopics(completion : @escaping([Topic])->Void){
+    static func getTopics(completion : @escaping(Bool)->Void){
         var listaTopics : [Topic] = []
         NetworkManager.db?.collection("Topics").getDocuments{ (documentSnapshot, error) in
         guard let document = documentSnapshot else {return }
         for element in document.documents{
             debugPrint(element)
+            /*
             let topic = Topic(title: element["title"] as! String, info: element["info"] as! String)
-            listaTopics.append(topic)
+            listaTopics.append(topic) */
+            
+            do {
+                try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
+                
+            } catch let error {
+                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
+                completion(false)
+                return //mi fa uscire dalla funzione
+            }
             
         }
-            completion(listaTopics)
+            completion(true)
             
         }
     }
@@ -367,6 +378,27 @@ class NetworkManager : NSObject{
     //ALBUM
     
     static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
+        
+        do{
+            let parameters = try album.asDictionary()
+            
+            db!.collection("Albums").document(album.id).setData(
+                parameters
+                ,merge: true,completion: { (err) in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                        completion(false)
+                    }else{
+                        album.save()
+                        completion(true)
+                    }
+            })
+            
+            
+        }catch let error{
+            
+        }
+        /*
         db!.collection("Albums").document(album.id).setData([
             "title" : album.title,
             "info" : album.info,
@@ -378,21 +410,37 @@ class NetworkManager : NSObject{
                 if let err = err {
                     print("Error adding document: \(err)")
                     completion(false)
+                }else{
+                    album.save()
+                    completion(true)
                 }
-                completion(true)
-        })
+                 })
+ */
     }
-    static func getAlbums(completion : @escaping([Album])->Void){
+    static func getAlbums(completion : @escaping(Bool)->Void){
         var listaAlbums : [Album] = []
         NetworkManager.db?.collection("Albums").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
             for element in document.documents{
                 debugPrint(element)
+                /*
                 let album = Album(title: element["title"] as! String, info: element["info"] as! String, completed: element["completed"] as! Bool)
                 listaAlbums.append(album)
+                */
+                
+                do {
+                    try FirebaseDecoder().decode(Album.self, from: element.data()).save()
+                    
+                } catch let error {
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
+                    completion(false)
+                    return //mi fa uscire dalla funzione
+                }
                 
             }
-            completion(listaAlbums)
+            
+            
+            completion(true)
             
         }
     }

@@ -28,15 +28,32 @@ class AlbumListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
+        //albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
+        /*
+        NetworkManager.getAlbums{ (listaAlbums) in
+            self.albums = listaAlbums
+            print("coseeee albummmmm", self.albums)
+        }
+ */
     }
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkManager.getAlbums{ (success) in
+            if success{
+            self.albums = Album.all()
+            print("coseeee albummmmm", self.albums)
+            self.tableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func addAlbumAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        albums = Album.all()    }
+        //albums = Album.all()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self

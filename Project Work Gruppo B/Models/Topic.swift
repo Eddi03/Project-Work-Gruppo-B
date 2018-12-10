@@ -9,7 +9,8 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class Topic: Object {
+
+@objcMembers class Topic: Object, Codable {
     
     dynamic var title : String!
     dynamic var info: String!

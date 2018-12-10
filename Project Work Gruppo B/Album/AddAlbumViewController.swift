@@ -33,11 +33,12 @@ class AddAlbumViewController: UIViewController {
         
         NetworkManager.addAlbum(album: album){(success) in
             if success{
-                
+                self.dismiss(animated: true, completion: nil)
             }else{
                 GeneralUtils.share.alertError(title: "Attenzione", message: "non è stato salvato l'album")
             }
         }
+        
 
     }
     

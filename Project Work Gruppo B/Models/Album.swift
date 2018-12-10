@@ -10,7 +10,7 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class Album: Object {
+@objcMembers class Album: Object, Codable {
     dynamic var title : String!
     dynamic var info: String!
     dynamic var id : String!
