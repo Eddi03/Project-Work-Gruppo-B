@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+protocol AddAlbumDelegate{
+    func addAlbum(album : Album)
+}
 class AddAlbumViewController: UIViewController {
-
+    var addAlbumDelegate : AddAlbumDelegate!
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var infoOutlet: UITextField!
     

@@ -60,6 +60,9 @@ class TopicListViewController: UIViewController {
         if let destinationSegue = segue.destination as? AddTopicViewController{
             destinationSegue.addTopicDelegate = self
         }
+        if let destinationSegue = segue.destination as? AlbumListViewController{
+            destinationSegue.admin = admin
+        }
     }
     
     
@@ -101,6 +104,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == TOPIC_INFO{
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
+            debugPrint("ciao")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -134,11 +138,11 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case TOPIC_INFO:
-            return 140
+            return 100
         case EMPTY_LIST:
-            return 80
+            return 60
         case ADD_TOPIC:
-            return 80
+            return 60
         default:
             return 0
         }

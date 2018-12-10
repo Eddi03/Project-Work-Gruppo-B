@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Project Work Gruppo B
+
+  Created by Eddi Raimondi on 10/12/2018.
+  Copyright © 2018 Eddi. All rights reserved.
+*/
+
+// LaunchScreen Storyboard
+kTitleApp = "TITOLO APP";
+kCopyright = "Copyright (c) 2018 ITS - Tutti i diritti Riservati";
+
+// Authentication Storyboard
+kTitleApp = "TITOLO APP";
+kWelcomeLabel = "Benvenuto, ";
+kLoginButton = "Accedi";
+kSignUpButton = "Registrati";

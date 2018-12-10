@@ -30,6 +30,9 @@ class SaveViewController: UIViewController {
         registerButton.layer.cornerRadius = 18
         registerButton.clipsToBounds = true
         emailOutlet.text = email
+      
+        self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;
+        self.imageOutlet.clipsToBounds = true;
         
         // Do any additional setup after loading the view.
     }

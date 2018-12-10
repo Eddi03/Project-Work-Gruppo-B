@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyListAlbumsTableViewCell" id="sT2-Xb-cHM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyListAlbumsTableViewCell" id="sT2-Xb-cHM" customClass="EmptyListAlbumsTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sT2-Xb-cHM" id="QWS-28-Hyy">
@@ -61,6 +61,9 @@
                                                 <constraint firstItem="xfg-zf-Gqp" firstAttribute="centerX" secondItem="QWS-28-Hyy" secondAttribute="centerX" id="vcr-e0-xvS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messagge" destination="xfg-zf-Gqp" id="y2d-Ha-xRM"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="AlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="116"/>
@@ -69,7 +72,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-DQ-xX9">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Folder Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-DQ-xX9">
                                                     <rect key="frame" x="16" y="8" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="Mzn-BI-3Jb"/>
@@ -101,11 +104,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="infoAlbumTextField" destination="Hpx-1B-5uO" id="6uN-Gn-bzA"/>
-                                            <outlet property="titleAlbumTextField" destination="Jbk-NB-qza" id="Lck-qJ-SYM"/>
+                                            <outlet property="info" destination="Hpx-1B-5uO" id="XWp-5A-MP0"/>
+                                            <outlet property="title" destination="Jbk-NB-qza" id="5xP-cY-eza"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlbumTableViewCell" rowHeight="128" id="8Zj-Ke-5oT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlbumTableViewCell" rowHeight="128" id="8Zj-Ke-5oT" customClass="AddAlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Zj-Ke-5oT" id="ZY9-Rc-7MF">
@@ -116,6 +119,9 @@
                                                     <rect key="frame" x="157" y="48" width="61" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Aggiungi"/>
+                                                    <connections>
+                                                        <action selector="addAlbumAction:" destination="ABr-h1-HAy" eventType="touchUpInside" id="5Ts-pC-HbK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -140,6 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="HNS-7t-I8W"/>
                     </view>
                     <connections>
+                        <outlet property="search" destination="cLY-Bc-4oy" id="GbM-xe-Pn5"/>
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
                         <segue destination="stU-nN-Dxg" kind="show" identifier="segueToAddAlbum" id="jhj-47-n5i"/>
                     </connections>
@@ -197,7 +204,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S28-oM-Ar9">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Folder Icon" translatesAutoresizingMaskIntoConstraints="NO" id="S28-oM-Ar9">
                                                     <rect key="frame" x="16" y="8" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="RXh-kA-1We"/>
@@ -322,6 +329,7 @@
                                     <constraint firstAttribute="height" constant="75" id="Mf3-Me-0tm"/>
                                     <constraint firstAttribute="width" constant="75" id="h3y-82-ZJA"/>
                                 </constraints>
+                                <state key="normal" image="User Placeholder"/>
                                 <connections>
                                     <action selector="changeImage:" destination="kSb-Wo-CkQ" eventType="touchUpInside" id="BG9-qJ-TnH"/>
                                 </connections>
@@ -494,7 +502,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="puU-9X-5cU">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="puU-9X-5cU">
                                                     <rect key="frame" x="16" y="10" width="100" height="100"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="100" id="ChZ-lc-NJp"/>
@@ -552,7 +560,7 @@
             </objects>
             <point key="canvasLocation" x="1989.5999999999999" y="-708.39580209895053"/>
         </scene>
-        <!--Nuovo Album-->
+        <!--Nuovo album-->
         <scene sceneID="vGg-vq-lQT">
             <objects>
                 <viewController id="stU-nN-Dxg" customClass="AddAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -587,9 +595,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="infoOutlet" destination="aoM-9Y-i0J" id="43G-Hw-VR2"/>
-                        <outlet property="infoTopicTextField" destination="aoM-9Y-i0J" id="50p-vA-CUr"/>
                         <outlet property="nameOutlet" destination="Dew-Jv-nOp" id="AtU-Xd-P0b"/>
-                        <outlet property="titleTopicTextField" destination="Dew-Jv-nOp" id="2WH-Nv-rZU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJZ-yx-WrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,5 +603,9 @@
             <point key="canvasLocation" x="1990" y="16"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
+    </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -1,0 +1,45 @@
+/* 
+  Localizable.strings
+  Project Work Gruppo B
+
+  Created by Eddi Raimondi on 10/12/2018.
+  Copyright © 2018 Eddi. All rights reserved.
+*/
+
+// LaunchScreen Storyboard
+kTitleApp = "TITLE APP";
+kCopyright = "Copyright (c) 2018 ITS - All Rights Reserved";
+
+// Authentication Storyboard
+kTitleApp = "TITLE APP";
+kWelcomeLabel = "Welcome, ";
+kLoginButton = "Login";
+kSignUpButton = "SignUp";
+
+// Authentication Storyboard - LOGIN
+kLoginTitle = "Login";
+kLoginEmailTextField = "E-Mail";
+kLoginPasswordField = "Password";
+// kLoginButton idem sopra
+kResetPasswordButton = "Reset Password";
+
+// Authentication Storyboard - LOGIN - ALERT RESET PASSWORD
+kAlertResetPasswordTitle = "Reset Password";
+kAlertResetPasswordMessage = "Type your e-mail";
+kAlertEmailTextField = "E-Mail";
+kAlertCancelButton = "Cancel";
+kAlertSendButton = "Send";
+kAlertMessageEmailSent = "An e-mail was sent to your Account";
+
+// Authentication Storyboard - LOGIN - ALERT LOGIN ERROR
+kAlertErrorTitle = "Error";
+kAlertErrorMessage = "The password is invalid or the user does not have a passoword";
+kAlertErrorOkButton = "Ok";
+
+// Authentication Storyboard - SIGNUP
+kNavBarBackMessage = "Back";
+kNavBarTitle = "SignUp";
+kSignUpEmailTextField = "E-Mail";
+kSignUpPasswordField = "Password";
+kSignUpConfirmPasswordTextField = "Confirm Password";
+kSignUpNextButton = "Next";

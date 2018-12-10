@@ -58,6 +58,11 @@ import RealmSwift
         }catch {}
     }
     
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Album] {
+        return Array(realm.objects(Album.self))
+    }
+    
 
+    
     
 }
