@@ -12,6 +12,9 @@ class AccountViewController: UIViewController {
 
     var user : User!
     
+        
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,12 +41,22 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var buttonOutlet: UIButton!
     @IBAction func buttonAction(_ sender: UIButton) {
-     
-        var currentName = nameOutlet.text
-        var currentSurname = surnameOutlet.text
+    
+       
+        let currentName = nameOutlet.text
+        let currentSurname = surnameOutlet.text
         
-        
-    }
+        let pippo = User(email: user.email, name: currentName, surname: currentSurname, id: user.id, image: user.image, supervisor: user.supervisor)
+    
+   
+        NetworkManager.addUser(user: pippo, completion: { (success) in
+            self.dismiss(animated: true, completion: {
+                
+            })
+        })
+    
+}
+    
     @IBOutlet weak var surnameOutlet: UITextField!
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var imageOutlet: UIButton!
