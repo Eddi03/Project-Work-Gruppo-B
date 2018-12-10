@@ -25,6 +25,7 @@
 		6CB3173E21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3173D21AE89F20037FE62 /* Project_Work_Gruppo_BUITests.swift */; };
 		6CB3174C21AE94320037FE62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */; };
 		7F10A3BA21AEAACB00F48481 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F10A3B921AEAACB00F48481 /* Authentication.storyboard */; };
+		7F4EBA2221BE714700AB8F7F /* AddAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4EBA2121BE714700AB8F7F /* AddAlbumViewController.swift */; };
 		7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC61E6D21B6836300F42F15 /* StartViewController.swift */; };
 		7FE273B221B7D663003CC4EA /* AlbumStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE273B121B7D663003CC4EA /* AlbumStoryboard.storyboard */; };
 		7FE273B721B7EA91003CC4EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE273B621B7EA91003CC4EA /* AccountViewController.swift */; };
@@ -90,6 +91,7 @@
 		6CB3173F21AE89F20037FE62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB3174B21AE94320037FE62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F10A3B921AEAACB00F48481 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		7F4EBA2121BE714700AB8F7F /* AddAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbumViewController.swift; sourceTree = "<group>"; };
 		7FC61E6D21B6836300F42F15 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7FE273B121B7D663003CC4EA /* AlbumStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlbumStoryboard.storyboard; sourceTree = "<group>"; };
 		7FE273B621B7EA91003CC4EA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				3756698521B6CB60003F1089 /* AlbumListViewController.swift */,
 				3756698921B6CD94003F1089 /* AlbumTableViewCells.swift */,
+				7F4EBA2121BE714700AB8F7F /* AddAlbumViewController.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -263,9 +266,9 @@
 			isa = PBXGroup;
 			children = (
 				7FFB574A21AED757002E8DB2 /* User.swift */,
+				3756698B21B6D031003F1089 /* Topic.swift */,
 				96377C4521B5653F009CADBD /* Album.swift */,
 				96377C4721B5653F009CADBD /* Photo.swift */,
-				3756698B21B6D031003F1089 /* Topic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
 				6C14A15221B7D235002AB9D6 /* LaunchScreenViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
+				7F4EBA2221BE714700AB8F7F /* AddAlbumViewController.swift in Sources */,
 				3756698A21B6CD94003F1089 /* AlbumTableViewCells.swift in Sources */,
 				3756698E21B6E5BF003F1089 /* AddUsersTopicViewController.swift in Sources */,
 				9614347721B7E87800A45C01 /* PhotoCollectionViewController.swift in Sources */,
