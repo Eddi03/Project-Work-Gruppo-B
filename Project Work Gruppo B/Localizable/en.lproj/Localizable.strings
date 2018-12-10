@@ -33,13 +33,33 @@ kAlertMessageEmailSent = "An e-mail was sent to your Account";
 
 // Authentication Storyboard - LOGIN - ALERT LOGIN ERROR
 kAlertErrorTitle = "Error";
-kAlertErrorMessage = "The password is invalid or the user does not have a passoword";
+kAlertErrorPasswordMessage = "The password is invalid or the user does not have a passoword";
+kAlertErrorNoUserMessage = "There is no user record corresponding to this identifier. The user may have been deleted.";
 kAlertErrorOkButton = "Ok";
 
 // Authentication Storyboard - SIGNUP
 kNavBarBackMessage = "Back";
-kNavBarTitle = "SignUp";
+kNavBarSignUpTitle = "SignUp";
 kSignUpEmailTextField = "E-Mail";
 kSignUpPasswordField = "Password";
 kSignUpConfirmPasswordTextField = "Confirm Password";
 kSignUpNextButton = "Next";
+
+// Authentication Storyboard - FINISH SIGNUP
+kFinishSignUpName = "Name";
+kFinischSignUpSurname = "Surname";
+kSwitchAdmin = "Admin";
+kFinischSignUpButton = "Complete SignUp";
+
+// TopicListViewController
+kNavBarTopicHomeTitle = "Home";
+kNavBarAccountButton = "Account";
+kSearchBarPlaceholder = "Search Here";
+kNoTopicLabel = "Nothing to display...";
+kAddTopicButton = "Add Topic";
+
+// TopicListViewController - ACCOUNT
+kNavBarBackToHome = "Home";
+kNavBarAccountTitle = "Account";
+kNavBarAccountLogout = "Logout";
+kAccountSaveButton = "Save";
