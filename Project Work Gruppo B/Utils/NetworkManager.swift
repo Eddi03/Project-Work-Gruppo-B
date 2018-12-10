@@ -313,4 +313,32 @@ class NetworkManager : NSObject{
             }
         }
     }
+    
+    static func getUserLoggedData(completion : @escaping(User) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        self.db?.collection("Users").document(uid).getDocument(completion: { (documentSnapshot, error) in
+            if let error = error{
+                print(error)
+                //completion(false)
+            }
+            else{
+                if let document = documentSnapshot?.data(){
+                    do{
+                        debugPrint(document)
+                        try FirebaseDecoder().decode(User.self, from: document).save()
+                        let user = (User.getUser(withid: uid)!)
+                        completion(user)
+                    }catch{
+                        print(error)
+                       // completion(false)
+                    }
+                }
+                
+                
+                
+            }
+        })
+        
+    }
+    
 }
