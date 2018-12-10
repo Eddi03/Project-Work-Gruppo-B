@@ -117,11 +117,11 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case TOPIC_INFO:
-            return 140
+            return 100
         case EMPTY_LIST:
-            return 80
+            return 60
         case ADD_TOPIC:
-            return 80
+            return 60
         default:
             return 0
         }

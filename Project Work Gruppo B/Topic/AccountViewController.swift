@@ -18,6 +18,9 @@ class AccountViewController: UIViewController {
         buttonOutlet.layer.cornerRadius = 18
         buttonOutlet.clipsToBounds = true
         
+        self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;
+        self.imageOutlet.clipsToBounds = true;
+        
         NetworkManager.getUserLoggedData { (user) in
             self.user = user
             

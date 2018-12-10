@@ -48,8 +48,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `Folder Icon`.
+    static let folderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Folder Icon")
+    /// Image `User Placeholder`.
+    static let userPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "User Placeholder")
+    
+    /// `UIImage(named: "Folder Icon", bundle: ..., traitCollection: ...)`
+    static func folderIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.folderIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "User Placeholder", bundle: ..., traitCollection: ...)`
+    static func userPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.userPlaceholder, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -313,6 +328,7 @@ struct _R: Rswift.Validatable {
     static func validate() throws {
       try authentication.validate()
       try whiteStoryboard.validate()
+      try mainStoryboard.validate()
     }
     
     struct albumStoryboard: Rswift.StoryboardResourceType {
@@ -334,6 +350,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       
@@ -349,11 +366,16 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct mainStoryboard: Rswift.StoryboardResourceWithInitialControllerType {
+    struct mainStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UINavigationController
       
       let bundle = R.hostingBundle
       let name = "MainStoryboard"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
