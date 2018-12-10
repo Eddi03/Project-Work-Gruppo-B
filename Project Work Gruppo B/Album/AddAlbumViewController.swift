@@ -21,18 +21,22 @@ class AddAlbumViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-//
-//        let album: Album = Album()
-//
-//        let currentName = nameOutlet.text ?? ""
-//        let currentInfo = infoOutlet.text ?? ""
-//
-//        album = Album(title: currentName, info: currentInfo, completed: <#T##Bool?#>)
-//        album.title = currentName
-//        album.info = currentInfo
-//
-//        NetworkManager.addAlbum(album: <#T##Album#>, completion: <#T##(Bool) -> ()#>)
-//
+
+        var album: Album = Album()
+
+        let currentName = nameOutlet.text ?? ""
+        let currentInfo = infoOutlet.text ?? ""
+
+        album = Album(title: currentName, info: currentInfo, completed: nil)
+        
+        NetworkManager.addAlbum(album: album){(success) in
+            if success{
+                
+            }else{
+                GeneralUtils.share.alertError(title: "Attenzione", message: "non è stato salvato l'album")
+            }
+        }
+
     }
     
     /*

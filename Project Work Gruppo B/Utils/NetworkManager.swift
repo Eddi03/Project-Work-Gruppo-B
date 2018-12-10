@@ -45,22 +45,7 @@ class NetworkManager : NSObject{
                 completion(true)
         })
     }
-    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
-        db!.collection("Albums").document(album.id).setData([
-            "title" : album.title,
-            "info" : album.info,
-
-            "photos" : album.getPhotos(),
-            "completed" : false,
-            "id" : album.id
-            ],merge: true,completion: { (err) in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                    completion(false)
-                }
-                completion(true)
-        })
-    }
+   
     
 //    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
 //
@@ -340,5 +325,77 @@ class NetworkManager : NSObject{
         })
         
     }
+    
+    //TOPIC
+    
+    static func addTopic(topic: Topic, completion : @escaping(Bool)->Void){
+        
+        var id = UUID().uuidString
+        db?.collection("Topics").document(id).setData([
+            "id": topic.id,
+            "title": topic.title,
+            "info": topic.info,
+            "users": topic.getUsers(),
+            "albums": topic.getAlbums()
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully written!")
+                completion(true)
+            }
+        }
+    }
+    
+    static func getTopics(completion : @escaping([Topic])->Void){
+        var listaTopics : [Topic] = []
+        NetworkManager.db?.collection("Topics").getDocuments{ (documentSnapshot, error) in
+        guard let document = documentSnapshot else {return }
+        for element in document.documents{
+            debugPrint(element)
+            let topic = Topic(title: element["title"] as! String, info: element["info"] as! String)
+            listaTopics.append(topic)
+            
+        }
+            completion(listaTopics)
+            
+        }
+    }
+    
+    
+    //ALBUM
+    
+    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
+        db!.collection("Albums").document(album.id).setData([
+            "title" : album.title,
+            "info" : album.info,
+            
+            "photos" : album.getPhotos(),
+            "completed" : false,
+            "id" : album.id
+            ],merge: true,completion: { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completion(false)
+                }
+                completion(true)
+        })
+    }
+    static func getAlbums(completion : @escaping([Album])->Void){
+        var listaAlbums : [Album] = []
+        NetworkManager.db?.collection("Albums").getDocuments{ (documentSnapshot, error) in
+            guard let document = documentSnapshot else {return }
+            for element in document.documents{
+                debugPrint(element)
+                let album = Album(title: element["title"] as! String, info: element["info"] as! String, completed: element["completed"] as! Bool)
+                listaAlbums.append(album)
+                
+            }
+            completion(listaAlbums)
+            
+        }
+    }
+    
     
 }

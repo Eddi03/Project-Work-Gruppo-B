@@ -22,14 +22,34 @@ class TopicListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     var topics : [Topic] = []
     var admin : Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         search.delegate = self
-        
+        NetworkManager.getTopics{ (listaTopics) in
+            self.topics = listaTopics
+            print("coseeeeeeeeeeeee", listaTopics, self.topics)
+        }*/
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkManager.getTopics{ (listaTopics) in
+            self.topics = listaTopics
+            print("coseeeeeeeeeeeee", listaTopics, self.topics)
+            self.tableView.reloadData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
-        topics = Topic.all()
+        /*
+        search.delegate = self
+        NetworkManager.getTopics{ (listaTopics) in
+            self.topics = listaTopics
+            print("coseeeeeeeeeeeee", listaTopics, self.topics)
+        }
+        //topics = Topic.all()
+ */
         tableView.reloadData()
+ 
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -66,6 +86,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         }
         if topics.isEmpty{
             if section == EMPTY_LIST{
+                print("jneioqcfrfvbhrewf eiwvnhoewv")
                 return 1
             }
         }
