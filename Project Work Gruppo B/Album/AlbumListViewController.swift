@@ -32,6 +32,15 @@ class AlbumListViewController: UIViewController {
        search.delegate = self
     }
     @IBAction func addAlbumAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        albums = Album.all()    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? AddAlbumViewController{
+            destinationSegue.addAlbumDelegate = self
+        }
     }
 }
 
@@ -82,10 +91,6 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
         case ADD_ALBUM:
             let cell = tableView.dequeueReusableCell(withIdentifier: AddAlbumTableViewCell.kIdentifier, for: indexPath) as! AddAlbumTableViewCell
             return cell
-        case EMPTY_LIST:
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmptyListAlbumsTableViewCell.kIdentifier, for: indexPath) as! EmptyListAlbumsTableViewCell
-            cell.message.text = "non ghe se niente"
-            return cell
         default:
             return UITableViewCell()
         }
@@ -127,5 +132,15 @@ extension AlbumListViewController: UISearchBarDelegate {
         searchBar.text = ""
         tableView.reloadData()
     }
+    
+}
+
+extension AlbumListViewController : AddAlbumDelegate{
+    func addAlbum(album: Album) {
+        album.save()
+        albums = Album.all()
+        tableView.reloadData()
+    }
+    
     
 }

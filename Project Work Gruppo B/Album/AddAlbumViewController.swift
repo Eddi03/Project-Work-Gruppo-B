@@ -7,9 +7,11 @@
 //
 
 import UIKit
-
+protocol AddAlbumDelegate{
+    func addAlbum(album : Album)
+}
 class AddAlbumViewController: UIViewController {
-
+    var addAlbumDelegate : AddAlbumDelegate!
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var infoOutlet: UITextField!
     
@@ -21,16 +23,17 @@ class AddAlbumViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-//
-//        let album: Album = Album()
-//
-//        let currentName = nameOutlet.text ?? ""
-//        let currentInfo = infoOutlet.text ?? ""
-//
-//        album = Album(title: currentName, info: currentInfo, completed: <#T##Bool?#>)
-//        album.title = currentName
-//        album.info = currentInfo
-//
+        let titleAlbum = nameOutlet.text ?? ""
+        let infoAlbum = infoOutlet.text ?? ""
+        
+        guard !titleAlbum.isEmpty && !infoAlbum.isEmpty else {
+            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
+            return
+        }
+        var album = Album(title: titleAlbum, info: infoAlbum, completed: false)
+        addAlbumDelegate.addAlbum(album: album)
+        self.navigationController?.popViewController(animated: true)
+
 //        NetworkManager.addAlbum(album: <#T##Album#>, completion: <#T##(Bool) -> ()#>)
 //
     }
