@@ -17,6 +17,7 @@ class AddTopicViewController: UIViewController {
     var topic : Topic!
     //var topic : Topic = Topic()
     
+    @IBOutlet weak var addButtonOutlet: UIButton!
     @IBOutlet weak var infoTopicTextField: UITextField!
     @IBOutlet weak var titleTopicTextField: UITextField!
     
@@ -24,6 +25,8 @@ class AddTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addButtonOutlet.layer.cornerRadius = 18
+        addButtonOutlet.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

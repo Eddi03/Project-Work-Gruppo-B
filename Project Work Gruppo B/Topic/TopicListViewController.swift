@@ -25,12 +25,7 @@ class TopicListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        search.delegate = self
-        NetworkManager.getTopics{ (listaTopics) in
-            self.topics = listaTopics
-            print("coseeeeeeeeeeeee", listaTopics, self.topics)
-        }*/
+        search.delegate = self        
     }
     override func viewDidAppear(_ animated: Bool) {
         NetworkManager.getTopics{ (success) in
@@ -106,7 +101,6 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == TOPIC_INFO{
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
-            debugPrint("ciao")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
