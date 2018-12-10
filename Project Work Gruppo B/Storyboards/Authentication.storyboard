@@ -34,8 +34,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ4-JP-tpJ">
-                                <rect key="frame" x="25" y="541" width="325" height="30"/>
+                                <rect key="frame" x="25" y="541" width="325" height="36"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="I56-kc-NpZ"/>
+                                </constraints>
                                 <state key="normal" title="Accedi">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -44,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-rX-lAK">
-                                <rect key="frame" x="155" y="601" width="65" height="30"/>
+                                <rect key="frame" x="155" y="607" width="65" height="30"/>
                                 <state key="normal" title="Registrati"/>
                                 <connections>
                                     <action selector="toRegisterAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="kQS-ox-7lX"/>
@@ -92,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-825" y="80"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Accedi-->
         <scene sceneID="A5J-2I-pAJ">
             <objects>
                 <viewController id="wsE-1e-CVY" customClass="LoginViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,7 +175,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IvR-bK-SkW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yW5-m7-37X"/>
+                    <navigationItem key="navigationItem" title="Accedi" id="yW5-m7-37X"/>
                     <connections>
                         <outlet property="emailField" destination="oB8-FL-hNn" id="Fp8-Cl-pI6"/>
                         <outlet property="loginButton" destination="tii-0b-rfb" id="FQY-F8-ah3"/>
@@ -309,7 +312,7 @@
             </objects>
             <point key="canvasLocation" x="934" y="773"/>
         </scene>
-        <!--Save View Controller-->
+        <!--Inserisci i tuoi dati-->
         <scene sceneID="JGN-Dp-Muw">
             <objects>
                 <viewController storyboardIdentifier="SaveViewController" id="bDy-rc-8gt" customClass="SaveViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -423,7 +426,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EuL-4N-mwd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MDN-bt-Fw3"/>
+                    <navigationItem key="navigationItem" title="Inserisci i tuoi dati" id="MDN-bt-Fw3"/>
                     <connections>
                         <outlet property="emailOutlet" destination="DKO-KK-H6Q" id="nQz-60-15J"/>
                         <outlet property="imageOutlet" destination="6du-jd-S3r" id="No4-66-UPB"/>

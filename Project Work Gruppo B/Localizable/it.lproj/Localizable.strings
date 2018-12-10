@@ -1,0 +1,65 @@
+/* 
+  Localizable.strings
+  Project Work Gruppo B
+
+  Created by Eddi Raimondi on 10/12/2018.
+  Copyright © 2018 Eddi. All rights reserved.
+*/
+
+// LaunchScreen Storyboard
+kTitleApp = "TITOLO APP";
+kCopyright = "Copyright (c) 2018 ITS - Tutti i diritti Riservati";
+
+// Authentication Storyboard
+kTitleApp = "TITOLO APP";
+kWelcomeLabel = "Benvenuto, ";
+kLoginButton = "Accedi";
+kSignUpButton = "Registrati";
+
+// Authentication Storyboard - LOGIN
+kLoginTitle = "Accedi";
+kLoginEmailTextField = "E-Mail";
+kLoginPasswordField = "Password";
+// kLoginButton idem sopra
+kResetPasswordButton = "Reset Password";
+
+// Authentication Storyboard - LOGIN - ALERT RESET PASSWORD
+kAlertResetPasswordTitle = "Reset Password";
+kAlertResetPasswordMessage = "Scrivi la tua e-mail";
+kAlertEmailTextField = "E-Mail";
+kAlertCancelButton = "Annulla";
+kAlertSendButton = "Invia";
+kAlertMessageEmailSent = "Una mail è stata inviata al tuo account!";
+
+// Authentication Storyboard - LOGIN - ALERT LOGIN ERROR
+kAlertErrorTitle = "Error";
+kAlertErrorPasswordMessage = "The password is invalid or the user does not have a passoword";
+kAlertErrorNoUserMessage = "There is no user record corresponding to this identifier. The user may have been deleted.";
+kAlertErrorOkButton = "Ok";
+
+// Authentication Storyboard - SIGNUP
+kNavBarBackMessage = "Indietro";
+kNavBarSignUpTitle = "Registrati";
+kSignUpEmailTextField = "E-Mail";
+kSignUpPasswordField = "Password";
+kSignUpConfirmPasswordTextField = "Conferma Password";
+kSignUpNextButton = "Avanti";
+
+// Authentication Storyboard - FINISH SIGNUP
+kFinishSignUpName = "Nome";
+kFinischSignUpSurname = "Cognome";
+kSwitchAdmin = "Amministratore";
+kFinischSignUpButton = "Completa Registrazione";
+
+// TopicListViewController
+kNavBarTopicHomeTitle = "Home";
+kNavBarAccountButton = "Profilo";
+kSearchBarPlaceholder = "Cerca Qui";
+kNoTopicLabel = "Non c'è ancora niente qui...";
+kAddTopicButton = "Aggiungi un Argomento";
+
+// TopicListViewController - ACCOUNT
+kNavBarBackToHome = "Home";
+kNavBarAccountTitle = "Profilo";
+kNavBarAccountLogout = "Esci";
+kAccountSaveButton = "Salva";
