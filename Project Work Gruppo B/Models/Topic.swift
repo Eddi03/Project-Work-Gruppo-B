@@ -37,5 +37,8 @@ import RealmSwift
             }
         } catch {}
     }
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
+        return Array(realm.objects(Topic.self))
+    }
     
 }

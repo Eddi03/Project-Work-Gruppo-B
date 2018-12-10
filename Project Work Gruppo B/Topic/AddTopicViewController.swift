@@ -7,11 +7,14 @@
 //
 
 import UIKit
-
+protocol AddTopicDelegate{
+    func addTopic(topic: Topic)
+}
 class AddTopicViewController: UIViewController {
-
+    var addTopicDelegate : AddTopicDelegate!
     var titleTopic : String = ""
     var infoTopic : String = ""
+    var topic : Topic!
     //var topic : Topic = Topic()
    
     @IBOutlet weak var infoTopicTextField: UITextField!
@@ -23,8 +26,23 @@ class AddTopicViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+  
     
-    @IBAction func avantiActionButton(_ sender: Any) {
+    @IBAction func addTopicAction(_ sender: Any) {
+        titleTopic = titleTopicTextField.text ?? ""
+        infoTopic = infoTopicTextField.text ?? ""
+        
+        guard !titleTopic.isEmpty && !infoTopic.isEmpty else {
+            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
+            return
+        }
+        topic = Topic(title: titleTopic, info: infoTopic)
+        addTopicDelegate.addTopic(topic: topic)
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func addUsersActionButton(_ sender: Any) {
         titleTopic = titleTopicTextField.text ?? ""
         infoTopic = infoTopicTextField.text ?? ""
         
@@ -33,7 +51,8 @@ class AddTopicViewController: UIViewController {
             return
         }
         
-        self.performSegue(withIdentifier: "segueToAddUser", sender: self)
+        topic = Topic(title: titleTopic, info: infoTopic)
+        self.performSegue(withIdentifier: R.segue.addTopicViewController.segueToAddUser, sender: self)
         
         
         /*topic = Topic(title: titleAlbum, info: infoAlbum, completed: nil)
@@ -49,14 +68,11 @@ class AddTopicViewController: UIViewController {
  */
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destinationSegue = segue.destination as? AddUsersTopicViewController{
+            destinationSegue.addTopicDelegate = self.addTopicDelegate
+            destinationSegue.topic = topic
+        }
     }
-    */
 
 }

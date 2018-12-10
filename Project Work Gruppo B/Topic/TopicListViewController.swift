@@ -20,31 +20,27 @@ class TopicListViewController: UIViewController {
     var searching = false
     @IBOutlet weak var search: UISearchBar!
     @IBOutlet var tableView: UITableView!
-    var listaTopic : [Topic] = []
+    var topics : [Topic] = []
     var admin : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.listaTopic.append(Topic(title: "ciao", info: "idjwbocfh dhacw dbdc "))
         search.delegate = self
         
-        // Do any additional setup after loading the view.
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        topics = Topic.all()
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAccount, sender: self)
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? AddTopicViewController{
+            destinationSegue.addTopicDelegate = self
+        }
+    }
+
     
 }
 
@@ -64,10 +60,10 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
                 return searched.count
             }
             else{
-                return listaTopic.count
+                return topics.count
             }
         }
-        if listaTopic.isEmpty{
+        if topics.isEmpty{
             if section == EMPTY_LIST{
                 return 1
             }
@@ -97,8 +93,8 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
                 cell.titleTopic.text = searched[indexPath.row].title
                 cell.infoTopic.text = searched[indexPath.row].info
             } else {
-                cell.titleTopic.text = listaTopic[indexPath.row].title
-                cell.infoTopic.text = listaTopic[indexPath.row].info
+                cell.titleTopic.text = topics[indexPath.row].title
+                cell.infoTopic.text = topics[indexPath.row].info
             }
             return cell
         case ADD_TOPIC:
@@ -134,7 +130,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
 extension TopicListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searched = listaTopic.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searched = topics.filter({$0.title.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
         
@@ -145,5 +141,13 @@ extension TopicListViewController: UISearchBarDelegate {
         searchBar.text = ""
         tableView.reloadData()
     }
+    
+}
+extension TopicListViewController : AddTopicDelegate{
+    func addTopic(topic: Topic) {
+        topic.save()
+        tableView.reloadData()
+    }
+    
     
 }

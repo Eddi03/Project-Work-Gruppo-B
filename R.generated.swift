@@ -64,6 +64,8 @@ struct R: Rswift.Validatable {
     static let addAlbumTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
     /// Reuse identifier `AddTopicTableViewCell`.
     static let addTopicTableViewCell: Rswift.ReuseIdentifier<AddTopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddTopicTableViewCell")
+    /// Reuse identifier `AddUsersTableViewCell`.
+    static let addUsersTableViewCell: Rswift.ReuseIdentifier<AddUsersTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddUsersTableViewCell")
     /// Reuse identifier `AlbumTableViewCell`.
     static let albumTableViewCell: Rswift.ReuseIdentifier<AlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AlbumTableViewCell")
     /// Reuse identifier `EmptyListAlbumsTableViewCell`.
@@ -74,8 +76,6 @@ struct R: Rswift.Validatable {
     static let emptyUsersListTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyUsersListTableViewCell")
     /// Reuse identifier `TopicTableViewCell`.
     static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
-    /// Reuse identifier `UserTableViewCell`.
-    static let userTableViewCell: Rswift.ReuseIdentifier<AddUsersTableViewCell> = Rswift.ReuseIdentifier(identifier: "UserTableViewCell")
     
     fileprivate init() {}
   }
