@@ -267,6 +267,9 @@
                                                 <constraint firstItem="xJE-EI-YZh" firstAttribute="centerY" secondItem="nhM-R9-8i4" secondAttribute="centerY" id="lQV-QI-a0I"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addButtonOutlet" destination="xJE-EI-YZh" id="IwU-Uj-uvM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
