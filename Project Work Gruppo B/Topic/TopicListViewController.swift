@@ -33,10 +33,12 @@ class TopicListViewController: UIViewController {
         }*/
     }
     override func viewDidAppear(_ animated: Bool) {
-        NetworkManager.getTopics{ (listaTopics) in
-            self.topics = listaTopics
-            print("coseeeeeeeeeeeee", listaTopics, self.topics)
+        NetworkManager.getTopics{ (success) in
+            if success {
+            self.topics = Topic.all()
+            print("coseeeeeeeeeeeee", self.topics)
             self.tableView.reloadData()
+            }
         }
     }
     override func viewWillAppear(_ animated: Bool) {
