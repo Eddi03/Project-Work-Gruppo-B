@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var admin: Bool!
     
     override func viewDidAppear(_ animated: Bool) {
+        
         if Auth.auth().currentUser != nil {
             
             NetworkManager.checkIfDataIsFilled { (success) in

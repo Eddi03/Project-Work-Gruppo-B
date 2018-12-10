@@ -29,6 +29,8 @@ class RegisterViewController: UIViewController {
     
     @IBAction func registerAction(_ sender: Any) {
         
+        _ = UIViewController.displaySpinner(onView: self.view)
+        
         email = emailField.text
         password = passwordField.text
         repeatPassword = repeatPasswordField.text
@@ -36,6 +38,7 @@ class RegisterViewController: UIViewController {
         
         NetworkManager.signup(email: email, password: password){ (success) in
             if success{
+                _ = UIViewController.removeSpinner(spinner: self.view)
                 self.performSegue(withIdentifier: R.segue.registerViewController.segueToAdditionalData, sender: self)
             }
         }

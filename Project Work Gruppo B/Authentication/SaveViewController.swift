@@ -23,8 +23,10 @@ class SaveViewController: UIViewController {
     var email : String! = Auth.auth().currentUser?.email
     var id :String! = Auth.auth().currentUser?.uid
     var URLImage : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         registerButton.layer.cornerRadius = 18
         registerButton.clipsToBounds = true
         emailOutlet.text = email
