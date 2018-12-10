@@ -20,12 +20,14 @@ class AccountViewController: UIViewController {
         
         NetworkManager.getUserLoggedData { (user) in
             self.user = user
-          
+            
             self.nameOutlet.text = user.name
             self.surnameOutlet.text = user.surname
-            NetworkManager.dowloadImageProfile(withURL: user.image, completion: { (image) in
-                self.imageOutlet.setImage(image, for: .normal)
-            })
+            if user.image != nil{
+                NetworkManager.dowloadImageProfile(withURL: user.image, completion: { (image) in
+                    self.imageOutlet.setImage(image, for: .normal)
+                })
+            }
         }
         
         // Do any additional setup after loading the view.
