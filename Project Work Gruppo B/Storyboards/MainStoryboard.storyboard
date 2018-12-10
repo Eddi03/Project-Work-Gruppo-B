@@ -372,6 +372,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsz-AD-xXr">
                                 <rect key="frame" x="135.5" y="318.5" width="104" height="30"/>
                                 <state key="normal" title="Aggiungi utenti"/>
+                                <connections>
+                                    <action selector="addUsersActionButton:" destination="c2o-Ib-4Jo" eventType="touchUpInside" id="Agb-8t-IhC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -382,7 +385,11 @@
                         <viewLayoutGuide key="safeArea" id="J8j-F2-nSA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nuovo topic" id="ghB-E9-7pm">
-                        <barButtonItem key="rightBarButtonItem" title="Salva" id="hk9-dd-8rU"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salva" id="hk9-dd-8rU">
+                            <connections>
+                                <action selector="addTopicAction:" destination="c2o-Ib-4Jo" id="GLc-oc-WDC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="infoTopicTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
@@ -435,7 +442,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="120" id="xpG-Ug-4SY" customClass="AddUsersTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddUsersTableViewCell" rowHeight="120" id="xpG-Ug-4SY" customClass="AddUsersTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xpG-Ug-4SY" id="r7k-Gf-NqE">
@@ -486,7 +493,11 @@
                         <viewLayoutGuide key="safeArea" id="Rxs-E3-8AG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Aggiungi membri" id="YK7-nY-J5E">
-                        <barButtonItem key="rightBarButtonItem" title="Salva" id="z97-MC-5gW"/>
+                        <barButtonItem key="rightBarButtonItem" title="Salva" id="z97-MC-5gW">
+                            <connections>
+                                <action selector="addTopicAction:" destination="IeF-NS-0q6" id="afC-9Z-UPT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jnn-M9-7qE" id="WvC-Ee-11v"/>
