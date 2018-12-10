@@ -91,6 +91,12 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
         case ADD_ALBUM:
             let cell = tableView.dequeueReusableCell(withIdentifier: AddAlbumTableViewCell.kIdentifier, for: indexPath) as! AddAlbumTableViewCell
             return cell
+       
+        case EMPTY_LIST:
+            let cell = tableView.dequeueReusableCell(withIdentifier: EmptyListAlbumsTableViewCell.kIdentifier, for: indexPath) as! EmptyListAlbumsTableViewCell
+            cell.message.text = "non ghe se niente"
+            return cell
+            
         default:
             return UITableViewCell()
         }
@@ -110,7 +116,10 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == ALBUM_INFO{
+            self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

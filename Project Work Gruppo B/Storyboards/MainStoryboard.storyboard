@@ -62,14 +62,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="messagge" destination="xfg-zf-Gqp" id="y2d-Ha-xRM"/>
+                                            <outlet property="message" destination="xfg-zf-Gqp" id="jsE-Xw-oqg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="AlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="AlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9U3-Es-oQ1" id="eoD-Ph-cyL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Folder Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-DQ-xX9">
@@ -80,13 +80,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Album" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jbk-NB-qza">
-                                                    <rect key="frame" x="151" y="27" width="199" height="24"/>
+                                                    <rect key="frame" x="151" y="27" width="173" height="24"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qualcosasaasasasa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hpx-1B-5uO">
-                                                    <rect key="frame" x="151" y="59" width="199" height="21"/>
+                                                    <rect key="frame" x="151" y="59" width="173" height="21"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -197,11 +197,11 @@
                                             <outlet property="message" destination="n9T-SW-rFd" id="CyJ-24-zmT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicTableViewCell" rowHeight="116" id="SLH-ro-43u" customClass="TopicTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TopicTableViewCell" rowHeight="116" id="SLH-ro-43u" customClass="TopicTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SLH-ro-43u" id="0AE-C4-xUp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="115.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Folder Icon" translatesAutoresizingMaskIntoConstraints="NO" id="S28-oM-Ar9">
@@ -212,13 +212,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Topic" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qe-hf-dFd">
-                                                    <rect key="frame" x="151" y="27" width="199" height="24"/>
+                                                    <rect key="frame" x="151" y="27" width="173" height="24"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qualcosasaasasasa" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hy-fQ-XGr">
-                                                    <rect key="frame" x="151" y="59" width="199" height="21"/>
+                                                    <rect key="frame" x="151" y="59" width="173" height="21"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -513,7 +513,7 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jnn-M9-7qE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jnn-M9-7qE">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -558,19 +558,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked" translatesAutoresizingMaskIntoConstraints="NO" id="CXk-cP-28x">
-                                                    <rect key="frame" x="304" y="40" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="Gh7-1C-uXy"/>
-                                                        <constraint firstAttribute="height" constant="40" id="iZ1-lT-ENs"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="654-Y7-vRd"/>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="leading" secondItem="r7k-Gf-NqE" secondAttribute="leading" constant="16" id="KAA-g4-RoW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CXk-cP-28x" secondAttribute="trailing" constant="16" id="sfQ-WA-oDN"/>
-                                                <constraint firstItem="CXk-cP-28x" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="tGI-oQ-ySN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -681,9 +672,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

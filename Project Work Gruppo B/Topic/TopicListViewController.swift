@@ -13,8 +13,6 @@ class TopicListViewController: UIViewController {
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
     
-
-    
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
@@ -26,9 +24,7 @@ class TopicListViewController: UIViewController {
     var admin : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
-        search.delegate = self
-
-        
+        search.delegate = self        
     }
     override func viewWillAppear(_ animated: Bool) {
         topics = Topic.all()
@@ -86,7 +82,6 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == TOPIC_INFO{
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
-            debugPrint("ciao")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
