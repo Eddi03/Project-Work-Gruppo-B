@@ -13,8 +13,6 @@ class TopicListViewController: UIViewController {
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
     
-    @IBOutlet weak var addButtonOutlet: UIButton!
-    
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
@@ -26,10 +24,7 @@ class TopicListViewController: UIViewController {
     var admin : Bool!
     override func viewDidLoad() {
         super.viewDidLoad()
-        search.delegate = self
-        addButtonOutlet.layer.cornerRadius = 18
-        addButtonOutlet.clipsToBounds = true
-        
+        search.delegate = self        
     }
     override func viewWillAppear(_ animated: Bool) {
         topics = Topic.all()

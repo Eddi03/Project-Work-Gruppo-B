@@ -806,7 +806,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
