@@ -29,6 +29,7 @@ class TopicListViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         topics = Topic.all()
+        tableView.reloadData()
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -40,7 +41,7 @@ class TopicListViewController: UIViewController {
             destinationSegue.addTopicDelegate = self
         }
     }
-
+    
     
 }
 
@@ -76,7 +77,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         if indexPath.section == TOPIC_INFO{
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
         }
@@ -106,9 +107,9 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             return UITableViewCell()
+        }
     }
-    }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case TOPIC_INFO:
@@ -148,6 +149,4 @@ extension TopicListViewController : AddTopicDelegate{
         topic.save()
         tableView.reloadData()
     }
-    
-    
 }
