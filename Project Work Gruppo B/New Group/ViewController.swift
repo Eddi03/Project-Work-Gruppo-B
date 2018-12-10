@@ -15,16 +15,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        _ = UIViewController.displaySpinner(onView: self.view)
-        
     }
     var admin: Bool!
     
     override func viewDidAppear(_ animated: Bool) {
+        let spinner = UIViewController.displaySpinner(onView: self.view)
         
         if Auth.auth().currentUser != nil {
             
             NetworkManager.checkIfDataIsFilled { (success) in
+                UIViewController.removeSpinner(spinner: spinner)
                 if success {
                     NetworkManager.getUserLogged { (success) in
                         if success {

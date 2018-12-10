@@ -29,14 +29,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginAction(_ sender: Any) {
         
-        _ = UIViewController.displaySpinner(onView: self.view)
+        let spinner = UIViewController.displaySpinner(onView: self.view)
         
         email = emailField.text
         password = passwordField.text
+
         NetworkManager.login(email: email, password: password){ (success) in
+            UIViewController.removeSpinner(spinner: spinner)
             if success{
                 self.dismiss(animated: true, completion:{
-                    _ = UIViewController.removeSpinner(spinner: self.view)
                     self.performSegue(withIdentifier: R.segue.loginViewController.segueToOptions, sender: self)})
             }
         }
