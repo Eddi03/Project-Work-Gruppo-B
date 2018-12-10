@@ -76,7 +76,7 @@ struct R: Rswift.Validatable {
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 8 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AddAlbumTableViewCell`.
-    static let addAlbumTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
+    static let addAlbumTableViewCell: Rswift.ReuseIdentifier<AddAlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
     /// Reuse identifier `AddTopicTableViewCell`.
     static let addTopicTableViewCell: Rswift.ReuseIdentifier<AddTopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddTopicTableViewCell")
     /// Reuse identifier `AddUsersTableViewCell`.
@@ -84,7 +84,7 @@ struct R: Rswift.Validatable {
     /// Reuse identifier `AlbumTableViewCell`.
     static let albumTableViewCell: Rswift.ReuseIdentifier<AlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AlbumTableViewCell")
     /// Reuse identifier `EmptyListAlbumsTableViewCell`.
-    static let emptyListAlbumsTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyListAlbumsTableViewCell")
+    static let emptyListAlbumsTableViewCell: Rswift.ReuseIdentifier<EmptyListAlbumsTableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyListAlbumsTableViewCell")
     /// Reuse identifier `EmptyTableViewCell`.
     static let emptyTableViewCell: Rswift.ReuseIdentifier<EmptyTableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyTableViewCell")
     /// Reuse identifier `EmptyUsersListTableViewCell`.
