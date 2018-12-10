@@ -119,16 +119,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `AlbumListViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `AlbumListViewController`, and contains static references to 2 segues.
     struct albumListViewController {
       /// Segue identifier `segueToAddAlbum`.
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
+      /// Segue identifier `segueToGallery`.
+      static let segueToGallery: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToGallery")
       
       /// Optionally returns a typed version of segue `segueToAddAlbum`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToAddAlbum(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAddAlbum, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToGallery`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToGallery(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToGallery, segue: segue)
       }
       
       fileprivate init() {}
@@ -762,7 +771,9 @@ struct _R: Rswift.Validatable {
       try mainStoryboard.validate()
     }
     
-    struct albumStoryboard: Rswift.StoryboardResourceType {
+    struct albumStoryboard: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = PhotoCollectionViewController
+      
       let bundle = R.hostingBundle
       let name = "AlbumStoryboard"
       

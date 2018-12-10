@@ -118,6 +118,9 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == ADD_ALBUM{
             self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
         }
+        if indexPath.section == ALBUM_INFO{
+            self.performSegue(withIdentifier: R.segue.albumListViewController.segueToGallery, sender: self)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
