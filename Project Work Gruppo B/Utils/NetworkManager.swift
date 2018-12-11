@@ -92,30 +92,22 @@ class NetworkManager : NSObject{
 //            completion(albumsToComplete)
 //        }
 //    }
-    static func getUsers(completion : @escaping([User]) -> Void){
-        db!.collection("Users").getDocuments { (documentSnap, error) in
-            var usersList : [User] = []
-            
-            if let error = error{
-                print(error)
-            }
-            else{
-                
-                guard let documentSnap = documentSnap else{ return }
-                for document in documentSnap.documents{
-                    let name = document["name"] as! String
-                    let surname = document["surname"] as! String
-                    let image = document["image"] as? String
-                    let email = document["email"] as! String
-                    let supervisor = document["supervisor"] as? Bool
-                    let user = User(email: email, name: name, surname: surname, image: image, supervisor:supervisor)
-                    usersList.append(user)
+    static func getUsers(completion : @escaping(Bool) -> Void){
+        db?.collection("Users").getDocuments{ (documentSnapshot, error) in
+            guard let document = documentSnapshot else {return }
+            for element in document.documents{
+                print(element)
+                do {
+                    try FirebaseDecoder().decode(User.self, from: element.data()).save()
+                        completion(true)
+                } catch let error {
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
+                    completion(false)
+                    return //mi fa uscire dalla funzione
                 }
             }
-            completion(usersList)
-        }
-        
     }
+}
     
     static func getUserLogged(completion : @escaping(Bool) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else {return}
