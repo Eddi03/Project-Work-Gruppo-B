@@ -49,6 +49,14 @@ class AddUsersTopicViewController: UIViewController {
         for i in usersToAdd{
             topic.addingUser(id: i)
         }
+        NetworkManager.addTopic(topic: topic, completion: {
+            success in
+            if success {
+                GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti aggiunti al database")
+            }else{
+                 GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti non aggiunti")
+            }
+        })
         topic.save()
         addTopicDelegate.addTopic(topic: topic)
         self.navigationController?.popToRootViewController(animated: true)
