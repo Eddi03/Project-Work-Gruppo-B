@@ -46,6 +46,23 @@ class TopicListViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let archivia = archiviaAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [archivia])
+    }
+    
+    func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
+        let topic = topics[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Archivia") { (action, view, completion) in
+            completion(true)
+        }
+        // action.image = 🗂
+        action.backgroundColor = .orange
+        return action
+        
+    }
+    
     
 }
 
