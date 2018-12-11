@@ -78,9 +78,11 @@ class AccountViewController: UIViewController {
         alert.addAction(camera)
         
         present(alert, animated: true, completion: nil)
-
+    
         
     }
+    
+    
     
     
     
@@ -90,14 +92,47 @@ class AccountViewController: UIViewController {
         let currentName = nameOutlet.text
         let currentSurname = surnameOutlet.text
         
-        let pippo = User(email: user.email, name: currentName, surname: currentSurname, id: user.id, image: user.image, supervisor: user.supervisor)
+        if currentName != "" && currentSurname != ""
+        {
+            
+            guard currentName != "" else{
+                debugPrint("error")
+                return
+            }
+            guard currentSurname != "" else{
+                debugPrint("error")
+                return
+            }
+        }
         
+        URLImage = user.image
+        print(imageUser)
+ 
+        if  imageUser != nil {
         
-        NetworkManager.addUser(user: pippo, completion: { (success) in
-            self.dismiss(animated: true, completion: {
+            NetworkManager.uploadImageProfile(withData: imageUser!, forUserID: id) { (URLImage) in
+                print(URLImage)
+                self.URLImage = URLImage
+                let pippo = User(email: self.user.email, name: currentName, surname: currentSurname, id: self.user.id, image: URLImage, supervisor: self.user.supervisor)
                 
+                
+                NetworkManager.addUser(user: pippo, completion: { (success) in
+                    self.dismiss(animated: true, completion: {
+                        
+                    })
+                })
+            }
+            
+        }else{
+            let pippo = User(email: self.user.email, name: currentName, surname: currentSurname, id: self.user.id, image: URLImage, supervisor: self.user.supervisor)
+            
+            
+            NetworkManager.addUser(user: pippo, completion: { (success) in
+                self.dismiss(animated: true, completion: {
+                    
+                })
             })
-        })
+        }
         
     }
     
@@ -115,9 +150,10 @@ class AccountViewController: UIViewController {
     
 }
 
+
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private func imagePickerController(_ picker: UIImagePickerController,
+    func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let image = info[.editedImage] as? UIImage else {
@@ -146,4 +182,3 @@ extension AccountViewController: UIImagePickerControllerDelegate, UINavigationCo
         return image
     }
 }
-

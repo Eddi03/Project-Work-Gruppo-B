@@ -685,18 +685,18 @@
             </objects>
             <point key="canvasLocation" x="1990" y="16"/>
         </scene>
-        <!--AlbumStoryboard-->
+        <!--Album-->
         <scene sceneID="o2k-3y-4Zu">
             <objects>
-                <viewControllerPlaceholder storyboardName="AlbumStoryboard" id="d3i-Ow-KUJ" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AlbumStoryboard" referencedIdentifier="Album" id="d3i-Ow-KUJ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blP-Y9-w7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1436" y="535"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -11,7 +11,10 @@ import Photos
 
 class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
-    var myCollectionView: UICollectionView!
+    
+    @IBOutlet var myCollectionView: UICollectionView!
+    
+    //var myCollectionView: UICollectionView!
     var imageArray=[UIImage]()
     
     override func viewDidLoad() {
