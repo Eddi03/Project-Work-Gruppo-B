@@ -39,7 +39,18 @@ class AddTopicViewController: UIViewController {
             self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
             return
         }
+        
         topic = Topic(title: titleTopic, info: infoTopic)
+        NetworkManager.addTopic(topic: topic, completion: { success in
+            if success {
+                GeneralUtils.share.alertError(title: "Attenzione", message: "topic salvato con successo")
+            }else{
+                 GeneralUtils.share.alertError(title: "Attenzione", message: "topic NON salvato")
+            }
+        })
+        
+            
+        
         addTopicDelegate.addTopic(topic: topic)
         self.navigationController?.popToRootViewController(animated: true)
         
