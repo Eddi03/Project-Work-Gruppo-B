@@ -186,7 +186,10 @@ class NetworkManager : NSObject{
             }
             
             guard let user = authResult?.user else {
+                //VICTOR DICE CHE E' INUTILE
+                /*
                 UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error?.localizedDescription), animated: true, completion: nil)
+                */
                 completion(false)
                 return
             }
