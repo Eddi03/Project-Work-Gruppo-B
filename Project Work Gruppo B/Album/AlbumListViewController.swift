@@ -15,6 +15,7 @@ class AlbumListViewController: UIViewController {
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
+    var idTopic : String = ""
     
     var searched = [Album]()
     var searching = false
@@ -40,7 +41,7 @@ class AlbumListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         NetworkManager.getAlbums{ (success) in
             if success{
-            self.albums = Album.all()
+                self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.idTopic)
             print("coseeee albummmmm", self.albums)
             self.tableView.reloadData()
             }
@@ -57,6 +58,7 @@ class AlbumListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self
+            destinationSegue.idTopic = idTopic
         }
     }
 }

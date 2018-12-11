@@ -13,6 +13,8 @@ class TopicListViewController: UIViewController {
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
     
+    var isTopicSelected = ""
+    
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
@@ -28,9 +30,11 @@ class TopicListViewController: UIViewController {
         search.delegate = self        
     }
     override func viewDidAppear(_ animated: Bool) {
+        print(Topic.all())
         NetworkManager.getTopics{ (success) in
             if success {
-            self.topics = Topic.all()
+                self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
+            print("id",NetworkManager.getMyID())
             print("coseeeeeeeeeeeee", self.topics)
             self.tableView.reloadData()
             }
@@ -59,6 +63,7 @@ class TopicListViewController: UIViewController {
         }
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
+            destinationSegue.idTopic = isTopicSelected
         }
     }
     
@@ -100,7 +105,9 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == TOPIC_INFO{
+            isTopicSelected = topics[indexPath.row].id
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
+            
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

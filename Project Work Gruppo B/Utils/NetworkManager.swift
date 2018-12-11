@@ -332,15 +332,19 @@ class NetworkManager : NSObject{
     //TOPIC
     
     static func addTopic(topic: Topic, completion : @escaping(Bool)->Void){
+        let idUser = Auth.auth().currentUser?.uid
+        if topic.getUsers().filter({$0 == idUser}).first == nil {
+           topic.addingUser(id: idUser!)
+        }
         
-        var id = UUID().uuidString
-        db?.collection("Topics").document(id).setData([
+
+        db?.collection("Topics").document(topic.id).setData([
             "id": topic.id,
             "title": topic.title,
             "info": topic.info,
             "users": topic.getUsers(),
             "albums": topic.getAlbums()
-        ]) { err in
+        ], merge: true) { err in
             if let err = err {
                 print("Error writing document: \(err)")
                 completion(false)
@@ -353,18 +357,17 @@ class NetworkManager : NSObject{
     }
     
     static func getTopics(completion : @escaping(Bool)->Void){
-        var listaTopics : [Topic] = []
+        //var listaTopics : [Topic] = []
         NetworkManager.db?.collection("Topics").getDocuments{ (documentSnapshot, error) in
         guard let document = documentSnapshot else {return }
         for element in document.documents{
-            debugPrint(element)
             /*
             let topic = Topic(title: element["title"] as! String, info: element["info"] as! String)
             listaTopics.append(topic) */
             
             do {
                 try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
-                
+            
             } catch let error {
                 UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
                 completion(false)
@@ -380,8 +383,7 @@ class NetworkManager : NSObject{
     
     //ALBUM
     
-    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
-        
+    static func addAlbum(topic: Topic, album: Album,completion: @escaping (Bool)-> ()){
         do{
             let parameters = try album.asDictionary()
             
@@ -392,8 +394,16 @@ class NetworkManager : NSObject{
                         print("Error adding document: \(err)")
                         completion(false)
                     }else{
-                        album.save()
-                        completion(true)
+                        topic.addingAlbum(id: album.id)
+                        addTopic(topic: topic, completion: { success in
+                            if success{
+                            album.save()
+                            completion(true)
+                            }else{
+                                print("cretino")
+                                completion(false)
+                            }
+                        })
                     }
             })
             

@@ -15,6 +15,8 @@ class AddAlbumViewController: UIViewController {
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var infoOutlet: UITextField!
     
+    var idTopic : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,13 +27,14 @@ class AddAlbumViewController: UIViewController {
     @IBAction func saveAction(_ sender: Any) {
 
         var album: Album = Album()
-
+        guard let topic = Topic.getTopicById(id: idTopic) else {return}
+        
         let currentName = nameOutlet.text ?? ""
         let currentInfo = infoOutlet.text ?? ""
 
         album = Album(title: currentName, info: currentInfo, completed: nil)
         
-        NetworkManager.addAlbum(album: album){(success) in
+        NetworkManager.addAlbum(topic: topic, album: album){(success) in
             if success{
                 self.dismiss(animated: true, completion: nil)
             }else{

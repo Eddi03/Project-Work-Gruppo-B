@@ -16,8 +16,8 @@ import RealmSwift
     dynamic var info: String!
     dynamic var id : String!
 
-    private let users : List<String> = List<String>()
-    private let albums : List<String> = List<String>()
+    var users : List<String> = List<String>()
+    var albums : List<String> = List<String>()
    
     
     convenience init(title : String? = nil, info : String? = nil) {
@@ -31,6 +31,11 @@ import RealmSwift
         return "id"
     }
     
+    static func getTopicById(id: String)-> Topic?{
+        let realm = try! Realm()
+        return realm.object(ofType: Topic.self, forPrimaryKey: id)
+    }
+    
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -40,6 +45,18 @@ import RealmSwift
     }
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
         return Array(realm.objects(Topic.self))
+    }
+    
+    static func getTopicFromUser(idCurrentUser: String)-> [Topic]{
+        var listaTopicOfCurrentUser : [Topic] = []
+        for topic in Topic.all(){
+            for var user in topic.getUsers(){
+                if user == idCurrentUser {
+                    listaTopicOfCurrentUser.append(topic)
+                }
+            }
+        }
+         return listaTopicOfCurrentUser
     }
     
     
