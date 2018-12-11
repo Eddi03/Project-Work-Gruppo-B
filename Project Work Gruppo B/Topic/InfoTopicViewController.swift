@@ -10,10 +10,20 @@ import UIKit
 
 class InfoTopicViewController: UIViewController {
 
+    
+    @IBOutlet weak var navBarTitleTopic: UINavigationItem!
+    @IBOutlet weak var descriptionTitleTopic: UILabel!
+    @IBOutlet weak var descriptionTopic: UILabel!
+    var titleFromTopics: String = String ()
+    
+    @IBOutlet weak var deleteTopic: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        deleteTopic.layer.cornerRadius = 18
+        deleteTopic.clipsToBounds = true
+        self.title = titleFromTopics
     }
     
 

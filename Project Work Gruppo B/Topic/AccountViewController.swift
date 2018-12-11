@@ -22,7 +22,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let spinner = UIViewController.displaySpinner(onView: self.view)
+        let spinner = UIViewController.displaySpinner(onView: self.view)
         
         buttonOutlet.layer.cornerRadius = 18
         buttonOutlet.clipsToBounds = true
@@ -40,6 +40,9 @@ class AccountViewController: UIViewController {
                 
                 NetworkManager.dowloadImageProfile(withURL: user.image, completion: { (image) in
                     self.imageOutlet.setImage(image, for: .normal)
+                    
+                    UIViewController.removeSpinner(spinner: spinner)
+
                 })
             }
         }
