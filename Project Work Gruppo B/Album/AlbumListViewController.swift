@@ -16,6 +16,7 @@ class AlbumListViewController: UIViewController {
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
+    var idTopic : String = ""
     
     var searched = [Album]()
     var searching = false
@@ -29,21 +30,55 @@ class AlbumListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
         self.title = topicTitle
     }
+    override func viewDidAppear(_ animated: Bool) {
+        NetworkManager.getAlbums{ (success) in
+            if success{
+                self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.idTopic)
+            print("coseeee albummmmm", self.albums)
+            self.tableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func addAlbumAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
     }
     
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+       
+            let archivia = archiviaAction(at: indexPath)
+            return UISwipeActionsConfiguration(actions: [archivia])
+        }
+        
+        func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
+            let album = albums[indexPath.row]
+            let action = UIContextualAction(style: .normal, title: "Archivia") { (action, view, completion) in
+                completion(true)
+            }
+           // action.image = 🗂
+            action.backgroundColor = .orange
+            return action
+            
+        }
+        
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        albums = Album.all()    }
+        //albums = Album.all()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self
+            destinationSegue.idTopic = idTopic
         }
     }
 }
+
 
 extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     
@@ -74,6 +109,9 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
         
         return 0
     }
+    
+    
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

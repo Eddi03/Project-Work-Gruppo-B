@@ -15,6 +15,8 @@ class AddAlbumViewController: UIViewController {
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var infoOutlet: UITextField!
     
+    var idTopic : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,19 +25,24 @@ class AddAlbumViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        let titleAlbum = nameOutlet.text ?? ""
-        let infoAlbum = infoOutlet.text ?? ""
-        
-        guard !titleAlbum.isEmpty && !infoAlbum.isEmpty else {
-            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
-            return
-        }
-        var album = Album(title: titleAlbum, info: infoAlbum, completed: false)
-        addAlbumDelegate.addAlbum(album: album)
-        self.navigationController?.popViewController(animated: true)
 
-//        NetworkManager.addAlbum(album: <#T##Album#>, completion: <#T##(Bool) -> ()#>)
-//
+        var album: Album = Album()
+        guard let topic = Topic.getTopicById(id: idTopic) else {return}
+        
+        let currentName = nameOutlet.text ?? ""
+        let currentInfo = infoOutlet.text ?? ""
+
+        album = Album(title: currentName, info: currentInfo, completed: nil)
+        
+        NetworkManager.addAlbum(topic: topic, album: album){(success) in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                GeneralUtils.share.alertError(title: "Attenzione", message: "non è stato salvato l'album")
+            }
+        }
+        
+
     }
     
     /*

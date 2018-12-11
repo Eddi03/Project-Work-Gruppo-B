@@ -14,6 +14,8 @@ class TopicListViewController: UIViewController {
     private let ADD_TOPIC = 2
     private var clickedTopicName: String = String()
     
+    var isTopicSelected = ""
+    
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
@@ -23,13 +25,33 @@ class TopicListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     var topics : [Topic] = []
     var admin : Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         search.delegate = self        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        print(Topic.all())
+        NetworkManager.getTopics{ (success) in
+            if success {
+                self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
+            print("id",NetworkManager.getMyID())
+            print("coseeeeeeeeeeeee", self.topics)
+            self.tableView.reloadData()
+            }
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
-        topics = Topic.all()
+        /*
+        search.delegate = self
+        NetworkManager.getTopics{ (listaTopics) in
+            self.topics = listaTopics
+            print("coseeeeeeeeeeeee", listaTopics, self.topics)
+        }
+        //topics = Topic.all()
+ */
         tableView.reloadData()
+ 
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -42,8 +64,26 @@ class TopicListViewController: UIViewController {
         }
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
+            destinationSegue.idTopic = isTopicSelected
             destinationSegue.topicTitle = clickedTopicName
         }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let archivia = archiviaAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [archivia])
+    }
+    
+    func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
+        let topic = topics[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Archivia") { (action, view, completion) in
+            completion(true)
+        }
+        // action.image = 🗂
+        action.backgroundColor = .orange
+        return action
+        
     }
     
     
@@ -70,6 +110,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         }
         if topics.isEmpty{
             if section == EMPTY_LIST{
+                print("jneioqcfrfvbhrewf eiwvnhoewv")
                 return 1
             }
         }
@@ -83,8 +124,8 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == TOPIC_INFO{
-            clickedTopicName = topics[indexPath.row].title
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
+            
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

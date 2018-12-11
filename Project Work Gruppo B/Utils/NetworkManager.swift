@@ -45,22 +45,7 @@ class NetworkManager : NSObject{
                 completion(true)
         })
     }
-    static func addAlbum(album: Album,completion: @escaping (Bool)-> ()){
-        db!.collection("Albums").document(album.id).setData([
-            "title" : album.title,
-            "info" : album.info,
-
-            "photos" : album.getPhotos(),
-            "completed" : false,
-            "id" : album.id
-            ],merge: true,completion: { (err) in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                    completion(false)
-                }
-                completion(true)
-        })
-    }
+   
     
 //    static func getAlbumsToComplete(completion : @escaping([Album]) -> Void){
 //
@@ -343,5 +328,135 @@ class NetworkManager : NSObject{
         })
         
     }
+    
+    //TOPIC
+    
+    static func addTopic(topic: Topic, completion : @escaping(Bool)->Void){
+        let idUser = Auth.auth().currentUser?.uid
+        if topic.getUsers().filter({$0 == idUser}).first == nil {
+           topic.addingUser(id: idUser!)
+        }
+        
+
+        db?.collection("Topics").document(topic.id).setData([
+            "id": topic.id,
+            "title": topic.title,
+            "info": topic.info,
+            "users": topic.getUsers(),
+            "albums": topic.getAlbums()
+        ], merge: true) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully written!")
+                topic.save()
+                completion(true)
+            }
+        }
+    }
+    
+    static func getTopics(completion : @escaping(Bool)->Void){
+        //var listaTopics : [Topic] = []
+        NetworkManager.db?.collection("Topics").getDocuments{ (documentSnapshot, error) in
+        guard let document = documentSnapshot else {return }
+        for element in document.documents{
+            /*
+            let topic = Topic(title: element["title"] as! String, info: element["info"] as! String)
+            listaTopics.append(topic) */
+            
+            do {
+                try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
+            
+            } catch let error {
+                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
+                completion(false)
+                return //mi fa uscire dalla funzione
+            }
+            
+        }
+            completion(true)
+            
+        }
+    }
+    
+    
+    //ALBUM
+    
+    static func addAlbum(topic: Topic, album: Album,completion: @escaping (Bool)-> ()){
+        do{
+            let parameters = try album.asDictionary()
+            
+            db!.collection("Albums").document(album.id).setData(
+                parameters
+                ,merge: true,completion: { (err) in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                        completion(false)
+                    }else{
+                        topic.addingAlbum(id: album.id)
+                        addTopic(topic: topic, completion: { success in
+                            if success{
+                            album.save()
+                            completion(true)
+                            }else{
+                                print("cretino")
+                                completion(false)
+                            }
+                        })
+                    }
+            })
+            
+            
+        }catch let error{
+            
+        }
+        /*
+        db!.collection("Albums").document(album.id).setData([
+            "title" : album.title,
+            "info" : album.info,
+            
+            "photos" : album.getPhotos(),
+            "completed" : false,
+            "id" : album.id
+            ],merge: true,completion: { (err) in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                    completion(false)
+                }else{
+                    album.save()
+                    completion(true)
+                }
+                 })
+ */
+    }
+    static func getAlbums(completion : @escaping(Bool)->Void){
+        var listaAlbums : [Album] = []
+        NetworkManager.db?.collection("Albums").getDocuments{ (documentSnapshot, error) in
+            guard let document = documentSnapshot else {return }
+            for element in document.documents{
+                debugPrint(element)
+                /*
+                let album = Album(title: element["title"] as! String, info: element["info"] as! String, completed: element["completed"] as! Bool)
+                listaAlbums.append(album)
+                */
+                
+                do {
+                    try FirebaseDecoder().decode(Album.self, from: element.data()).save()
+                    
+                } catch let error {
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
+                    completion(false)
+                    return //mi fa uscire dalla funzione
+                }
+                
+            }
+            
+            
+            completion(true)
+            
+        }
+    }
+    
     
 }

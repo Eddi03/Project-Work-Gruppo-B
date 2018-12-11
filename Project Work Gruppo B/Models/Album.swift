@@ -10,13 +10,13 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class Album: Object {
+@objcMembers class Album: Object, Codable {
     dynamic var title : String!
     dynamic var info: String!
     dynamic var id : String!
     dynamic var completed : Bool!
 
-    private let photos : List<String> = List<String>()
+    var photos : List<String> = List<String>()
     
     convenience init(title : String? = nil, info : String? = nil, completed : Bool? = nil) {
         self.init()
@@ -62,7 +62,24 @@ import RealmSwift
         return Array(realm.objects(Album.self))
     }
     
-
+    static func getAlbumById(id: String)-> Album?{
+        let realm = try! Realm()
+        return realm.object(ofType: Album.self, forPrimaryKey: id)
+    }
+    
+    static func getAlbumFromTopic(idCurrentTopic: String) -> [Album]{
+        
+        var listaAlbumOfCurrentTopic : [Album] = []
+        for topic in Topic.all(){
+            if idCurrentTopic == topic.id{
+                for idAlbum in topic.getAlbums(){
+                    let album = Album.getAlbumById(id: idAlbum)
+                    listaAlbumOfCurrentTopic.append(album ?? Album())
+                }
+            }
+        }
+        return listaAlbumOfCurrentTopic
+    }
     
     
 }
