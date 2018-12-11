@@ -38,7 +38,7 @@ class AlbumListViewController: UIViewController {
         NetworkManager.getAlbums{ (success) in
             if success{
                 self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.idTopic)
-            print("coseeee albummmmm", self.albums)
+            print("coseeee albummmmm", self.albums, self.idTopic)
             self.tableView.reloadData()
             }
         }

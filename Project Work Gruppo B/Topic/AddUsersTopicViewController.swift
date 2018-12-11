@@ -8,10 +8,12 @@
 
 import UIKit
 class AddUsersTopicViewController: UIViewController {
+    
     var addTopicDelegate : AddTopicDelegate!
     var users : [String] = []
     var usersToAdd : [String] = []
     var topic : Topic!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

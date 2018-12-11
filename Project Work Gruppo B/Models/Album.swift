@@ -71,6 +71,7 @@ import RealmSwift
         
         var listaAlbumOfCurrentTopic : [Album] = []
         for topic in Topic.all(){
+            debugPrint(idCurrentTopic)
             if idCurrentTopic == topic.id{
                 for idAlbum in topic.getAlbums(){
                     let album = Album.getAlbumById(id: idAlbum)
