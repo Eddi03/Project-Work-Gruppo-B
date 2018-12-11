@@ -12,6 +12,7 @@ class TopicListViewController: UIViewController {
     private let EMPTY_LIST = 0
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
+    private var clickedTopicName: String = String()
     
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
@@ -41,6 +42,7 @@ class TopicListViewController: UIViewController {
         }
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
+            destinationSegue.topicTitle = clickedTopicName
         }
     }
     
@@ -81,6 +83,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == TOPIC_INFO{
+            clickedTopicName = topics[indexPath.row].title
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
