@@ -28,7 +28,6 @@ class AlbumListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
     }
     @IBAction func addAlbumAction(_ sender: Any) {
@@ -116,7 +115,7 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == ALBUM_INFO{
+        if indexPath.section == ADD_ALBUM{
             self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
