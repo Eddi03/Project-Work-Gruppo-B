@@ -16,10 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         NetworkManager.initFirebase()
         return true
-    }
     
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({status in
+                if status == .authorized{
+                    self.gotoVC()
+                } else {
+                    let alert = UIAlertController(title: "Photos Access Denied", message: "App needs access to photos library.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            })
+        } else if photos == .authorized {
+            gotoVC()
+        }
+        
+        return true
+ 
+    }
+ 
     func gotoVC() {
         DispatchQueue.main.async(execute: { () -> Void in
             self.window = UIWindow(frame: UIScreen.main.bounds)

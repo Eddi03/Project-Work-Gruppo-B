@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class AccountViewController: UIViewController {
 
     var user : User!
-    
-    
+    private var pickerController:UIImagePickerController?
+    var URLImage : String?
+    var imageUser : Data?
+    var email : String! = Auth.auth().currentUser?.email
+    var id :String! = Auth.auth().currentUser?.uid
     
     
     override func viewDidLoad() {
@@ -44,28 +48,98 @@ class AccountViewController: UIViewController {
     }
     
     @IBOutlet weak var buttonOutlet: UIButton!
-    @IBAction func buttonAction(_ sender: UIButton) {
     
-       
-        let currentName = nameOutlet.text
-        let currentSurname = surnameOutlet.text
-        
-        let pippo = User(email: user.email, name: currentName, surname: currentSurname, id: user.id, image: user.image, supervisor: user.supervisor)
-    
-   
-        NetworkManager.addUser(user: pippo, completion: { (success) in
-            self.dismiss(animated: true, completion: {
-                
-            })
-        })
-    
-}
     
     @IBOutlet weak var surnameOutlet: UITextField!
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var imageOutlet: UIButton!
     @IBAction func changeImage(_ sender: UIButton) {
+        
+        self.pickerController = UIImagePickerController()
+        self.pickerController!.delegate = self
+        self.pickerController!.allowsEditing = true
+        
+        let alert = UIAlertController(title: nil, message: "Foto profilo", preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        #if !targetEnvironment(simulator)
+        let photo = UIAlertAction(title: "Scatta foto", style: .default) { action in
+            self.pickerController!.sourceType = .camera
+            self.present(self.pickerController!, animated: true, completion: nil)
+        }
+        alert.addAction(photo)
+        #endif
+        
+        let camera = UIAlertAction(title: "Carica foto", style: .default) { alert in
+            self.pickerController!.sourceType = .photoLibrary
+            self.present(self.pickerController!, animated: true, completion: nil)
+        }
+        alert.addAction(camera)
+        
+        present(alert, animated: true, completion: nil)
+    
+        
     }
+    
+    
+    
+    
+    
+    @IBAction func buttonAction(_ sender: UIButton) {
+        
+        
+        let currentName = nameOutlet.text
+        let currentSurname = surnameOutlet.text
+        
+        if currentName != "" && currentSurname != ""
+        {
+            
+            guard currentName != "" else{
+                debugPrint("error")
+                return
+            }
+            guard currentSurname != "" else{
+                debugPrint("error")
+                return
+            }
+        }
+        
+        URLImage = user.image
+        print(imageUser)
+ 
+        if  imageUser != nil {
+        
+            NetworkManager.uploadImageProfile(withData: imageUser!, forUserID: id) { (URLImage) in
+                print(URLImage)
+                self.URLImage = URLImage
+                let pippo = User(email: self.user.email, name: currentName, surname: currentSurname, id: self.user.id, image: URLImage, supervisor: self.user.supervisor)
+                
+                
+                NetworkManager.addUser(user: pippo, completion: { (success) in
+                    self.dismiss(animated: true, completion: {
+                        
+                    })
+                })
+            }
+            
+        }else{
+            let pippo = User(email: self.user.email, name: currentName, surname: currentSurname, id: self.user.id, image: URLImage, supervisor: self.user.supervisor)
+            
+            
+            NetworkManager.addUser(user: pippo, completion: { (success) in
+                self.dismiss(animated: true, completion: {
+                    
+                })
+            })
+        }
+        
+    }
+    
+    
+    
+    
+    
     
     @IBAction func logoutAction(_ sender: UIBarButtonItem) {
         NetworkManager.logOut()
@@ -74,4 +148,37 @@ class AccountViewController: UIViewController {
         present(viewController, animated: true, completion: nil)
     }
     
+}
+
+
+extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            debugPrint("No image found")
+            return
+        }
+        
+        let img = checkImageSizeAndResize(image: image)
+        imageOutlet.setImage(img, for: .normal)
+        imageUser = img.pngData()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func checkImageSizeAndResize(image : UIImage) -> UIImage {
+        
+        let imageSize: Int = image.pngData()!.count
+        let imageDimension = Double(imageSize) / 1024.0 / 1024.0
+        print("size of image in MB: ", imageDimension)
+        
+        if imageDimension > 1 {
+            
+            let img = image.resized(withPercentage: 0.5) ?? UIImage()
+            
+            return checkImageSizeAndResize(image: img)
+        }
+        return image
+    }
 }

@@ -793,16 +793,26 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try albumStoryboard.validate()
       try authentication.validate()
       try whiteStoryboard.validate()
       try mainStoryboard.validate()
     }
     
-    struct albumStoryboard: Rswift.StoryboardResourceWithInitialControllerType {
+    struct albumStoryboard: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = PhotoCollectionViewController
       
+      let album = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Album")
       let bundle = R.hostingBundle
       let name = "AlbumStoryboard"
+      
+      func album(_: Void = ()) -> PhotoCollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: album)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
+      }
       
       fileprivate init() {}
     }
