@@ -251,7 +251,7 @@ class NetworkManager : NSObject{
         }
     }
     
-    static func dowloadImageProfile(withURL url: String, completion: @escaping (UIImage?) -> ()) {
+    static func dowloadImage(withURL url: String, completion: @escaping (UIImage?) -> ()) {
         
         // Create a reference from an HTTPS URL
         // Note that in the URL, characters are URL escaped!
@@ -272,12 +272,12 @@ class NetworkManager : NSObject{
             }
         }    
     }
-    static func uploadPhoto(withData data: Data, albumId: String, photoId: String, completion: @escaping (String?) -> ()) {
+    static func uploadPhoto(withData data: Data,topicId: String, albumId: String, photoId: String, completion: @escaping (String?) -> ()) {
         
         guard let storageRef = storageRef else { completion(nil); return }
         
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("Albums/\(albumId)/\(photoId).jpg")
+        let riversRef = storageRef.child("Topics\(topicId)/Albums/\(albumId)/\(photoId).jpg")
         
         // Upload the file to the path "images/rivers.jpg"
         let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
