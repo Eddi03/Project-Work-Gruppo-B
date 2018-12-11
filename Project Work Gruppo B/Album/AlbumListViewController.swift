@@ -12,6 +12,7 @@ class AlbumListViewController: UIViewController {
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
     private let ADD_ALBUM = 2
+    var topicTitle: String = String()
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
@@ -29,6 +30,7 @@ class AlbumListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        search.delegate = self
+        self.title = topicTitle
     }
     @IBAction func addAlbumAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)

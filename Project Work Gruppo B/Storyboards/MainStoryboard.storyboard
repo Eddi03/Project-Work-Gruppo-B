@@ -158,7 +158,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNS-7t-I8W"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Albums" id="1Zf-HL-LEe"/>
+                    <navigationItem key="navigationItem" title="Albums" id="1Zf-HL-LEe">
+                        <barButtonItem key="rightBarButtonItem" title="Info" id="xXC-YP-QcD">
+                            <connections>
+                                <segue destination="fmO-rc-W6X" kind="show" identifier="segueToInfoTopic" id="xoi-3G-Xgb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="search" destination="cLY-Bc-4oy" id="GbM-xe-Pn5"/>
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
@@ -685,7 +691,22 @@
             </objects>
             <point key="canvasLocation" x="1990" y="16"/>
         </scene>
-        <!--Album-->
+        <!--Info Topic View Controller-->
+        <scene sceneID="sXU-jv-Zb5">
+            <objects>
+                <viewController id="fmO-rc-W6X" customClass="InfoTopicViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zGK-aS-QUN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0EB-11-TPw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9f-pt-Iv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2745" y="-241"/>
+        </scene>
+        <!--AlbumStoryboard-->
         <scene sceneID="o2k-3y-4Zu">
             <objects>
                 <viewControllerPlaceholder storyboardName="AlbumStoryboard" referencedIdentifier="Album" id="d3i-Ow-KUJ" sceneMemberID="viewController"/>

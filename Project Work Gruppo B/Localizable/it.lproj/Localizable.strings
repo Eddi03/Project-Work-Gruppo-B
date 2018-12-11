@@ -7,11 +7,10 @@
 */
 
 // LaunchScreen Storyboard
-kTitleApp = "TITOLO APP";
+kTitleApp = "ShotWorkers";
 kCopyright = "Copyright (c) 2018 ITS - Tutti i diritti Riservati";
 
 // Authentication Storyboard
-kTitleApp = "TITOLO APP";
 kWelcomeLabel = "Benvenuto, ";
 kLoginButton = "Accedi";
 kSignUpButton = "Registrati";

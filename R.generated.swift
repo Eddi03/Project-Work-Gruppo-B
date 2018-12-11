@@ -126,12 +126,14 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `AlbumListViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `AlbumListViewController`, and contains static references to 3 segues.
     struct albumListViewController {
       /// Segue identifier `segueToAddAlbum`.
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       /// Segue identifier `segueToGallery`.
       static let segueToGallery: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToGallery")
+      /// Segue identifier `segueToInfoTopic`.
+      static let segueToInfoTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToInfoTopic")
       
       /// Optionally returns a typed version of segue `segueToAddAlbum`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -145,6 +147,13 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToGallery(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToGallery, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToInfoTopic`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToInfoTopic(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToInfoTopic, segue: segue)
       }
       
       fileprivate init() {}
@@ -322,7 +331,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 38 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 39 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -390,12 +399,12 @@ struct R: Rswift.Validatable {
       static let kNavBarTopicHomeTitle = Rswift.StringResource(key: "kNavBarTopicHomeTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Login
       /// 
-      /// Locales: en, it
-      static let kLoginButton = Rswift.StringResource(key: "kLoginButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// Locales: en
+      static let kNavBarLoginTitle = Rswift.StringResource(key: "kNavBarLoginTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Login
       /// 
       /// Locales: en, it
-      static let kLoginTitle = Rswift.StringResource(key: "kLoginTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      static let kLoginButton = Rswift.StringResource(key: "kLoginButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Logout
       /// 
       /// Locales: en, it
@@ -444,6 +453,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertSendButton = Rswift.StringResource(key: "kAlertSendButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: ShotWorkers
+      /// 
+      /// Locales: en, it
+      static let kTitleApp = Rswift.StringResource(key: "kTitleApp", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: SignUp
       /// 
       /// Locales: en, it
@@ -456,10 +469,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kFinischSignUpSurname = Rswift.StringResource(key: "kFinischSignUpSurname", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
-      /// en translation: TITLE APP
-      /// 
-      /// Locales: en, it
-      static let kTitleApp = Rswift.StringResource(key: "kTitleApp", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: The password is invalid or the user does not have a passoword
       /// 
       /// Locales: en, it
@@ -476,6 +485,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kWelcomeLabel = Rswift.StringResource(key: "kWelcomeLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// it translation: Accedi
+      /// 
+      /// Locales: it
+      static let kLoginTitle = Rswift.StringResource(key: "kLoginTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["it"], comment: nil)
       
       /// en translation: Account
       /// 
@@ -591,16 +604,16 @@ struct R: Rswift.Validatable {
       
       /// en translation: Login
       /// 
-      /// Locales: en, it
-      static func kLoginButton(_: Void = ()) -> String {
-        return NSLocalizedString("kLoginButton", bundle: R.hostingBundle, comment: "")
+      /// Locales: en
+      static func kNavBarLoginTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kNavBarLoginTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Login
       /// 
       /// Locales: en, it
-      static func kLoginTitle(_: Void = ()) -> String {
-        return NSLocalizedString("kLoginTitle", bundle: R.hostingBundle, comment: "")
+      static func kLoginButton(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginButton", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Logout
@@ -687,6 +700,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertSendButton", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: ShotWorkers
+      /// 
+      /// Locales: en, it
+      static func kTitleApp(_: Void = ()) -> String {
+        return NSLocalizedString("kTitleApp", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: SignUp
       /// 
       /// Locales: en, it
@@ -706,13 +726,6 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kFinischSignUpSurname(_: Void = ()) -> String {
         return NSLocalizedString("kFinischSignUpSurname", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: TITLE APP
-      /// 
-      /// Locales: en, it
-      static func kTitleApp(_: Void = ()) -> String {
-        return NSLocalizedString("kTitleApp", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: The password is invalid or the user does not have a passoword
@@ -741,6 +754,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kWelcomeLabel(_: Void = ()) -> String {
         return NSLocalizedString("kWelcomeLabel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// it translation: Accedi
+      /// 
+      /// Locales: it
+      static func kLoginTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kLoginTitle", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
