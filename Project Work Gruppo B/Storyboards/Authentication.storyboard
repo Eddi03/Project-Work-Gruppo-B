@@ -53,7 +53,7 @@
                                     <action selector="toRegisterAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="kQS-ox-7lX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITOLO APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-JL-83Q">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShotWorkers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb5-JL-83Q">
                                 <rect key="frame" x="16" y="94" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -65,6 +65,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-SX-fYs">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="US3-tt-q0b"/>
+                                    <constraint firstAttribute="height" constant="200" id="iz5-mJ-9gZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -75,6 +82,8 @@
                             <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="ODZ-rX-lAK" secondAttribute="trailing" constant="155" id="H6b-zH-mNu"/>
                             <constraint firstItem="t2F-07-sE6" firstAttribute="top" secondItem="Rb5-JL-83Q" secondAttribute="bottom" constant="15" id="OQL-w1-ySW"/>
                             <constraint firstItem="CQ4-JP-tpJ" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="25" id="X84-7B-1jm"/>
+                            <constraint firstItem="eYm-SX-fYs" firstAttribute="centerY" secondItem="Cnd-5W-EAy" secondAttribute="centerY" id="kxA-Wx-2pB"/>
+                            <constraint firstItem="eYm-SX-fYs" firstAttribute="centerX" secondItem="Cnd-5W-EAy" secondAttribute="centerX" id="lB0-Lu-Scy"/>
                             <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="Rb5-JL-83Q" secondAttribute="trailing" constant="16" id="lga-aW-XBL"/>
                             <constraint firstItem="CQ4-JP-tpJ" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="477" id="n8E-bJ-LHb"/>
                             <constraint firstItem="Rb5-JL-83Q" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="30" id="rle-PU-Buc"/>
@@ -447,6 +456,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="512" height="512"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>

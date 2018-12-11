@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-720" y="16"/>
         </scene>
-        <!--Album List View Controller-->
+        <!--Albums-->
         <scene sceneID="MNU-Aa-9E6">
             <objects>
                 <viewController id="ABr-h1-HAy" customClass="AlbumListViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-Bc-4oy">
+                            <searchBar contentMode="redraw" placeholder="Cerca Albums" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-Bc-4oy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -65,8 +65,39 @@
                                             <outlet property="message" destination="xfg-zf-Gqp" id="jsE-Xw-oqg"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlbumTableViewCell" rowHeight="128" id="8Zj-Ke-5oT" customClass="AddAlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Zj-Ke-5oT" id="ZY9-Rc-7MF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xy5-7a-QRo">
+                                                    <rect key="frame" x="40" y="46" width="295" height="36"/>
+                                                    <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="Dzd-yl-9yC"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Aggiungi">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addAlbumAction:" destination="ABr-h1-HAy" eventType="touchUpInside" id="5Ts-pC-HbK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xy5-7a-QRo" firstAttribute="centerY" secondItem="ZY9-Rc-7MF" secondAttribute="centerY" id="ASy-SL-xhT"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Xy5-7a-QRo" secondAttribute="trailing" constant="25" id="NhD-DP-Ak3"/>
+                                                <constraint firstItem="Xy5-7a-QRo" firstAttribute="leading" secondItem="ZY9-Rc-7MF" secondAttribute="leadingMargin" constant="25" id="dDT-im-IwP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addButtonOutlet" destination="Xy5-7a-QRo" id="gPA-QH-LCC"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AlbumTableViewCell" rowHeight="116" id="9U3-Es-oQ1" customClass="AlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="116"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9U3-Es-oQ1" id="eoD-Ph-cyL">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="115.5"/>
@@ -108,24 +139,6 @@
                                             <outlet property="title" destination="Jbk-NB-qza" id="5xP-cY-eza"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAlbumTableViewCell" rowHeight="128" id="8Zj-Ke-5oT" customClass="AddAlbumTableViewCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="128"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Zj-Ke-5oT" id="ZY9-Rc-7MF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xy5-7a-QRo">
-                                                    <rect key="frame" x="157" y="48" width="61" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Aggiungi"/>
-                                                    <connections>
-                                                        <action selector="addAlbumAction:" destination="ABr-h1-HAy" eventType="touchUpInside" id="5Ts-pC-HbK"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ABr-h1-HAy" id="i1d-1G-1lB"/>
@@ -145,10 +158,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HNS-7t-I8W"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Albums" id="1Zf-HL-LEe"/>
                     <connections>
                         <outlet property="search" destination="cLY-Bc-4oy" id="GbM-xe-Pn5"/>
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
                         <segue destination="stU-nN-Dxg" kind="show" identifier="segueToAddAlbum" id="jhj-47-n5i"/>
+                        <segue destination="d3i-Ow-KUJ" kind="show" identifier="segueToGallery" id="Xvy-xh-UAD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,7 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search Here" translatesAutoresizingMaskIntoConstraints="NO" id="qMb-1w-rcq">
+                            <searchBar contentMode="redraw" placeholder="Cerca Topic" translatesAutoresizingMaskIntoConstraints="NO" id="qMb-1w-rcq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -670,10 +685,18 @@
             </objects>
             <point key="canvasLocation" x="1990" y="16"/>
         </scene>
+        <!--AlbumStoryboard-->
+        <scene sceneID="o2k-3y-4Zu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AlbumStoryboard" id="d3i-Ow-KUJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blP-Y9-w7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="535"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Folder Icon" width="61" height="48"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

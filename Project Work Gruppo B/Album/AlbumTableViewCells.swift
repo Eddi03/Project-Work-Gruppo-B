@@ -28,11 +28,14 @@ class AlbumTableViewCell: UITableViewCell {
 
 class AddAlbumTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var addButtonOutlet: UIButton!
     
     static var kIdentifier = "AddAlbumTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        addButtonOutlet.layer.cornerRadius = 18
+        addButtonOutlet.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
