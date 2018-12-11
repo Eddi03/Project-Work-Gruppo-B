@@ -33,6 +33,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
         myCollectionView.dataSource=self
         myCollectionView.register(ImagePreviewFullViewCell.self, forCellWithReuseIdentifier: "Cell")
         myCollectionView.isPagingEnabled = true
+        debugPrint("cc",passedContentOffset.row)
         myCollectionView.scrollToItem(at: passedContentOffset, at: .left, animated: true)
         
         self.view.addSubview(myCollectionView)
@@ -42,6 +43,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
  
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imgArray.count
@@ -65,6 +67,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
         myCollectionView.collectionViewLayout.invalidateLayout()
     }
     
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         let offset = myCollectionView.contentOffset
@@ -81,6 +84,10 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
             self.myCollectionView.setContentOffset(newOffset, animated: false)
         }, completion: nil)
     }
+    override func viewDidLayoutSubviews() {
+        myCollectionView.scrollToItem(at: passedContentOffset, at: .left, animated: false)
+    }
+    
     
 }
 

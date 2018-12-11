@@ -8,6 +8,7 @@
 
 import UIKit
 class AddUsersTopicViewController: UIViewController {
+    
     var addTopicDelegate : AddTopicDelegate!
     var users : [User] = []
     var usersToAdd : [String] = []
