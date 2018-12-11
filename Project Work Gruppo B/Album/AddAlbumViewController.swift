@@ -25,7 +25,7 @@ class AddAlbumViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-
+        
         var album: Album = Album()
         guard let topic = Topic.getTopicById(id: idTopic) else {return}
         

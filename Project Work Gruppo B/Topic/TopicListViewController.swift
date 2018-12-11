@@ -124,6 +124,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == TOPIC_INFO{
+            isTopicSelected = topics[indexPath.row].id
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
             
         }
