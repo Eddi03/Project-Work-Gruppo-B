@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -85,8 +85,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
                     <connections>
-                        <outlet property="bentornatoLabel" destination="t2F-07-sE6" id="WF8-2k-RJy"/>
                         <outlet property="loginButton" destination="CQ4-JP-tpJ" id="gkm-ND-Aeu"/>
+                        <outlet property="registerButton" destination="ODZ-rX-lAK" id="HHA-dt-F42"/>
+                        <outlet property="titleAppLabel" destination="Rb5-JL-83Q" id="i7c-Hd-qGn"/>
+                        <outlet property="welcomeLabel" destination="t2F-07-sE6" id="rpc-77-3WK"/>
                         <segue destination="wsE-1e-CVY" kind="show" identifier="toLoginSegue" id="gqi-db-yrv"/>
                         <segue destination="Ctk-q0-gBC" kind="show" identifier="toRegisterSegue" id="aUx-h7-g81"/>
                     </connections>
@@ -179,8 +181,10 @@
                     <connections>
                         <outlet property="emailField" destination="oB8-FL-hNn" id="Fp8-Cl-pI6"/>
                         <outlet property="loginButton" destination="tii-0b-rfb" id="FQY-F8-ah3"/>
+                        <outlet property="navBarBack" destination="yW5-m7-37X" id="Lyw-jS-X3m"/>
                         <outlet property="navbarTitle" destination="yW5-m7-37X" id="5Cv-ob-FPO"/>
                         <outlet property="passwordField" destination="u3h-lB-17d" id="dsn-a6-NAH"/>
+                        <outlet property="resetPasswordButton" destination="Nac-ne-l9h" id="zzG-U6-mrv"/>
                         <segue destination="mOt-A6-kQL" kind="show" identifier="segueToOptions" id="q38-Zx-U2c"/>
                     </connections>
                 </viewController>
@@ -446,7 +450,7 @@
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mqP-S3-eaZ"/>
+        <segue reference="q38-Zx-U2c"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.33870691061019897" green="0.36052471399307251" blue="0.82444512844085693" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
