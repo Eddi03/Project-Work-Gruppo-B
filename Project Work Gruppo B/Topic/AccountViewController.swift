@@ -38,7 +38,7 @@ class AccountViewController: UIViewController {
             //UIViewController.removeSpinner(spinner: spinner)
             if user.image != nil{
                 
-                NetworkManager.dowloadImageProfile(withURL: user.image, completion: { (image) in
+                NetworkManager.dowloadImageProfile(withURL: user.image!, completion: { (image) in
                     self.imageOutlet.setImage(image, for: .normal)
                     
                     UIViewController.removeSpinner(spinner: spinner)
