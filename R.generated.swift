@@ -48,12 +48,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
     /// Image `Folder Icon`.
     static let folderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Folder Icon")
+    /// Image `Logo`.
+    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Logo")
     /// Image `User Placeholder`.
     static let userPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "User Placeholder")
     
@@ -65,6 +67,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Folder Icon", bundle: ..., traitCollection: ...)`
     static func folderIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.folderIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Logo", bundle: ..., traitCollection: ...)`
+    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "User Placeholder", bundle: ..., traitCollection: ...)`
@@ -781,6 +788,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Logo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Logo' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
