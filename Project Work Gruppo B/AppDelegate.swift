@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         NetworkManager.initFirebase()
         return true
-        
+    
         let photos = PHPhotoLibrary.authorizationStatus()
         if photos == .notDetermined {
             PHPhotoLibrary.requestAuthorization({status in
@@ -35,8 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         return true
+ 
     }
-    
+ 
     func gotoVC() {
         DispatchQueue.main.async(execute: { () -> Void in
             self.window = UIWindow(frame: UIScreen.main.bounds)

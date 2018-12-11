@@ -18,8 +18,29 @@ class StartViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var bentornatoLabel: UILabel!
+    @IBOutlet weak var titleAppLabel: UILabel! {
+        didSet {
+            titleAppLabel.text = R.string.localizable.kTitleApp()
+        }
+    }
+    
+    @IBOutlet weak var welcomeLabel: UILabel! {
+        didSet {
+            welcomeLabel.text = R.string.localizable.kWelcomeLabel()
+        }
+    }
+    
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            loginButton.setTitle(R.string.localizable.kLoginButton(), for: .normal)
+        }
+    }
+
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.setTitle(R.string.localizable.kSignUpButton(), for: .normal)
+        }
+    }
     
     var deviceName : String = UIDevice.current.name
     
@@ -28,7 +49,7 @@ class StartViewController: UIViewController {
         
         // Hide the navigation bar on this view controllers
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.bentornatoLabel.text = "Bentornato, " + deviceName
+        self.welcomeLabel.text = R.string.localizable.kWelcomeLabel() + deviceName
     }
     
     override func viewWillDisappear(_ animated: Bool) {

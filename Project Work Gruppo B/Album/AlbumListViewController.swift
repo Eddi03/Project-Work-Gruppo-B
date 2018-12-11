@@ -12,6 +12,7 @@ class AlbumListViewController: UIViewController {
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
     private let ADD_ALBUM = 2
+    var topicTitle: String = String()
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
@@ -31,12 +32,7 @@ class AlbumListViewController: UIViewController {
         super.viewDidLoad()
         //albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
-        /*
-        NetworkManager.getAlbums{ (listaAlbums) in
-            self.albums = listaAlbums
-            print("coseeee albummmmm", self.albums)
-        }
- */
+        self.title = topicTitle
     }
     override func viewDidAppear(_ animated: Bool) {
         NetworkManager.getAlbums{ (success) in
@@ -137,6 +133,9 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == ADD_ALBUM{
             self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
+        }
+        if indexPath.section == ALBUM_INFO{
+            self.performSegue(withIdentifier: R.segue.albumListViewController.segueToGallery, sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

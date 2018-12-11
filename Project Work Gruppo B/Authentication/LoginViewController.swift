@@ -16,21 +16,46 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 18
         loginButton.clipsToBounds = true
         
-        
     }
     
     var email : String!
     var password : String!
     
-    @IBOutlet weak var navbarTitle: UINavigationItem!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet var emailField: UITextField!
-    @IBOutlet var passwordField: UITextField!
+    @IBOutlet weak var navBarBack: UINavigationItem! {
+        didSet {
+            navBarBack.title = R.string.localizable.kNavBarBackToHome()
+        }
+    }
+    @IBOutlet weak var navbarTitle: UINavigationItem! {
+        didSet {
+            navbarTitle.title = R.string.localizable.kLoginButton()
+        }
+    }
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            loginButton.setTitle(R.string.localizable.kLoginButton(), for: .normal)
+        }
+    }
+    @IBOutlet var emailField: UITextField! {
+        didSet {
+            emailField.placeholder = R.string.localizable.kLoginEmailTextField()
+        }
+    }
+    @IBOutlet var passwordField: UITextField! {
+        didSet {
+            passwordField.placeholder = R.string.localizable.kLoginPasswordField()
+        }
+    }
+    @IBOutlet weak var resetPasswordButton: UIButton! {
+        didSet {
+            resetPasswordButton.setTitle(R.string.localizable.kResetPasswordButton(), for: .normal)
+        }
+    }
     
     @IBAction func loginAction(_ sender: Any) {
         
         let spinner = UIViewController.displaySpinner(onView: self.view)
-        
+
         email = emailField.text
         password = passwordField.text
 

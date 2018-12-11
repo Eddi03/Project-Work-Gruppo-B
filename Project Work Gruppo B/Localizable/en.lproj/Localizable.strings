@@ -7,17 +7,16 @@
 */
 
 // LaunchScreen Storyboard
-kTitleApp = "TITLE APP";
+kTitleApp = "ShotWorkers";
 kCopyright = "Copyright (c) 2018 ITS - All Rights Reserved";
 
 // Authentication Storyboard
-kTitleApp = "TITLE APP";
 kWelcomeLabel = "Welcome, ";
 kLoginButton = "Login";
 kSignUpButton = "SignUp";
 
 // Authentication Storyboard - LOGIN
-kLoginTitle = "Login";
+kNavBarLoginTitle = "Login";
 kLoginEmailTextField = "E-Mail";
 kLoginPasswordField = "Password";
 // kLoginButton idem sopra
