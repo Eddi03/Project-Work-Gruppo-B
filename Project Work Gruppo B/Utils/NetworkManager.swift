@@ -109,6 +109,8 @@ class NetworkManager : NSObject{
     }
 }
     
+    
+    
     static func getUserLogged(completion : @escaping(Bool) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else {return}
         self.db?.collection("Users").document(uid).getDocument(completion: { (documentSnapshot, error) in
@@ -432,7 +434,6 @@ class NetworkManager : NSObject{
                 let album = Album(title: element["title"] as! String, info: element["info"] as! String, completed: element["completed"] as! Bool)
                 listaAlbums.append(album)
                 */
-                
                 do {
                     try FirebaseDecoder().decode(Album.self, from: element.data()).save()
                     
@@ -441,14 +442,85 @@ class NetworkManager : NSObject{
                     completion(false)
                     return //mi fa uscire dalla funzione
                 }
-                
             }
-            
-            
             completion(true)
-            
         }
     }
     
     
+    
+    // FOTO
+    
+    func getPhotos(completion : @escaping(Bool) -> Void){
+        NetworkManager.db?.collection("Photos").getDocuments{ (documentSnapshot, error) in
+            guard let document = documentSnapshot else {return }
+            for element in document.documents{
+                print(element)
+                do {
+                    try FirebaseDecoder().decode(User.self, from: element.data()).save()
+                    completion(true)
+                } catch let error {
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
+                    completion(false)
+                    return //mi fa uscire dalla funzione
+                }
+            }
+        }
+    }
+    
+    
+    static func addPhoto(topic: Topic, album: Album,photo: Photo,completion: @escaping (Bool)-> ()){
+        do{
+            let parameters = try album.asDictionary()
+            
+            db!.collection("Photos").document(photo.id).setData(
+                parameters
+                ,merge: true,completion: { (err) in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                        completion(false)
+                    }else{
+                        album.addingPhoto(id: photo.id)
+                        addAlbum(topic: topic, album: album, completion: { success in
+                            if success{
+                                photo.save()
+                                completion(true)
+                            }else{
+                                print("cretino")
+                                completion(false)
+                            }
+                        })
+                        
+                    }
+            })
+            
+            
+        }catch let error{
+            
+        }
+        /*
+         db!.collection("Albums").document(album.id).setData([
+         "title" : album.title,
+         "info" : album.info,
+         
+         "photos" : album.getPhotos(),
+         "completed" : false,
+         "id" : album.id
+         ],merge: true,completion: { (err) in
+         if let err = err {
+         print("Error adding document: \(err)")
+         completion(false)
+         }else{
+         album.save()
+         completion(true)
+         }
+         })
+         */
+    }
+    
+    
+    
 }
+
+
+

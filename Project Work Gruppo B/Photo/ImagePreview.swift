@@ -33,8 +33,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
         myCollectionView.dataSource=self
         myCollectionView.register(ImagePreviewFullViewCell.self, forCellWithReuseIdentifier: "Cell")
         myCollectionView.isPagingEnabled = true
-        debugPrint("cc",passedContentOffset.row)
-        myCollectionView.scrollToItem(at: passedContentOffset, at: .left, animated: true)
+        myCollectionView.scrollToItem(at: IndexPath(row: passedContentOffset.row, section: 0), at: .left, animated: true)
         
         self.view.addSubview(myCollectionView)
         
@@ -85,7 +84,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
         }, completion: nil)
     }
     override func viewDidLayoutSubviews() {
-        myCollectionView.scrollToItem(at: passedContentOffset, at: .left, animated: false)
+        myCollectionView.scrollToItem(at: IndexPath(row: passedContentOffset.row, section: 0), at: .left, animated: false)
     }
     
     

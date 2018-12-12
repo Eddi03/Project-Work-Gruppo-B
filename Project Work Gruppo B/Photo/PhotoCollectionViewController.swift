@@ -23,16 +23,9 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         
         self.title = "Photos"
         
-        let layout = UICollectionViewFlowLayout()
-        
-        myCollectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
-        myCollectionView.register(PhotoItemCell.self, forCellWithReuseIdentifier: "Cell")
         myCollectionView.backgroundColor=UIColor.white
-        self.view.addSubview(myCollectionView)
-        
-        
         
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
         
@@ -41,35 +34,86 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        if section == 1{
+            return imageArray.count
+        }
+        if section == 3{
+            return imageArray.count
+        }
+        return 1
     }
     
+    func updateLabelSize(cell : LabelItemCell!){
+        let maxSize = CGSize(width: myCollectionView.frame.width, height: 40)
+        let size = cell.text.sizeThatFits(maxSize)
+        cell.text.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PhotoItemCell
+        if indexPath.section == 0{
+            let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
+            cell.text.text = "NORMALE O QUASI"
+            updateLabelSize(cell: cell)
+            return cell
+        }
+        if indexPath.section == 1{
+        let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
         cell.img.image=imageArray[indexPath.item]
-        return cell
+            return cell}
+        if indexPath.section == 2{
+            let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
+            cell.text.text = "SCARTO"
+            updateLabelSize(cell: cell)
+            return cell
+        }
+        if indexPath.section == 3{
+            let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
+            cell.img.image=imageArray[indexPath.item]
+            return cell}
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-        let vc=ImagePreview()
-        vc.imgArray = self.imageArray
-        vc.passedContentOffset = indexPath
-        self.navigationController?.pushViewController(vc, animated: true)
+        switch indexPath.section {
+        case 1:
+            let vc=ImagePreview()
+            vc.imgArray = self.imageArray
+            vc.passedContentOffset = indexPath
+            self.navigationController?.pushViewController(vc, animated: true)
+        case 3:
+            let vc=ImagePreview()
+            vc.imgArray = self.imageArray
+            vc.passedContentOffset = indexPath
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            return
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width
+        let width = myCollectionView.frame.width
         //        if UIDevice.current.orientation.isPortrait {
         //            return CGSize(width: width/4 - 1, height: width/4 - 1)
         //        } else {
         //            return CGSize(width: width/6 - 1, height: width/6 - 1)
         //        }
-        if DeviceInfo.Orientation.isPortrait {
+//        if DeviceInfo.Orientation.isPortrait {
+//            return CGSize(width: width/3 - 1, height: width/3 - 1)
+//        } else {
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: width-1, height: 40)
+        case 1:
             return CGSize(width: width/3 - 1, height: width/3 - 1)
-        } else {
-            return CGSize(width: width/6 - 1, height: width/6 - 1)
+        case 2:
+            return CGSize(width: width-1, height: 40)
+        case 3:
+            return CGSize(width: width/3 - 1, height: width/3 - 1)
+        default:
+            return CGSize()
         }
+        
+        //}
     }
     
     override func viewWillLayoutSubviews() {
@@ -141,15 +185,18 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
 
 
 class PhotoItemCell: UICollectionViewCell {
-    static var kIdentifier = "PhotoTableViewCell"
-    var img = UIImageView()
+    static var kIdentifier = "PhotoCollectionViewCell"
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        img.contentMode = .scaleAspectFill
-        img.clipsToBounds=true
-        self.addSubview(img)
+    @IBOutlet var img: UIImageView!{
+        didSet{
+            img.contentMode = .scaleAspectFill
+            img.clipsToBounds=true
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
     
     override func layoutSubviews() {
@@ -157,9 +204,20 @@ class PhotoItemCell: UICollectionViewCell {
         img.frame = self.bounds
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+   
+}
+class LabelItemCell: UICollectionViewCell {
+    static var kIdentifier = "LabelCollectionViewCell"
+    
+    @IBOutlet var text: UILabel!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
+    
+    
 }
 
 struct DeviceInfo {
