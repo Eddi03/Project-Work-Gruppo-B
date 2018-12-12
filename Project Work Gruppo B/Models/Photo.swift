@@ -15,15 +15,17 @@ import RealmSwift
     dynamic var info : String?
     dynamic var dateCreated : String?
     
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     dynamic var id : String!
-    
-    convenience init(image: String? = nil, info: String? = nil, dateCreated: String? = nil) {
+    convenience init(image: String? = nil, info: String? = nil, dateCreated: String? = nil, id: String!) {
         self.init()
         
         self.image = image
         self.info = info
         
-        self.id = UUID().uuidString
+        self.id = id
         
         
     }

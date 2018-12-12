@@ -28,8 +28,8 @@ class AlbumListViewController: UIViewController {
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
-    var idTopic : String = ""
-    
+    var album : Album!
+    var topic : Topic!
     var searched = [Album]()
     var searching = false
     
@@ -48,8 +48,8 @@ class AlbumListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         NetworkManager.getAlbums{ (success) in
             if success{
-                self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.idTopic)
-            print("coseeee albummmmm", self.albums, self.idTopic)
+                self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.topic.id)
+            print("coseeee albummmmm", self.albums, self.topic.id)
             self.tableView.reloadData()
             }
         }
@@ -85,10 +85,14 @@ class AlbumListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self
-            destinationSegue.idTopic = idTopic
+            destinationSegue.topic = topic
         }
         if let destinationSegue = segue.destination as? InfoTopicViewController{
-            destinationSegue.topic = Topic.getTopicById(id: idTopic)
+            destinationSegue.topic = topic
+        }
+        if let destinationSegue = segue.destination as? PhotoCollectionViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
         }
     }
 }
@@ -173,6 +177,7 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
             self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
         }
         if indexPath.section == ALBUM_INFO{
+            album = albums[indexPath.row]
             self.performSegue(withIdentifier: R.segue.albumListViewController.segueToGallery, sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
