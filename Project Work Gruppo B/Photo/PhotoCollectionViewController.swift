@@ -17,14 +17,13 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     @IBAction func addPhotoAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, sender: self)
             }
-    //var myCollectionView: UICollectionView!
+    var topic : Topic!
+    var album : Album!
     var imageArray=[UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        self.title = "Photos"
         
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
@@ -182,6 +181,12 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? AddPhotoViewController{
+            destinationSegue.album = album
+            destinationSegue.topic = topic
+        }
     }
     
     

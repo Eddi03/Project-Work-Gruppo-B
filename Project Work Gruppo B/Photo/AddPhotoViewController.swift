@@ -13,6 +13,8 @@ class AddPhotoViewController: UIViewController {
 
     @IBOutlet var textOutlet: UITextField!
     @IBOutlet var imageOutlet: UIButton!
+    var topic : Topic!
+    var album : Album!
     var imagePhoto : Data?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,14 @@ class AddPhotoViewController: UIViewController {
             debugPrint("error")
             return
         }
-//       
-//        NetworkManager.uploadPhoto(withData: imagePhoto!, albumId: "", photoId: "") { (URLImage) in
-//                let photo = Photo(image: URLImage, info: "")
-//                user.save()
-//                
-//                
-//                NetworkManager.addUser(user: user, completion: { (success) in
-//                    self.performSegue(withIdentifier: "segueToOptions", sender: self)
-//                })
-//            }
+       let id = UUID().uuidString
+        NetworkManager.uploadPhoto(withData: imagePhoto!, topicId: topic.id, albumId: album.id, photoId: id) { (URLImage) in
+            let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", id: id)
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, completion: { (success) in
+                self.navigationController?.popViewController(animated: true)
+            })
+
+            }
     }
     
     @IBAction func addImageAction(_ sender: Any) {

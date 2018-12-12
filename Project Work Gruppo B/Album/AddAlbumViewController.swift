@@ -15,7 +15,7 @@ class AddAlbumViewController: UIViewController {
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var infoOutlet: UITextField!
     
-    var idTopic : String = ""
+    var topic : Topic!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class AddAlbumViewController: UIViewController {
     @IBAction func saveAction(_ sender: Any) {
         
         var album: Album = Album()
-        guard let topic = Topic.getTopicById(id: idTopic) else {return}
+        guard let topic = Topic.getTopicById(id: topic.id) else {return}
         print(topic)
         let currentName = nameOutlet.text ?? ""
         let currentInfo = infoOutlet.text ?? ""
