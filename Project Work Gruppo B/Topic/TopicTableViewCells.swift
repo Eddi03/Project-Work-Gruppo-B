@@ -31,13 +31,14 @@ class AddTopicTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // Initialization code
-        addButtonOutlet.layer.cornerRadius = 18
-        addButtonOutlet.clipsToBounds = true
+      //  addButtonOutlet.layer.cornerRadius = 18
+       // addButtonOutlet.clipsToBounds = true
     }
     
     @IBOutlet weak var addButtonOutlet: UIButton! {
         didSet {
             addButtonOutlet.setTitle(R.string.localizable.kAddTopicButton(), for: .normal)
+            
         }
     }
 
