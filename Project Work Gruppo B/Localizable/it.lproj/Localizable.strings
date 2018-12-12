@@ -49,6 +49,7 @@ kFinishSignUpName = "Nome";
 kFinischSignUpSurname = "Cognome";
 kSwitchAdmin = "Amministratore";
 kFinischSignUpButton = "Completa Registrazione";
+kNavBarFinishSignUpTitle = "Inserisci i tuoi dati";
 
 // TopicListViewController
 kNavBarTopicHomeTitle = "Home";
@@ -67,3 +68,15 @@ kAccountSaveButton = "Salva";
 kNavBarTopicDetails = "Dettagli";
 kSearchBarAlbum = "Cerca Album";
 kAddAlbumButton = "Aggiungi Album";
+
+// AddTopicViewController
+kAddUserTopic = "Aggiungi Utente";
+kNewTopicDescription = "Descrizione";
+kNewTopicTitle = "Titolo";
+
+// InfoTopicViewController
+kDetailNavBarsTitle = "Dettagli";
+kDetailNavBarSaveButton = "Salva";
+kDetailLabelDescription = "Descrizione";
+kDetailSearchBarMembers = "Cerca Utenti";
+kDetailButtonDeleteTopic = "Elimina Topic";

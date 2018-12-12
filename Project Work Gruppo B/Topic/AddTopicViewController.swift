@@ -7,10 +7,13 @@
 //
 
 import UIKit
+
 protocol AddTopicDelegate{
     func addTopic(topic: Topic)
 }
+
 class AddTopicViewController: UIViewController {
+    
     var addTopicDelegate : AddTopicDelegate!
     var titleTopic : String = ""
     var infoTopic : String = ""
@@ -19,16 +22,41 @@ class AddTopicViewController: UIViewController {
     //var topicForAddUsers : Topic = Topic()
     //var topic : Topic = Topic()
     
-    @IBOutlet weak var addButtonOutlet: UIButton!
-    @IBOutlet weak var infoTopicTextField: UITextField!
-    @IBOutlet weak var titleTopicTextField: UITextField!
+    @IBOutlet weak var navBarSaveButton: UIBarButtonItem!{
+        didSet{
+            navBarSaveButton.title = R.string.localizable.kAccountSaveButton()
+        }
+    }
+        
+//    @IBOutlet weak var addButtonOutlet: UIButton!{
+//        didSet {
+//            addButtonOutlet.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
+//        }
+//    }
     
+    @IBOutlet weak var infoTopicTextField: UITextField!{
+        didSet {
+            infoTopicTextField.placeholder = R.string.localizable.kNewTopicDescription()
+        }
+    }
+    
+    @IBOutlet weak var titleTopicTextField: UITextField!{
+        didSet {
+            titleTopicTextField.placeholder = R.string.localizable.kNewTopicTitle()
+        }
+    }
+    
+    @IBOutlet weak var addUserButton: UIButton!{
+        didSet {
+            addUserButton.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addButtonOutlet.layer.cornerRadius = 18
-        addButtonOutlet.clipsToBounds = true
+        //addButtonOutlet.layer.cornerRadius = 18
+        //addButtonOutlet.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

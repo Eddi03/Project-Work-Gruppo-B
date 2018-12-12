@@ -95,10 +95,11 @@ class NetworkManager : NSObject{
     static func getUsers(completion : @escaping(Bool) -> Void){
         db?.collection("Users").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
+            User.deleteAll()
             for element in document.documents{
                 print(element)
                 do {
-                    User.deleteAll()
+                    
                     try FirebaseDecoder().decode(User.self, from: element.data()).save()
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
@@ -355,13 +356,14 @@ class NetworkManager : NSObject{
         //var listaTopics : [Topic] = []
         NetworkManager.db?.collection("Topics").getDocuments{ (documentSnapshot, error) in
         guard let document = documentSnapshot else {return }
+            Topic.deleteAll()
         for element in document.documents{
             /*
             let topic = Topic(title: element["title"] as! String, info: element["info"] as! String)
             listaTopics.append(topic) */
             
             do {
-                Topic.deleteAll()
+                
                 try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
                 
                 
@@ -443,6 +445,7 @@ class NetworkManager : NSObject{
         var listaAlbums : [Album] = []
         NetworkManager.db?.collection("Albums").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
+            Album.deleteAll()
             for element in document.documents{
                 debugPrint(element)
                 /*
@@ -450,7 +453,7 @@ class NetworkManager : NSObject{
                 listaAlbums.append(album)
                 */
                 do {
-                    Album.deleteAll()
+                    
                     try FirebaseDecoder().decode(Album.self, from: element.data()).save()
                     
                     
@@ -481,10 +484,11 @@ class NetworkManager : NSObject{
     static func getPhotos(completion : @escaping(Bool) -> Void){
         NetworkManager.db?.collection("Photos").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
+            Photo.deleteAll()
             for element in document.documents{
                 print(element)
                 do {
-                    Photo.deleteAll()
+                    
                     try FirebaseDecoder().decode(User.self, from: element.data()).save()
                     
                 } catch let error {
