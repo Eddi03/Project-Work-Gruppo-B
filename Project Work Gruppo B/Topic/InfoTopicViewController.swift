@@ -10,13 +10,35 @@ import UIKit
 
 class InfoTopicViewController: UIViewController {
     
+    @IBOutlet weak var addMembersOutlet: UIButton!
     @IBOutlet weak var tableViewCell: UITableViewCell!
-    @IBOutlet weak var navBarTitleTopic: UINavigationItem!
-    @IBOutlet weak var descriptionTitleTopic: UILabel!
+    @IBOutlet weak var navBarTitleTopic: UINavigationItem!{
+        didSet{
+            navBarTitleTopic.title = R.string.localizable.kDetailNavBarsTitle()
+        }
+    }
+    @IBOutlet weak var navBarSaveButton: UIBarButtonItem!{
+        didSet{
+            navBarSaveButton.title = R.string.localizable.kDetailNavBarSaveButton()
+        }
+    }
+    @IBOutlet weak var descriptionTitleTopic: UILabel!{
+        didSet{
+         descriptionTitleTopic.text = R.string.localizable.kDetailLabelDescription()
+        }
+    }
     @IBOutlet weak var descriptionTopic: UILabel!
-    @IBOutlet weak var searchBarInfo: UISearchBar!
+    @IBOutlet weak var searchBarInfo: UISearchBar!{
+        didSet{
+            searchBarInfo.placeholder = R.string.localizable.kDetailSearchBarMembers()
+        }
+    }
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var deleteTopic: UIButton!
+    @IBOutlet weak var deleteTopic: UIButton!{
+        didSet{
+         deleteTopic.setTitle(R.string.localizable.kDetailButtonDeleteTopic(), for: .normal)
+        }
+    }
     
     var addTopicDelegate : AddTopicDelegate!
     var users : [User] = []
@@ -28,12 +50,17 @@ class InfoTopicViewController: UIViewController {
 
         deleteTopic.layer.cornerRadius = 18
         deleteTopic.clipsToBounds = true
+        addMembersOutlet.layer.cornerRadius = 18
+        addMembersOutlet.clipsToBounds = true
         
         //get user from topic
         for userId in topic?.getUsers() ?? []{
             var userObject = User.getUserById(withid: userId)
             users.append(userObject ?? User())
         }
+        
+        descriptionTopic.text = topic?.info
+        
         print("lista utenti del topic",users)
     }
     

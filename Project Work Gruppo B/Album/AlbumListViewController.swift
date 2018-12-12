@@ -25,7 +25,6 @@ class AlbumListViewController: UIViewController {
     private let ALBUM_INFO = 1
     private let ADD_ALBUM = 2
     
-    
     var titleAlbum : String = ""
     var infoAlbum : String = ""
     var album : Album!
@@ -77,8 +76,6 @@ class AlbumListViewController: UIViewController {
             
         }
         
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         //albums = Album.all()
     }
@@ -151,7 +148,7 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
        
         case EMPTY_LIST:
             let cell = tableView.dequeueReusableCell(withIdentifier: EmptyListAlbumsTableViewCell.kIdentifier, for: indexPath) as! EmptyListAlbumsTableViewCell
-            cell.message.text = "non ghe se niente"
+            cell.message.text = "Vuoto"
             return cell
             
         default:

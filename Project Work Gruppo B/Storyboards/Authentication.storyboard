@@ -300,6 +300,7 @@
                     <connections>
                         <outlet property="buttonOutlet" destination="7O3-M2-DXJ" id="dlY-8K-VMp"/>
                         <outlet property="emailField" destination="xBQ-m5-yId" id="FiS-Cb-XoK"/>
+                        <outlet property="navBarSignUpTitle" destination="LZv-Ox-Cr9" id="m8Q-ew-tC0"/>
                         <outlet property="passwordField" destination="Pcr-gQ-Tqr" id="F1x-6q-jRR"/>
                         <outlet property="repeatPasswordField" destination="oIE-s8-MSH" id="6GP-vg-bcd"/>
                         <segue destination="8ye-UH-Kgt" kind="show" identifier="segueToAdditionalData" id="zNr-QB-IcY"/>
@@ -313,7 +314,7 @@
         <scene sceneID="u7i-DS-TwU">
             <objects>
                 <navigationController id="8ye-UH-Kgt" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WRB-J5-SvC">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="WRB-J5-SvC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -330,23 +331,23 @@
             <objects>
                 <viewController storyboardIdentifier="SaveViewController" id="bDy-rc-8gt" customClass="SaveViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XuH-nS-Exe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tVT-fl-Go9">
-                                <rect key="frame" x="141" y="89" width="209" height="17"/>
+                                <rect key="frame" x="141" y="25" width="209" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cognome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xPS-wm-sRv">
-                                <rect key="frame" x="141" y="172" width="209" height="17"/>
+                                <rect key="frame" x="141" y="108" width="209" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6du-jd-S3r">
-                                <rect key="frame" x="25" y="89" width="100" height="100"/>
+                                <rect key="frame" x="25" y="25" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="ehD-8T-cW1"/>
                                     <constraint firstAttribute="height" constant="100" id="xEN-Xb-Qzs"/>
@@ -357,17 +358,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLX-7b-0Tc">
-                                <rect key="frame" x="48" y="270" width="49" height="21"/>
+                                <rect key="frame" x="48" y="206" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-hR-oD0">
-                                <rect key="frame" x="278" y="265" width="51" height="31"/>
+                                <rect key="frame" x="278" y="201" width="51" height="31"/>
                                 <color key="tintColor" red="0.033959332853555679" green="0.0095556816086173058" blue="0.016644347459077835" alpha="0.1642765410958904" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu1-db-xma">
-                                <rect key="frame" x="25" y="323" width="325" height="36"/>
+                                <rect key="frame" x="25" y="259" width="325" height="36"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="7ko-0C-VkX"/>
@@ -380,27 +381,27 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKO-KK-H6Q">
-                                <rect key="frame" x="25" y="221" width="325" height="17"/>
+                                <rect key="frame" x="25" y="157" width="325" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvq-k8-8yB">
-                                <rect key="frame" x="141" y="105" width="209" height="1"/>
+                                <rect key="frame" x="141" y="41" width="209" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Xbq-oO-MYz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Glu-j1-50K">
-                                <rect key="frame" x="141" y="188" width="209" height="1"/>
+                                <rect key="frame" x="141" y="124" width="209" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="wc1-2i-e6z"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oa1-aj-nGT">
-                                <rect key="frame" x="25" y="237" width="325" height="1"/>
+                                <rect key="frame" x="25" y="173" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NSn-Z9-BCF"/>
@@ -444,6 +445,7 @@
                         <outlet property="emailOutlet" destination="DKO-KK-H6Q" id="nQz-60-15J"/>
                         <outlet property="imageOutlet" destination="6du-jd-S3r" id="No4-66-UPB"/>
                         <outlet property="nameOutlet" destination="tVT-fl-Go9" id="s26-01-GfN"/>
+                        <outlet property="navBarTitleSignUp" destination="MDN-bt-Fw3" id="LqC-x6-60V"/>
                         <outlet property="registerButton" destination="qu1-db-xma" id="HCC-Go-Dr1"/>
                         <outlet property="supervisorOutlet" destination="0R8-hR-oD0" id="HOi-Du-Let"/>
                         <outlet property="surnameOutlet" destination="xPS-wm-sRv" id="nSd-Yj-4Wt"/>
