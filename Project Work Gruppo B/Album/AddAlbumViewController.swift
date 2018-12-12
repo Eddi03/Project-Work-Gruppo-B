@@ -28,7 +28,7 @@ class AddAlbumViewController: UIViewController {
         
         var album: Album = Album()
         guard let topic = Topic.getTopicById(id: idTopic) else {return}
-        
+        print(topic)
         let currentName = nameOutlet.text ?? ""
         let currentInfo = infoOutlet.text ?? ""
 
@@ -36,6 +36,7 @@ class AddAlbumViewController: UIViewController {
         
         NetworkManager.addAlbum(topic: topic, album: album){(success) in
             if success{
+                album.save()
                 self.navigationController?.popViewController(animated: true)
             }else{
                 GeneralUtils.share.alertError(title: "Attenzione", message: "non è stato salvato l'album")

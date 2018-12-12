@@ -98,14 +98,15 @@ class NetworkManager : NSObject{
             for element in document.documents{
                 print(element)
                 do {
+                    
                     try FirebaseDecoder().decode(User.self, from: element.data()).save()
-                        completion(true)
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
                     completion(false)
                     return //mi fa uscire dalla funzione
                 }
             }
+            completion(true)
     }
 }
     
@@ -361,7 +362,8 @@ class NetworkManager : NSObject{
             
             do {
                 try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
-            
+                
+                
             } catch let error {
                 UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
                 completion(false)
@@ -448,6 +450,7 @@ class NetworkManager : NSObject{
                 */
                 do {
                     try FirebaseDecoder().decode(Album.self, from: element.data()).save()
+                    
                     
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error.localizedDescription), animated: true, completion: nil)
