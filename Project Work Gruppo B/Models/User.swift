@@ -52,5 +52,13 @@ import RealmSwift
     static func getUserById(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
         return realm.object(ofType: User.self, forPrimaryKey: id)
     }
+    
+    func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
 }
 

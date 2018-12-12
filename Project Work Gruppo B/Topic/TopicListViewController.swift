@@ -60,16 +60,7 @@ class TopicListViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        /*
-        search.delegate = self
-        NetworkManager.getTopics{ (listaTopics) in
-            self.topics = listaTopics
-            print("coseeeeeeeeeeeee", listaTopics, self.topics)
-        }
-        //topics = Topic.all()
- */
         tableView.reloadData()
- 
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -87,12 +78,12 @@ class TopicListViewController: UIViewController {
         }
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let archivia = archiviaAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [archivia])
-    }*/
+    }
     
     func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
         let topic = topics[indexPath.row]
