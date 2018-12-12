@@ -575,16 +575,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="cognome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FfB-t1-stC">
-                                                    <rect key="frame" x="212" y="49" width="97" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
-                                                    </accessibility>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="654-Y7-vRd"/>
@@ -595,7 +585,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="wWk-rl-Qot" id="bxH-HP-LFb"/>
-                                            <outlet property="surname" destination="FfB-t1-stC" id="CZt-A5-GMr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -852,8 +841,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

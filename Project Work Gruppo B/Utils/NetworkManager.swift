@@ -459,7 +459,17 @@ class NetworkManager : NSObject{
         }
     }
     
-    
+    static func deleteAlbum(idAlbum: String, completion: @escaping (Bool)->Void){
+        db?.collection("Albums").document(idAlbum).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully removed!")
+                completion(true)
+            }
+        }
+    }
     
     // FOTO
     

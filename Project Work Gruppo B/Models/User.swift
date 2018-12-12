@@ -28,6 +28,8 @@ import RealmSwift
         self.supervisor = supervisor ?? false
     }
     
+    
+    
     func getFullName() -> String{
         var s = String(name)
         s+=" "

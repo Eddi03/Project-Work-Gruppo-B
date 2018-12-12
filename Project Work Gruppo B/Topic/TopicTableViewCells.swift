@@ -79,7 +79,6 @@ class AddUsersTableViewCell: UITableViewCell {
     
     @IBOutlet var name: UITextField!
     
-    @IBOutlet weak var surname: UITextField!
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

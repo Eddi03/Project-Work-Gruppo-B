@@ -32,6 +32,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         grabPhotos()
     }
     
+    
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1{

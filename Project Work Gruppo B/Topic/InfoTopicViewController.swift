@@ -44,7 +44,16 @@ class InfoTopicViewController: UIViewController {
     @IBAction func deleteTopicAction(_ sender: Any) {
         NetworkManager.deleteTopic(idTopic: topic!.id, completion: { success in
             if success{
-                //elimino su relam
+                //elimino su relam (prima elimino gli album)
+                for albumId in self.topic?.getAlbums() ?? []{
+                    var album = Album.getAlbumById(id: albumId)
+                    NetworkManager.deleteAlbum(idAlbum: albumId, completion: {success in
+                        if success {
+                            album?.delete()
+                        }
+                    })
+                    
+                }
                 self.topic!.delete()
                 self.dismiss(animated: true, completion: nil)
             }
@@ -85,7 +94,7 @@ extension InfoTopicViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
         debugPrint(cell)
         
-        cell.name.text = self.users[indexPath.row].name
+        cell.name.text = self.users[indexPath.row].getFullName()
         cell.backgroundColor = UIColor.clear
         //        if let id = usersToAdd.filter({$0==users[indexPath.row]}).first{
         //            cell.backgroundColor = UIColor.green

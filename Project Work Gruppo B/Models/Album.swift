@@ -37,6 +37,15 @@ import RealmSwift
         } catch {}
     }
     
+    func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
+
+    
     func getPhotos() -> [String] {
         return Array(photos)
     }

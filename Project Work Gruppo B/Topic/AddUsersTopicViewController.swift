@@ -85,8 +85,8 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
         
         
-        cell.name.text = self.users[indexPath.row].name
-        cell.surname.text = self.users[indexPath.row].surname
+        cell.name.text = self.users[indexPath.row].getFullName()
+        
         cell.backgroundColor = UIColor.clear
 //        if let id = usersToAdd.filter({$0==users[indexPath.row]}).first{
 //            cell.backgroundColor = UIColor.green
