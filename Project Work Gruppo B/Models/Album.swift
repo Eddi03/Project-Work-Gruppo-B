@@ -71,6 +71,13 @@ import RealmSwift
         return Array(realm.objects(Album.self))
     }
     
+    static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(realm.objects(Album.self))
+            }
+        } catch {}
+    }
     
     
     static func getAlbumById(id: String)-> Album?{

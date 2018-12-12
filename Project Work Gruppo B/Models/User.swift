@@ -53,10 +53,10 @@ import RealmSwift
         return realm.object(ofType: User.self, forPrimaryKey: id)
     }
     
-    func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+    static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
-                realm.delete(self)
+                realm.delete(realm.objects(User.self))
             }
         } catch {}
     }

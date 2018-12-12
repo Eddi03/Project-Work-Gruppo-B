@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class Photo: Object {
+@objcMembers class Photo: Object, Codable {
     
     dynamic var image : String?
     dynamic var info : String?
@@ -58,6 +58,13 @@ import RealmSwift
         do {
             try realm.write {
                 realm.delete(self)
+            }
+        } catch {}
+    }
+    static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(realm.objects(Photo.self))
             }
         } catch {}
     }

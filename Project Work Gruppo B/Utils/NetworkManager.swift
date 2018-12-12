@@ -98,7 +98,7 @@ class NetworkManager : NSObject{
             for element in document.documents{
                 print(element)
                 do {
-                    
+                    User.deleteAll()
                     try FirebaseDecoder().decode(User.self, from: element.data()).save()
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
@@ -361,6 +361,7 @@ class NetworkManager : NSObject{
             listaTopics.append(topic) */
             
             do {
+                Topic.deleteAll()
                 try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
                 
                 
@@ -449,6 +450,7 @@ class NetworkManager : NSObject{
                 listaAlbums.append(album)
                 */
                 do {
+                    Album.deleteAll()
                     try FirebaseDecoder().decode(Album.self, from: element.data()).save()
                     
                     
@@ -482,21 +484,23 @@ class NetworkManager : NSObject{
             for element in document.documents{
                 print(element)
                 do {
+                    Photo.deleteAll()
                     try FirebaseDecoder().decode(User.self, from: element.data()).save()
-                    completion(true)
+                    
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
                     completion(false)
                     return //mi fa uscire dalla funzione
                 }
             }
+            completion(true)
         }
     }
     
     
     static func addPhoto(topic: Topic, album: Album,photo: Photo,completion: @escaping (Bool)-> ()){
         do{
-            let parameters = try album.asDictionary()
+            let parameters = try photo.asDictionary()
             
             db!.collection("Photos").document(photo.id).setData(
                 parameters

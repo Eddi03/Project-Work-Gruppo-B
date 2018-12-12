@@ -93,7 +93,13 @@ import RealmSwift
         return Array(users)
     }
     
-    
+   static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(realm.objects(Topic.self))
+            }
+        } catch {}
+    }
     
     // ALBUM
     
