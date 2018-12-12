@@ -10,6 +10,7 @@ import UIKit
 
 class InfoTopicViewController: UIViewController {
     
+    @IBOutlet weak var addMembersOutlet: UIButton!
     @IBOutlet weak var tableViewCell: UITableViewCell!
     @IBOutlet weak var navBarTitleTopic: UINavigationItem!{
         didSet{
@@ -49,6 +50,8 @@ class InfoTopicViewController: UIViewController {
 
         deleteTopic.layer.cornerRadius = 18
         deleteTopic.clipsToBounds = true
+        addMembersOutlet.layer.cornerRadius = 18
+        addMembersOutlet.clipsToBounds = true
         
         //get user from topic
         for userId in topic?.getUsers() ?? []{
