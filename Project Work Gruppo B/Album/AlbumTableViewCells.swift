@@ -28,7 +28,11 @@ class AlbumTableViewCell: UITableViewCell {
 
 class AddAlbumTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var addButtonOutlet: UIButton!
+    @IBOutlet weak var addButtonOutlet: UIButton!{
+        didSet {
+            addButtonOutlet.setTitle(R.string.localizable.kAddAlbumButton(), for: .normal)
+        }
+    }
     
     static var kIdentifier = "AddAlbumTableViewCell"
     override func awakeFromNib() {
