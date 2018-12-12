@@ -92,30 +92,22 @@ class NetworkManager : NSObject{
 //            completion(albumsToComplete)
 //        }
 //    }
-    static func getUsers(completion : @escaping([User]) -> Void){
-        db!.collection("Users").getDocuments { (documentSnap, error) in
-            var usersList : [User] = []
-            
-            if let error = error{
-                print(error)
-            }
-            else{
-                
-                guard let documentSnap = documentSnap else{ return }
-                for document in documentSnap.documents{
-                    let name = document["name"] as! String
-                    let surname = document["surname"] as! String
-                    let image = document["image"] as? String
-                    let email = document["email"] as! String
-                    let supervisor = document["supervisor"] as? Bool
-                    let user = User(email: email, name: name, surname: surname, image: image, supervisor:supervisor)
-                    usersList.append(user)
+    static func getUsers(completion : @escaping(Bool) -> Void){
+        db?.collection("Users").getDocuments{ (documentSnapshot, error) in
+            guard let document = documentSnapshot else {return }
+            for element in document.documents{
+                print(element)
+                do {
+                    try FirebaseDecoder().decode(User.self, from: element.data()).save()
+                        completion(true)
+                } catch let error {
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
+                    completion(false)
+                    return //mi fa uscire dalla funzione
                 }
             }
-            completion(usersList)
-        }
-        
     }
+}
     
     static func getUserLogged(completion : @escaping(Bool) -> Void){
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -251,7 +243,7 @@ class NetworkManager : NSObject{
         }
     }
     
-    static func dowloadImageProfile(withURL url: String, completion: @escaping (UIImage?) -> ()) {
+    static func dowloadImage(withURL url: String, completion: @escaping (UIImage?) -> ()) {
         
         // Create a reference from an HTTPS URL
         // Note that in the URL, characters are URL escaped!
@@ -272,12 +264,12 @@ class NetworkManager : NSObject{
             }
         }    
     }
-    static func uploadPhoto(withData data: Data, albumId: String, photoId: String, completion: @escaping (String?) -> ()) {
+    static func uploadPhoto(withData data: Data,topicId: String, albumId: String, photoId: String, completion: @escaping (String?) -> ()) {
         
         guard let storageRef = storageRef else { completion(nil); return }
         
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("Albums/\(albumId)/\(photoId).jpg")
+        let riversRef = storageRef.child("Topics\(topicId)/Albums/\(albumId)/\(photoId).jpg")
         
         // Upload the file to the path "images/rivers.jpg"
         let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in

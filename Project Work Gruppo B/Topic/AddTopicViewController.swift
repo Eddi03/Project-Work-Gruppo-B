@@ -15,6 +15,8 @@ class AddTopicViewController: UIViewController {
     var titleTopic : String = ""
     var infoTopic : String = ""
     var topic : Topic!
+    
+    //var topicForAddUsers : Topic = Topic()
     //var topic : Topic = Topic()
     
     @IBOutlet weak var addButtonOutlet: UIButton!
@@ -86,6 +88,7 @@ class AddTopicViewController: UIViewController {
         if let destinationSegue = segue.destination as? AddUsersTopicViewController{
             destinationSegue.addTopicDelegate = self.addTopicDelegate
             destinationSegue.topic = topic
+            //destinationSegue.topicForAddUsers = topicForAddUsers
         }
     }
     

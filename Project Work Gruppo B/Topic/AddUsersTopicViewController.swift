@@ -10,21 +10,34 @@ import UIKit
 class AddUsersTopicViewController: UIViewController {
     
     var addTopicDelegate : AddTopicDelegate!
-    var users : [String] = []
+    var users : [User] = []
     var usersToAdd : [String] = []
     var topic : Topic!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.users.append("Alessandro")
+        /*self.users.append("Alessandro")
         self.users.append("Giorgio")
         self.users.append("Carlo")
-        self.users.append("Luca")
+        self.users.append("Luca")*/
         // Do any additional setup after loading the view.
+        
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        
+        NetworkManager.getUsers(completion: {   success in
+            if success {
+                self.users = User.all()
+                print("lista utenti", self.users)
+                self.tableView.reloadData()
+            }else{
+                GeneralUtils.share.alertError(title: "errore", message: "")
+            }
+        })
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -36,6 +49,14 @@ class AddUsersTopicViewController: UIViewController {
         for i in usersToAdd{
             topic.addingUser(id: i)
         }
+        NetworkManager.addTopic(topic: topic, completion: {
+            success in
+            if success {
+                GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti aggiunti al database")
+            }else{
+                 GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti non aggiunti")
+            }
+        })
         topic.save()
         addTopicDelegate.addTopic(topic: topic)
         self.navigationController?.popToRootViewController(animated: true)
@@ -63,7 +84,7 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
         
         
-        cell.name.text = self.users[indexPath.row]
+        cell.name.text = self.users[indexPath.row].name
         cell.backgroundColor = UIColor.clear
 //        if let id = usersToAdd.filter({$0==users[indexPath.row]}).first{
 //            cell.backgroundColor = UIColor.green
@@ -82,10 +103,10 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
             cell!.isSelected = false
             if cell!.accessoryType == .none{
                 cell!.accessoryType = .checkmark
-                usersToAdd.append(users[indexPath.row])
+                usersToAdd.append(users[indexPath.row].id)
             }
             else {
-                if let position = usersToAdd.firstIndex(of:users[indexPath.row]){
+                if let position = usersToAdd.firstIndex(of:users[indexPath.row].id){
                     usersToAdd.remove(at: position)
                 }
                 cell!.accessoryType = .none

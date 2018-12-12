@@ -13,10 +13,11 @@ import RealmSwift
     
     dynamic var image : String?
     dynamic var info : String?
+    dynamic var dateCreated : String?
     
     dynamic var id : String!
     
-    convenience init(image: String? = nil, info: String? = nil) {
+    convenience init(image: String? = nil, info: String? = nil, dateCreated: String? = nil) {
         self.init()
         
         self.image = image

@@ -85,9 +85,20 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         return 1.0
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 4
+    }
     //MARK: grab photos
     func grabPhotos(){
         imageArray = []
+        
+//        NetworkManager.dowloadImageProfile(withURL: "https://firebasestorage.googleapis.com/v0/b/project-work-gruppo-b.appspot.com/o/profileImages%2F3EB47AbzNIYufpUDy8wDO86IMSF2.jpg?alt=media&token=6d16e654-854a-4f1f-a4ab-6d10ad48ef2c", completion: { (image) in
+//            self.imageArray.append(image!)
+//            DispatchQueue.main.async {
+//                self.myCollectionView.reloadData()
+//            }
+//        })
+
         
         DispatchQueue.global(qos: .background).async {
             print("This is run on the background queue")
@@ -130,7 +141,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
 
 
 class PhotoItemCell: UICollectionViewCell {
-    
+    static var kIdentifier = "PhotoTableViewCell"
     var img = UIImageView()
     
     override init(frame: CGRect) {
