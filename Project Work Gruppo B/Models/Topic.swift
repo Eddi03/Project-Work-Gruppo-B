@@ -43,6 +43,16 @@ import RealmSwift
             }
         } catch {}
     }
+    
+    func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(self)
+            }
+        } catch {}
+    }
+    
+    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
         return Array(realm.objects(Topic.self))
     }

@@ -62,6 +62,8 @@ import RealmSwift
         return Array(realm.objects(Album.self))
     }
     
+    
+    
     static func getAlbumById(id: String)-> Album?{
         let realm = try! Realm()
         return realm.object(ofType: Album.self, forPrimaryKey: id)
@@ -75,7 +77,9 @@ import RealmSwift
             if idCurrentTopic == topic.id{
                 for idAlbum in topic.getAlbums(){
                     let album = Album.getAlbumById(id: idAlbum)
-                    listaAlbumOfCurrentTopic.append(album ?? Album())
+                    if album?.completed == false {
+                        listaAlbumOfCurrentTopic.append(album ?? Album())
+                    }
                 }
             }
         }

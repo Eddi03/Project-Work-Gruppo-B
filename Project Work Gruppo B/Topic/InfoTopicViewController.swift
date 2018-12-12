@@ -19,9 +19,9 @@ class InfoTopicViewController: UIViewController {
     @IBOutlet weak var deleteTopic: UIButton!
     
     var addTopicDelegate : AddTopicDelegate!
-    var users : [String] = []
+    var users : [User] = []
     var usersToAdd : [String] = []
-    var topic : Topic!
+    var topic : Topic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,27 +29,37 @@ class InfoTopicViewController: UIViewController {
         deleteTopic.layer.cornerRadius = 18
         deleteTopic.clipsToBounds = true
         
-        self.users.append("Alessandro")
-        self.users.append("Giorgio")
-        self.users.append("Carlo")
-        self.users.append("Luca")
-      
+        //get user from topic
+        for userId in topic?.getUsers() ?? []{
+            var userObject = User.getUserById(withid: userId)
+            users.append(userObject ?? User())
+        }
+        print("lista utenti del topic",users)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
-
+    @IBAction func deleteTopicAction(_ sender: Any) {
+        NetworkManager.deleteTopic(idTopic: topic!.id, completion: { success in
+            if success{
+                //elimino su relam
+                self.topic!.delete()
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+    }
+    
     @IBAction func addTopicAction(_ sender: Any) {
         guard !usersToAdd.isEmpty else{
             return
         }
         for i in usersToAdd{
-            topic.addingUser(id: i)
+            topic!.addingUser(id: i)
         }
-        topic.save()
-        addTopicDelegate.addTopic(topic: topic)
+        topic!.save()
+        addTopicDelegate.addTopic(topic: topic!)
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -75,7 +85,7 @@ extension InfoTopicViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
         debugPrint(cell)
         
-        cell.name.text = self.users[indexPath.row]
+        cell.name.text = self.users[indexPath.row].name
         cell.backgroundColor = UIColor.clear
         //        if let id = usersToAdd.filter({$0==users[indexPath.row]}).first{
         //            cell.backgroundColor = UIColor.green
@@ -94,10 +104,10 @@ extension InfoTopicViewController : UITableViewDelegate, UITableViewDataSource {
             cell!.isSelected = false
             if cell!.accessoryType == .none{
                 cell!.accessoryType = .checkmark
-                usersToAdd.append(users[indexPath.row])
+                usersToAdd.append(users[indexPath.row].id)
             }
             else {
-                if let position = usersToAdd.firstIndex(of:users[indexPath.row]){
+                if let position = usersToAdd.firstIndex(of:users[indexPath.row].id){
                     usersToAdd.remove(at: position)
                 }
                 cell!.accessoryType = .none

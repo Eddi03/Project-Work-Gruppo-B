@@ -29,7 +29,7 @@ class ViewController: UIViewController {
                     NetworkManager.getUserLogged { (success) in
                         if success {
                             
-                            guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUser(withid: id)?.supervisor else {
+                            guard let id = NetworkManager.getMyID(), let isSupervisor = User.getUserById(withid: id)?.supervisor else {
                                 return
                             }
                             

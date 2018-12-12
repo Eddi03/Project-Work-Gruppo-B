@@ -123,7 +123,7 @@ class NetworkManager : NSObject{
                     do{
                         debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
-                        debugPrint(User.getUser(withid: uid)!)
+                        debugPrint(User.getUserById(withid: uid)!)
                         completion(true)
                     }catch{
                         print(error)
@@ -308,7 +308,7 @@ class NetworkManager : NSObject{
                     do{
                         debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
-                        let user = (User.getUser(withid: uid)!)
+                        let user = (User.getUserById(withid: uid)!)
                         completion(user)
                     }catch{
                         print(error)
@@ -371,6 +371,18 @@ class NetworkManager : NSObject{
         }
             completion(true)
             
+        }
+    }
+    
+    static func deleteTopic(idTopic: String, completion: @escaping (Bool)->Void){
+        db?.collection("Topics").document(idTopic).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully removed!")
+                completion(true)
+            }
         }
     }
     

@@ -76,6 +76,9 @@ class AlbumListViewController: UIViewController {
             destinationSegue.addAlbumDelegate = self
             destinationSegue.idTopic = idTopic
         }
+        if let destinationSegue = segue.destination as? InfoTopicViewController{
+            destinationSegue.topic = Topic.getTopicById(id: idTopic)
+        }
     }
 }
 

@@ -36,4 +36,24 @@ import RealmSwift
         } catch {}
     }
     
+    static func getPhotoById(id: String)-> Photo?{
+        let realm = try! Realm()
+        return realm.object(ofType: Photo.self, forPrimaryKey: id)
+    }
+    
+    static func getPhotoFromAlbum(idCurrentAlbum: String) ->[Photo]{
+        var listaPhotoOfCurrentAlbum : [Photo] = []
+        for album in Album.all(){
+            if idCurrentAlbum == album.id{
+                for idPhoto in album.getPhotos(){
+                    let photo = Photo.getPhotoById(id: idPhoto)
+                    listaPhotoOfCurrentAlbum.append(photo ?? Photo())
+                }
+            }
+        }
+    return listaPhotoOfCurrentAlbum
+    }
+    
+    
+    
 }

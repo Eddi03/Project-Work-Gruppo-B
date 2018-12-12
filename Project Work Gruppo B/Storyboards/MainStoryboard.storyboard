@@ -798,6 +798,9 @@
                                 <state key="normal" title="Elimina">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteTopicAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="dkz-v6-mOF"/>
+                                </connections>
                             </button>
                             <searchBar contentMode="redraw" placeholder="Cerca Membri" translatesAutoresizingMaskIntoConstraints="NO" id="yfA-K7-bnm">
                                 <rect key="frame" x="0.0" y="155.5" width="375" height="56"/>

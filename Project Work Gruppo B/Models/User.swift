@@ -47,7 +47,7 @@ import RealmSwift
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [User] {
         return Array(realm.objects(User.self))
     }
-    static func getUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
+    static func getUserById(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
         return realm.object(ofType: User.self, forPrimaryKey: id)
     }
 }
