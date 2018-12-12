@@ -62,3 +62,8 @@ kNavBarBackToHome = "Home";
 kNavBarAccountTitle = "Account";
 kNavBarAccountLogout = "Logout";
 kAccountSaveButton = "Save";
+
+// AlbumListViewController
+kNavBarTopicDetails = "Details";
+kSearchBarAlbum = "Search Album";
+kAddAlbumButton = "Add Album";

@@ -9,6 +9,18 @@
 import UIKit
 
 class AlbumListViewController: UIViewController {
+    
+    @IBOutlet weak var searchBarAlbum: UISearchBar!{
+        didSet {
+            searchBarAlbum.placeholder = R.string.localizable.kSearchBarAlbum()
+        }
+    }
+    @IBOutlet weak var navBarTopicDetails: UIBarButtonItem! {
+        didSet {
+            navBarTopicDetails.title = R.string.localizable.kNavBarTopicDetails()
+        }
+    }
+    
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
     private let ADD_ALBUM = 2
@@ -26,7 +38,6 @@ class AlbumListViewController: UIViewController {
     @IBOutlet var search: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

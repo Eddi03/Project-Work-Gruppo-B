@@ -11,13 +11,17 @@ import FirebaseAuth
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var navBarLogout: UIBarButtonItem! {
+        didSet {
+            navBarLogout.title = R.string.localizable.kNavBarAccountLogout()
+        }
+    }
     var user : User!
     private var pickerController:UIImagePickerController?
     var URLImage : String?
     var imageUser : Data?
     var email : String! = Auth.auth().currentUser?.email
     var id :String! = Auth.auth().currentUser?.uid
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +54,11 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: UIButton! {
+        didSet {
+            buttonOutlet.setTitle(R.string.localizable.kAccountSaveButton(), for: .normal)
+        }
+    }
     
     
     @IBOutlet weak var surnameOutlet: UITextField!
