@@ -14,6 +14,9 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     
     @IBOutlet var myCollectionView: UICollectionView!
     
+    @IBAction func addPhotoAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, sender: self)
+            }
     //var myCollectionView: UICollectionView!
     var imageArray=[UIImage]()
     

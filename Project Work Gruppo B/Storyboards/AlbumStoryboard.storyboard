@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kW4-ke-neU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kW4-ke-neU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,7 +76,11 @@
                                 <items>
                                     <barButtonItem title="Dettagli" id="rpH-xd-9Vm"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="V7G-BA-LPt"/>
-                                    <barButtonItem systemItem="add" id="qAC-we-dWe"/>
+                                    <barButtonItem systemItem="add" id="qAC-we-dWe">
+                                        <connections>
+                                            <action selector="addPhotoAction:" destination="kW4-ke-neU" id="hM4-ax-clu"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xaf-xf-Z4b"/>
                                     <barButtonItem systemItem="compose" id="5HT-vg-ZV0"/>
                                 </items>
@@ -97,11 +101,61 @@
                     </view>
                     <connections>
                         <outlet property="myCollectionView" destination="3hg-Zs-Nic" id="0N0-fZ-HLJ"/>
+                        <segue destination="t6S-Rf-qfY" kind="show" identifier="segueToAddPhoto" id="KSq-6i-ZNI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8y-oA-Cpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="133.5832083958021"/>
         </scene>
+        <!--Add Photo View Controller-->
+        <scene sceneID="kQg-6z-ZiH">
+            <objects>
+                <viewController id="t6S-Rf-qfY" customClass="AddPhotoViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XeV-P8-Lpd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-AK-YAd">
+                                <rect key="frame" x="25" y="270" width="325" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd5-jv-gGe">
+                                <rect key="frame" x="100" y="45" width="175" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="4um-VA-UVV"/>
+                                    <constraint firstAttribute="height" constant="175" id="WAz-dn-IDU"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="User Placeholder"/>
+                                <connections>
+                                    <action selector="addImageAction:" destination="t6S-Rf-qfY" eventType="touchUpInside" id="EAN-nz-PsD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fd5-jv-gGe" firstAttribute="top" secondItem="Gzz-z3-czu" secondAttribute="top" constant="25" id="Go8-AB-ryr"/>
+                            <constraint firstItem="hJc-AK-YAd" firstAttribute="centerX" secondItem="XeV-P8-Lpd" secondAttribute="centerX" id="L8x-vy-VRf"/>
+                            <constraint firstItem="hJc-AK-YAd" firstAttribute="leading" secondItem="Gzz-z3-czu" secondAttribute="leading" constant="25" id="bvN-ck-aGT"/>
+                            <constraint firstItem="Fd5-jv-gGe" firstAttribute="centerX" secondItem="XeV-P8-Lpd" secondAttribute="centerX" id="dxm-WI-AQg"/>
+                            <constraint firstItem="Gzz-z3-czu" firstAttribute="trailing" secondItem="hJc-AK-YAd" secondAttribute="trailing" constant="25" id="tUX-yY-2Or"/>
+                            <constraint firstItem="hJc-AK-YAd" firstAttribute="top" secondItem="Fd5-jv-gGe" secondAttribute="bottom" constant="50" id="xGc-9Q-BGF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gzz-z3-czu"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageOutlet" destination="Fd5-jv-gGe" id="iNV-GC-tBr"/>
+                        <outlet property="textOutlet" destination="hJc-AK-YAd" id="JXJ-dl-Vla"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kW9-1V-HTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940" y="121"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="User Placeholder" width="256" height="256"/>
+    </resources>
 </document>

@@ -11,6 +11,7 @@ import UIKit
 class AddPhotoViewController: UIViewController {
     private var pickerController:UIImagePickerController?
 
+    @IBOutlet var textOutlet: UITextField!
     @IBOutlet var imageOutlet: UIButton!
     var imagePhoto : Data?
     override func viewDidLoad() {
