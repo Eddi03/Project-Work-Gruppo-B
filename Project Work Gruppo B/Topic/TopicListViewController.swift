@@ -65,7 +65,7 @@ class TopicListViewController: UIViewController {
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
             destinationSegue.idTopic = isTopicSelected
-            destinationSegue.topicTitle = clickedTopicName
+           
         }
     }
     
