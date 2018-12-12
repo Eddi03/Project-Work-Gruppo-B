@@ -7,10 +7,13 @@
 //
 
 import UIKit
+
 protocol AddTopicDelegate{
     func addTopic(topic: Topic)
 }
+
 class AddTopicViewController: UIViewController {
+    
     var addTopicDelegate : AddTopicDelegate!
     var titleTopic : String = ""
     var infoTopic : String = ""
@@ -45,15 +48,15 @@ class AddTopicViewController: UIViewController {
     
     @IBOutlet weak var addUserButton: UIButton!{
         didSet {
-            addButtonOutlet.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
+            addUserButton.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addButtonOutlet.layer.cornerRadius = 18
-        addButtonOutlet.clipsToBounds = true
+        //addButtonOutlet.layer.cornerRadius = 18
+        //addButtonOutlet.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     

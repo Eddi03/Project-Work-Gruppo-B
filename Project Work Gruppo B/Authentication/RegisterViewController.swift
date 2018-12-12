@@ -18,13 +18,26 @@ class RegisterViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    @IBOutlet weak var navBarSignUpTitle: UINavigationItem!{
+        didSet {
+            navBarSignUpTitle.title = R.string.localizable.kNavBarSignUpTitle()
+        }
+    }
     var email : String!
     var password : String!
     var repeatPassword : String!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
-    @IBOutlet var repeatPasswordField: UITextField!
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet var repeatPasswordField: UITextField!{
+        didSet {
+            repeatPasswordField.placeholder = R.string.localizable.kSignUpConfirmPasswordTextField()
+        }
+    }
+    @IBOutlet weak var buttonOutlet: UIButton!{
+        didSet{
+            buttonOutlet.setTitle(R.string.localizable.kSignUpNextButton(), for: .normal)
+        }
+    }
 
     
     @IBAction func registerAction(_ sender: Any) {

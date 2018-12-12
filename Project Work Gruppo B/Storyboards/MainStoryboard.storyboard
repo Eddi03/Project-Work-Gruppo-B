@@ -430,7 +430,7 @@
             </objects>
             <point key="canvasLocation" x="116" y="-708.39580209895053"/>
         </scene>
-        <!--Nuovo Topic-->
+        <!--New Topic-->
         <scene sceneID="3XE-ky-Idv">
             <objects>
                 <viewController id="c2o-Ib-4Jo" customClass="AddTopicViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -499,7 +499,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J8j-F2-nSA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Nuovo Topic" id="ghB-E9-7pm">
+                    <navigationItem key="navigationItem" title="New Topic" id="ghB-E9-7pm">
                         <barButtonItem key="rightBarButtonItem" title="Salva" id="hk9-dd-8rU">
                             <connections>
                                 <action selector="addTopicAction:" destination="c2o-Ib-4Jo" id="GLc-oc-WDC"/>
@@ -507,8 +507,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUserButton" destination="qsz-AD-xXr" id="svh-vx-ZPn"/>
                         <outlet property="infoTopicTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
                         <outlet property="navBarSaveButton" destination="hk9-dd-8rU" id="xg9-iT-DZi"/>
+                        <outlet property="navigationItem" destination="ghB-E9-7pm" id="VR6-Xc-No9"/>
                         <outlet property="titleTopicTextField" destination="tTm-Sy-kFR" id="RM1-At-jtt"/>
                         <segue destination="IeF-NS-0q6" kind="show" identifier="segueToAddUser" id="NdE-aM-OgF"/>
                     </connections>
@@ -686,6 +688,7 @@
                     <connections>
                         <outlet property="infoOutlet" destination="aoM-9Y-i0J" id="43G-Hw-VR2"/>
                         <outlet property="nameOutlet" destination="Dew-Jv-nOp" id="AtU-Xd-P0b"/>
+                        <outlet property="navBarSaveNewAlbum" destination="BLf-fm-hiF" id="NEa-Un-Rn6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eJZ-yx-WrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -825,6 +828,7 @@
                         <outlet property="deleteTopic" destination="wc4-CT-y0S" id="xUd-T2-G5T"/>
                         <outlet property="descriptionTitleTopic" destination="5jv-N6-7T2" id="x8c-yn-LGE"/>
                         <outlet property="descriptionTopic" destination="vMZ-cT-f5b" id="P60-HW-4E9"/>
+                        <outlet property="navBarSaveButton" destination="YyC-v2-bMC" id="mlu-dk-VPL"/>
                         <outlet property="navBarTitleTopic" destination="eZd-VK-tUp" id="fLz-lC-Xdu"/>
                         <outlet property="searchBarInfo" destination="yfA-K7-bnm" id="w3D-Yr-Gid"/>
                         <outlet property="tableView" destination="qgH-Uq-8nF" id="Iwy-dV-my4"/>
@@ -844,8 +848,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Folder Icon" width="61" height="48"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

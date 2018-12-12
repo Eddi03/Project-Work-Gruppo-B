@@ -12,8 +12,23 @@ protocol AddAlbumDelegate{
 }
 class AddAlbumViewController: UIViewController {
     var addAlbumDelegate : AddAlbumDelegate!
-    @IBOutlet weak var nameOutlet: UITextField!
-    @IBOutlet weak var infoOutlet: UITextField!
+    
+    @IBOutlet weak var navBarSaveNewAlbum: UIBarButtonItem!{
+        didSet {
+            navBarSaveNewAlbum.title = R.string.localizable.kAccountSaveButton()
+        }
+    }
+    @IBOutlet weak var nameOutlet: UITextField! {
+        didSet {
+            nameOutlet.placeholder = R.string.localizable.kNewTopicTitle()
+        }
+    }
+    
+    @IBOutlet weak var infoOutlet: UITextField!{
+        didSet {
+            infoOutlet.placeholder = R.string.localizable.kNewTopicDescription()
+        }
+    }
     
     var idTopic : String = ""
     

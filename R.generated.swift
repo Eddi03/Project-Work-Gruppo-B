@@ -335,7 +335,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -385,10 +385,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kCopyright = Rswift.StringResource(key: "kCopyright", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Delete Topic
+      /// 
+      /// Locales: en, it
+      static let kDetailButtonDeleteTopic = Rswift.StringResource(key: "kDetailButtonDeleteTopic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static let kDetailLabelDescription = Rswift.StringResource(key: "kDetailLabelDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Description
       /// 
       /// Locales: en, it
       static let kNewTopicDescription = Rswift.StringResource(key: "kNewTopicDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Details
+      /// 
+      /// Locales: en, it
+      static let kDetailNavBarsTitle = Rswift.StringResource(key: "kDetailNavBarsTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Details
       /// 
       /// Locales: en, it
@@ -417,6 +429,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kNavBarTopicHomeTitle = Rswift.StringResource(key: "kNavBarTopicHomeTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Insert your Data
+      /// 
+      /// Locales: en, it
+      static let kNavBarFinishSignUpTitle = Rswift.StringResource(key: "kNavBarFinishSignUpTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Login
       /// 
       /// Locales: en
@@ -465,6 +481,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAccountSaveButton = Rswift.StringResource(key: "kAccountSaveButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Save
+      /// 
+      /// Locales: en, it
+      static let kDetailNavBarSaveButton = Rswift.StringResource(key: "kDetailNavBarSaveButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Search Album
       /// 
       /// Locales: en, it
@@ -473,6 +493,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kSearchBarPlaceholder = Rswift.StringResource(key: "kSearchBarPlaceholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Search Members
+      /// 
+      /// Locales: en, it
+      static let kDetailSearchBarMembers = Rswift.StringResource(key: "kDetailSearchBarMembers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en, it
@@ -602,11 +626,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kCopyright", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Delete Topic
+      /// 
+      /// Locales: en, it
+      static func kDetailButtonDeleteTopic(_: Void = ()) -> String {
+        return NSLocalizedString("kDetailButtonDeleteTopic", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static func kDetailLabelDescription(_: Void = ()) -> String {
+        return NSLocalizedString("kDetailLabelDescription", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Description
       /// 
       /// Locales: en, it
       static func kNewTopicDescription(_: Void = ()) -> String {
         return NSLocalizedString("kNewTopicDescription", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Details
+      /// 
+      /// Locales: en, it
+      static func kDetailNavBarsTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kDetailNavBarsTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Details
@@ -656,6 +701,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kNavBarTopicHomeTitle(_: Void = ()) -> String {
         return NSLocalizedString("kNavBarTopicHomeTitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Insert your Data
+      /// 
+      /// Locales: en, it
+      static func kNavBarFinishSignUpTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kNavBarFinishSignUpTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Login
@@ -742,6 +794,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAccountSaveButton", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Save
+      /// 
+      /// Locales: en, it
+      static func kDetailNavBarSaveButton(_: Void = ()) -> String {
+        return NSLocalizedString("kDetailNavBarSaveButton", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Search Album
       /// 
       /// Locales: en, it
@@ -754,6 +813,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kSearchBarPlaceholder(_: Void = ()) -> String {
         return NSLocalizedString("kSearchBarPlaceholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Search Members
+      /// 
+      /// Locales: en, it
+      static func kDetailSearchBarMembers(_: Void = ()) -> String {
+        return NSLocalizedString("kDetailSearchBarMembers", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Send

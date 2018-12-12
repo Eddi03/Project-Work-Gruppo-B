@@ -49,6 +49,7 @@ kFinishSignUpName = "Name";
 kFinischSignUpSurname = "Surname";
 kSwitchAdmin = "Admin";
 kFinischSignUpButton = "Complete SignUp";
+kNavBarFinishSignUpTitle = "Insert your Data";
 
 // TopicListViewController
 kNavBarTopicHomeTitle = "Home";
@@ -72,3 +73,10 @@ kAddAlbumButton = "Add Album";
 kAddUserTopic = "Add User";
 kNewTopicDescription = "Description";
 kNewTopicTitle = "Title";
+
+// InfoTopicViewController
+kDetailNavBarsTitle = "Details";
+kDetailNavBarSaveButton = "Save";
+kDetailLabelDescription = "Description";
+kDetailSearchBarMembers = "Search Members";
+kDetailButtonDeleteTopic = "Delete Topic";

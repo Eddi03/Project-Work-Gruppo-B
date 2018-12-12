@@ -13,11 +13,34 @@ import FirebaseAuth
 class SaveViewController: UIViewController {
     
     private var pickerController:UIImagePickerController?
-    @IBOutlet weak var registerButton: UIButton!
+    
+    @IBOutlet weak var navBarTitleSignUp: UINavigationItem!{
+        didSet{
+            navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
+        }
+    }
+    @IBOutlet weak var registerButton: UIButton!{
+        didSet {
+            registerButton.setTitle(R.string.localizable.kSignUpButton(), for: .normal)
+        }
+    }
     @IBOutlet var imageOutlet: UIButton!
     @IBOutlet var emailOutlet: UITextField!
-    @IBOutlet var nameOutlet: UITextField!
-    @IBOutlet var surnameOutlet: UITextField!
+    @IBOutlet var nameOutlet: UITextField!{
+        didSet{
+            nameOutlet.placeholder = R.string.localizable.kFinishSignUpName()
+        }
+    }
+    @IBOutlet weak var adminLabel: UILabel!{
+        didSet {
+            adminLabel.text = R.string.localizable.kSwitchAdmin()
+        }
+    }
+    @IBOutlet var surnameOutlet: UITextField!{
+        didSet{
+            surnameOutlet.placeholder = R.string.localizable.kFinischSignUpSurname()
+        }
+    }
     @IBOutlet var supervisorOutlet: UISwitch!
     var imageUser : Data?
     var email : String! = Auth.auth().currentUser?.email
@@ -26,6 +49,10 @@ class SaveViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.title = R.string.localizable.kNavBarFinishSignUpTitle()
+        self.navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
+
         
         registerButton.layer.cornerRadius = 18
         registerButton.clipsToBounds = true
