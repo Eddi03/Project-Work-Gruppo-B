@@ -74,8 +74,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-8K-4bN">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
+                                    <barButtonItem title="Dettagli" id="rpH-xd-9Vm"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="V7G-BA-LPt"/>
                                     <barButtonItem systemItem="add" id="qAC-we-dWe"/>
-                                    <barButtonItem title="Item" id="5HT-vg-ZV0"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xaf-xf-Z4b"/>
+                                    <barButtonItem systemItem="compose" id="5HT-vg-ZV0"/>
                                 </items>
                             </toolbar>
                         </subviews>
