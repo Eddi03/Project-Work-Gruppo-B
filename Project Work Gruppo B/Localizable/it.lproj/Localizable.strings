@@ -67,3 +67,8 @@ kAccountSaveButton = "Salva";
 kNavBarTopicDetails = "Dettagli";
 kSearchBarAlbum = "Cerca Album";
 kAddAlbumButton = "Aggiungi Album";
+
+// AddTopicViewController
+kAddUserTopic = "Aggiungi Utente";
+kNewTopicDescription = "Descrizione";
+kNewTopicTitle = "Titolo";

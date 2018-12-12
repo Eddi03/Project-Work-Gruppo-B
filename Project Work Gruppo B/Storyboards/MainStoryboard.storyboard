@@ -504,8 +504,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addButtonOutlet" destination="qsz-AD-xXr" id="gzY-pF-gru"/>
                         <outlet property="infoTopicTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
+                        <outlet property="navBarSaveButton" destination="hk9-dd-8rU" id="xg9-iT-DZi"/>
                         <outlet property="titleTopicTextField" destination="tTm-Sy-kFR" id="RM1-At-jtt"/>
                         <segue destination="IeF-NS-0q6" kind="show" identifier="segueToAddUser" id="NdE-aM-OgF"/>
                     </connections>

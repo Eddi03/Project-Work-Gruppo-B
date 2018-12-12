@@ -335,7 +335,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 42 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 45 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -353,6 +353,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAddTopicButton = Rswift.StringResource(key: "kAddTopicButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add User
+      /// 
+      /// Locales: en, it
+      static let kAddUserTopic = Rswift.StringResource(key: "kAddUserTopic", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Admin
       /// 
       /// Locales: en, it
@@ -381,6 +385,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kCopyright = Rswift.StringResource(key: "kCopyright", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static let kNewTopicDescription = Rswift.StringResource(key: "kNewTopicDescription", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Details
       /// 
       /// Locales: en, it
@@ -493,6 +501,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertErrorNoUserMessage = Rswift.StringResource(key: "kAlertErrorNoUserMessage", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Title
+      /// 
+      /// Locales: en, it
+      static let kNewTopicTitle = Rswift.StringResource(key: "kNewTopicTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Type your e-mail
       /// 
       /// Locales: en, it
@@ -532,6 +544,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAddTopicButton(_: Void = ()) -> String {
         return NSLocalizedString("kAddTopicButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add User
+      /// 
+      /// Locales: en, it
+      static func kAddUserTopic(_: Void = ()) -> String {
+        return NSLocalizedString("kAddUserTopic", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Admin
@@ -581,6 +600,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kCopyright(_: Void = ()) -> String {
         return NSLocalizedString("kCopyright", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Description
+      /// 
+      /// Locales: en, it
+      static func kNewTopicDescription(_: Void = ()) -> String {
+        return NSLocalizedString("kNewTopicDescription", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Details
@@ -777,6 +803,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAlertErrorNoUserMessage(_: Void = ()) -> String {
         return NSLocalizedString("kAlertErrorNoUserMessage", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Title
+      /// 
+      /// Locales: en, it
+      static func kNewTopicTitle(_: Void = ()) -> String {
+        return NSLocalizedString("kNewTopicTitle", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Type your e-mail

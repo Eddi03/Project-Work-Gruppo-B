@@ -19,10 +19,35 @@ class AddTopicViewController: UIViewController {
     //var topicForAddUsers : Topic = Topic()
     //var topic : Topic = Topic()
     
-    @IBOutlet weak var addButtonOutlet: UIButton!
-    @IBOutlet weak var infoTopicTextField: UITextField!
-    @IBOutlet weak var titleTopicTextField: UITextField!
+    @IBOutlet weak var navBarSaveButton: UIBarButtonItem!{
+        didSet{
+            navBarSaveButton.title = R.string.localizable.kAccountSaveButton()
+        }
+    }
+        
+//    @IBOutlet weak var addButtonOutlet: UIButton!{
+//        didSet {
+//            addButtonOutlet.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
+//        }
+//    }
     
+    @IBOutlet weak var infoTopicTextField: UITextField!{
+        didSet {
+            infoTopicTextField.placeholder = R.string.localizable.kNewTopicDescription()
+        }
+    }
+    
+    @IBOutlet weak var titleTopicTextField: UITextField!{
+        didSet {
+            titleTopicTextField.placeholder = R.string.localizable.kNewTopicTitle()
+        }
+    }
+    
+    @IBOutlet weak var addUserButton: UIButton!{
+        didSet {
+            addButtonOutlet.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
