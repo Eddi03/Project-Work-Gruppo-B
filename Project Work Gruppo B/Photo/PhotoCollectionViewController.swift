@@ -145,37 +145,54 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
 //                self.myCollectionView.reloadData()
 //            }
 //        })
-
-        
-        DispatchQueue.global(qos: .background).async {
-            print("This is run on the background queue")
-            let imgManager=PHImageManager.default()
-            
-            let requestOptions=PHImageRequestOptions()
-            requestOptions.isSynchronous=true
-            requestOptions.deliveryMode = .highQualityFormat
-            
-            let fetchOptions=PHFetchOptions()
-            fetchOptions.sortDescriptors=[NSSortDescriptor(key:"creationDate", ascending: false)]
-            
-            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-            print(fetchResult)
-            print(fetchResult.count)
-            if fetchResult.count > 0 {
-                for i in 0..<fetchResult.count{
-                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width:500, height: 500),contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
-                        self.imageArray.append(image!)
-                    })
+        NetworkManager.getPhotos(completion: {   success in
+            if success {
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.topic.id)
+                print("lista utenti", self.imageArray)
+                if !self.imageArray.isEmpty{
+                    for i in photos{
+                        
+                        NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
+                            self.imageArray.append(image!)
+                        })
+                    }
                 }
-            } else {
-                print("no photos.")
-            }
-            print("count: \(self.imageArray.count)")
-            
-            DispatchQueue.main.async {
                 self.myCollectionView.reloadData()
+            }else{
+                GeneralUtils.share.alertError(title: "errore", message: "")
             }
-        }
+        })
+
+//
+//        DispatchQueue.global(qos: .background).async {
+//            print("This is run on the background queue")
+//            let imgManager=PHImageManager.default()
+//
+//            let requestOptions=PHImageRequestOptions()
+//            requestOptions.isSynchronous=true
+//            requestOptions.deliveryMode = .highQualityFormat
+//
+//            let fetchOptions=PHFetchOptions()
+//            fetchOptions.sortDescriptors=[NSSortDescriptor(key:"creationDate", ascending: false)]
+//
+//            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+//            print(fetchResult)
+//            print(fetchResult.count)
+//            if fetchResult.count > 0 {
+//                for i in 0..<fetchResult.count{
+//                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width:500, height: 500),contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
+//                        self.imageArray.append(image!)
+//                    })
+//                }
+//            } else {
+//                print("no photos.")
+//            }
+//            print("count: \(self.imageArray.count)")
+//
+//            DispatchQueue.main.async {
+//                self.myCollectionView.reloadData()
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -478,7 +478,7 @@ class NetworkManager : NSObject{
     
     // FOTO
     
-    func getPhotos(completion : @escaping(Bool) -> Void){
+    static func getPhotos(completion : @escaping(Bool) -> Void){
         NetworkManager.db?.collection("Photos").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
             for element in document.documents{
