@@ -15,55 +15,52 @@ class TopicTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-  
-    
     @IBOutlet weak var titleTopic: UITextField!
-    
     @IBOutlet weak var infoTopic: UITextField!
-    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-
 }
-
 
 class AddTopicTableViewCell: UITableViewCell {
     static var kIdentifier = "AddTopicTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         addButtonOutlet.layer.cornerRadius = 18
         addButtonOutlet.clipsToBounds = true
     }
     
-    @IBOutlet weak var addButtonOutlet: UIButton!
-    
-    
-    
-    
+    @IBOutlet weak var addButtonOutlet: UIButton! {
+        didSet {
+            addButtonOutlet.setTitle(R.string.localizable.kAddTopicButton(), for: .normal)
+        }
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-    
 }
-
 
 class EmptyTableViewCell: UITableViewCell {
     static var kIdentifier = "EmptyTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
     
-    
-    @IBOutlet var message: UILabel!
-    
+    @IBOutlet var message: UILabel! {
+        didSet {
+            message.text = R.string.localizable.kNoTopicLabel()
+        }
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

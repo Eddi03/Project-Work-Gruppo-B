@@ -11,6 +11,11 @@ import FirebaseAuth
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var navBarLogout: UIBarButtonItem! {
+        didSet {
+            navBarLogout.title = R.string.localizable.kNavBarAccountLogout()
+        }
+    }
     var user : User!
     private var pickerController:UIImagePickerController?
     var URLImage : String?
@@ -18,11 +23,10 @@ class AccountViewController: UIViewController {
     var email : String! = Auth.auth().currentUser?.email
     var id :String! = Auth.auth().currentUser?.uid
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let spinner = UIViewController.displaySpinner(onView: self.view)
+        //let spinner = UIViewController.displaySpinner(onView: self.view)
         
         buttonOutlet.layer.cornerRadius = 18
         buttonOutlet.clipsToBounds = true
@@ -41,7 +45,7 @@ class AccountViewController: UIViewController {
                 NetworkManager.dowloadImage(withURL: user.image!, completion: { (image) in
                     self.imageOutlet.setImage(image, for: .normal)
                     
-                    UIViewController.removeSpinner(spinner: spinner)
+                    //UIViewController.removeSpinner(spinner: spinner)
 
                 })
             }
@@ -50,7 +54,11 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var buttonOutlet: UIButton! {
+        didSet {
+            buttonOutlet.setTitle(R.string.localizable.kAccountSaveButton(), for: .normal)
+        }
+    }
     
     
     @IBOutlet weak var surnameOutlet: UITextField!

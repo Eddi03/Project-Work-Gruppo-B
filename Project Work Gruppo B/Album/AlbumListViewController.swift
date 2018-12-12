@@ -9,10 +9,22 @@
 import UIKit
 
 class AlbumListViewController: UIViewController {
+    
+    @IBOutlet weak var searchBarAlbum: UISearchBar!{
+        didSet {
+            searchBarAlbum.placeholder = R.string.localizable.kSearchBarAlbum()
+        }
+    }
+    @IBOutlet weak var navBarTopicDetails: UIBarButtonItem! {
+        didSet {
+            navBarTopicDetails.title = R.string.localizable.kNavBarTopicDetails()
+        }
+    }
+    
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
     private let ADD_ALBUM = 2
-    var topicTitle: String = String()
+    
     
     var titleAlbum : String = ""
     var infoAlbum : String = ""
@@ -27,12 +39,11 @@ class AlbumListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
-        self.title = topicTitle
+      
     }
     override func viewDidAppear(_ animated: Bool) {
         NetworkManager.getAlbums{ (success) in

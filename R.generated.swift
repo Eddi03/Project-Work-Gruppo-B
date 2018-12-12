@@ -87,7 +87,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 9 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AddAlbumTableViewCell`.
     static let addAlbumTableViewCell: Rswift.ReuseIdentifier<AddAlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
@@ -103,8 +103,10 @@ struct R: Rswift.Validatable {
     static let emptyTableViewCell: Rswift.ReuseIdentifier<EmptyTableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyTableViewCell")
     /// Reuse identifier `EmptyUsersListTableViewCell`.
     static let emptyUsersListTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "EmptyUsersListTableViewCell")
-    /// Reuse identifier `PhotoTableViewCell`.
-    static let photoTableViewCell: Rswift.ReuseIdentifier<PhotoItemCell> = Rswift.ReuseIdentifier(identifier: "PhotoTableViewCell")
+    /// Reuse identifier `LabelCollectionViewCell`.
+    static let labelCollectionViewCell: Rswift.ReuseIdentifier<LabelItemCell> = Rswift.ReuseIdentifier(identifier: "LabelCollectionViewCell")
+    /// Reuse identifier `PhotoCollectionViewCell`.
+    static let photoCollectionViewCell: Rswift.ReuseIdentifier<PhotoItemCell> = Rswift.ReuseIdentifier(identifier: "PhotoCollectionViewCell")
     /// Reuse identifier `TopicTableViewCell`.
     static let topicTableViewCell: Rswift.ReuseIdentifier<TopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "TopicTableViewCell")
     
@@ -333,7 +335,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 39 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 42 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -343,6 +345,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kNavBarAccountTitle = Rswift.StringResource(key: "kNavBarAccountTitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Add Album
+      /// 
+      /// Locales: en, it
+      static let kAddAlbumButton = Rswift.StringResource(key: "kAddAlbumButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Add Topic
       /// 
       /// Locales: en, it
@@ -375,6 +381,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kCopyright = Rswift.StringResource(key: "kCopyright", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Details
+      /// 
+      /// Locales: en, it
+      static let kNavBarTopicDetails = Rswift.StringResource(key: "kNavBarTopicDetails", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: E-Mail
       /// 
       /// Locales: en, it
@@ -447,6 +457,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAccountSaveButton = Rswift.StringResource(key: "kAccountSaveButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Search Album
+      /// 
+      /// Locales: en, it
+      static let kSearchBarAlbum = Rswift.StringResource(key: "kSearchBarAlbum", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Search Here
       /// 
       /// Locales: en, it
@@ -506,6 +520,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kNavBarAccountTitle", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Add Album
+      /// 
+      /// Locales: en, it
+      static func kAddAlbumButton(_: Void = ()) -> String {
+        return NSLocalizedString("kAddAlbumButton", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Add Topic
       /// 
       /// Locales: en, it
@@ -560,6 +581,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kCopyright(_: Void = ()) -> String {
         return NSLocalizedString("kCopyright", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Details
+      /// 
+      /// Locales: en, it
+      static func kNavBarTopicDetails(_: Void = ()) -> String {
+        return NSLocalizedString("kNavBarTopicDetails", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: E-Mail
@@ -686,6 +714,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAccountSaveButton(_: Void = ()) -> String {
         return NSLocalizedString("kAccountSaveButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Search Album
+      /// 
+      /// Locales: en, it
+      static func kSearchBarAlbum(_: Void = ()) -> String {
+        return NSLocalizedString("kSearchBarAlbum", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Search Here

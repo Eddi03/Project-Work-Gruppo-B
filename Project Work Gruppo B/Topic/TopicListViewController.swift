@@ -9,6 +9,7 @@
 import UIKit
 
 class TopicListViewController: UIViewController {
+    
     private let EMPTY_LIST = 0
     private let TOPIC_INFO = 1
     private let ADD_TOPIC = 2
@@ -16,13 +17,30 @@ class TopicListViewController: UIViewController {
     
     var isTopicSelected = ""
     
+    @IBOutlet weak var dfghj: UILabel!
     @IBAction func addTopicAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAddTopic, sender: self)
     }
+    
     var searched = [Topic]()
     var searching = false
-    @IBOutlet weak var search: UISearchBar!
+    
+    @IBOutlet weak var addTopicButton: UIButton!{
+        didSet {
+            addTopicButton.setTitle(R.string.localizable.kAddTopicButton(), for: .normal)
+        }
+    }
+    
+    
+    @IBOutlet weak var labelEmptyTopic: UILabel!
+    @IBOutlet weak var search: UISearchBar!{
+        didSet{
+            search.placeholder = R.string.localizable.kSearchBarPlaceholder()
+        }
+    }
+    
     @IBOutlet var tableView: UITableView!
+    
     var topics : [Topic] = []
     var admin : Bool!
     
@@ -65,7 +83,7 @@ class TopicListViewController: UIViewController {
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
             destinationSegue.idTopic = isTopicSelected
-            destinationSegue.topicTitle = clickedTopicName
+           
         }
     }
     
@@ -150,7 +168,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
             return cell
         case EMPTY_LIST:
             let cell = tableView.dequeueReusableCell(withIdentifier: EmptyTableViewCell.kIdentifier, for: indexPath) as! EmptyTableViewCell
-            cell.message.text = "non ghe se niente"
+            //cell.message.text = R.string.localizable.kNoTopicLabel()
             return cell
         default:
             return UITableViewCell()
