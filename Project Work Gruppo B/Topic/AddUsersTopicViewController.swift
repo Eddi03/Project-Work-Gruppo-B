@@ -52,14 +52,15 @@ class AddUsersTopicViewController: UIViewController {
         NetworkManager.addTopic(topic: topic, completion: {
             success in
             if success {
-                GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti aggiunti al database")
+                print("Utenti aggiunti correttamente")
+                self.topic.save()
+                self.addTopicDelegate.addTopic(topic: self.topic)
+              self.navigationController?.popToRootViewController(animated: true)
             }else{
                  GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti non aggiunti")
             }
         })
-        topic.save()
-        addTopicDelegate.addTopic(topic: topic)
-        self.navigationController?.popToRootViewController(animated: true)
+        
     }
     
     
@@ -85,6 +86,7 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
         
         
         cell.name.text = self.users[indexPath.row].name
+        cell.surname.text = self.users[indexPath.row].surname
         cell.backgroundColor = UIColor.clear
 //        if let id = usersToAdd.filter({$0==users[indexPath.row]}).first{
 //            cell.backgroundColor = UIColor.green
