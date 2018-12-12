@@ -15,7 +15,7 @@ class TopicListViewController: UIViewController {
     private let ADD_TOPIC = 2
     private var clickedTopicName: String = String()
     
-    var isTopicSelected = ""
+    var topic : Topic!
     
     @IBOutlet weak var dfghj: UILabel!
     @IBAction func addTopicAction(_ sender: Any) {
@@ -60,16 +60,7 @@ class TopicListViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        /*
-        search.delegate = self
-        NetworkManager.getTopics{ (listaTopics) in
-            self.topics = listaTopics
-            print("coseeeeeeeeeeeee", listaTopics, self.topics)
-        }
-        //topics = Topic.all()
- */
         tableView.reloadData()
- 
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -82,17 +73,17 @@ class TopicListViewController: UIViewController {
         }
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
-            destinationSegue.idTopic = isTopicSelected
+            destinationSegue.topic = topic
            
         }
     }
     
-    /*
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let archivia = archiviaAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [archivia])
-    }*/
+    }
     
     func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
         let topic = topics[indexPath.row]
@@ -158,7 +149,7 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == TOPIC_INFO{
-            isTopicSelected = topics[indexPath.row].id
+            topic = topics[indexPath.row]
             self.performSegue(withIdentifier: R.segue.topicListViewController.segueToAlbums, sender: self)
             
         }

@@ -113,7 +113,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 8 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 9 view controllers.
   struct segue {
     /// This struct is generated for `AddTopicViewController`, and contains static references to 1 segues.
     struct addTopicViewController {
@@ -173,6 +173,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToOptions(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, LoginViewController, ViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.loginViewController.segueToOptions, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `PhotoCollectionViewController`, and contains static references to 1 segues.
+    struct photoCollectionViewController {
+      /// Segue identifier `segueToAddPhoto`.
+      static let segueToAddPhoto: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddPhoto")
+      
+      /// Optionally returns a typed version of segue `segueToAddPhoto`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAddPhoto(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, segue: segue)
       }
       
       fileprivate init() {}
@@ -947,6 +962,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'AlbumStoryboard', but couldn't be loaded.") }
         if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
       }
       

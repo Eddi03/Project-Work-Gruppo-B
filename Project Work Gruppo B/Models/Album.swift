@@ -71,6 +71,13 @@ import RealmSwift
         return Array(realm.objects(Album.self))
     }
     
+    static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+        do {
+            try realm.write {
+                realm.delete(realm.objects(Album.self))
+            }
+        } catch {}
+    }
     
     
     static func getAlbumById(id: String)-> Album?{
@@ -82,13 +89,12 @@ import RealmSwift
         
         var listaAlbumOfCurrentTopic : [Album] = []
         for topic in Topic.all(){
-            debugPrint(idCurrentTopic)
             if idCurrentTopic == topic.id{
                 for idAlbum in topic.getAlbums(){
                     let album = Album.getAlbumById(id: idAlbum)
-                    if album?.completed == false {
+                    //if album?.completed == true {
                         listaAlbumOfCurrentTopic.append(album ?? Album())
-                    }
+                    //}
                 }
             }
         }

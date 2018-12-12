@@ -30,7 +30,7 @@ class AddAlbumViewController: UIViewController {
         }
     }
     
-    var idTopic : String = ""
+    var topic : Topic!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +42,8 @@ class AddAlbumViewController: UIViewController {
     @IBAction func saveAction(_ sender: Any) {
         
         var album: Album = Album()
-        guard let topic = Topic.getTopicById(id: idTopic) else {return}
-        
+        guard let topic = Topic.getTopicById(id: topic.id) else {return}
+        print(topic)
         let currentName = nameOutlet.text ?? ""
         let currentInfo = infoOutlet.text ?? ""
 
@@ -51,7 +51,8 @@ class AddAlbumViewController: UIViewController {
         
         NetworkManager.addAlbum(topic: topic, album: album){(success) in
             if success{
-                self.dismiss(animated: true, completion: nil)
+                album.save()
+                self.navigationController?.popViewController(animated: true)
             }else{
                 GeneralUtils.share.alertError(title: "Attenzione", message: "non è stato salvato l'album")
             }
