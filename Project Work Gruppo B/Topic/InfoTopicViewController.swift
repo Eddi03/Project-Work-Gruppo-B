@@ -55,6 +55,9 @@ class InfoTopicViewController: UIViewController {
             var userObject = User.getUserById(withid: userId)
             users.append(userObject ?? User())
         }
+        
+        descriptionTopic.text = topic?.info
+        
         print("lista utenti del topic",users)
     }
     
