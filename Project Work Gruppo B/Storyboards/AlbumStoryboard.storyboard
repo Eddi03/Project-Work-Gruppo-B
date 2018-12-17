@@ -229,6 +229,7 @@
                                 <items>
                                     <barButtonItem title="Dettagli" id="9F8-vJ-Jps"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="EzL-8H-Phz"/>
+                                    <barButtonItem title="Delete" id="iy2-dj-DPH"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="wMX-2J-vqg"/>
                                     <barButtonItem systemItem="compose" id="Hqd-Qu-OH9"/>
                                 </items>
@@ -253,10 +254,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8h-CY-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-529" y="731"/>
+            <point key="canvasLocation" x="86" y="864"/>
         </scene>
     </scenes>
     <resources>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
 </document>

@@ -172,7 +172,7 @@
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
                         <segue destination="stU-nN-Dxg" kind="show" identifier="segueToAddAlbum" id="jhj-47-n5i"/>
                         <segue destination="d3i-Ow-KUJ" kind="show" identifier="segueToGallery" id="Xvy-xh-UAD"/>
-                        <segue destination="xTC-qp-TrS" kind="show" identifier="segueToSchiavo" id="bpb-P5-7PH"/>
+                        <segue destination="xTC-qp-TrS" kind="show" identifier="segueToAdmin" id="bpb-P5-7PH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -865,10 +865,10 @@
             </objects>
             <point key="canvasLocation" x="1436" y="535"/>
         </scene>
-        <!--Schiavo-->
+        <!--Admin-->
         <scene sceneID="EFR-gS-CEq">
             <objects>
-                <viewControllerPlaceholder storyboardName="AlbumStoryboard" referencedIdentifier="Schiavo" id="xTC-qp-TrS" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AlbumStoryboard" referencedIdentifier="Admin" id="xTC-qp-TrS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9m-om-4g1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2046" y="516"/>
