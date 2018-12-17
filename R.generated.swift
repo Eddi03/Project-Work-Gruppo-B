@@ -136,8 +136,6 @@ struct R: Rswift.Validatable {
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       /// Segue identifier `segueToGallery`.
       static let segueToGallery: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToGallery")
-      /// Segue identifier `segueToInfoTopic`.
-      static let segueToInfoTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToInfoTopic")
       /// Segue identifier `segueToSchiavo`.
       static let segueToSchiavo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToSchiavo")
       /// Segue identifier `segueToTopicDetails`.
