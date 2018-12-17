@@ -47,13 +47,13 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alert.addAction(actionNo)
         alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
-            
+            self.album.changeData(completed: true)
             NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
                 if success {
                     print("modificato il completed album")
                 }
             })
-            self.album.completed = true
+            
         }))
         
         self.present(alert, animated: true, completion: nil)
