@@ -78,7 +78,7 @@ class InfoTopicViewController: UIViewController {
                     //elimino su relam (prima elimino gli album)
                     for albumId in self.topic?.getAlbums() ?? []{
                         var album = Album.getAlbumById(id: albumId)
-                        NetworkManager.deleteAlbum(idAlbum: albumId, completion: {success in
+                        NetworkManager.deleteAlbum(topic: self.topic!, idAlbum: albumId, completion: {success in
                             if success {
                                 album?.delete()
                             }

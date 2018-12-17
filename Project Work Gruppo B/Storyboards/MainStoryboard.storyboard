@@ -856,6 +856,7 @@
                                             <action selector="addPhotoAction:" destination="sis-qU-jM9" id="y90-u8-NWk"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B7p-No-Cia"/>
                                     <barButtonItem title="Archivia" id="ZUD-GM-q1e">
                                         <connections>
                                             <action selector="archiviaAction:" destination="sis-qU-jM9" id="cQi-Yf-wCU"/>
@@ -1152,6 +1153,12 @@
                                             <action selector="discardImagesAction:" destination="Uuv-H2-PHi" id="kmB-mf-ifV"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qsJ-gf-eud"/>
+                                    <barButtonItem title="Archivia" id="8a4-Wi-z33">
+                                        <connections>
+                                            <action selector="archiviaAction:" destination="Uuv-H2-PHi" id="Tbb-ZA-aYO"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
                                     <barButtonItem systemItem="compose" id="cVF-6s-kr7"/>
                                 </items>
@@ -1183,8 +1190,8 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Q1r-01-TMn"/>
