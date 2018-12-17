@@ -38,7 +38,7 @@ class AddAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        addButtonOutlet.layer.cornerRadius = 18
+        addButtonOutlet.layer.cornerRadius = 20
         addButtonOutlet.clipsToBounds = true
     }
     

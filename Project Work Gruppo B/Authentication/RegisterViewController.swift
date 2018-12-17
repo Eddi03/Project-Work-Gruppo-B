@@ -13,7 +13,7 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonOutlet.layer.cornerRadius = 18
+        buttonOutlet.layer.cornerRadius = 20
         buttonOutlet.clipsToBounds = true
         
         // Do any additional setup after loading the view.

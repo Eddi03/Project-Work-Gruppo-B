@@ -34,10 +34,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQ4-JP-tpJ">
-                                <rect key="frame" x="25" y="541" width="325" height="36"/>
+                                <rect key="frame" x="25" y="541" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="I56-kc-NpZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Jwf-VR-54O"/>
                                 </constraints>
                                 <state key="normal" title="Accedi">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,8 +47,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODZ-rX-lAK">
-                                <rect key="frame" x="155" y="607" width="65" height="30"/>
+                                <rect key="frame" x="25" y="611" width="325" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Iot-Nz-rly"/>
+                                </constraints>
                                 <state key="normal" title="Registrati"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="toRegisterAction:" destination="x4F-Gg-vm9" eventType="touchUpInside" id="kQS-ox-7lX"/>
                                 </connections>
@@ -79,15 +94,15 @@
                             <constraint firstItem="t2F-07-sE6" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="16" id="1lU-l5-gJn"/>
                             <constraint firstItem="ODZ-rX-lAK" firstAttribute="top" secondItem="CQ4-JP-tpJ" secondAttribute="bottom" constant="30" id="Bd8-zc-f9b"/>
                             <constraint firstItem="Rb5-JL-83Q" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="16" id="D1k-Pi-epz"/>
-                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="ODZ-rX-lAK" secondAttribute="trailing" constant="155" id="H6b-zH-mNu"/>
+                            <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="ODZ-rX-lAK" secondAttribute="trailing" constant="25" id="Gdv-c9-OFh"/>
                             <constraint firstItem="t2F-07-sE6" firstAttribute="top" secondItem="Rb5-JL-83Q" secondAttribute="bottom" constant="15" id="OQL-w1-ySW"/>
                             <constraint firstItem="CQ4-JP-tpJ" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="25" id="X84-7B-1jm"/>
+                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="25" id="a9M-pC-djI"/>
                             <constraint firstItem="eYm-SX-fYs" firstAttribute="centerY" secondItem="Cnd-5W-EAy" secondAttribute="centerY" id="kxA-Wx-2pB"/>
                             <constraint firstItem="eYm-SX-fYs" firstAttribute="centerX" secondItem="Cnd-5W-EAy" secondAttribute="centerX" id="lB0-Lu-Scy"/>
                             <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="Rb5-JL-83Q" secondAttribute="trailing" constant="16" id="lga-aW-XBL"/>
                             <constraint firstItem="CQ4-JP-tpJ" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="477" id="n8E-bJ-LHb"/>
                             <constraint firstItem="Rb5-JL-83Q" firstAttribute="top" secondItem="86J-3a-2Qc" secondAttribute="top" constant="30" id="rle-PU-Buc"/>
-                            <constraint firstItem="ODZ-rX-lAK" firstAttribute="leading" secondItem="86J-3a-2Qc" secondAttribute="leading" constant="155" id="spQ-iF-2Z3"/>
                             <constraint firstItem="86J-3a-2Qc" firstAttribute="trailing" secondItem="CQ4-JP-tpJ" secondAttribute="trailing" constant="25" id="zKK-gQ-fBg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="86J-3a-2Qc"/>
@@ -127,10 +142,10 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tii-0b-rfb">
-                                <rect key="frame" x="25" y="226" width="325" height="36"/>
+                                <rect key="frame" x="25" y="226" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="dpa-sB-J6e"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="EXE-6V-WDr"/>
                                 </constraints>
                                 <state key="normal" title="Accedi">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,8 +156,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-ne-l9h">
-                                <rect key="frame" x="133" y="326" width="109" height="30"/>
+                                <rect key="frame" x="25" y="330" width="325" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="w50-4N-KQR"/>
+                                </constraints>
                                 <state key="normal" title="Reset password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="resetP:" destination="wsE-1e-CVY" eventType="touchUpInside" id="oYB-p8-lLV"/>
                                 </connections>
@@ -169,8 +198,10 @@
                             <constraint firstItem="u3h-lB-17d" firstAttribute="top" secondItem="oB8-FL-hNn" secondAttribute="bottom" constant="32" id="1JT-4f-Mtb"/>
                             <constraint firstItem="JgM-bd-sRR" firstAttribute="trailing" secondItem="oB8-FL-hNn" secondAttribute="trailing" id="1r7-3V-mo2"/>
                             <constraint firstItem="tii-0b-rfb" firstAttribute="top" secondItem="u3h-lB-17d" secondAttribute="bottom" constant="32" id="4bw-MU-d5y"/>
+                            <constraint firstItem="IvR-bK-SkW" firstAttribute="trailing" secondItem="Nac-ne-l9h" secondAttribute="trailing" constant="25" id="AYD-lG-ngR"/>
                             <constraint firstItem="u3h-lB-17d" firstAttribute="leading" secondItem="IvR-bK-SkW" secondAttribute="leading" constant="25" id="GfO-NJ-Xtt"/>
                             <constraint firstItem="oB8-FL-hNn" firstAttribute="top" secondItem="IvR-bK-SkW" secondAttribute="top" constant="64" id="LRd-B6-017"/>
+                            <constraint firstItem="Nac-ne-l9h" firstAttribute="leading" secondItem="IvR-bK-SkW" secondAttribute="leading" constant="25" id="Q8Z-Ls-Ha3"/>
                             <constraint firstItem="IvR-bK-SkW" firstAttribute="trailing" secondItem="oB8-FL-hNn" secondAttribute="trailing" constant="25" id="QbU-xb-uWW"/>
                             <constraint firstItem="oB8-FL-hNn" firstAttribute="centerX" secondItem="XzH-Oi-jwO" secondAttribute="centerX" id="UON-rO-gGW"/>
                             <constraint firstItem="IvR-bK-SkW" firstAttribute="trailing" secondItem="u3h-lB-17d" secondAttribute="trailing" constant="25" id="Wsj-TQ-QfV"/>
@@ -236,10 +267,10 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O3-M2-DXJ">
-                                <rect key="frame" x="25" y="275" width="325" height="36"/>
+                                <rect key="frame" x="25" y="275" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="VdJ-gR-W1N"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="CuJ-4g-cjG"/>
                                 </constraints>
                                 <state key="normal" title="Avanti">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -368,10 +399,10 @@
                                 <color key="tintColor" red="0.033959332853555679" green="0.0095556816086173058" blue="0.016644347459077835" alpha="0.1642765410958904" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu1-db-xma">
-                                <rect key="frame" x="25" y="259" width="325" height="36"/>
+                                <rect key="frame" x="25" y="259" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="7ko-0C-VkX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Nbs-gW-4fD"/>
                                 </constraints>
                                 <state key="normal" title="Registrati">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
