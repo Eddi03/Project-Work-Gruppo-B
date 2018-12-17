@@ -16,9 +16,13 @@ class AddPhotoViewController: UIViewController {
     var topic : Topic!
     var album : Album!
     var imagePhoto : Data?
+    var scarted : Image?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let scartedImage = scarted{
+            imageOutlet.setImage(UIImage(data: scartedImage.image!), for: .normal)
+            textOutlet.text = scartedImage.info
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func saveAction(_ sender: Any) {
@@ -27,9 +31,13 @@ class AddPhotoViewController: UIViewController {
             debugPrint("error")
             return
         }
-       let id = UUID().uuidString
+        
+        var id = UUID().uuidString
+        if let scartedImage = scarted{
+            id = scartedImage.id
+        }
         NetworkManager.uploadPhoto(withData: imagePhoto!, topicId: topic.id, albumId: album.id, photoId: id) { (URLImage) in
-            let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", id: id)
+            let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", discarded: false,id: id)
             NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, completion: { (success) in
                 self.navigationController?.popViewController(animated: true)
             })

@@ -44,15 +44,28 @@ class AlbumListViewController: UIViewController {
        search.delegate = self
       
     }
-    override func viewDidAppear(_ animated: Bool) {
+//    override func viewDidAppear(_ animated: Bool) {
+//        NetworkManager.getAlbums{ (success) in
+//            if success{
+//                self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.topic.id)
+//            print("coseeee albummmmm", self.albums, self.topic.id)
+//            self.tableView.reloadData()
+//            }
+//        }
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
         NetworkManager.getAlbums{ (success) in
             if success{
                 self.albums = Album.getAlbumFromTopic(idCurrentTopic: self.topic.id)
-            print("coseeee albummmmm", self.albums, self.topic.id)
-            self.tableView.reloadData()
+//                print("coseeee albummmmm", self.albums, self.topic.id)
+                self.tableView.reloadData()
             }
         }
     }
+    
+    
     
     @IBAction func addAlbumAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAddAlbum, sender: self)
@@ -75,10 +88,7 @@ class AlbumListViewController: UIViewController {
             return action
             
         }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        //albums = Album.all()
-    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self

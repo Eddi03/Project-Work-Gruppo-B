@@ -12,7 +12,7 @@ import UIKit
 class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     var myCollectionView: UICollectionView!
-    var imgArray = [UIImage]()
+    var imgArray = [Image]()
     var passedContentOffset = IndexPath()
     
     override func viewDidLoad() {
@@ -50,7 +50,7 @@ class ImagePreview: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImagePreviewFullViewCell
-        cell.imgView.image=imgArray[indexPath.row]
+        cell.imgView.image=UIImage(data: imgArray[indexPath.row].image!)
         return cell
     }
     
@@ -116,7 +116,6 @@ class ImagePreviewFullViewCell: UICollectionViewCell, UIScrollViewDelegate {
         self.addSubview(scrollImg)
         
         imgView = UIImageView()
-        imgView.image = UIImage(named: "user3")
         scrollImg.addSubview(imgView!)
         imgView.contentMode = .scaleAspectFit
     }

@@ -46,21 +46,33 @@ class TopicListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        search.delegate = self        
+        //search.delegate = self
     }
-    override func viewDidAppear(_ animated: Bool) {
+   
+    /*override func viewDidAppear(_ animated: Bool) {
         print(Topic.all())
         NetworkManager.getTopics{ (success) in
             if success {
                 self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
+                self.tableView.delegate = self
+                self.tableView.dataSource = self
             print("id",NetworkManager.getMyID())
             print("coseeeeeeeeeeeee", self.topics)
             self.tableView.reloadData()
             }
         }
-    }
+    }*/
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+        NetworkManager.getTopics{ (success) in
+            if success {
+                self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
+             self.tableView.reloadData()
+//                print("id",NetworkManager.getMyID())
+//                print("coseeeeeeeeeeeee", self.topics)
+            }
+        }
     }
     
     @IBAction func actionToAccount(_ sender: Any) {
@@ -134,7 +146,6 @@ extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
         }
         if topics.isEmpty{
             if section == EMPTY_LIST{
-                print("jneioqcfrfvbhrewf eiwvnhoewv")
                 return 1
             }
         }

@@ -1,5 +1,5 @@
 //
-//  Photo.swift
+//  Image.swift
 //  Project Work Gruppo B
 //
 //  Created by Jason Bourne on 03/12/18.
@@ -9,24 +9,22 @@
 import UIKit
 import RealmSwift
 
-@objcMembers class Photo: Object, Codable {
+@objcMembers class Image: Object {
     
-    dynamic var image : String?
+    dynamic var image : Data?
     dynamic var info : String?
-    dynamic var dateCreated : String?
     dynamic var discarded : Bool = false
     
     override class func primaryKey() -> String? {
         return "id"
     }
     dynamic var id : String!
-    convenience init(image: String? = nil, info: String? = nil, dateCreated: String? = nil, discarded: Bool? = nil,id: String!) {
+    convenience init(image: Data? = nil, info: String? = nil,discarded: Bool? = nil, id: String!) {
         self.init()
         
         self.image = image
         self.info = info
         self.discarded = discarded ?? false
-        
         self.id = id
         
         
@@ -40,28 +38,28 @@ import RealmSwift
         } catch {}
     }
     
-    static func getPhotoById(id: String)-> Photo?{
+    static func getImageById(id: String)-> Image?{
         let realm = try! Realm()
-        return realm.object(ofType: Photo.self, forPrimaryKey: id)
+        return realm.object(ofType: Image.self, forPrimaryKey: id)
     }
     
-    static func getPhotoFromAlbum(idCurrentAlbum: String,discarded: Bool) ->[Photo]{
-        var listaPhotoOfCurrentAlbum : [Photo] = []
+    static func getImageFromAlbum(idCurrentAlbum: String,discarded: Bool) ->[Image]{
+        var listaImageOfCurrentAlbum : [Image] = []
         for album in Album.all(){
             if idCurrentAlbum == album.id{
-                for idPhoto in album.getPhotos(){
-                    if let photo = Photo.getPhotoById(id: idPhoto){
-                        if photo.discarded == discarded{
-                            listaPhotoOfCurrentAlbum.append(photo)
+                for idImage in album.getPhotos(){
+                    if let image = Image.getImageById(id: idImage){
+                        if image.discarded == discarded{
+                        listaImageOfCurrentAlbum.append(image)
                         }
                     }
                 }
             }
         }
-    return listaPhotoOfCurrentAlbum
+        return listaImageOfCurrentAlbum
     }
-    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Photo] {
-        return Array(realm.objects(Photo.self))
+    static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Image] {
+        return Array(realm.objects(Image.self))
     }
     func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
@@ -73,7 +71,7 @@ import RealmSwift
     static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
-                realm.delete(realm.objects(Photo.self))
+                realm.delete(realm.objects(Image.self))
             }
         } catch {}
     }

@@ -264,6 +264,7 @@ class NetworkManager : NSObject{
                     completion(nil)
                     return
                 }
+                debugPrint("oro")
                 completion(image)
             }
         }    
@@ -273,7 +274,7 @@ class NetworkManager : NSObject{
         guard let storageRef = storageRef else { completion(nil); return }
         
         // Create a reference to the file you want to upload
-        let riversRef = storageRef.child("Topics\(topicId)/Albums/\(albumId)/\(photoId).jpg")
+        let riversRef = storageRef.child("Photos/\(topicId)/\(albumId)/\(photoId).jpg")
         
         // Upload the file to the path "images/rivers.jpg"
         let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
@@ -363,7 +364,7 @@ class NetworkManager : NSObject{
             listaTopics.append(topic) */
             
             do {
-                
+//                debugPrint("add topic")
                 try FirebaseDecoder().decode(Topic.self, from: element.data()).save()
                 
                 
@@ -446,6 +447,7 @@ class NetworkManager : NSObject{
         NetworkManager.db?.collection("Albums").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
             Album.deleteAll()
+            
             for element in document.documents{
                 debugPrint(element)
                 /*
@@ -481,18 +483,16 @@ class NetworkManager : NSObject{
     
     // FOTO
     
-    func getPhotos(completion : @escaping(Bool) -> Void){
+    static func getPhotos(completion : @escaping(Bool) -> Void){
         NetworkManager.db?.collection("Photos").getDocuments{ (documentSnapshot, error) in
             guard let document = documentSnapshot else {return }
             Photo.deleteAll()
             for element in document.documents{
-                print(element)
                 do {
-                    
-                    try FirebaseDecoder().decode(User.self, from: element.data()).save()
+                    try FirebaseDecoder().decode(Photo.self, from: element.data()).save()
                     
                 } catch let error {
-                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errore", message: error.localizedDescription), animated: true, completion: nil)
+                    UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Errodre", message: error.localizedDescription), animated: true, completion: nil)
                     completion(false)
                     return //mi fa uscire dalla funzione
                 }
