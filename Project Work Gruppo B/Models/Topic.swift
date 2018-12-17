@@ -16,7 +16,7 @@ import RealmSwift
     dynamic var info: String!
     dynamic var id : String!
 
-    dynamic var creationDate = ""
+    dynamic var creationDate : String!
     var users : List<String> = List<String>()
     var albums : List<String> = List<String>()
    
@@ -26,7 +26,7 @@ import RealmSwift
         self.id = UUID().uuidString
         self.title = title
         self.info = info
-        self.creationDate = self.creationDate.todayDate
+        self.creationDate = Date().todayDate
 
     }
     override class func primaryKey() -> String? {
