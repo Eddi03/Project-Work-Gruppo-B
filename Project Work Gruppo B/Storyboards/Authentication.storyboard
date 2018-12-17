@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -61,7 +61,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nac-ne-l9h">
-                                <rect key="frame" x="25" y="330" width="325" height="40"/>
+                                <rect key="frame" x="25" y="298" width="325" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w50-4N-KQR"/>
                                 </constraints>
@@ -166,7 +166,7 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -212,7 +212,7 @@
                             <constraint firstItem="cG6-g9-U8G" firstAttribute="leading" secondItem="u3h-lB-17d" secondAttribute="leading" id="iKa-eP-uvY"/>
                             <constraint firstItem="oB8-FL-hNn" firstAttribute="leading" secondItem="IvR-bK-SkW" secondAttribute="leading" constant="25" id="mVq-Ai-3ll"/>
                             <constraint firstItem="tii-0b-rfb" firstAttribute="leading" secondItem="IvR-bK-SkW" secondAttribute="leading" constant="25" id="ovW-Ij-rLg"/>
-                            <constraint firstItem="Nac-ne-l9h" firstAttribute="top" secondItem="tii-0b-rfb" secondAttribute="bottom" constant="64" id="twK-d7-c3a"/>
+                            <constraint firstItem="Nac-ne-l9h" firstAttribute="top" secondItem="tii-0b-rfb" secondAttribute="bottom" constant="32" id="twK-d7-c3a"/>
                             <constraint firstItem="JgM-bd-sRR" firstAttribute="bottom" secondItem="oB8-FL-hNn" secondAttribute="bottom" id="z4h-qK-FrH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IvR-bK-SkW"/>
