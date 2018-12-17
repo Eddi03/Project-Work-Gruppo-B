@@ -395,7 +395,7 @@ class NetworkManager : NSObject{
     
     //ALBUM
     
-    static func addAlbum(topic: Topic, album: Album,completion: @escaping (Bool)-> ()){
+    static func addAlbum(topic: Topic, album: Album, bool: Bool,completion: @escaping (Bool)-> ()){
         
         do{
             let parameters = try album.asDictionary()
@@ -407,11 +407,13 @@ class NetworkManager : NSObject{
                         print("Error adding document: \(err)")
                         completion(false)
                     }else{
-                        //topic.addingAlbum(id: album.id)
+                        if bool {
+                            topic.addingAlbum(id: album.id)
+                        }
+                        
                         album.save()
                         addTopic(topic: topic, completion: { success in
                             if success{
-                            album.save()
                             completion(true)
                             }else{
                                 print("cretino")
@@ -504,7 +506,7 @@ class NetworkManager : NSObject{
     }
     
     
-    static func addPhoto(topic: Topic, album: Album,photo: Photo,completion: @escaping (Bool)-> ()){
+    static func addPhoto(topic: Topic, album: Album,photo: Photo,bool:Bool,completion: @escaping (Bool)-> ()){
         do{
             let parameters = try photo.asDictionary()
             
@@ -516,14 +518,13 @@ class NetworkManager : NSObject{
                         completion(false)
                     }else{
                         album.addingPhoto(id: photo.id)
-                        addAlbum(topic: topic, album: album, completion: { success in
+                        addAlbum(topic: topic, album: album, bool: bool, completion: { success in
                             if success{
                                 photo.save()
                                 completion(true)
                             }else{
                                 print("cretino")
                                 completion(false)
-                                //Ciao Sara(H)
                             }
                         })
                         
