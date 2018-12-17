@@ -733,31 +733,15 @@
                                     <action selector="goToEditMembersAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="OEW-8v-iWg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipM-b2-WRk">
-                                <rect key="frame" x="25" y="547" width="325" height="36"/>
-                                <color key="backgroundColor" red="0.93432741119999996" green="0.13570952720000001" blue="0.1094629954" alpha="0.8556827910958904" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="5JN-pV-M8j"/>
-                                </constraints>
-                                <state key="normal" title="Elimina Topic">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteTopicAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="Mh5-uc-hva"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0EB-11-TPw" firstAttribute="bottom" secondItem="Oph-bp-gsd" secondAttribute="bottom" constant="32" id="0sU-KG-vkg"/>
-                            <constraint firstItem="0EB-11-TPw" firstAttribute="trailing" secondItem="ipM-b2-WRk" secondAttribute="trailing" constant="25" id="1am-EC-KyU"/>
                             <constraint firstItem="vMZ-cT-f5b" firstAttribute="top" secondItem="5jv-N6-7T2" secondAttribute="bottom" constant="16" id="5TD-r2-qEH"/>
                             <constraint firstItem="5jv-N6-7T2" firstAttribute="top" secondItem="0EB-11-TPw" secondAttribute="top" constant="16" id="OCA-od-ZGa"/>
-                            <constraint firstItem="Oph-bp-gsd" firstAttribute="top" secondItem="ipM-b2-WRk" secondAttribute="bottom" constant="16" id="Zww-yi-Ebp"/>
                             <constraint firstItem="5jv-N6-7T2" firstAttribute="leading" secondItem="0EB-11-TPw" secondAttribute="leading" constant="25" id="aVw-0s-pRZ"/>
                             <constraint firstItem="0EB-11-TPw" firstAttribute="trailing" secondItem="5jv-N6-7T2" secondAttribute="trailing" constant="25" id="bIh-qh-KNO"/>
                             <constraint firstItem="0EB-11-TPw" firstAttribute="trailing" secondItem="vMZ-cT-f5b" secondAttribute="trailing" constant="25" id="g3x-Ld-7pe"/>
-                            <constraint firstItem="ipM-b2-WRk" firstAttribute="leading" secondItem="0EB-11-TPw" secondAttribute="leading" constant="25" id="gmT-xX-Rpe"/>
                             <constraint firstItem="Oph-bp-gsd" firstAttribute="leading" secondItem="0EB-11-TPw" secondAttribute="leading" constant="25" id="gp5-D0-v8E"/>
                             <constraint firstItem="vMZ-cT-f5b" firstAttribute="leading" secondItem="0EB-11-TPw" secondAttribute="leading" constant="25" id="uYT-Rz-Gaw"/>
                             <constraint firstItem="0EB-11-TPw" firstAttribute="trailing" secondItem="Oph-bp-gsd" secondAttribute="trailing" constant="25" id="wKz-l3-9hP"/>
@@ -768,7 +752,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="YyC-v2-bMC"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="deleteOutlet" destination="ipM-b2-WRk" id="9Np-Uf-bmC"/>
                         <outlet property="descriptionTitleTopic" destination="5jv-N6-7T2" id="x8c-yn-LGE"/>
                         <outlet property="descriptionTopic" destination="vMZ-cT-f5b" id="P60-HW-4E9"/>
                         <outlet property="editOutlet" destination="Oph-bp-gsd" id="Rcc-hY-fC8"/>
