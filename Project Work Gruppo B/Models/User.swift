@@ -17,6 +17,7 @@ import RealmSwift
     dynamic var supervisor : Bool = false
     dynamic var id : String!
     
+    dynamic var creationDate = ""
     
     convenience init(email : String? = nil, name : String? = nil, surname : String? = nil, id : String? = nil, image : String? = nil, supervisor : Bool? = nil) {
         self.init()
@@ -26,6 +27,8 @@ import RealmSwift
         self.id = id
         self.image = image
         self.supervisor = supervisor ?? false
+        self.creationDate = self.creationDate.todayDate
+
     }
     
     

@@ -36,7 +36,8 @@ class NetworkManager : NSObject{
             "email" : user.email,
             "image" : user.image,
             "supervisor" : user.supervisor,
-            "id" : Auth.auth().currentUser?.uid ?? ""
+            "id" : Auth.auth().currentUser?.uid ?? "",
+            "creationDate" : user.creationDate
             ] ,merge: true,completion: { (err) in
                 if let err = err {
                     print("Error adding document: \(err)")

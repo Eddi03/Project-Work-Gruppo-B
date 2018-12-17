@@ -15,6 +15,7 @@ import RealmSwift
     dynamic var info: String!
     dynamic var id : String!
     dynamic var completed : Bool = false
+    dynamic var creationDate = ""
 
     var photos : List<String> = List<String>()
     
@@ -24,10 +25,12 @@ import RealmSwift
         self.title = title
         self.info = info
         self.completed = completed
+        self.creationDate = self.creationDate.todayDate
     }
     override class func primaryKey() -> String? {
         return "id"
     }
+    
     
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {

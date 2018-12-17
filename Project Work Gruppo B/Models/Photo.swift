@@ -16,6 +16,7 @@ import RealmSwift
     dynamic var dateCreated : String?
     dynamic var discarded : Bool = false
     
+    dynamic var creationDate = ""
     override class func primaryKey() -> String? {
         return "id"
     }
@@ -26,7 +27,8 @@ import RealmSwift
         self.image = image
         self.info = info
         self.discarded = discarded ?? false
-        
+        self.creationDate = self.creationDate.todayDate
+
         self.id = id
         
         
