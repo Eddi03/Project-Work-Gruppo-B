@@ -36,9 +36,9 @@ class InfoTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        deleteOutlet.layer.cornerRadius = 18
+        deleteOutlet.layer.cornerRadius = 20
         deleteOutlet.clipsToBounds = true
-        editOutlet.layer.cornerRadius = 18
+        editOutlet.layer.cornerRadius = 20
         editOutlet.clipsToBounds = true
       
         //get user from topic

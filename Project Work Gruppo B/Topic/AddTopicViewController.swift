@@ -55,7 +55,7 @@ class AddTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //addButtonOutlet.layer.cornerRadius = 18
+        //addButtonOutlet.layer.cornerRadius = 20
         //addButtonOutlet.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
