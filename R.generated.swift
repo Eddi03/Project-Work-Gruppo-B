@@ -113,7 +113,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 9 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 10 view controllers.
   struct segue {
     /// This struct is generated for `AddTopicViewController`, and contains static references to 1 segues.
     struct addTopicViewController {
@@ -134,12 +134,12 @@ struct R: Rswift.Validatable {
     struct albumListViewController {
       /// Segue identifier `segueToAddAlbum`.
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
-      /// Segue identifier `segueToGallery`.
-      static let segueToGallery: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToGallery")
-      /// Segue identifier `segueToInfoTopic`.
-      static let segueToInfoTopic: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToInfoTopic")
-      /// Segue identifier `segueToSchiavo`.
-      static let segueToSchiavo: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToSchiavo")
+      /// Segue identifier `segueToAdmin`.
+      static let segueToAdmin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdmin")
+      /// Segue identifier `segueToOperator`.
+      static let segueToOperator: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToOperator")
+      /// Segue identifier `segueToTopicDetails`.
+      static let segueToTopicDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToTopicDetails")
       
       /// Optionally returns a typed version of segue `segueToAddAlbum`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -148,25 +148,40 @@ struct R: Rswift.Validatable {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAddAlbum, segue: segue)
       }
       
-      /// Optionally returns a typed version of segue `segueToGallery`.
+      /// Optionally returns a typed version of segue `segueToAdmin`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToGallery(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToGallery, segue: segue)
+      static func segueToAdmin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAdmin, segue: segue)
       }
       
-      /// Optionally returns a typed version of segue `segueToInfoTopic`.
+      /// Optionally returns a typed version of segue `segueToOperator`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToInfoTopic(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToInfoTopic, segue: segue)
+      static func segueToOperator(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToOperator, segue: segue)
       }
       
-      /// Optionally returns a typed version of segue `segueToSchiavo`.
+      /// Optionally returns a typed version of segue `segueToTopicDetails`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToSchiavo(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToSchiavo, segue: segue)
+      static func segueToTopicDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, InfoTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToTopicDetails, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `InfoTopicViewController`, and contains static references to 1 segues.
+    struct infoTopicViewController {
+      /// Segue identifier `segueToEditMembers`.
+      static let segueToEditMembers: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, InfoTopicViewController, AddUsersTopicViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToEditMembers")
+      
+      /// Optionally returns a typed version of segue `segueToEditMembers`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToEditMembers(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, InfoTopicViewController, AddUsersTopicViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.infoTopicViewController.segueToEditMembers, segue: segue)
       }
       
       fileprivate init() {}
@@ -187,16 +202,25 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `PhotoCollectionViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `PhotoCollectionViewController`, and contains static references to 2 segues.
     struct photoCollectionViewController {
       /// Segue identifier `segueToAddPhoto`.
       static let segueToAddPhoto: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddPhoto")
+      /// Segue identifier `segueToAlbumDetails`.
+      static let segueToAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumDetails")
       
       /// Optionally returns a typed version of segue `segueToAddPhoto`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToAddPhoto(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, segue: segue)
+      }
+      
+      /// Optionally returns a typed version of segue `segueToAlbumDetails`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.photoCollectionViewController.segueToAlbumDetails, segue: segue)
       }
       
       fileprivate init() {}
@@ -960,12 +984,12 @@ struct _R: Rswift.Validatable {
     }
     
     struct albumStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let album = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Album")
+      let album = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Album")
       let bundle = R.hostingBundle
       let name = "AlbumStoryboard"
       let schiavo = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Schiavo")
       
-      func album(_: Void = ()) -> PhotoCollectionViewController? {
+      func album(_: Void = ()) -> UIKit.UINavigationController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: album)
       }
       
@@ -974,8 +998,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'AlbumStoryboard', but couldn't be loaded.") }
-        if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
+        if UIKit.UIImage(named: "button:Fd5-jv-gGe:image") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button:Fd5-jv-gGe:image' is used in storyboard 'AlbumStoryboard', but couldn't be loaded.") }
+        if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'UIKit.UINavigationController'.") }
         if _R.storyboard.albumStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
       }
       
@@ -1016,10 +1040,16 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "MainStoryboard"
+      let schiavo = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Schiavo")
+      
+      func schiavo(_: Void = ()) -> PhotoCollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: schiavo)
+      }
       
       static func validate() throws {
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'PhotoCollectionViewController'.") }
       }
       
       fileprivate init() {}

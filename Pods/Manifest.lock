@@ -131,6 +131,7 @@ PODS:
   - Realm/Headers (3.11.1)
   - RealmSwift (3.11.1):
     - Realm (= 3.11.1)
+  - SKPhotoBrowser (6.0.0)
 
 DEPENDENCIES:
   - CodableFirebase
@@ -140,6 +141,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - R.swift
   - RealmSwift
+  - SKPhotoBrowser
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -168,6 +170,7 @@ SPEC REPOS:
     - R.swift.Library
     - Realm
     - RealmSwift
+    - SKPhotoBrowser
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -195,7 +198,8 @@ SPEC CHECKSUMS:
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
 
-PODFILE CHECKSUM: 130ed2b482cd85afac10274fd610cb547e3a8bf6
+PODFILE CHECKSUM: 460cec69450ecab77cf1c1c637e51b19a1a85df1
 
 COCOAPODS: 1.5.3
