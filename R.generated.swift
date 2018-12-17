@@ -135,7 +135,7 @@ struct R: Rswift.Validatable {
       /// Segue identifier `segueToAddAlbum`.
       static let segueToAddAlbum: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AddAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddAlbum")
       /// Segue identifier `segueToAdmin`.
-      static let segueToAdmin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdmin")
+      static let segueToAdmin: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, AdminPhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdmin")
       /// Segue identifier `segueToOperator`.
       static let segueToOperator: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToOperator")
       /// Segue identifier `segueToTopicDetails`.
@@ -151,7 +151,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `segueToAdmin`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAdmin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, PhotoCollectionViewController>? {
+      static func segueToAdmin(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AlbumListViewController, AdminPhotoCollectionViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.albumListViewController.segueToAdmin, segue: segue)
       }
       
@@ -1040,16 +1040,17 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "MainStoryboard"
-      let schiavo = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Schiavo")
+      let schiavo = StoryboardViewControllerResource<AdminPhotoCollectionViewController>(identifier: "Schiavo")
       
-      func schiavo(_: Void = ()) -> PhotoCollectionViewController? {
+      func schiavo(_: Void = ()) -> AdminPhotoCollectionViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: schiavo)
       }
       
       static func validate() throws {
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'PhotoCollectionViewController'.") }
+        if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
       }
       
       fileprivate init() {}

@@ -15,12 +15,15 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     
     @IBOutlet var myCollectionView: UICollectionView!
 
+    @IBOutlet var discardImagesOutlet: UIBarButtonItem!
     var topic : Topic!
     var album : Album!
     var images=[Image]()
     var imagesDiscarded=[Image]()
     var imagesToBrowser = [SKPhotoProtocol]()
     var scartedImage : Image!
+    var imagesToDiscard = [String]()
+    var discarding : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +31,23 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
-        myCollectionView.backgroundColor=UIColor.white
+        myCollectionView.allowsMultipleSelection = true
         
-        myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
         
     }
+    
+    @IBAction func discardImagesAction(_ sender: Any) {
+        if discarding{
+            discarding = false
+            discardImagesOutlet.tintColor = UIColor.green
+        }
+        else{
+            discarding = true
+            discardImagesOutlet.tintColor = UIColor.blue
+        }
+    }
+    
+    
     func convertImageToBrowser(){
         self.imagesToBrowser = []
         for image in self.images{
@@ -113,8 +128,20 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return cell
         }
         if indexPath.section == 1{
-            let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
+            let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: AdminPhotoItemCell.kIdentifier, for: indexPath) as! AdminPhotoItemCell
             cell.img.image=UIImage(data: images[indexPath.item].image!)
+            if !discarding{
+                cell.checkedImage.isHidden = true
+            }
+            if imagesToDiscard.contains(images[indexPath.item].id) {
+                cell.isSelected=true
+                myCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+                cell.checkedImage?.isHidden=false
+            }
+            else{
+                cell.isSelected=false
+                cell.checkedImage.isHidden=true
+            }
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
@@ -123,24 +150,64 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return cell
         }
         if indexPath.section == 3{
-            let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
+            let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: AdminPhotoItemCell.kIdentifier, for: indexPath) as! AdminPhotoItemCell
             cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
             return cell}
         return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 1:
-            let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
-            present(browser, animated: true, completion: {})
-        //case 3:
-            //annulla foto scartata
-        default:
-            return
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
+        //add the selected cell contents to _selectedCells arr when cell is selected
+        if indexPath.section == 1 && discarding{
+        imagesToDiscard.append(images[indexPath.item].id)
+        debugPrint(imagesToDiscard[0])
+            collectionView.reloadItems(at: [indexPath])
+        }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        //remove the selected cell contents from _selectedCells arr when cell is De-Selected
+        if indexPath.section == 1 && discarding{
+        if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
+            imagesToDiscard.remove(at: position)
+            }
+        }
+        myCollectionView.reloadItems(at: [indexPath])
+    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        switch indexPath.section {
+//        case 1:
+//            if !discarding{
+//            let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
+//                present(browser, animated: true, completion: {})}
+////            else{
+////                let cell = myCollectionView.cellForItem(at: indexPath) as? AdminPhotoItemCell
+////
+////                if cell!.isSelected{
+////                    cell!.isSelected = false
+////                    if cell!.checkedImage.isHidden{
+////                        cell!.checkedImage.isHidden = false
+////                        imagesToDiscard.append(images[indexPath.item].id)
+////                    }
+////                    else {
+////                        if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
+////                            imagesToDiscard.remove(at: position)
+////                        }
+////                        cell!.checkedImage.isHidden = true
+////                    }
+////                    myCollectionView.reloadData()
+////                }
+////                debugPrint(imagesToDiscard.count)
+////            }
+//        //case 3:
+//            //annulla foto scartata
+//        default:
+//            return
+//        }
+//
+//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = myCollectionView.frame.width

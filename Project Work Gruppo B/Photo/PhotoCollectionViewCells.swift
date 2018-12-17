@@ -43,3 +43,28 @@ class LabelItemCell: UICollectionViewCell {
     
     
 }
+
+class AdminPhotoItemCell: UICollectionViewCell {
+    static var kIdentifier = "AdminPhotoCollectionViewCell"
+    
+    @IBOutlet var img: UIImageView!{
+        didSet{
+            img.contentMode = .scaleAspectFill
+            img.clipsToBounds=true
+        }
+    }
+    
+    @IBOutlet var checkedImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        img.frame = self.bounds
+    }
+    
+    
+}
