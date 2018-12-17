@@ -38,7 +38,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     }
     
     @IBAction func albumDetailsAction(_ sender: Any) {
-        self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAlbumDetails, sender: self)
+        self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAdminAlbumDetails, sender: self)
     }
     @objc func saveAction(){
         
