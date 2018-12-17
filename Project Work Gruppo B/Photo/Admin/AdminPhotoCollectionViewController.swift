@@ -14,20 +14,22 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     
     
     @IBOutlet var myCollectionView: UICollectionView!
-
     @IBOutlet var discardImagesOutlet: UIBarButtonItem!
     var topic : Topic!
     var album : Album!
     var images=[Image]()
     var imagesDiscarded=[Image]()
-    var imagesToBrowser = [SKPhotoProtocol]()
+    var imagesToBrowser = [SKPhotoProtocol]()
     var scartedImage : Image!
     var imagesToDiscard = [String]()
     var discarding : Bool = false
+    private var barButtonItem : UIBarButtonItem!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction))
         
         myCollectionView.delegate=self
         myCollectionView.dataSource=self
@@ -38,15 +40,40 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     @IBAction func albumDetailsAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAlbumDetails, sender: self)
     }
+    @objc func saveAction(){
+        
+        for img in imagesToDiscard{
+            
+            DispatchQueue.main.async {
+            let photo = Photo.getPhotoById(id: img)
+            photo?.changeData(discarded: true)
+            debugPrint(photo?.discarded)
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, bool: false) { (success) in
+                    
+                    self.setupImages()
+                }
+                
+            }
+        }
+        self.navigationItem.rightBarButtonItem = nil
+        discardImagesOutlet.tintColor = UIColor.green
+        imagesToDiscard = []
+    }
+    
+    
     
     @IBAction func discardImagesAction(_ sender: Any) {
         if discarding{
             discarding = false
             discardImagesOutlet.tintColor = UIColor.green
+            imagesToDiscard = []
+            self.navigationItem.rightBarButtonItem = nil
         }
         else{
             discarding = true
             discardImagesOutlet.tintColor = UIColor.blue
+            
+            self.navigationItem.rightBarButtonItem = barButtonItem
         }
     }
     
@@ -59,9 +86,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             self.imagesToBrowser.append(imageToBrowser)
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        myCollectionView.reloadData()
+    func setupImages(){
         NetworkManager.getPhotos(completion: {   success in
             if success {
                 let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
@@ -98,8 +123,11 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
-        
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myCollectionView.reloadData()
+        setupImages()
     }
     
     

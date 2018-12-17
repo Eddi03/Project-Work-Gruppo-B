@@ -856,6 +856,11 @@
                                             <action selector="addPhotoAction:" destination="sis-qU-jM9" id="y90-u8-NWk"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Archivia" id="ZUD-GM-q1e">
+                                        <connections>
+                                            <action selector="archiviaAction:" destination="sis-qU-jM9" id="cQi-Yf-wCU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
                                     <barButtonItem systemItem="compose" id="Q63-nO-ece"/>
                                 </items>
@@ -1184,9 +1189,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkQ-4U-EIr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="cot-Of-GNf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YaC-Xs-iVC"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="cot-Of-GNf"/>
                     <connections>
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
