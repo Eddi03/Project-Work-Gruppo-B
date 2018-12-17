@@ -19,7 +19,9 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
             }
     var topic : Topic!
     var album : Album!
-    var imageArray=[UIImage]()
+    var images=[Image]()
+    var imagesDiscarded=[Image]()
+    var scartedImage : Image!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +33,63 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
         
-        grabPhotos()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        myCollectionView.reloadData()
+        NetworkManager.getPhotos(completion: {   success in
+            if success {
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                debugPrint("ricchi")
+                if !(photos.isEmpty){
+                    DispatchQueue.main.async {
+                        for i in photos{
+                            
+                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
+                                let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
+                                img.save()
+                                
+                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.myCollectionView.reloadData()
+                            })
+                        }
+                    }
+                }
+                let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                debugPrint(discardedPhotos.count)
+                if !(discardedPhotos.isEmpty){
+                    DispatchQueue.main.async {
+                        for i in discardedPhotos{
+                            
+                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
+                                let img = Image(image: image?.pngData(), info: i.info,discarded: true, id: i.id)
+                                img.save()
+                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                                self.myCollectionView.reloadData()
+                            })
+                        }
+                    }
+                }
+            }else{
+                GeneralUtils.share.alertError(title: "errore", message: "")
+            }
+        })
+        
+
     }
     
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 1{
-            return imageArray.count
+            return images.count
         }
         if section == 3{
-            return imageArray.count
+            return imagesDiscarded.count
+        }
+        if section == 2 && imagesDiscarded.isEmpty{
+            debugPrint("secchetion",imagesDiscarded.count)
+            return 0
         }
         return 1
     }
@@ -60,7 +108,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         }
         if indexPath.section == 1{
         let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
-        cell.img.image=imageArray[indexPath.item]
+            cell.img.image=UIImage(data: images[indexPath.item].image!)
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
@@ -70,7 +118,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         }
         if indexPath.section == 3{
             let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
-            cell.img.image=imageArray[indexPath.item]
+            cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
             return cell}
         return UICollectionViewCell()
     }
@@ -79,14 +127,12 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         switch indexPath.section {
         case 1:
             let vc=ImagePreview()
-            vc.imgArray = self.imageArray
+            vc.imgArray = self.images
             vc.passedContentOffset = indexPath
             self.navigationController?.pushViewController(vc, animated: true)
         case 3:
-            let vc=ImagePreview()
-            vc.imgArray = self.imageArray
-            vc.passedContentOffset = indexPath
-            self.navigationController?.pushViewController(vc, animated: true)
+            scartedImage = imagesDiscarded[indexPath.item]
+            self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, sender: self)
         default:
             return
         }
@@ -119,9 +165,8 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         //}
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        myCollectionView.collectionViewLayout.invalidateLayout()
+    override func viewDidLayoutSubviews() {
+        myCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -135,65 +180,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 4
     }
-    //MARK: grab photos
-    func grabPhotos(){
-        imageArray = []
-        
-//        NetworkManager.dowloadImageProfile(withURL: "https://firebasestorage.googleapis.com/v0/b/project-work-gruppo-b.appspot.com/o/profileImages%2F3EB47AbzNIYufpUDy8wDO86IMSF2.jpg?alt=media&token=6d16e654-854a-4f1f-a4ab-6d10ad48ef2c", completion: { (image) in
-//            self.imageArray.append(image!)
-//            DispatchQueue.main.async {
-//                self.myCollectionView.reloadData()
-//            }
-//        })
-        NetworkManager.getPhotos(completion: {   success in
-            if success {
-                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.topic.id)
-                print("lista utenti", self.imageArray)
-                if !self.imageArray.isEmpty{
-                    for i in photos{
-                        
-                        NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                            self.imageArray.append(image!)
-                        })
-                    }
-                }
-                self.myCollectionView.reloadData()
-            }else{
-                GeneralUtils.share.alertError(title: "errore", message: "")
-            }
-        })
-
-//
-//        DispatchQueue.global(qos: .background).async {
-//            print("This is run on the background queue")
-//            let imgManager=PHImageManager.default()
-//
-//            let requestOptions=PHImageRequestOptions()
-//            requestOptions.isSynchronous=true
-//            requestOptions.deliveryMode = .highQualityFormat
-//
-//            let fetchOptions=PHFetchOptions()
-//            fetchOptions.sortDescriptors=[NSSortDescriptor(key:"creationDate", ascending: false)]
-//
-//            let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-//            print(fetchResult)
-//            print(fetchResult.count)
-//            if fetchResult.count > 0 {
-//                for i in 0..<fetchResult.count{
-//                    imgManager.requestImage(for: fetchResult.object(at: i) as PHAsset, targetSize: CGSize(width:500, height: 500),contentMode: .aspectFill, options: requestOptions, resultHandler: { (image, error) in
-//                        self.imageArray.append(image!)
-//                    })
-//                }
-//            } else {
-//                print("no photos.")
-//            }
-//            print("count: \(self.imageArray.count)")
-//
-//            DispatchQueue.main.async {
-//                self.myCollectionView.reloadData()
-//            }
-//        }
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -203,66 +190,34 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         if let destinationSegue = segue.destination as? AddPhotoViewController{
             destinationSegue.album = album
             destinationSegue.topic = topic
-        }
-    }
-    
-    
-}
-
-
-class PhotoItemCell: UICollectionViewCell {
-    static var kIdentifier = "PhotoCollectionViewCell"
-    
-    @IBOutlet var img: UIImageView!{
-        didSet{
-            img.contentMode = .scaleAspectFill
-            img.clipsToBounds=true
-        }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        img.frame = self.bounds
-    }
-    
-   
-}
-class LabelItemCell: UICollectionViewCell {
-    static var kIdentifier = "LabelCollectionViewCell"
-    
-    @IBOutlet var text: UILabel!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    
-}
-
-struct DeviceInfo {
-    struct Orientation {
-        // indicate current device is in the LandScape orientation
-        static var isLandscape: Bool {
-            get {
-                return UIDevice.current.orientation.isValidInterfaceOrientation
-                    ? UIDevice.current.orientation.isLandscape
-                    : UIApplication.shared.statusBarOrientation.isLandscape
-            }
-        }
-        // indicate current device is in the Portrait orientation
-        static var isPortrait: Bool {
-            get {
-                return UIDevice.current.orientation.isValidInterfaceOrientation
-                    ? UIDevice.current.orientation.isPortrait
-                    : UIApplication.shared.statusBarOrientation.isPortrait
+            if let scarted = scartedImage{
+                destinationSegue.scarted = scarted
             }
         }
     }
+    
+    
 }
+
+
+//
+//struct DeviceInfo {
+//    struct Orientation {
+//        // indicate current device is in the LandScape orientation
+//        static var isLandscape: Bool {
+//            get {
+//                return UIDevice.current.orientation.isValidInterfaceOrientation
+//                    ? UIDevice.current.orientation.isLandscape
+//                    : UIApplication.shared.statusBarOrientation.isLandscape
+//            }
+//        }
+//        // indicate current device is in the Portrait orientation
+//        static var isPortrait: Bool {
+//            get {
+//                return UIDevice.current.orientation.isValidInterfaceOrientation
+//                    ? UIDevice.current.orientation.isPortrait
+//                    : UIApplication.shared.statusBarOrientation.isPortrait
+//            }
+//        }
+//    }
+//}

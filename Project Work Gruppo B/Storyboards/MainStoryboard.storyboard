@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -172,6 +172,7 @@
                         <outlet property="tableView" destination="BOE-KR-cxY" id="cfw-GG-OCv"/>
                         <segue destination="stU-nN-Dxg" kind="show" identifier="segueToAddAlbum" id="jhj-47-n5i"/>
                         <segue destination="d3i-Ow-KUJ" kind="show" identifier="segueToGallery" id="Xvy-xh-UAD"/>
+                        <segue destination="xTC-qp-TrS" kind="show" identifier="segueToSchiavo" id="bpb-P5-7PH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxN-nX-vRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -863,10 +864,18 @@
             </objects>
             <point key="canvasLocation" x="1436" y="535"/>
         </scene>
+        <!--Schiavo-->
+        <scene sceneID="EFR-gS-CEq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AlbumStoryboard" referencedIdentifier="Schiavo" id="xTC-qp-TrS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9m-om-4g1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="516"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
