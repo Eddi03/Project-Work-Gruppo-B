@@ -1145,9 +1145,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkQ-4U-EIr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="cot-Of-GNf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YaC-Xs-iVC"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="cot-Of-GNf"/>
                     <connections>
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
