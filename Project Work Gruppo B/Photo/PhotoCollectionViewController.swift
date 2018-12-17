@@ -17,7 +17,8 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     
     @IBAction func addPhotoAction(_ sender: Any) {
         self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, sender: self)
-            }
+    }
+    
     var topic : Topic!
     var album : Album!
     var images=[Image]()
@@ -36,6 +37,11 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
         
     }
+    
+    @IBAction func albumDetailsAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAlbumDetails, sender: self)
+    }
+    
     func convertImageToBrowser(){
         self.imagesToBrowser = []
         for image in self.images{

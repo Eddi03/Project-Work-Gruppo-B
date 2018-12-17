@@ -20,6 +20,9 @@ class AlbumListViewController: UIViewController {
             navBarTopicDetails.title = R.string.localizable.kNavBarTopicDetails()
         }
     }
+    @IBAction func goToDetailsAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: R.segue.albumListViewController.segueToTopicDetails, sender: self)
+    }
     
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
