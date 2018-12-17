@@ -31,7 +31,14 @@ import RealmSwift
         
         
     }
-    
+    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), discarded : Bool? = nil) {
+        do {
+            try realm.write {
+                self.discarded = discarded ?? self.discarded
+            }
+        }catch {}
+        
+    }
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {

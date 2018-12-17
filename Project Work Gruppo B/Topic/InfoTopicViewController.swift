@@ -49,7 +49,7 @@ class InfoTopicViewController: UIViewController {
             deleteOutlet.isHidden = true
         }
         
-        deleteOutlet.layer.cornerRadius = 18
+        deleteOutlet.layer.cornerRadius = 20
         deleteOutlet.clipsToBounds = true
         editOutlet.layer.cornerRadius = 20
         editOutlet.clipsToBounds = true
