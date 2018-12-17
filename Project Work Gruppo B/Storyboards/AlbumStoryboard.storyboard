@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,13 +12,13 @@
         <!--Photo Collection View Controller-->
         <scene sceneID="IWZ-0M-rma">
             <objects>
-                <viewController storyboardIdentifier="Album" id="kW4-ke-neU" customClass="PhotoCollectionViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kW4-ke-neU" customClass="PhotoCollectionViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XYp-Xa-cff">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3hg-Zs-Nic">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iK5-r6-rbw">
                                     <size key="itemSize" width="50" height="50"/>
@@ -74,7 +74,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-8K-4bN">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Dettagli" id="rpH-xd-9Vm"/>
+                                    <barButtonItem title="Dettagli" id="rpH-xd-9Vm">
+                                        <connections>
+                                            <action selector="albumDetailsAction:" destination="kW4-ke-neU" id="8tj-QD-V2a"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="V7G-BA-LPt"/>
                                     <barButtonItem systemItem="add" id="qAC-we-dWe">
                                         <connections>
@@ -99,14 +103,122 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8EO-nu-NLH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="wz6-xD-Rjt"/>
                     <connections>
                         <outlet property="myCollectionView" destination="3hg-Zs-Nic" id="0N0-fZ-HLJ"/>
                         <segue destination="t6S-Rf-qfY" kind="show" identifier="segueToAddPhoto" id="KSq-6i-ZNI"/>
+                        <segue destination="0JE-Un-HcD" kind="show" identifier="segueToAlbumDetails" id="4WY-uQ-ONU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8y-oA-Cpg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1024.8" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LhY-2L-ApN">
+            <objects>
+                <viewController id="0JE-Un-HcD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UPt-Li-OHk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Z-eT-WbE">
+                                <rect key="frame" x="25" y="80" width="325" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questo è il titolo dell'album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8i-di-lhS">
+                                <rect key="frame" x="25" y="117" width="325" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrizione" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0Z-RZ-CU3">
+                                <rect key="frame" x="25" y="154" width="325" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questa è la descrizione dell'album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0M-o3-VHJ">
+                                <rect key="frame" x="25" y="189" width="325" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVL-R4-mNa">
+                                <rect key="frame" x="25" y="615" width="325" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.1984674733" blue="0.12139435780000001" alpha="0.87673305459999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="pEi-3T-gG9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Elimina Album">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AtR-4D-lny">
+                                <rect key="frame" x="25" y="511" width="325" height="36"/>
+                                <color key="backgroundColor" red="0.34263712169999999" green="0.3646582961" blue="0.83229595420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="Xyt-HU-iSN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Foto Scartate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Album creato il: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wg4-hu-Bwe">
+                                <rect key="frame" x="25" y="255" width="139" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nlP-c1-3hd">
+                                <rect key="frame" x="25" y="563" width="325" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="dew-cn-Y7y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Archivia Album">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="HVL-R4-mNa" secondAttribute="trailing" constant="25" id="4CK-HB-diM"/>
+                            <constraint firstItem="K0Z-RZ-CU3" firstAttribute="top" secondItem="h8i-di-lhS" secondAttribute="bottom" constant="16" id="4xY-og-ySW"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="AtR-4D-lny" secondAttribute="trailing" constant="25" id="7Oc-2M-rmp"/>
+                            <constraint firstItem="t0M-o3-VHJ" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="Abc-Oz-tcZ"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="P0Z-eT-WbE" secondAttribute="trailing" constant="25" id="Agl-1R-4gq"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="K0Z-RZ-CU3" secondAttribute="trailing" constant="25" id="Bro-dT-xWN"/>
+                            <constraint firstAttribute="trailing" secondItem="t0M-o3-VHJ" secondAttribute="trailing" constant="25" id="EiB-0i-KKm"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="Wg4-hu-Bwe" secondAttribute="trailing" constant="211" id="FCi-Ii-5hV"/>
+                            <constraint firstItem="t0M-o3-VHJ" firstAttribute="top" secondItem="K0Z-RZ-CU3" secondAttribute="bottom" constant="8" id="Jj2-L2-8i6"/>
+                            <constraint firstItem="Wg4-hu-Bwe" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="KJx-OX-tYv"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="bottom" secondItem="HVL-R4-mNa" secondAttribute="bottom" constant="16" id="NUH-mu-4gP"/>
+                            <constraint firstItem="nlP-c1-3hd" firstAttribute="top" secondItem="AtR-4D-lny" secondAttribute="bottom" constant="16" id="U1h-mA-PEO"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="nlP-c1-3hd" secondAttribute="trailing" constant="25" id="Wcg-6r-VfF"/>
+                            <constraint firstItem="AtR-4D-lny" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="YJ8-Us-D6d"/>
+                            <constraint firstItem="Wg4-hu-Bwe" firstAttribute="top" secondItem="t0M-o3-VHJ" secondAttribute="bottom" constant="45" id="aXP-GY-U1B"/>
+                            <constraint firstItem="K0Z-RZ-CU3" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="f8W-Ms-iUP"/>
+                            <constraint firstItem="P0Z-eT-WbE" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="gbt-nM-ERy"/>
+                            <constraint firstItem="P0Z-eT-WbE" firstAttribute="top" secondItem="StY-Oa-nut" secondAttribute="top" constant="16" id="j4Q-Mt-gBX"/>
+                            <constraint firstItem="HVL-R4-mNa" firstAttribute="top" secondItem="nlP-c1-3hd" secondAttribute="bottom" constant="16" id="nYa-wJ-3RX"/>
+                            <constraint firstItem="HVL-R4-mNa" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="npD-yV-Chn"/>
+                            <constraint firstItem="h8i-di-lhS" firstAttribute="top" secondItem="P0Z-eT-WbE" secondAttribute="bottom" constant="8" id="p10-0u-OqN"/>
+                            <constraint firstItem="StY-Oa-nut" firstAttribute="trailing" secondItem="h8i-di-lhS" secondAttribute="trailing" constant="25" id="vB5-fR-2qp"/>
+                            <constraint firstItem="nlP-c1-3hd" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="vMW-Qj-feS"/>
+                            <constraint firstItem="h8i-di-lhS" firstAttribute="leading" secondItem="StY-Oa-nut" secondAttribute="leading" constant="25" id="xp1-dU-mO9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="StY-Oa-nut"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cq1-0N-Bz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871.2" y="-588.75562218890559"/>
         </scene>
         <!--Add Photo View Controller-->
         <scene sceneID="kQg-6z-ZiH">
@@ -117,13 +229,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJc-AK-YAd">
-                                <rect key="frame" x="25" y="270" width="325" height="30"/>
+                                <rect key="frame" x="25" y="314" width="325" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd5-jv-gGe">
-                                <rect key="frame" x="100" y="45" width="175" height="175"/>
+                                <rect key="frame" x="100" y="89" width="175" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="175" id="4um-VA-UVV"/>
                                     <constraint firstAttribute="height" constant="175" id="WAz-dn-IDU"/>
@@ -160,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kW9-1V-HTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="134"/>
+            <point key="canvasLocation" x="1871.2" y="133.5832083958021"/>
         </scene>
         <!--Photo Collection View Controller-->
         <scene sceneID="MwG-FH-5Pw">
@@ -254,6 +366,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8h-CY-hFi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-529" y="731"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KjI-RN-dKD">
+            <objects>
+                <navigationController storyboardIdentifier="Album" automaticallyAdjustsScrollViewInsets="NO" id="MXG-mI-VIf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yPk-ac-6bY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kW4-ke-neU" kind="relationship" relationship="rootViewController" id="7vR-7Z-bPr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Re-94-pSN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
