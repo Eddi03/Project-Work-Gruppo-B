@@ -69,22 +69,33 @@ class InfoTopicViewController: UIViewController {
     
    
     @IBAction func deleteTopicAction(_ sender: Any) {
-        NetworkManager.deleteTopic(idTopic: topic!.id, completion: { success in
-            if success{
-                //elimino su relam (prima elimino gli album)
-                for albumId in self.topic?.getAlbums() ?? []{
-                    var album = Album.getAlbumById(id: albumId)
-                    NetworkManager.deleteAlbum(idAlbum: albumId, completion: {success in
-                        if success {
-                            album?.delete()
-                        }
-                    })
-                    
+        
+        let alert = UIAlertController(title: "Attenzione", message: "Sei sicuro di voler eliminare il topic?", preferredStyle: .alert)
+        let si = UIAlertAction(title: "Si", style: .default){
+            UIAlertAction in
+            NetworkManager.deleteTopic(idTopic: self.topic!.id, completion: { success in
+                if success{
+                    //elimino su relam (prima elimino gli album)
+                    for albumId in self.topic?.getAlbums() ?? []{
+                        var album = Album.getAlbumById(id: albumId)
+                        NetworkManager.deleteAlbum(idAlbum: albumId, completion: {success in
+                            if success {
+                                album?.delete()
+                            }
+                        })
+                        
+                    }
+                    self.topic!.delete()
+                    self.dismiss(animated: true, completion: nil)
                 }
-                self.topic!.delete()
-                self.dismiss(animated: true, completion: nil)
-            }
-        })
+            })
+        }
+        let no = UIAlertAction(title: "No", style: .cancel)
+        alert.addAction(si)
+        alert.addAction(no)
+        self.present(alert, animated: true)
+        
+        
     }
 
 }
