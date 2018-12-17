@@ -196,7 +196,7 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
             if admin{
                 self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAdmin, sender: self)
             }else{
-                self.performSegue(withIdentifier: R.segue.albumListViewController.segueToGallery, sender: self)}
+                self.performSegue(withIdentifier: R.segue.albumListViewController.segueToOperator, sender: self)}
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
