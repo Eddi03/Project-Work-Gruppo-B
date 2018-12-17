@@ -14,11 +14,11 @@ import RealmSwift
     dynamic var title : String!
     dynamic var info: String!
     dynamic var id : String!
-    dynamic var completed : Bool!
+    dynamic var completed : Bool = false
 
     var photos : List<String> = List<String>()
     
-    convenience init(title : String? = nil, info : String? = nil, completed : Bool? = nil) {
+    convenience init(title : String? = nil, info : String? = nil, completed : Bool = false) {
         self.init()
         self.id = UUID().uuidString
         self.title = title

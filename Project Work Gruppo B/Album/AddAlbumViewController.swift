@@ -47,7 +47,7 @@ class AddAlbumViewController: UIViewController {
         let currentName = nameOutlet.text ?? ""
         let currentInfo = infoOutlet.text ?? ""
 
-        album = Album(title: currentName, info: currentInfo, completed: nil)
+        album = Album(title: currentName, info: currentInfo, completed: false)
         
         NetworkManager.addAlbum(topic: topic, album: album){(success) in
             if success{

@@ -158,6 +158,10 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
             } else {
                 cell.title.text = albums[indexPath.row].title
                 cell.info.text = albums[indexPath.row].info
+                
+                if(albums[indexPath.row].completed){
+                    cell.backgroundColor = UIColor.purple
+                }
             }
             return cell
         case ADD_ALBUM:
