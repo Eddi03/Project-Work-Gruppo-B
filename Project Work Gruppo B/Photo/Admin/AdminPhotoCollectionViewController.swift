@@ -45,7 +45,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             let photo = Photo.getPhotoById(id: img)
             photo?.changeData(discarded: true)
             debugPrint(photo?.discarded)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!) { (success) in
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, bool: false) { (success) in
                     
                     self.setupImages()
                 }
