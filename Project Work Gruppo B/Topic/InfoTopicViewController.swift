@@ -32,18 +32,30 @@ class InfoTopicViewController: UIViewController {
     var users : [User] = []
     var usersToAdd : [String] = []
     var topic : Topic?
+    var currentUser : User = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var idUser = NetworkManager.getMyID()
+        var user = User.getUserById(withid: idUser!)
+        
+        if user!.supervisor {
+            editOutlet.isHidden = false
+            deleteOutlet.isHidden = false
+        }
+        else {
+            editOutlet.isHidden = true
+            deleteOutlet.isHidden = true
+        }
+        
         deleteOutlet.layer.cornerRadius = 18
         deleteOutlet.clipsToBounds = true
         editOutlet.layer.cornerRadius = 18
         editOutlet.clipsToBounds = true
       
-        deleteOutlet.isHidden = true
-        editOutlet.isHidden = true
-        
+      
+      
         //get user from topic
         for userId in topic?.getUsers() ?? []{
             var userObject = User.getUserById(withid: userId)
