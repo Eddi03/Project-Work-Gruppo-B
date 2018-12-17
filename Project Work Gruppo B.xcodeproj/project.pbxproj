@@ -49,6 +49,7 @@
 		963C3E2521C18ACA0059E359 /* PhotoCollectionViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C3E2421C18ACA0059E359 /* PhotoCollectionViewCells.swift */; };
 		9670E9C721B6B6890015A87B /* ImagePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9670E9C621B6B6890015A87B /* ImagePreview.swift */; };
 		96F2122421C179FA0084B1E6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F2122321C179FA0084B1E6 /* Image.swift */; };
+		96F44BC121C7A40400841204 /* AdminPhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F44BC021C7A40400841204 /* AdminPhotoCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		9670E9C421B6B5F90015A87B /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		9670E9C621B6B6890015A87B /* ImagePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreview.swift; sourceTree = "<group>"; };
 		96F2122321C179FA0084B1E6 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		96F44BC021C7A40400841204 /* AdminPhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPhotoCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,12 +325,21 @@
 		9614347821B7E89C00A45C01 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				96F44BBF21C7A3D700841204 /* Admin */,
 				9670E9C421B6B5F90015A87B /* PhotoCollectionViewController.swift */,
 				9670E9C621B6B6890015A87B /* ImagePreview.swift */,
 				962A215E21B6A07A002727A4 /* AddPhotoViewController.swift */,
 				963C3E2421C18ACA0059E359 /* PhotoCollectionViewCells.swift */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		96F44BBF21C7A3D700841204 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				96F44BC021C7A40400841204 /* AdminPhotoCollectionViewController.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		FA09C4B09A995A5F7EA8BA4F /* Pods */ = {
@@ -533,6 +544,7 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -553,6 +565,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -592,6 +605,7 @@
 				3756698621B6CB60003F1089 /* AlbumListViewController.swift in Sources */,
 				9670E9C721B6B6890015A87B /* ImagePreview.swift in Sources */,
 				6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */,
+				96F44BC121C7A40400841204 /* AdminPhotoCollectionViewController.swift in Sources */,
 				3756698C21B6D031003F1089 /* Topic.swift in Sources */,
 				6C5366BF21BFC7C2006FE583 /* InfoTopicViewController.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,

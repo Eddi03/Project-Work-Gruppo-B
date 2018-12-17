@@ -12,4 +12,5 @@ pod 'Firebase/Core'
 pod 'Firebase/Auth'
 pod 'RealmSwift'
 pod 'CodableFirebase'
+pod 'SKPhotoBrowser'
 end

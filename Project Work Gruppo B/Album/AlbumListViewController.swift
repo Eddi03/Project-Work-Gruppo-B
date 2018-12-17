@@ -20,6 +20,9 @@ class AlbumListViewController: UIViewController {
             navBarTopicDetails.title = R.string.localizable.kNavBarTopicDetails()
         }
     }
+    @IBAction func goToDetailsAction(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: R.segue.albumListViewController.segueToTopicDetails, sender: self)
+    }
     
     private let EMPTY_LIST = 0
     private let ALBUM_INFO = 1
@@ -101,6 +104,11 @@ class AlbumListViewController: UIViewController {
             destinationSegue.topic = topic
             destinationSegue.album = album
         }
+        if let destinationSegue = segue.destination as? AdminPhotoCollectionViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
+        }
+
     }
 }
 
@@ -185,7 +193,10 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
         }
         if indexPath.section == ALBUM_INFO{
             album = albums[indexPath.row]
-            self.performSegue(withIdentifier: R.segue.albumListViewController.segueToGallery, sender: self)
+            if admin{
+                self.performSegue(withIdentifier: R.segue.albumListViewController.segueToAdmin, sender: self)
+            }else{
+                self.performSegue(withIdentifier: R.segue.albumListViewController.segueToOperator, sender: self)}
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
