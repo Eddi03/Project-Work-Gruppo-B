@@ -128,18 +128,9 @@ extension UIView {
 extension String{
     var todayDate: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy mm:hh"
-        dateFormatter.timeZone = NSTimeZone(name: "GMT") as! TimeZone
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 1)
         return dateFormatter.string(from: NSDate() as Date)
     }
 }
-extension Formatter {
-    static let iso8601: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale.current
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSX"
-        return formatter
-    }()}

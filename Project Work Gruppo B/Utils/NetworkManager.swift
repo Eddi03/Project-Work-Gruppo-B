@@ -334,14 +334,15 @@ class NetworkManager : NSObject{
         if topic.getUsers().filter({$0 == idUser}).first == nil {
            topic.addingUser(id: idUser!)
         }
-        
+        debugPrint(topic.creationDate)
 
         db?.collection("Topics").document(topic.id).setData([
             "id": topic.id,
             "title": topic.title,
             "info": topic.info,
             "users": topic.getUsers(),
-            "albums": topic.getAlbums()
+            "albums": topic.getAlbums(),
+            "creationDate": topic.creationDate
         ], merge: true) { err in
             if let err = err {
                 print("Error writing document: \(err)")
