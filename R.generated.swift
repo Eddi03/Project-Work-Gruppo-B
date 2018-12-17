@@ -977,14 +977,31 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try albumStoryboard.validate()
       try authentication.validate()
       try whiteStoryboard.validate()
       try mainStoryboard.validate()
     }
     
-    struct albumStoryboard: Rswift.StoryboardResourceType {
+    struct albumStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let album = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Album")
       let bundle = R.hostingBundle
       let name = "AlbumStoryboard"
+      let schiavo = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Schiavo")
+      
+      func album(_: Void = ()) -> UIKit.UINavigationController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: album)
+      }
+      
+      func schiavo(_: Void = ()) -> PhotoCollectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: schiavo)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "button:Fd5-jv-gGe:image") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button:Fd5-jv-gGe:image' is used in storyboard 'AlbumStoryboard', but couldn't be loaded.") }
+        if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'UIKit.UINavigationController'.") }
+        if _R.storyboard.albumStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
+      }
       
       fileprivate init() {}
     }

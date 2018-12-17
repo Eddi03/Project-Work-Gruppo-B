@@ -3,7 +3,7 @@ import RealmSwift
 
 class RealmUtils {
     
-    private static var REALM_SCHEMA_VERSION : UInt64 = 11
+    private static var REALM_SCHEMA_VERSION : UInt64 = 12
     
     /// Setup Realm Configuration
     static var config: Realm.Configuration {
