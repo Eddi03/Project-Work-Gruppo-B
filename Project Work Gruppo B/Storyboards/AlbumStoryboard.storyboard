@@ -313,7 +313,7 @@
                                             <outlet property="text" destination="YVv-15-IRC" id="xvz-Um-rlD"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="C8H-IO-E5O" customClass="PhotoItemCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AdminPhotoCollectionViewCell" id="C8H-IO-E5O" customClass="PhotoItemCell" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                         <rect key="frame" x="65" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
