@@ -35,7 +35,10 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         myCollectionView.dataSource=self
         myCollectionView.allowsMultipleSelection = true
         
-        
+    }
+    
+    @IBAction func albumDetailsAction(_ sender: Any) {
+        self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAlbumDetails, sender: self)
     }
     @objc func saveAction(){
         

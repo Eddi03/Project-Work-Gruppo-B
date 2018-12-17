@@ -87,7 +87,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 10 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 11 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `AddAlbumTableViewCell`.
     static let addAlbumTableViewCell: Rswift.ReuseIdentifier<AddAlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddAlbumTableViewCell")
@@ -95,6 +95,8 @@ struct R: Rswift.Validatable {
     static let addTopicTableViewCell: Rswift.ReuseIdentifier<AddTopicTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddTopicTableViewCell")
     /// Reuse identifier `AddUsersTableViewCell`.
     static let addUsersTableViewCell: Rswift.ReuseIdentifier<AddUsersTableViewCell> = Rswift.ReuseIdentifier(identifier: "AddUsersTableViewCell")
+    /// Reuse identifier `AdminPhotoCollectionViewCell`.
+    static let adminPhotoCollectionViewCell: Rswift.ReuseIdentifier<AdminPhotoItemCell> = Rswift.ReuseIdentifier(identifier: "AdminPhotoCollectionViewCell")
     /// Reuse identifier `AlbumTableViewCell`.
     static let albumTableViewCell: Rswift.ReuseIdentifier<AlbumTableViewCell> = Rswift.ReuseIdentifier(identifier: "AlbumTableViewCell")
     /// Reuse identifier `EmptyListAlbumsTableViewCell`.
@@ -113,7 +115,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 10 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 11 view controllers.
   struct segue {
     /// This struct is generated for `AddTopicViewController`, and contains static references to 1 segues.
     struct addTopicViewController {
@@ -125,6 +127,21 @@ struct R: Rswift.Validatable {
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
       static func segueToAddUser(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AddTopicViewController, AddUsersTopicViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.addTopicViewController.segueToAddUser, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
+    /// This struct is generated for `AdminPhotoCollectionViewController`, and contains static references to 1 segues.
+    struct adminPhotoCollectionViewController {
+      /// Segue identifier `segueToAlbumDetails`.
+      static let segueToAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumDetails")
+      
+      /// Optionally returns a typed version of segue `segueToAlbumDetails`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueToAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, UIKit.UIViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminPhotoCollectionViewController.segueToAlbumDetails, segue: segue)
       }
       
       fileprivate init() {}
@@ -340,10 +357,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 5 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
-    /// Storyboard `AlbumStoryboard`.
-    static let albumStoryboard = _R.storyboard.albumStoryboard()
     /// Storyboard `Authentication`.
     static let authentication = _R.storyboard.authentication()
     /// Storyboard `LaunchScreen`.
@@ -352,11 +367,6 @@ struct R: Rswift.Validatable {
     static let mainStoryboard = _R.storyboard.mainStoryboard()
     /// Storyboard `WhiteStoryboard`.
     static let whiteStoryboard = _R.storyboard.whiteStoryboard()
-    
-    /// `UIStoryboard(name: "AlbumStoryboard", bundle: ...)`
-    static func albumStoryboard(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.albumStoryboard)
-    }
     
     /// `UIStoryboard(name: "Authentication", bundle: ...)`
     static func authentication(_: Void = ()) -> UIKit.UIStoryboard {
@@ -977,33 +987,9 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try albumStoryboard.validate()
+      try mainStoryboard.validate()
       try authentication.validate()
       try whiteStoryboard.validate()
-      try mainStoryboard.validate()
-    }
-    
-    struct albumStoryboard: Rswift.StoryboardResourceType, Rswift.Validatable {
-      let album = StoryboardViewControllerResource<UIKit.UINavigationController>(identifier: "Album")
-      let bundle = R.hostingBundle
-      let name = "AlbumStoryboard"
-      let schiavo = StoryboardViewControllerResource<PhotoCollectionViewController>(identifier: "Schiavo")
-      
-      func album(_: Void = ()) -> UIKit.UINavigationController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: album)
-      }
-      
-      func schiavo(_: Void = ()) -> PhotoCollectionViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: schiavo)
-      }
-      
-      static func validate() throws {
-        if UIKit.UIImage(named: "button:Fd5-jv-gGe:image") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'button:Fd5-jv-gGe:image' is used in storyboard 'AlbumStoryboard', but couldn't be loaded.") }
-        if _R.storyboard.albumStoryboard().album() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'album' could not be loaded from storyboard 'AlbumStoryboard' as 'UIKit.UINavigationController'.") }
-        if _R.storyboard.albumStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'AlbumStoryboard' as 'PhotoCollectionViewController'.") }
-      }
-      
-      fileprivate init() {}
     }
     
     struct authentication: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {

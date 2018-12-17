@@ -42,6 +42,24 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAlbumDetails, sender: self)
     }
     
+    @IBAction func archiviaAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
+        let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alert.addAction(actionNo)
+        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+            
+            NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
+                if success {
+                    print("modificato il completed album")
+                }
+            })
+            self.album.completed = true
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     func convertImageToBrowser(){
         self.imagesToBrowser = []
         for image in self.images{
