@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import SKPhotoBrowser
 
 class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
@@ -22,6 +23,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     var album : Album!
     var images=[Image]()
     var imagesDiscarded=[Image]()
+    var imagesToBrowser = [SKPhotoProtocol]()
     var scartedImage : Image!
     
     override func viewDidLoad() {
@@ -40,13 +42,20 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAlbumDetails, sender: self)
     }
     
+    func convertImageToBrowser(){
+        self.imagesToBrowser = []
+        for image in self.images{
+            let imageToBrowser = SKPhoto.photoWithImage(UIImage(data: image.image!)!)
+            imageToBrowser.caption = image.info
+            self.imagesToBrowser.append(imageToBrowser)
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCollectionView.reloadData()
         NetworkManager.getPhotos(completion: {   success in
             if success {
                 let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                debugPrint("ricchi")
                 if !(photos.isEmpty){
                     DispatchQueue.main.async {
                         for i in photos{
@@ -54,8 +63,8 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                             NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
                                 let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
                                 img.save()
-                                
                                 self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.convertImageToBrowser()
                                 self.myCollectionView.reloadData()
                             })
                         }
@@ -132,10 +141,8 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 1:
-            let vc=ImagePreview()
-            vc.imgArray = self.images
-            vc.passedContentOffset = indexPath
-            self.navigationController?.pushViewController(vc, animated: true)
+            let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
+            present(browser, animated: true, completion: {})
         case 3:
             scartedImage = imagesDiscarded[indexPath.item]
             self.performSegue(withIdentifier: R.segue.photoCollectionViewController.segueToAddPhoto, sender: self)
