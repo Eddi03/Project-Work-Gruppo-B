@@ -22,17 +22,15 @@ class AddTopicViewController: UIViewController {
     //var topicForAddUsers : Topic = Topic()
     //var topic : Topic = Topic()
     
+    @IBOutlet weak var buttonOutlet: UIButton!
+    
     @IBOutlet weak var navBarSaveButton: UIBarButtonItem!{
         didSet{
             navBarSaveButton.title = R.string.localizable.kAccountSaveButton()
         }
     }
         
-//    @IBOutlet weak var addButtonOutlet: UIButton!{
-//        didSet {
-//            addButtonOutlet.setTitle(R.string.localizable.kAddUserTopic(), for: .normal)
-//        }
-//    }
+
     
     @IBOutlet weak var infoTopicTextField: UITextField!{
         didSet {
@@ -54,8 +52,11 @@ class AddTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        buttonOutlet.layer.cornerRadius = 18
+        buttonOutlet.clipsToBounds = true
         
-        //addButtonOutlet.layer.cornerRadius = 18
+        //addButtonOutlet.layer.cornerRadius = 20
         //addButtonOutlet.clipsToBounds = true
         // Do any additional setup after loading the view.
     }

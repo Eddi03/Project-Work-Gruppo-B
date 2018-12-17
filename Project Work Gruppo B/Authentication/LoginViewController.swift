@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.cornerRadius = 18
+        loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         
     }
