@@ -511,6 +511,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addUserButton" destination="qsz-AD-xXr" id="svh-vx-ZPn"/>
+                        <outlet property="buttonOutlet" destination="qsz-AD-xXr" id="5C5-YJ-y6q"/>
                         <outlet property="infoTopicTextField" destination="MP2-gU-X3e" id="eyL-SC-fBC"/>
                         <outlet property="navBarSaveButton" destination="hk9-dd-8rU" id="xg9-iT-DZi"/>
                         <outlet property="navigationItem" destination="ghB-E9-7pm" id="VR6-Xc-No9"/>
@@ -721,30 +722,30 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oph-bp-gsd">
-                                <rect key="frame" x="25" y="595" width="325" height="40"/>
-                                <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="vMj-8r-iuj"/>
-                                </constraints>
-                                <state key="normal" title="Modifica Membri">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToEditMembersAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="OEW-8v-iWg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipM-b2-WRk">
-                                <rect key="frame" x="25" y="539" width="325" height="40"/>
+                                <rect key="frame" x="25" y="547" width="325" height="36"/>
                                 <color key="backgroundColor" red="0.93432741119999996" green="0.13570952720000001" blue="0.1094629954" alpha="0.8556827910958904" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rSm-J6-QpK"/>
+                                    <constraint firstAttribute="height" constant="36" id="5JN-pV-M8j"/>
                                 </constraints>
                                 <state key="normal" title="Elimina Topic">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="deleteTopicAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="Mh5-uc-hva"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipM-b2-WRk">
+                                <rect key="frame" x="25" y="547" width="325" height="36"/>
+                                <color key="backgroundColor" red="0.93432741119999996" green="0.13570952720000001" blue="0.1094629954" alpha="0.8556827910958904" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="5JN-pV-M8j"/>
+                                </constraints>
+                                <state key="normal" title="Modifica Membri">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToEditMembersAction:" destination="fmO-rc-W6X" eventType="touchUpInside" id="OEW-8v-iWg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -765,9 +766,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0EB-11-TPw"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dettagli" id="eZd-VK-tUp">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YyC-v2-bMC"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dettagli" id="eZd-VK-tUp"/>
                     <connections>
                         <outlet property="deleteOutlet" destination="ipM-b2-WRk" id="9Np-Uf-bmC"/>
                         <outlet property="descriptionTitleTopic" destination="5jv-N6-7T2" id="x8c-yn-LGE"/>
