@@ -16,10 +16,35 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
+        buttonShowPassword.addGestureRecognizer(longGesture)
     }
     
     var email : String!
     var password : String!
+    var iconClick = true
+    
+    @IBOutlet weak var buttonShowPassword: UIButton!
+    @IBOutlet var passwordField: UITextField! {
+        didSet {
+            passwordField.placeholder = R.string.localizable.kLoginPasswordField()
+        }
+    }
+    
+    @objc func long(gesture: UILongPressGestureRecognizer) {
+        print("LOOOONG")
+        if gesture.state == UIGestureRecognizer.State.began {
+            passwordField.isSecureTextEntry = false
+        } else{
+            if gesture.state == UIGestureRecognizer.State.ended {
+                passwordField.isSecureTextEntry = true
+            }
+        }
+    }
+    
+    @IBAction func showPasswordAction(_ sender: Any) {
+
+    }
     
     @IBOutlet weak var navBarBack: UINavigationItem! {
         didSet {
@@ -41,11 +66,7 @@ class LoginViewController: UIViewController {
             emailField.placeholder = R.string.localizable.kLoginEmailTextField()
         }
     }
-    @IBOutlet var passwordField: UITextField! {
-        didSet {
-            passwordField.placeholder = R.string.localizable.kLoginPasswordField()
-        }
-    }
+    
     @IBOutlet weak var resetPasswordButton: UIButton! {
         didSet {
             resetPasswordButton.setTitle(R.string.localizable.kResetPasswordButton(), for: .normal)

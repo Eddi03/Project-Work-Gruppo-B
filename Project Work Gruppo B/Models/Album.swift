@@ -32,6 +32,15 @@ import RealmSwift
     }
     
     
+    func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), completed : Bool = false) {
+        do {
+            try realm.write {
+                self.completed = completed
+            }
+        }catch {}
+        
+    }
+    
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
