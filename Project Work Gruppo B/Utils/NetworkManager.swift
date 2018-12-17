@@ -396,6 +396,7 @@ class NetworkManager : NSObject{
     //ALBUM
     
     static func addAlbum(topic: Topic, album: Album,completion: @escaping (Bool)-> ()){
+        
         do{
             let parameters = try album.asDictionary()
             
@@ -406,7 +407,8 @@ class NetworkManager : NSObject{
                         print("Error adding document: \(err)")
                         completion(false)
                     }else{
-                        topic.addingAlbum(id: album.id)
+                        //topic.addingAlbum(id: album.id)
+                        album.save()
                         addTopic(topic: topic, completion: { success in
                             if success{
                             album.save()
@@ -521,6 +523,7 @@ class NetworkManager : NSObject{
                             }else{
                                 print("cretino")
                                 completion(false)
+                                //Ciao Sara(H)
                             }
                         })
                         
