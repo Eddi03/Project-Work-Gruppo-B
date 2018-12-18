@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zxA-Jy-BgK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1061,7 +1061,7 @@
                                     <constraint firstAttribute="width" constant="176" id="ILH-nw-xV8"/>
                                     <constraint firstAttribute="height" constant="176" id="lad-4R-waw"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="User Placeholder"/>
+                                <state key="normal" title="Button" image="Photo Placeholder"/>
                                 <connections>
                                     <action selector="addImageAction:" destination="5gf-a3-9uN" eventType="touchUpInside" id="fNX-gS-RHN"/>
                                 </connections>
@@ -1117,7 +1117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s5e-ta-B2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5282" y="-80"/>
+            <point key="canvasLocation" x="5276" y="-87"/>
         </scene>
         <!--Title-->
         <scene sceneID="WMo-nV-ag9">
@@ -1385,6 +1385,7 @@
     <resources>
         <image name="Checked" width="243" height="243"/>
         <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="Photo Placeholder" width="175" height="175"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>

@@ -25,6 +25,9 @@ class AddPhotoViewController: UIViewController {
             textOutlet.text = scartedImage.info
         }
         
+        imageOutlet.clipsToBounds = true
+        imageOutlet.layer.cornerRadius = 88
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func saveAction(_ sender: Any) {

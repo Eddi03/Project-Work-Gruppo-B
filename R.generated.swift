@@ -48,16 +48,20 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 8 images.
   struct image {
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
+    /// Image `Eye Grey`.
+    static let eyeGrey = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye Grey")
     /// Image `Eye`.
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye")
     /// Image `Folder Icon`.
     static let folderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Folder Icon")
     /// Image `LoginImage`.
     static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
+    /// Image `Photo Placeholder`.
+    static let photoPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Photo Placeholder")
     /// Image `UnChecked`.
     static let unChecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnChecked")
     /// Image `User Placeholder`.
@@ -66,6 +70,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Checked", bundle: ..., traitCollection: ...)`
     static func checked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.checked, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Eye Grey", bundle: ..., traitCollection: ...)`
+    static func eyeGrey(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eyeGrey, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Eye", bundle: ..., traitCollection: ...)`
@@ -81,6 +90,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "LoginImage", bundle: ..., traitCollection: ...)`
     static func loginImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.loginImage, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Photo Placeholder", bundle: ..., traitCollection: ...)`
+    static func photoPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.photoPlaceholder, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "UnChecked", bundle: ..., traitCollection: ...)`
@@ -1018,9 +1032,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Eye Grey") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Grey' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       
@@ -1048,9 +1062,10 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Photo Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
       }
       
