@@ -38,8 +38,6 @@ class AddAlbumTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        addButtonOutlet.layer.cornerRadius = 20
-        addButtonOutlet.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
