@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     var iconClick = true
     
     @IBOutlet weak var buttonShowPassword: UIButton!
+    
     @IBOutlet var passwordField: UITextField! {
         didSet {
             passwordField.placeholder = R.string.localizable.kLoginPasswordField()
@@ -32,7 +33,6 @@ class LoginViewController: UIViewController {
     }
     
     @objc func long(gesture: UILongPressGestureRecognizer) {
-        print("LOOOONG")
         if gesture.state == UIGestureRecognizer.State.began {
             passwordField.isSecureTextEntry = false
         } else{

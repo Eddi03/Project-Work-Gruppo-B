@@ -56,8 +56,8 @@ struct R: Rswift.Validatable {
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye")
     /// Image `Folder Icon`.
     static let folderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Folder Icon")
-    /// Image `Logo`.
-    static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "Logo")
+    /// Image `LoginImage`.
+    static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
     /// Image `UnChecked`.
     static let unChecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnChecked")
     /// Image `User Placeholder`.
@@ -78,9 +78,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.folderIcon, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "Logo", bundle: ..., traitCollection: ...)`
-    static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    /// `UIImage(named: "LoginImage", bundle: ..., traitCollection: ...)`
+    static func loginImage(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.loginImage, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "UnChecked", bundle: ..., traitCollection: ...)`
@@ -1018,9 +1018,9 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Logo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Logo' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       
