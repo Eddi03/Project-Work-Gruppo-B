@@ -43,7 +43,7 @@ class ChatViewController: MessagesViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewDidAppear	(animated)
         
         FirebaseChatDatabase.listenerMessages(chanelID: albumId, directChat: false) { success in
             self.loadFirstMessages()
