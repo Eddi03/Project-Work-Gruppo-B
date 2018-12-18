@@ -126,11 +126,21 @@ extension UIView {
     }
 }
 extension Date{
-    var todayDate: String {
+    var dateToString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 1)
         return dateFormatter.string(from: self)
+    }
+}
+extension String{
+    var stringToDate: Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 1)
+       debugPrint("c",dateFormatter.date(from: self))
+        return dateFormatter.date(from: self)!
     }
 }

@@ -26,8 +26,7 @@ import RealmSwift
         self.id = UUID().uuidString
         self.title = title
         self.info = info
-        self.creationDate = Date().todayDate
-
+        self.creationDate = Date().dateToString
     }
     override class func primaryKey() -> String? {
         return "id"
@@ -56,8 +55,7 @@ import RealmSwift
     
     
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
-        return Array(realm.objects(Topic.self))
-    }
+        return Array(realm.objects(Topic.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})    }
     
     static func getTopicFromUser(idCurrentUser: String)-> [Topic]{
         var listaTopicOfCurrentUser : [Topic] = []
