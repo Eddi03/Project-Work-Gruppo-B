@@ -121,7 +121,6 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
             return imagesDiscarded.count
         }
         if section == 2 && imagesDiscarded.isEmpty{
-            debugPrint("secchetion",imagesDiscarded.count)
             return 0
         }
         return 1

@@ -47,8 +47,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             DispatchQueue.main.async {
                 let photo = Photo.getPhotoById(id: img)
                 photo?.changeData(discarded: true)
-                debugPrint(photo?.discarded)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, bool: false) { (success) in
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
                     
                     self.setupImages()
                 }
@@ -170,7 +169,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return imagesDiscarded.count
         }
         if section == 2 && imagesDiscarded.isEmpty{
-            debugPrint("secchetion",imagesDiscarded.count)
             return 0
         }
         return 1
@@ -195,6 +193,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 cell.checkedImage.isHidden = true
             }
             else{
+                cell.checkedImage.isHidden = false
                 if imagesToDiscard.contains(images[indexPath.item].id) {
                     cell.isSelected=true
                     myCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
@@ -239,49 +238,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         }
         myCollectionView.reloadItems(at: [indexPath])
     }
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        switch indexPath.section {
-    //        case 1:
-    //            if !discarding{
-    //            let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
-    //                present(browser, animated: true, completion: {})}
-    ////            else{
-    ////                let cell = myCollectionView.cellForItem(at: indexPath) as? AdminPhotoItemCell
-    ////
-    ////                if cell!.isSelected{
-    ////                    cell!.isSelected = false
-    ////                    if cell!.checkedImage.isHidden{
-    ////                        cell!.checkedImage.isHidden = false
-    ////                        imagesToDiscard.append(images[indexPath.item].id)
-    ////                    }
-    ////                    else {
-    ////                        if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
-    ////                            imagesToDiscard.remove(at: position)
-    ////                        }
-    ////                        cell!.checkedImage.isHidden = true
-    ////                    }
-    ////                    myCollectionView.reloadData()
-    ////                }
-    ////                debugPrint(imagesToDiscard.count)
-    ////            }
-    //        //case 3:
-    //            //annulla foto scartata
-    //        default:
-    //            return
-    //        }
-    //
-    //    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = myCollectionView.frame.width
-        //        if UIDevice.current.orientation.isPortrait {
-        //            return CGSize(width: width/4 - 1, height: width/4 - 1)
-        //        } else {
-        //            return CGSize(width: width/6 - 1, height: width/6 - 1)
-        //        }
-        //        if DeviceInfo.Orientation.isPortrait {
-        //            return CGSize(width: width/3 - 1, height: width/3 - 1)
-        //        } else {
         switch indexPath.section {
         case 0:
             return CGSize(width: width-1, height: 40)
@@ -317,32 +276,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     
 }
-
-
-//
-//struct DeviceInfo {
-//    struct Orientation {
-//        // indicate current device is in the LandScape orientation
-//        static var isLandscape: Bool {
-//            get {
-//                return UIDevice.current.orientation.isValidInterfaceOrientation
-//                    ? UIDevice.current.orientation.isLandscape
-//                    : UIApplication.shared.statusBarOrientation.isLandscape
-//            }
-//        }
-//        // indicate current device is in the Portrait orientation
-//        static var isPortrait: Bool {
-//            get {
-//                return UIDevice.current.orientation.isValidInterfaceOrientation
-//                    ? UIDevice.current.orientation.isPortrait
-//                    : UIApplication.shared.statusBarOrientation.isPortrait
-//            }
-//        }
-//    }
-//}
