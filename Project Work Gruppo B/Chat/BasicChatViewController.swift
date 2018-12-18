@@ -39,6 +39,12 @@ final class BasicChatViewController: ChatViewController {
     override func configureMessageCollectionView() {
         super.configureMessageCollectionView()
         
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            //toglie le immagini
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+        }
+        
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
         

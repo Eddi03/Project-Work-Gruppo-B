@@ -107,8 +107,13 @@ internal struct Msg: MessageType {
         for msg in Message.all(){
             if msg.idAlbum == idAlbum{
                 listaMsg.append(msg)
+                //print(msg.sentDate)
             }
         }
+        //var dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        //listaMsg.sorted(by: { $0.sentDate < $1.sentDate  })
+        
             return listaMsg
     }
     
