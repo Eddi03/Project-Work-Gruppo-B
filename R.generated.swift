@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 8 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
@@ -62,8 +62,10 @@ struct R: Rswift.Validatable {
     static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
     /// Image `Photo Placeholder`.
     static let photoPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Photo Placeholder")
-    /// Image `UnChecked`.
-    static let unChecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnChecked")
+    /// Image `UnCheckedList`.
+    static let unCheckedList = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckedList")
+    /// Image `UnCheckedPhoto`.
+    static let unCheckedPhoto = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckedPhoto")
     /// Image `User Placeholder`.
     static let userPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "User Placeholder")
     
@@ -97,9 +99,14 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.photoPlaceholder, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "UnChecked", bundle: ..., traitCollection: ...)`
-    static func unChecked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.unChecked, compatibleWith: traitCollection)
+    /// `UIImage(named: "UnCheckedList", bundle: ..., traitCollection: ...)`
+    static func unCheckedList(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unCheckedList, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "UnCheckedPhoto", bundle: ..., traitCollection: ...)`
+    static func unCheckedPhoto(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.unCheckedPhoto, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "User Placeholder", bundle: ..., traitCollection: ...)`
