@@ -18,6 +18,8 @@
 		6C14A15221B7D235002AB9D6 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C14A15121B7D235002AB9D6 /* LaunchScreenViewController.swift */; };
 		6C5366BF21BFC7C2006FE583 /* InfoTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5366BE21BFC7C2006FE583 /* InfoTopicViewController.swift */; };
 		6C82799521C90C0B0059F08A /* kTextFiledPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82799421C90C0A0059F08A /* kTextFiledPlaceHolder.swift */; };
+		6C82799721C936DC0059F08A /* DettaglIAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82799621C936DC0059F08A /* DettaglIAlbumViewController.swift */; };
+		6C82799921C93ADB0059F08A /* DetailAdminAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C82799821C93ADB0059F08A /* DetailAdminAlbumViewController.swift */; };
 		6CACF7FA21BEAB5200E0ECB2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6CACF7FC21BEAB5200E0ECB2 /* Localizable.strings */; };
 		6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171D21AE89EF0037FE62 /* AppDelegate.swift */; };
 		6CB3172021AE89EF0037FE62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB3171F21AE89EF0037FE62 /* ViewController.swift */; };
@@ -83,6 +85,8 @@
 		6C14A15121B7D235002AB9D6 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		6C5366BE21BFC7C2006FE583 /* InfoTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTopicViewController.swift; sourceTree = "<group>"; };
 		6C82799421C90C0A0059F08A /* kTextFiledPlaceHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kTextFiledPlaceHolder.swift; sourceTree = "<group>"; };
+		6C82799621C936DC0059F08A /* DettaglIAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DettaglIAlbumViewController.swift; sourceTree = "<group>"; };
+		6C82799821C93ADB0059F08A /* DetailAdminAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAdminAlbumViewController.swift; sourceTree = "<group>"; };
 		6CACF7FB21BEAB5200E0ECB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6CACF7FE21BEAC0400E0ECB2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6CB3171A21AE89EF0037FE62 /* Project Work Gruppo B.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Work Gruppo B.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +180,8 @@
 				3756698521B6CB60003F1089 /* AlbumListViewController.swift */,
 				3756698921B6CD94003F1089 /* AlbumTableViewCells.swift */,
 				7F4EBA2121BE714700AB8F7F /* AddAlbumViewController.swift */,
+				6C82799621C936DC0059F08A /* DettaglIAlbumViewController.swift */,
+				6C82799821C93ADB0059F08A /* DetailAdminAlbumViewController.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -594,6 +600,8 @@
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
 				3756698221B6B405003F1089 /* AddTopicViewController.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
+				6C82799921C93ADB0059F08A /* DetailAdminAlbumViewController.swift in Sources */,
+				6C82799721C936DC0059F08A /* DettaglIAlbumViewController.swift in Sources */,
 				6C14A15221B7D235002AB9D6 /* LaunchScreenViewController.swift in Sources */,
 				7FFB575921AED80C002E8DB2 /* SaveViewController.swift in Sources */,
 				7F4EBA2221BE714700AB8F7F /* AddAlbumViewController.swift in Sources */,

@@ -917,12 +917,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B7p-No-Cia"/>
-                                    <barButtonItem title="Archivia" id="ZUD-GM-q1e">
-                                        <connections>
-                                            <action selector="archiviaAction:" destination="sis-qU-jM9" id="cQi-Yf-wCU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
                                     <barButtonItem systemItem="compose" id="Q63-nO-ece"/>
                                 </items>
                             </toolbar>
@@ -951,10 +945,10 @@
             </objects>
             <point key="canvasLocation" x="4230" y="-79"/>
         </scene>
-        <!--View Controller-->
+        <!--DettaglI Album View Controller-->
         <scene sceneID="jOt-tk-tby">
             <objects>
-                <viewController id="NLY-rQ-r0c" sceneMemberID="viewController">
+                <viewController id="NLY-rQ-r0c" customClass="DettaglIAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDr-f9-ueN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -998,6 +992,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="archiviaAlbumAction:" destination="NLY-rQ-r0c" eventType="touchUpInside" id="tVw-Mf-4Va"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato da: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-7A-9i4">
                                 <rect key="frame" x="25" y="294" width="325" height="24"/>
@@ -1060,11 +1057,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed">
-                                <rect key="frame" x="25" y="315" width="325" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                <rect key="frame" x="25" y="315" width="325" height="20"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-fn-NyI">
                                 <rect key="frame" x="99.5" y="89" width="176" height="176"/>
@@ -1078,7 +1080,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="25" y="348" width="325" height="40"/>
+                                <rect key="frame" x="25" y="351" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
@@ -1096,7 +1098,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
-                                <rect key="frame" x="25" y="331" width="325" height="1"/>
+                                <rect key="frame" x="25" y="334" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
@@ -1219,12 +1221,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qsJ-gf-eud"/>
-                                    <barButtonItem title="Archivia" id="8a4-Wi-z33">
-                                        <connections>
-                                            <action selector="archiviaAction:" destination="Uuv-H2-PHi" id="Tbb-ZA-aYO"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
                                     <barButtonItem systemItem="compose" id="cVF-6s-kr7"/>
                                 </items>
                             </toolbar>
@@ -1253,10 +1249,10 @@
             </objects>
             <point key="canvasLocation" x="4229.6000000000004" y="802.848575712144"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Admin Album View Controller-->
         <scene sceneID="A86-Dn-L1H">
             <objects>
-                <viewController id="rZE-FN-jFn" sceneMemberID="viewController">
+                <viewController id="rZE-FN-jFn" customClass="DetailAdminAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ic-tc-375">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1300,6 +1296,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteAlbumAction:" destination="rZE-FN-jFn" eventType="touchUpInside" id="Uj9-ZP-6VZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-cj-Vro">
                                 <rect key="frame" x="25" y="555" width="325" height="40"/>
@@ -1316,6 +1315,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="archiviaAlbumAction:" destination="rZE-FN-jFn" eventType="touchUpInside" id="opL-ah-DgJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato da: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhH-wZ-hAl">
                                 <rect key="frame" x="25" y="294" width="325" height="24"/>

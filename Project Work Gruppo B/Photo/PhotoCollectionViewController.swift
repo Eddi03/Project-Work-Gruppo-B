@@ -225,6 +225,11 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                 destinationSegue.scarted = scarted
             }
         }
+        if let destinationSegue = segue.destination as? DettaglIAlbumViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
+        }
+        
     }
     
     

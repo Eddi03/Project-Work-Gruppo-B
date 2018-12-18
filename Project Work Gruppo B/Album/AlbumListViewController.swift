@@ -108,7 +108,7 @@ class AlbumListViewController: UIViewController {
             destinationSegue.topic = topic
             destinationSegue.album = album
         }
-
+        
     }
 }
 
