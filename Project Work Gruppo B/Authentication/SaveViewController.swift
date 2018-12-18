@@ -52,10 +52,7 @@ class SaveViewController: UIViewController {
         
         //self.title = R.string.localizable.kNavBarFinishSignUpTitle()
         self.navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
-
         
-        registerButton.layer.cornerRadius = 20
-        registerButton.clipsToBounds = true
         emailOutlet.text = email
       
         self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;

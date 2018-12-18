@@ -30,9 +30,6 @@ class AddTopicTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Initialization code
-      //  addButtonOutlet.layer.cornerRadius = 20
-       // addButtonOutlet.clipsToBounds = true
     }
     
     @IBOutlet weak var addButtonOutlet: UIButton! {

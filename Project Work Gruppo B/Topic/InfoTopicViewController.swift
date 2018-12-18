@@ -49,13 +49,6 @@ class InfoTopicViewController: UIViewController {
             deleteOutlet.isHidden = true
         }
         
-        deleteOutlet.layer.cornerRadius = 20
-        deleteOutlet.clipsToBounds = true
-        editOutlet.layer.cornerRadius = 20
-        editOutlet.clipsToBounds = true
-      
-      
-      
         //get user from topic
         for userId in topic?.getUsers() ?? []{
             var userObject = User.getUserById(withid: userId)

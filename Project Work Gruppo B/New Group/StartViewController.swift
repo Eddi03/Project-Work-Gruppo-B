@@ -12,14 +12,7 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loginButton.layer.cornerRadius = 20
-        loginButton.clipsToBounds = true
-        
-//        registerButton.layer.cornerRadius = 20
-//        registerButton.backgroundColor = .clear
-//        registerButton.layer.cornerRadius = 1
-//        registerButton.layer.borderColor = UIColor.black.cgColor
+
         // Do any additional setup after loading the view.
     }
     

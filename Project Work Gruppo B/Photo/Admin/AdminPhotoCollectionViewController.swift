@@ -12,7 +12,6 @@ import SKPhotoBrowser
 
 class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
     
-    
     @IBOutlet var myCollectionView: UICollectionView!
     @IBOutlet var discardImagesOutlet: UIBarButtonItem!
     var topic : Topic!
@@ -41,9 +40,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAdminAlbumDetails, sender: self)
     }
     @objc func saveAction(){
-        
         for img in imagesToDiscard{
-            
             DispatchQueue.main.async {
                 let photo = Photo.getPhotoById(id: img)
                 photo?.changeData(discarded: true)
@@ -54,13 +51,12 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 
             }
         }
+        
         self.navigationItem.rightBarButtonItem = nil
         discardImagesOutlet.tintColor = UIColor.blue
         imagesToDiscard = []
         discarding = false
     }
-    
-    
     
     @IBAction func discardImagesAction(_ sender: Any) {
         if discarding{
@@ -76,7 +72,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             self.navigationItem.rightBarButtonItem = barButtonItem
         }
     }
-    
     
     @IBAction func archiviaAction(_ sender: Any) {
         //lo fa solo se prima l'operatore ha messo completed a true
