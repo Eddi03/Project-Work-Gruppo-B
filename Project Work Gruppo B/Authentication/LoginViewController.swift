@@ -33,16 +33,39 @@ class LoginViewController: UIViewController {
     
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
-            passwordField.isSecureTextEntry = true
+            passwordField.isSecureTextEntry = false
             
-            //BOTTONE NON PREMUTO
+            //BOTTONE PREMUTO
             
+//            let blu = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
 //            let origImage = UIImage(named: "Eye Grey")
 //            let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-            buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
+//            tintedImage?.maskWithColor(color: blu)
+//            buttonShowPassword.setImage(tintedImage, for: .normal)
+//            buttonShowPassword.tintColor = blu
+            
+          //  buttonShowPassword.tintColor = .red
+           // buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
          //   buttonShowPassword.setImage(tintedImage, for: .normal)
             
-         
+            print("PRE MEN DO")
+        }else{
+            if gesture.state == UIGestureRecognizer.State.ended {
+                passwordField.isSecureTextEntry = true
+                
+                //BOTTONE NON PREMUTO
+                
+                let origImage = UIImage(named: "Eye Grey")
+               
+                buttonShowPassword.setImage(origImage, for: .normal)
+                
+                
+                //  buttonShowPassword.tintColor = .red
+                // buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
+                //   buttonShowPassword.setImage(tintedImage, for: .normal)
+                
+                print("PRE MEN DO")
+            }
         }
     }
     
