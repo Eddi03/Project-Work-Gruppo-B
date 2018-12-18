@@ -1004,6 +1004,7 @@ struct _R: Rswift.Validatable {
       try mainStoryboard.validate()
       try authentication.validate()
       try whiteStoryboard.validate()
+      try launchScreen.validate()
     }
     
     struct authentication: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -1027,11 +1028,15 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
