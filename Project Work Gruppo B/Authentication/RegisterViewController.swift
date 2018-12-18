@@ -13,8 +13,6 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonOutlet.layer.cornerRadius = 20
-        buttonOutlet.clipsToBounds = true
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         showPasswordButton.addGestureRecognizer(longGesture)
