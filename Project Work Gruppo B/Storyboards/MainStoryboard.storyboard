@@ -1036,27 +1036,46 @@
                                     <action selector="addImageAction:" destination="5gf-a3-9uN" eventType="touchUpInside" id="fNX-gS-RHN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
+                                <rect key="frame" x="25" y="347" width="325" height="40"/>
+                                <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
+                                </constraints>
+                                <state key="normal" title="Aggiungi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveAction:" destination="5gf-a3-9uN" eventType="touchUpInside" id="DHR-ix-fjN"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
+                                <rect key="frame" x="25" y="330" width="325" height="1"/>
+                                <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hZJ-AQ-bed" firstAttribute="top" secondItem="6zP-fn-NyI" secondAttribute="bottom" constant="50" id="0DX-JG-7Lp"/>
+                            <constraint firstItem="mpP-86-82x" firstAttribute="bottom" secondItem="hZJ-AQ-bed" secondAttribute="bottom" id="0UD-ZW-c2j"/>
+                            <constraint firstItem="mpP-86-82x" firstAttribute="trailing" secondItem="hZJ-AQ-bed" secondAttribute="trailing" id="2Qv-Xt-vhH"/>
                             <constraint firstItem="6zP-fn-NyI" firstAttribute="centerX" secondItem="EBI-LZ-Qww" secondAttribute="centerX" id="Fq5-O8-OjI"/>
                             <constraint firstItem="6zP-fn-NyI" firstAttribute="top" secondItem="cr4-cZ-zPh" secondAttribute="top" constant="25" id="OSJ-ki-vg5"/>
+                            <constraint firstItem="cr4-cZ-zPh" firstAttribute="trailing" secondItem="70M-Qc-wMP" secondAttribute="trailing" constant="25" id="VBh-al-dD5"/>
+                            <constraint firstItem="70M-Qc-wMP" firstAttribute="top" secondItem="hZJ-AQ-bed" secondAttribute="bottom" constant="16" id="Xro-n4-OMn"/>
                             <constraint firstItem="cr4-cZ-zPh" firstAttribute="trailing" secondItem="hZJ-AQ-bed" secondAttribute="trailing" constant="25" id="ZZA-4c-IxM"/>
                             <constraint firstItem="hZJ-AQ-bed" firstAttribute="leading" secondItem="cr4-cZ-zPh" secondAttribute="leading" constant="25" id="blw-TK-i0S"/>
                             <constraint firstItem="hZJ-AQ-bed" firstAttribute="centerX" secondItem="EBI-LZ-Qww" secondAttribute="centerX" id="k4c-tM-LpZ"/>
+                            <constraint firstItem="70M-Qc-wMP" firstAttribute="leading" secondItem="cr4-cZ-zPh" secondAttribute="leading" constant="25" id="ljS-2U-dut"/>
+                            <constraint firstItem="mpP-86-82x" firstAttribute="leading" secondItem="hZJ-AQ-bed" secondAttribute="leading" id="q40-8Z-aJF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cr4-cZ-zPh"/>
                     </view>
                     <connections>
+                        <outlet property="addOutlet" destination="70M-Qc-wMP" id="59w-MG-SCs"/>
                         <outlet property="imageOutlet" destination="6zP-fn-NyI" id="TqX-oz-ZjT"/>
                         <outlet property="textOutlet" destination="hZJ-AQ-bed" id="aNs-r7-B7j"/>
                     </connections>
@@ -1330,8 +1349,8 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61" height="48"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Q1r-01-TMn"/>

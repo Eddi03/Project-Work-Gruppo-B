@@ -13,6 +13,7 @@ class AddPhotoViewController: UIViewController {
 
     @IBOutlet var textOutlet: UITextField!
     @IBOutlet var imageOutlet: UIButton!
+    @IBOutlet weak var addOutlet: UIButton!
     var topic : Topic!
     var album : Album!
     var imagePhoto : Data?
@@ -23,6 +24,10 @@ class AddPhotoViewController: UIViewController {
             imageOutlet.setImage(UIImage(data: scartedImage.image!), for: .normal)
             textOutlet.text = scartedImage.info
         }
+        
+        addOutlet.clipsToBounds = true
+        addOutlet.layer.cornerRadius = 20
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func saveAction(_ sender: Any) {
