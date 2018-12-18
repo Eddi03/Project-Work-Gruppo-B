@@ -89,7 +89,6 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                     }
                 }
                 let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint(discardedPhotos.count)
                 if !(discardedPhotos.isEmpty){
                     DispatchQueue.main.async {
                         for i in discardedPhotos{
@@ -121,7 +120,6 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
             return imagesDiscarded.count
         }
         if section == 2 && imagesDiscarded.isEmpty{
-            debugPrint("secchetion",imagesDiscarded.count)
             return 0
         }
         return 1
@@ -227,6 +225,11 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                 destinationSegue.scarted = scarted
             }
         }
+        if let destinationSegue = segue.destination as? DettaglIAlbumViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
+        }
+        
     }
     
     
