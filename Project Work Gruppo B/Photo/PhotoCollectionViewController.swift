@@ -89,7 +89,6 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                     }
                 }
                 let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint(discardedPhotos.count)
                 if !(discardedPhotos.isEmpty){
                     DispatchQueue.main.async {
                         for i in discardedPhotos{

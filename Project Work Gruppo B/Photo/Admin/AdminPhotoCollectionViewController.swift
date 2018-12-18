@@ -134,7 +134,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                     }
                 }
                 let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint(discardedPhotos.count)
                 if !(discardedPhotos.isEmpty){
                     DispatchQueue.main.async {
                         for i in discardedPhotos{
@@ -213,6 +212,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         if indexPath.section == 3{
             let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: AdminPhotoItemCell.kIdentifier, for: indexPath) as! AdminPhotoItemCell
             cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
+            cell.checkedImage.isHidden = true
             return cell
         }
         return UICollectionViewCell()
@@ -225,6 +225,16 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             imagesToDiscard.append(images[indexPath.item].id)
             debugPrint(imagesToDiscard[0])
             collectionView.reloadItems(at: [indexPath])
+        }
+        if indexPath.section == 3 && !discarding{
+            DispatchQueue.main.async {
+                let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
+                photo?.changeData(discarded: false)
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                    self.setupImages()
+                }
+                
+            }
         }
     }
     
