@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -315,7 +315,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-gd-oL0">
-                                <rect key="frame" x="324" y="161" width="26" height="24"/>
+                                <rect key="frame" x="324" y="165" width="26" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Eye"/>
                             </button>
@@ -359,7 +359,7 @@
                         <outlet property="passwordField" destination="Pcr-gQ-Tqr" id="F1x-6q-jRR"/>
                         <outlet property="repeatPasswordField" destination="oIE-s8-MSH" id="6GP-vg-bcd"/>
                         <outlet property="showConfirmPasswordButton" destination="Uvg-xa-uuT" id="mo7-XN-BCm"/>
-                        <outlet property="showPasswordButton" destination="NSw-gd-oL0" id="q0r-Kr-VUe"/>
+                        <outlet property="showPasswordButton" destination="NSw-gd-oL0" id="ont-H5-cmx"/>
                         <segue destination="8ye-UH-Kgt" kind="show" identifier="segueToAdditionalData" id="zNr-QB-IcY"/>
                     </connections>
                 </viewController>

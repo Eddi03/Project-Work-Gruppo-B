@@ -20,13 +20,6 @@ class RegisterViewController: UIViewController {
         showPasswordButton.addGestureRecognizer(longGesture)
         showConfirmPasswordButton.addGestureRecognizer(longGesture)
         
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBOutlet weak var navBarSignUpTitle: UINavigationItem!{
-        didSet {
-            navBarSignUpTitle.title = R.string.localizable.kNavBarSignUpTitle()
-        }
     }
     
     var email : String!
@@ -44,17 +37,35 @@ class RegisterViewController: UIViewController {
             buttonOutlet.setTitle(R.string.localizable.kSignUpNextButton(), for: .normal)
         }
     }
-
+    
     @IBOutlet weak var showPasswordButton: UIButton!
     @IBOutlet weak var showConfirmPasswordButton: UIButton!
     
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer){
-        if gesture.state == UIGestureRecognizer.State.began {
-            passwordField.isSecureTextEntry = false
-        }else {
-            if gesture.state == UIGestureRecognizer.State.ended{
-                passwordField.isSecureTextEntry = true
+        if showPasswordButton.isTouchInside {
+            if gesture.state == UIGestureRecognizer.State.began {
+                passwordField.isSecureTextEntry = false
+            }else {
+                if gesture.state == UIGestureRecognizer.State.ended{
+                    passwordField.isSecureTextEntry = true
+                }
             }
+        } else {
+            if showConfirmPasswordButton.isTouchInside {
+                if gesture.state == UIGestureRecognizer.State.began {
+                    repeatPasswordField.isSecureTextEntry = false
+                }else {
+                    if gesture.state == UIGestureRecognizer.State.ended{
+                        repeatPasswordField.isSecureTextEntry = true
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBOutlet weak var navBarSignUpTitle: UINavigationItem!{
+        didSet {
+            navBarSignUpTitle.title = R.string.localizable.kNavBarSignUpTitle()
         }
     }
     
