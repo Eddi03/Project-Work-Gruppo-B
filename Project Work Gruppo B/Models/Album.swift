@@ -25,7 +25,7 @@ import RealmSwift
         self.title = title
         self.info = info
         self.completed = completed
-        self.creationDate = Date().todayDate
+        self.creationDate = Date().dateToString
     }
     override class func primaryKey() -> String? {
         return "id"
@@ -80,7 +80,7 @@ import RealmSwift
     }
     
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Album] {
-        return Array(realm.objects(Album.self))
+        return Array(realm.objects(Album.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     
     static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
