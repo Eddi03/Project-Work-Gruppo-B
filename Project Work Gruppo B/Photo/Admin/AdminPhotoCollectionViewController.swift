@@ -23,6 +23,10 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     var imagesToDiscard = [String]()
     var discarding : Bool = false
     private var barButtonItem : UIBarButtonItem!
+
+    @IBAction func actionChat(_ sender: Any) {
+          self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
+    }
     
     
     override func viewDidLoad() {
@@ -288,7 +292,12 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationn = segue.destination as? BasicChatViewController{
+            debugPrint(album.id)
+            destinationn.albumIds = album.id
+        }
+    }
     
 }

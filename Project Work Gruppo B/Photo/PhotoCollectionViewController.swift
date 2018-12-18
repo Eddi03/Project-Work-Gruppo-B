@@ -26,6 +26,9 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     var imagesToBrowser = [SKPhotoProtocol]()
     var scartedImage : Image!
     
+    @IBAction func chatAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -222,6 +225,10 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
             if let scarted = scartedImage{
                 destinationSegue.scarted = scarted
             }
+        }
+        if let destinationn = segue.destination as? BasicChatViewController{
+            debugPrint(album.id)
+            destinationn.albumIds = album.id
         }
     }
     
