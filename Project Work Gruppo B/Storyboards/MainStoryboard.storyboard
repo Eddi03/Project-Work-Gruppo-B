@@ -1020,16 +1020,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed">
-                                <rect key="frame" x="25" y="314" width="325" height="17"/>
+                                <rect key="frame" x="25" y="315" width="325" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-fn-NyI">
-                                <rect key="frame" x="100" y="89" width="175" height="175"/>
+                                <rect key="frame" x="99.5" y="89" width="176" height="176"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="ILH-nw-xV8"/>
-                                    <constraint firstAttribute="height" constant="175" id="lad-4R-waw"/>
+                                    <constraint firstAttribute="width" constant="176" id="ILH-nw-xV8"/>
+                                    <constraint firstAttribute="height" constant="176" id="lad-4R-waw"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="User Placeholder"/>
                                 <connections>
@@ -1037,7 +1037,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="25" y="347" width="325" height="40"/>
+                                <rect key="frame" x="25" y="348" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
@@ -1050,7 +1050,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
-                                <rect key="frame" x="25" y="330" width="325" height="1"/>
+                                <rect key="frame" x="25" y="331" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
