@@ -13,6 +13,7 @@ class AddPhotoViewController: UIViewController {
 
     @IBOutlet var textOutlet: UITextField!
     @IBOutlet var imageOutlet: UIButton!
+    @IBOutlet weak var addOutlet: UIButton!
     var topic : Topic!
     var album : Album!
     var imagePhoto : Data?
@@ -23,6 +24,10 @@ class AddPhotoViewController: UIViewController {
             imageOutlet.setImage(UIImage(data: scartedImage.image!), for: .normal)
             textOutlet.text = scartedImage.info
         }
+        
+        addOutlet.clipsToBounds = true
+        addOutlet.layer.cornerRadius = 20
+        
         // Do any additional setup after loading the view.
     }
     @IBAction func saveAction(_ sender: Any) {
@@ -38,7 +43,7 @@ class AddPhotoViewController: UIViewController {
         }
         NetworkManager.uploadPhoto(withData: imagePhoto!, topicId: topic.id, albumId: album.id, photoId: id) { (URLImage) in
             let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", discarded: false,id: id)
-            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, bool: true, completion: { (success) in
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, bool: false, completion: { (success) in
                 self.navigationController?.popViewController(animated: true)
             })
 
