@@ -17,14 +17,6 @@ class AddUsersTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*self.users.append("Alessandro")
-        self.users.append("Giorgio")
-        self.users.append("Carlo")
-        self.users.append("Luca")*/
-        // Do any additional setup after loading the view.
-        
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -32,12 +24,23 @@ class AddUsersTopicViewController: UIViewController {
         NetworkManager.getUsers(completion: {   success in
             if success {
                 self.users = User.all()
+                self.removeCurrentUser()
                 print("lista utenti", self.users)
                 self.tableView.reloadData()
             }else{
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
+    }
+    func removeCurrentUser(){
+        var a : [User] = []
+        let id = NetworkManager.getMyID()
+        for i in users{
+            if i.id != id{
+                a.append(i)
+            }
+        }
+        self.users = a
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -52,9 +55,6 @@ class AddUsersTopicViewController: UIViewController {
         NetworkManager.addTopic(topic: topic, completion: {
             success in
             if success {
-                print("Utenti aggiunti correttamente")
-                self.topic.save()
-                self.addTopicDelegate.addTopic(topic: self.topic)
               self.navigationController?.popToRootViewController(animated: true)
             }else{
                  GeneralUtils.share.alertError(title: "Attenzione", message: "Utenti non aggiunti")

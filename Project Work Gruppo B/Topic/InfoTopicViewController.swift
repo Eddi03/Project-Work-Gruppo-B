@@ -97,5 +97,10 @@ class InfoTopicViewController: UIViewController {
         
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? AddUsersTopicViewController{
+            destinationSegue.topic = topic
+        }
+    }
 
 }
