@@ -26,7 +26,7 @@ class FirebaseChatDatabase: NSObject {
             let data = try FirebaseEncoder().encode(message)
             
             //post
-            db.collection("Chat").document("EEF9ACB8-D5D2-48A9-9A5F-DF1BEC5FBD04").collection(directChat ? "Private" : "Tasks").document(chanelID).setData([message.id : data], merge: true) { error in
+            db.collection("Chat").document(chanelID).collection(directChat ? "Private" : "Tasks").document(chanelID).setData([message.id : data], merge: true) { error in
                 if let error = error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertBuilder(title: "errore", message: error.localizedDescription, closeAction: { _ in
                         completion(false)
@@ -56,7 +56,7 @@ class FirebaseChatDatabase: NSObject {
         
         guard let id = NetworkManager.getMyID() else { completion(false); return }
         
-        messageListener = db.collection("Chat").document("EEF9ACB8-D5D2-48A9-9A5F-DF1BEC5FBD04").collection(directChat ? "Private" : "Tasks").document(chanelID).addSnapshotListener { querySnapshot, error in
+        messageListener = db.collection("Chat").document(chanelID).collection(directChat ? "Private" : "Tasks").document(chanelID).addSnapshotListener { querySnapshot, error in
             
             guard let snapshot = querySnapshot else {
                 UIApplication.topViewController()?.present(GeneralUtils.share.alertBuilder(title: "errore", message: error?.localizedDescription, closeAction: { _ in

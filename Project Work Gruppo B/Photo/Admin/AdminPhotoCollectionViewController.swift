@@ -25,6 +25,10 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     var discarding : Bool = false
     private var barButtonItem : UIBarButtonItem!
 
+    @IBAction func actionChat(_ sender: Any) {
+          self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -318,7 +322,12 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         // Dispose of any resources that can be recreated.
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationn = segue.destination as? BasicChatViewController{
+            debugPrint(album.id)
+            destinationn.albumIds = album.id
+        }
+    }
     
 }
 

@@ -29,12 +29,30 @@ import MessageInputBar
 
 final class BasicChatViewController: ChatViewController {
   
+    
+    var albumIds : String!{
+        didSet{
+            debugPrint(albumIds)
+        }
+    }
+    
     override func configureMessageCollectionView() {
         super.configureMessageCollectionView()
         
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
+        
+        
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        debugPrint(albumIds)
+        self.albumId = albumIds
+        print(self.albumId)
+    }
+    
+    
 
 }
 

@@ -126,7 +126,7 @@ class NetworkManager : NSObject{
                     do{
                         debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
-                        debugPrint(User.getUserById(withid: uid)!)
+                        debugPrint(User.getUserById(withid: uid))
                         completion(true)
                     }catch{
                         print(error)

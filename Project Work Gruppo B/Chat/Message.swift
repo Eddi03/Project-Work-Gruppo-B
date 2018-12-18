@@ -61,6 +61,7 @@ internal struct Msg: MessageType {
 @objcMembers class Message: Object, Codable {
     
     dynamic var id: String!
+    dynamic var idAlbum : String!
     dynamic var senderName: String!
     dynamic var senderId: String!
     dynamic var sentDate: Date!
@@ -70,9 +71,10 @@ internal struct Msg: MessageType {
         return "id"
     }
     
-    convenience init(id: String, messageText: String, senderName: String, senderId: String, sentDate: Date) {
+    convenience init(id: String,idAlbum: String, messageText: String, senderName: String, senderId: String, sentDate: Date) {
         self.init()
         self.id = id
+        self.idAlbum = idAlbum
         self.senderName = senderName
         self.senderId = senderId
         self.sentDate = sentDate
@@ -98,6 +100,16 @@ internal struct Msg: MessageType {
                 realm.delete(self)
             }
         } catch {}
+    }
+    
+    static func getMessagesByAlbumId(idAlbum:String) -> [Message]{
+        var listaMsg : [Message]=[]
+        for msg in Message.all(){
+            if msg.idAlbum == idAlbum{
+                listaMsg.append(msg)
+            }
+        }
+            return listaMsg
     }
     
 }

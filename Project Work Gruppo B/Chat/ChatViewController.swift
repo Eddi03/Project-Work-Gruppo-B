@@ -14,7 +14,7 @@ class ChatViewController: MessagesViewController {
     
     var messages: [Msg] = []
     
-    
+    var albumId : String!
     
     let refreshControl = UIRefreshControl()
    /*
@@ -39,17 +39,13 @@ class ChatViewController: MessagesViewController {
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()
-        title = "qualcosa"
+        title = "Chat"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-        
-        
-        
-        FirebaseChatDatabase.listenerMessages(chanelID: "EEF9ACB8-D5D2-48A9-9A5F-DF1BEC5FBD04", directChat: false) { success in
+        FirebaseChatDatabase.listenerMessages(chanelID: albumId, directChat: false) { success in
             self.loadFirstMessages()
         }
         
@@ -65,7 +61,7 @@ class ChatViewController: MessagesViewController {
             DispatchQueue.main.async {
                 
                 self.messages = []
-                for message in Message.all() {
+                for message in Message.getMessagesByAlbumId(idAlbum: self.albumId){
                     do {
                         let text = try Cryptor.share.decryptMessage(encryptedMessage: message.messageText)
                         self.messages.append(Msg(text: text, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
@@ -258,8 +254,8 @@ extension ChatViewController: MessageInputBarDelegate {
         for component in inputBar.inputTextView.components {
             
             if let str = component as? String {
-                let message = Message(id: UUID().uuidString, messageText: str, senderName: currentSender().displayName, senderId: currentSender().id, sentDate: Date())
-                FirebaseChatDatabase.sendMessage(chanelID: "EEF9ACB8-D5D2-48A9-9A5F-DF1BEC5FBD04", directChat: false, message: message) { success in
+                let message = Message(id: UUID().uuidString,idAlbum: albumId, messageText: str, senderName: currentSender().displayName, senderId: currentSender().id, sentDate: Date())
+                FirebaseChatDatabase.sendMessage(chanelID: albumId, directChat: false, message: message) { success in
                     if success {
                         do {
                             let text = try Cryptor.share.decryptMessage(encryptedMessage: message.messageText)

@@ -865,7 +865,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
                                     <barButtonItem systemItem="compose" id="Q63-nO-ece">
                                         <connections>
-                                            <segue destination="ZBs-6D-Ao9" kind="show" id="9EQ-Xm-7Mg"/>
+                                            <action selector="chatAction:" destination="sis-qU-jM9" id="zmT-nm-0aS"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -889,6 +889,7 @@
                         <outlet property="myCollectionView" destination="kQL-rW-11D" id="7vs-vK-RmQ"/>
                         <segue destination="5gf-a3-9uN" kind="show" identifier="segueToAddPhoto" id="bJq-ky-xUc"/>
                         <segue destination="NLY-rQ-r0c" kind="show" identifier="segueToAlbumDetails" id="sBK-We-11w"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="wcY-AB-box"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMO-fq-Cyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1200,7 +1201,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
                                     <barButtonItem systemItem="compose" id="cVF-6s-kr7">
                                         <connections>
-                                            <segue destination="ZBs-6D-Ao9" kind="show" id="uTm-e1-n3y"/>
+                                            <action selector="actionChat:" destination="Uuv-H2-PHi" id="sz0-DR-WHc"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -1224,6 +1225,7 @@
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
                         <segue destination="rZE-FN-jFn" kind="show" identifier="segueToAdminAlbumDetails" id="QtQ-V2-cRc"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="Hvb-XA-OU6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jO-uF-xi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1376,7 +1378,7 @@
         <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9EQ-Xm-7Mg"/>
+        <segue reference="Hvb-XA-OU6"/>
         <segue reference="Q1r-01-TMn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

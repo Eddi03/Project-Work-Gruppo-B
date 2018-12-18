@@ -146,10 +146,19 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `AdminPhotoCollectionViewController`, and contains static references to 1 segues.
+    /// This struct is generated for `AdminPhotoCollectionViewController`, and contains static references to 2 segues.
     struct adminPhotoCollectionViewController {
+      /// Segue identifier `SegueBasicChatViewController`.
+      static let segueBasicChatViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, BasicChatViewController> = Rswift.StoryboardSegueIdentifier(identifier: "SegueBasicChatViewController")
       /// Segue identifier `segueToAdminAlbumDetails`.
       static let segueToAdminAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdminAlbumDetails")
+      
+      /// Optionally returns a typed version of segue `SegueBasicChatViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueBasicChatViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, BasicChatViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminPhotoCollectionViewController.segueBasicChatViewController, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `segueToAdminAlbumDetails`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -233,12 +242,21 @@ struct R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    /// This struct is generated for `PhotoCollectionViewController`, and contains static references to 2 segues.
+    /// This struct is generated for `PhotoCollectionViewController`, and contains static references to 3 segues.
     struct photoCollectionViewController {
+      /// Segue identifier `SegueBasicChatViewController`.
+      static let segueBasicChatViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, BasicChatViewController> = Rswift.StoryboardSegueIdentifier(identifier: "SegueBasicChatViewController")
       /// Segue identifier `segueToAddPhoto`.
       static let segueToAddPhoto: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddPhoto")
       /// Segue identifier `segueToAlbumDetails`.
       static let segueToAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumDetails")
+      
+      /// Optionally returns a typed version of segue `SegueBasicChatViewController`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func segueBasicChatViewController(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, BasicChatViewController>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.photoCollectionViewController.segueBasicChatViewController, segue: segue)
+      }
       
       /// Optionally returns a typed version of segue `segueToAddPhoto`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
