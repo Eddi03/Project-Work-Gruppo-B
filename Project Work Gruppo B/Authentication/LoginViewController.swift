@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
         
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         buttonShowPassword.addGestureRecognizer(longGesture)
+        buttonShowPassword.imageView?.tintColor = UIColor.gray
     }
     
     var email : String!
@@ -32,9 +33,13 @@ class LoginViewController: UIViewController {
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
             passwordField.isSecureTextEntry = false
+            let image = UIImage.init(named: "Eye")
+            buttonShowPassword.setImage(image, for: .normal)
         } else{
             if gesture.state == UIGestureRecognizer.State.ended {
                 passwordField.isSecureTextEntry = true
+                let image = UIImage.init(named: "Eye Grey")
+                buttonShowPassword.setImage(image, for: .normal)
             }
         }
     }
