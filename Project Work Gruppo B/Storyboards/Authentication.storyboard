@@ -314,6 +314,16 @@
                                     <constraint firstAttribute="height" constant="1" id="yMS-Qd-bYX"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSw-gd-oL0">
+                                <rect key="frame" x="324" y="161" width="26" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Eye"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-xa-uuT">
+                                <rect key="frame" x="324" y="210" width="26" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Eye"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -348,6 +358,8 @@
                         <outlet property="navBarSignUpTitle" destination="LZv-Ox-Cr9" id="m8Q-ew-tC0"/>
                         <outlet property="passwordField" destination="Pcr-gQ-Tqr" id="F1x-6q-jRR"/>
                         <outlet property="repeatPasswordField" destination="oIE-s8-MSH" id="6GP-vg-bcd"/>
+                        <outlet property="showConfirmPasswordButton" destination="Uvg-xa-uuT" id="mo7-XN-BCm"/>
+                        <outlet property="showPasswordButton" destination="NSw-gd-oL0" id="q0r-Kr-VUe"/>
                         <segue destination="8ye-UH-Kgt" kind="show" identifier="segueToAdditionalData" id="zNr-QB-IcY"/>
                     </connections>
                 </viewController>

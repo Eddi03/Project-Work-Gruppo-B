@@ -16,13 +16,19 @@ class RegisterViewController: UIViewController {
         buttonOutlet.layer.cornerRadius = 20
         buttonOutlet.clipsToBounds = true
         
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
+        showPasswordButton.addGestureRecognizer(longGesture)
+        showConfirmPasswordButton.addGestureRecognizer(longGesture)
+        
         // Do any additional setup after loading the view.
     }
+    
     @IBOutlet weak var navBarSignUpTitle: UINavigationItem!{
         didSet {
             navBarSignUpTitle.title = R.string.localizable.kNavBarSignUpTitle()
         }
     }
+    
     var email : String!
     var password : String!
     var repeatPassword : String!
@@ -39,6 +45,18 @@ class RegisterViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var showPasswordButton: UIButton!
+    @IBOutlet weak var showConfirmPasswordButton: UIButton!
+    
+    @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer){
+        if gesture.state == UIGestureRecognizer.State.began {
+            passwordField.isSecureTextEntry = false
+        }else {
+            if gesture.state == UIGestureRecognizer.State.ended{
+                passwordField.isSecureTextEntry = true
+            }
+        }
+    }
     
     @IBAction func registerAction(_ sender: Any) {
         
