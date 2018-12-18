@@ -624,15 +624,25 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnChecked" translatesAutoresizingMaskIntoConstraints="NO" id="y1F-fr-aer">
+                                                    <rect key="frame" x="335" y="45" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="krK-oe-Cdi"/>
+                                                        <constraint firstAttribute="width" constant="30" id="n1g-UU-8jV"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="654-Y7-vRd"/>
                                                 <constraint firstItem="puU-9X-5cU" firstAttribute="leading" secondItem="r7k-Gf-NqE" secondAttribute="leading" constant="16" id="KAA-g4-RoW"/>
                                                 <constraint firstItem="wWk-rl-Qot" firstAttribute="leading" secondItem="puU-9X-5cU" secondAttribute="trailing" constant="32" id="ZYY-kX-dHi"/>
+                                                <constraint firstItem="y1F-fr-aer" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="aHG-lE-DvV"/>
+                                                <constraint firstAttribute="trailing" secondItem="y1F-fr-aer" secondAttribute="trailing" constant="10" id="bRs-5q-iL1"/>
                                                 <constraint firstItem="wWk-rl-Qot" firstAttribute="centerY" secondItem="r7k-Gf-NqE" secondAttribute="centerY" id="crf-YI-lPM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkedImage" destination="y1F-fr-aer" id="2AC-2t-xcS"/>
                                             <outlet property="name" destination="wWk-rl-Qot" id="bxH-HP-LFb"/>
                                         </connections>
                                     </tableViewCell>
@@ -1376,9 +1386,9 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="Photo Placeholder" width="175" height="175"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="UnChecked" width="26" height="26"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NdE-aM-OgF"/>

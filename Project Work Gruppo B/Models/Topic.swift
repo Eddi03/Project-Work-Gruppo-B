@@ -66,7 +66,7 @@ import RealmSwift
                 }
             }
         }
-         return listaTopicOfCurrentUser
+         return listaTopicOfCurrentUser.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     
     

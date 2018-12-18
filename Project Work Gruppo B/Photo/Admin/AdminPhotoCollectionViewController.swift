@@ -24,6 +24,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     var discarding : Bool = false
     private var barButtonItem : UIBarButtonItem!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,10 +42,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     @objc func saveAction(){
         for img in imagesToDiscard{
             DispatchQueue.main.async {
-            let photo = Photo.getPhotoById(id: img)
-            photo?.changeData(discarded: true)
-            debugPrint(photo?.discarded)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, bool: false) { (success) in
+                let photo = Photo.getPhotoById(id: img)
+                photo?.changeData(discarded: true)
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
                     
                     self.setupImages()
                 }
@@ -52,8 +52,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         }
         
         self.navigationItem.rightBarButtonItem = nil
-        discardImagesOutlet.tintColor = UIColor.green
+        discardImagesOutlet.tintColor = UIColor.blue
         imagesToDiscard = []
+        discarding = false
     }
     
     @IBAction func discardImagesAction(_ sender: Any) {
@@ -75,28 +76,28 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         //lo fa solo se prima l'operatore ha messo completed a true
         if album.completed {
             
-        let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
-        let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
-        alert.addAction(actionNo)
-        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
-            NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
-                if success {
-                    print("eliminato il completed album")
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
-        }))
-        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
-            self.album.changeData(completed: false)
-            NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
-                if success {
-                    print("modificato il completed album")
-                }
-            })
+            let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
+            let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
+            alert.addAction(actionNo)
+            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+                NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
+                    if success {
+                        print("eliminato il completed album")
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                })
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+                self.album.changeData(completed: false)
+                NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
+                    if success {
+                        print("modificato il completed album")
+                    }
+                })
+                
+            }))
             
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -128,7 +129,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                     }
                 }
                 let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint(discardedPhotos.count)
                 if !(discardedPhotos.isEmpty){
                     DispatchQueue.main.async {
                         for i in discardedPhotos{
@@ -163,7 +163,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return imagesDiscarded.count
         }
         if section == 2 && imagesDiscarded.isEmpty{
-            debugPrint("secchetion",imagesDiscarded.count)
             return 0
         }
         return 1
@@ -187,15 +186,17 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             if !discarding{
                 cell.checkedImage.isHidden = true
             }
-            if imagesToDiscard.contains(images[indexPath.item].id) {
-                cell.isSelected=true
-                myCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
-                cell.checkedImage?.isHidden=false
-            }
             else{
-                cell.isSelected=false
-                cell.checkedImage.isHidden=true
-            }
+                cell.checkedImage.isHidden = false
+                if imagesToDiscard.contains(images[indexPath.item].id) {
+                    cell.isSelected=true
+                    myCollectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+                    cell.checkedImage.image = (UIImage(named: "Checked"))
+                }
+                else{
+                    cell.isSelected=false
+                    cell.checkedImage.image = (UIImage(named: "UnChecked"))
+                }}
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
@@ -206,7 +207,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         if indexPath.section == 3{
             let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: AdminPhotoItemCell.kIdentifier, for: indexPath) as! AdminPhotoItemCell
             cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
-            return cell}
+            cell.checkedImage.isHidden = true
+            return cell
+        }
         return UICollectionViewCell()
     }
     
@@ -214,9 +217,19 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         
         //add the selected cell contents to _selectedCells arr when cell is selected
         if indexPath.section == 1 && discarding{
-        imagesToDiscard.append(images[indexPath.item].id)
-        debugPrint(imagesToDiscard[0])
+            imagesToDiscard.append(images[indexPath.item].id)
+            debugPrint(imagesToDiscard[0])
             collectionView.reloadItems(at: [indexPath])
+        }
+        if indexPath.section == 3 && !discarding{
+            DispatchQueue.main.async {
+                let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
+                photo?.changeData(discarded: false)
+                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                    self.setupImages()
+                }
+                
+            }
         }
     }
     
@@ -224,55 +237,15 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         
         //remove the selected cell contents from _selectedCells arr when cell is De-Selected
         if indexPath.section == 1 && discarding{
-        if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
-            imagesToDiscard.remove(at: position)
+            if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
+                imagesToDiscard.remove(at: position)
             }
         }
         myCollectionView.reloadItems(at: [indexPath])
     }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch indexPath.section {
-//        case 1:
-//            if !discarding{
-//            let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
-//                present(browser, animated: true, completion: {})}
-////            else{
-////                let cell = myCollectionView.cellForItem(at: indexPath) as? AdminPhotoItemCell
-////
-////                if cell!.isSelected{
-////                    cell!.isSelected = false
-////                    if cell!.checkedImage.isHidden{
-////                        cell!.checkedImage.isHidden = false
-////                        imagesToDiscard.append(images[indexPath.item].id)
-////                    }
-////                    else {
-////                        if let position = imagesToDiscard.firstIndex(of:images[indexPath.item].id){
-////                            imagesToDiscard.remove(at: position)
-////                        }
-////                        cell!.checkedImage.isHidden = true
-////                    }
-////                    myCollectionView.reloadData()
-////                }
-////                debugPrint(imagesToDiscard.count)
-////            }
-//        //case 3:
-//            //annulla foto scartata
-//        default:
-//            return
-//        }
-//
-//    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = myCollectionView.frame.width
-        //        if UIDevice.current.orientation.isPortrait {
-        //            return CGSize(width: width/4 - 1, height: width/4 - 1)
-        //        } else {
-        //            return CGSize(width: width/6 - 1, height: width/6 - 1)
-        //        }
-        //        if DeviceInfo.Orientation.isPortrait {
-        //            return CGSize(width: width/3 - 1, height: width/3 - 1)
-        //        } else {
         switch indexPath.section {
         case 0:
             return CGSize(width: width-1, height: 40)
@@ -308,32 +281,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
+    
     
     
 }
-
-
-//
-//struct DeviceInfo {
-//    struct Orientation {
-//        // indicate current device is in the LandScape orientation
-//        static var isLandscape: Bool {
-//            get {
-//                return UIDevice.current.orientation.isValidInterfaceOrientation
-//                    ? UIDevice.current.orientation.isLandscape
-//                    : UIApplication.shared.statusBarOrientation.isLandscape
-//            }
-//        }
-//        // indicate current device is in the Portrait orientation
-//        static var isPortrait: Bool {
-//            get {
-//                return UIDevice.current.orientation.isValidInterfaceOrientation
-//                    ? UIDevice.current.orientation.isPortrait
-//                    : UIApplication.shared.statusBarOrientation.isPortrait
-//            }
-//        }
-//    }
-//}

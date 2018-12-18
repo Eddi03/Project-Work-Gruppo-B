@@ -79,6 +79,7 @@ class AddUsersTableViewCell: UITableViewCell {
     
     @IBOutlet var name: UITextField!
     
+    @IBOutlet var checkedImage: UIImageView!
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

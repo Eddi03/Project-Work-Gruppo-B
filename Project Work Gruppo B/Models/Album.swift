@@ -110,7 +110,7 @@ import RealmSwift
                 }
             }
         }
-        return listaAlbumOfCurrentTopic
+        return listaAlbumOfCurrentTopic.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     
     

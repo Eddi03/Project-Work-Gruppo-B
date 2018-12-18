@@ -48,29 +48,27 @@ class TopicListViewController: UIViewController {
         super.viewDidLoad()
         //search.delegate = self
     }
-   
+    
     /*override func viewDidAppear(_ animated: Bool) {
-        print(Topic.all())
-        NetworkManager.getTopics{ (success) in
-            if success {
-                self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
-                self.tableView.delegate = self
-                self.tableView.dataSource = self
-            print("id",NetworkManager.getMyID())
-            print("coseeeeeeeeeeeee", self.topics)
-            self.tableView.reloadData()
-            }
-        }
-    }*/
+     print(Topic.all())
+     NetworkManager.getTopics{ (success) in
+     if success {
+     self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
+     self.tableView.delegate = self
+     self.tableView.dataSource = self
+     print("id",NetworkManager.getMyID())
+     print("coseeeeeeeeeeeee", self.topics)
+     self.tableView.reloadData()
+     }
+     }
+     }*/
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         NetworkManager.getTopics{ (success) in
             if success {
                 self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
-             self.tableView.reloadData()
-//                print("id",NetworkManager.getMyID())
-//                print("coseeeeeeeeeeeee", self.topics)
+                self.tableView.reloadData()
             }
         }
     }
@@ -86,43 +84,9 @@ class TopicListViewController: UIViewController {
         if let destinationSegue = segue.destination as? AlbumListViewController{
             destinationSegue.admin = admin
             destinationSegue.topic = topic
-           
-        }
-    }
-    
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        
-        let alert = UIAlertController(title: "Archivia", message: "Sei sicuro di voler archiviare il topic?", preferredStyle: .alert)
-        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        alert.addAction(no)
-        let yes = UIAlertAction(title: "Si", style: .default, handler: { action in
             
-            let archivia = self.archiviaAction(at: indexPath)
-        })
-        alert.addAction(yes)
-        self.present(alert, animated: true, completion: nil)
-        
-        //bisogna mettere il Album.completed = true
-        let archivia = archiviaAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [archivia])
-    }
-    
-    
-    func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
-        let topic = topics[indexPath.row]
-        let action = UIContextualAction(style: .normal, title: "Archivia") { (action, view, completion) in
-            completion(true)
         }
-        // action.image = 🗂
-        action.backgroundColor = .orange
-        return action
-        
     }
-   
-    
-    
 }
 
 extension TopicListViewController : UITableViewDelegate, UITableViewDataSource {
