@@ -48,7 +48,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                     
                     self.setupImages()
                 }
-                
             }
         }
         
