@@ -10,9 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        buttonShowPassword.isHidden = true
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         buttonShowPassword.addGestureRecognizer(longGesture)
         buttonShowPassword.imageView?.tintColor = UIColor.gray
@@ -24,6 +26,13 @@ class LoginViewController: UIViewController {
    
     
     @IBOutlet weak var buttonShowPassword: UIButton!
+    
+    @IBAction func eyeAction(_ sender: Any) {
+        buttonShowPassword.isHidden = false
+    }
+    @IBAction func eyeOffAction(_ sender: Any) {
+        buttonShowPassword.isHidden = true
+    }
     
     @IBOutlet var passwordField: UITextField! {
         didSet {

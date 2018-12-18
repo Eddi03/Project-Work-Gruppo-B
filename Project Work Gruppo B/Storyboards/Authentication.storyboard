@@ -166,6 +166,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeAction:" destination="wsE-1e-CVY" eventType="editingDidBegin" id="gOp-zg-18P"/>
+                                    <action selector="eyeOffAction:" destination="wsE-1e-CVY" eventType="editingDidEnd" id="t31-e4-gjS"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tii-0b-rfb">
                                 <rect key="frame" x="25" y="229" width="325" height="40"/>
