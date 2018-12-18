@@ -55,8 +55,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             }
         }
         self.navigationItem.rightBarButtonItem = nil
-        discardImagesOutlet.tintColor = UIColor.green
+        discardImagesOutlet.tintColor = UIColor.blue
         imagesToDiscard = []
+        discarding = false
     }
     
     
