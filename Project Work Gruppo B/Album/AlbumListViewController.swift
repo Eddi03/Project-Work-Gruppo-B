@@ -160,7 +160,8 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
                 cell.info.text = albums[indexPath.row].info
                 
                 if(albums[indexPath.row].completed){
-                    cell.backgroundColor = UIColor.purple
+                    let colore = UIColor(displayP3Red: 191/255, green: 244/255, blue: 238/255, alpha: 1)
+                    cell.backgroundColor = colore
                 }
             }
             return cell

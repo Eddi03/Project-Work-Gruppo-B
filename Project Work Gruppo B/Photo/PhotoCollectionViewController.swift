@@ -130,12 +130,13 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     func updateLabelSize(cell : LabelItemCell!){
         let maxSize = CGSize(width: myCollectionView.frame.width, height: 40)
         let size = cell.text.sizeThatFits(maxSize)
-        cell.text.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        cell.text.frame = CGRect(origin: CGPoint(x: 10, y: 10), size: size)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "NORMALE O QUASI"
+            cell.text.text = "Foto caricate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
@@ -145,7 +146,8 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "SCARTO"
+            cell.text.text = "Foto scartate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
