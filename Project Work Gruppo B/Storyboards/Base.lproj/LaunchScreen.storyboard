@@ -17,15 +17,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShotWorkers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onB-JR-NHr">
-                                <rect key="frame" x="77" y="309.5" width="221" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (c) 2018 ITS - All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUM-ap-2T3">
                                 <rect key="frame" x="16" y="626" width="343" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginImage" translatesAutoresizingMaskIntoConstraints="NO" id="VJw-oN-8l0">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="gw5-q6-xe3"/>
+                                    <constraint firstAttribute="height" constant="200" id="uEM-MI-RqW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ShotWorkers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onB-JR-NHr">
+                                <rect key="frame" x="25" y="84" width="325" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -33,10 +40,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KUM-ap-2T3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="70Q-oM-epN"/>
-                            <constraint firstItem="onB-JR-NHr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="H5I-iI-PBa"/>
+                            <constraint firstItem="VJw-oN-8l0" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LBI-SX-Mhr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KUM-ap-2T3" secondAttribute="trailing" constant="16" id="Y59-je-Ac8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KUM-ap-2T3" secondAttribute="bottom" constant="23" id="YQ5-6b-haB"/>
-                            <constraint firstItem="onB-JR-NHr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="roy-Xt-zFg"/>
+                            <constraint firstItem="VJw-oN-8l0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Zoj-uq-5Xg"/>
+                            <constraint firstItem="onB-JR-NHr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="dBF-DQ-saI"/>
+                            <constraint firstItem="onB-JR-NHr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="iXl-Ts-Y1w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="onB-JR-NHr" secondAttribute="trailing" constant="25" id="s8l-PK-XcQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -46,5 +56,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LoginImage" width="512" height="512"/>
+    </resources>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

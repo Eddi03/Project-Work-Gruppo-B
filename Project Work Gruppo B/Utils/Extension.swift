@@ -140,7 +140,6 @@ extension String{
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 1)
-       debugPrint("c",dateFormatter.date(from: self))
         return dateFormatter.date(from: self)!
     }
 }

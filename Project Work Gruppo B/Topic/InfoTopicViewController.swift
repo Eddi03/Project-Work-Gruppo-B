@@ -49,13 +49,6 @@ class InfoTopicViewController: UIViewController {
             deleteOutlet.isHidden = true
         }
         
-        deleteOutlet.layer.cornerRadius = 20
-        deleteOutlet.clipsToBounds = true
-        editOutlet.layer.cornerRadius = 20
-        editOutlet.clipsToBounds = true
-      
-      
-      
         //get user from topic
         for userId in topic?.getUsers() ?? []{
             var userObject = User.getUserById(withid: userId)
@@ -96,6 +89,11 @@ class InfoTopicViewController: UIViewController {
         self.present(alert, animated: true)
         
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationSegue = segue.destination as? AddUsersTopicViewController{
+            destinationSegue.topic = topic
+        }
     }
 
 }

@@ -28,9 +28,6 @@ class AccountViewController: UIViewController {
         
         //let spinner = UIViewController.displaySpinner(onView: self.view)
         
-        buttonOutlet.layer.cornerRadius = 20
-        buttonOutlet.clipsToBounds = true
-        
         self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;
         self.imageOutlet.clipsToBounds = true;
         

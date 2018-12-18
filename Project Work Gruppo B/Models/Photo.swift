@@ -67,7 +67,7 @@ import RealmSwift
                 }
             }
         }
-    return listaPhotoOfCurrentAlbum
+    return listaPhotoOfCurrentAlbum.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Photo] {
         return Array(realm.objects(Photo.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})

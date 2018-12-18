@@ -25,8 +25,8 @@ class AddPhotoViewController: UIViewController {
             textOutlet.text = scartedImage.info
         }
         
-        addOutlet.clipsToBounds = true
-        addOutlet.layer.cornerRadius = 20
+        imageOutlet.clipsToBounds = true
+        imageOutlet.layer.cornerRadius = 88
         
         // Do any additional setup after loading the view.
     }
@@ -38,12 +38,14 @@ class AddPhotoViewController: UIViewController {
         }
         
         var id = UUID().uuidString
+        var updateAlbum = true
         if let scartedImage = scarted{
             id = scartedImage.id
+            updateAlbum = false
         }
         NetworkManager.uploadPhoto(withData: imagePhoto!, topicId: topic.id, albumId: album.id, photoId: id) { (URLImage) in
             let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", discarded: false,id: id)
-            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, bool: false, completion: { (success) in
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, updateTopic: false,updateAlbum: updateAlbum, completion: { (success) in
                 self.navigationController?.popViewController(animated: true)
             })
 

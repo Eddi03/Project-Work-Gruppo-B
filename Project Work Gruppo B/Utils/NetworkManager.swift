@@ -525,7 +525,7 @@ class NetworkManager : NSObject{
     }
     
     
-    static func addPhoto(topic: Topic, album: Album,photo: Photo,bool:Bool,completion: @escaping (Bool)-> ()){
+    static func addPhoto(topic: Topic, album: Album,photo: Photo,updateTopic:Bool,updateAlbum:Bool,completion: @escaping (Bool)-> ()){
         do{
             let parameters = try photo.asDictionary()
             
@@ -536,10 +536,10 @@ class NetworkManager : NSObject{
                         print("Error adding document: \(err)")
                         completion(false)
                     }else{
-                        //if bool {
+                        if updateAlbum {
                             album.addingPhoto(id: photo.id)
-                        //}
-                        addAlbum(topic: topic, album: album, bool: bool, completion: { success in
+                        }
+                        addAlbum(topic: topic, album: album, bool: updateTopic, completion: { success in
                             if success{
                                 photo.save()
                                 completion(true)

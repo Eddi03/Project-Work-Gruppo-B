@@ -30,9 +30,6 @@ class AddTopicTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Initialization code
-      //  addButtonOutlet.layer.cornerRadius = 20
-       // addButtonOutlet.clipsToBounds = true
     }
     
     @IBOutlet weak var addButtonOutlet: UIButton! {
@@ -82,6 +79,7 @@ class AddUsersTableViewCell: UITableViewCell {
     
     @IBOutlet var name: UITextField!
     
+    @IBOutlet var checkedImage: UIImageView!
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
