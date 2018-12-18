@@ -126,6 +126,7 @@
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
                     <connections>
                         <outlet property="loginButton" destination="CQ4-JP-tpJ" id="gkm-ND-Aeu"/>
+                        <outlet property="orLabel" destination="CgS-GS-rdH" id="NVX-E1-aEH"/>
                         <outlet property="registerButton" destination="ODZ-rX-lAK" id="HHA-dt-F42"/>
                         <outlet property="titleAppLabel" destination="Rb5-JL-83Q" id="i7c-Hd-qGn"/>
                         <outlet property="welcomeLabel" destination="t2F-07-sE6" id="rpc-77-3WK"/>
@@ -278,6 +279,7 @@
                         <outlet property="loginButton" destination="tii-0b-rfb" id="FQY-F8-ah3"/>
                         <outlet property="navBarBack" destination="yW5-m7-37X" id="Lyw-jS-X3m"/>
                         <outlet property="navbarTitle" destination="yW5-m7-37X" id="5Cv-ob-FPO"/>
+                        <outlet property="orLabel" destination="V0n-KC-RzM" id="KKL-WU-o2I"/>
                         <outlet property="passwordField" destination="u3h-lB-17d" id="dsn-a6-NAH"/>
                         <outlet property="resetPasswordButton" destination="Nac-ne-l9h" id="zzG-U6-mrv"/>
                         <segue destination="mOt-A6-kQL" kind="show" identifier="segueToOptions" id="q38-Zx-U2c"/>

@@ -1388,9 +1388,10 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61" height="48"/>
+        <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="Photo Placeholder" width="175" height="175"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NdE-aM-OgF"/>

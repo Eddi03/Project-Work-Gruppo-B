@@ -428,7 +428,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 52 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -554,6 +554,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertErrorOkButton = Rswift.StringResource(key: "kAlertErrorOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static let kOrLabel = Rswift.StringResource(key: "kOrLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Password
       /// 
       /// Locales: en, it
@@ -852,6 +856,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertErrorOkButton", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static func kOrLabel(_: Void = ()) -> String {
+        return NSLocalizedString("kOrLabel", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Password
       /// 
       /// Locales: en, it
@@ -1076,6 +1087,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Photo Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "UnChecked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UnChecked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
