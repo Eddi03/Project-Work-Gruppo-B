@@ -536,9 +536,9 @@ class NetworkManager : NSObject{
                         print("Error adding document: \(err)")
                         completion(false)
                     }else{
-                        if bool {
+                        //if bool {
                             album.addingPhoto(id: photo.id)
-                        }
+                        //}
                         addAlbum(topic: topic, album: album, bool: bool, completion: { success in
                             if success{
                                 photo.save()
