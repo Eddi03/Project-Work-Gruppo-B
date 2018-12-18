@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
         
-        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(long))
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         buttonShowPassword.addGestureRecognizer(longGesture)
     }
     
@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc func long(gesture: UILongPressGestureRecognizer) {
+    @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
             passwordField.isSecureTextEntry = false
         } else{
