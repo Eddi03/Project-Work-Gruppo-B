@@ -14,6 +14,7 @@ kCopyright = "Copyright (c) 2018 ITS - All Rights Reserved";
 kWelcomeLabel = "Welcome, ";
 kLoginButton = "Login";
 kSignUpButton = "SignUp";
+kOrLabel = "Or";
 
 // Authentication Storyboard - LOGIN
 kNavBarLoginTitle = "Login";

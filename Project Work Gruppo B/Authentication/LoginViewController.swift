@@ -82,6 +82,12 @@ class LoginViewController: UIViewController {
 
     }
     
+    @IBOutlet weak var orLabel: UILabel!{
+        didSet {
+            orLabel.text = R.string.localizable.kOrLabel()
+        }
+    }
+    
     @IBOutlet weak var navBarBack: UINavigationItem! {
         didSet {
             navBarBack.title = R.string.localizable.kNavBarBackToHome()

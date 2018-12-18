@@ -34,6 +34,12 @@ class StartViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var orLabel: UILabel! {
+        didSet {
+            orLabel.text = R.string.localizable.kOrLabel()
+        }
+    }
+    
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
             registerButton.setTitle(R.string.localizable.kSignUpButton(), for: .normal)

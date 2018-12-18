@@ -428,7 +428,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 52 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -554,6 +554,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertErrorOkButton = Rswift.StringResource(key: "kAlertErrorOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static let kOrLabel = Rswift.StringResource(key: "kOrLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Password
       /// 
       /// Locales: en, it
@@ -850,6 +854,13 @@ struct R: Rswift.Validatable {
       /// Locales: en, it
       static func kAlertErrorOkButton(_: Void = ()) -> String {
         return NSLocalizedString("kAlertErrorOkButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static func kOrLabel(_: Void = ()) -> String {
+        return NSLocalizedString("kOrLabel", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Password
