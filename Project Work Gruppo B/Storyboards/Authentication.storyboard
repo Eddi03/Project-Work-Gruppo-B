@@ -335,7 +335,7 @@
                                     <constraint firstAttribute="width" constant="26" id="IWU-Hd-rqG"/>
                                     <constraint firstAttribute="height" constant="24" id="aF2-GP-gJx"/>
                                 </constraints>
-                                <state key="normal" image="Eye Grey"/>
+                                <state key="normal" image="Eye"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-xa-uuT">
                                 <rect key="frame" x="324" y="219" width="26" height="24"/>
@@ -343,7 +343,7 @@
                                     <constraint firstAttribute="height" constant="24" id="WPk-uF-JJU"/>
                                     <constraint firstAttribute="width" constant="26" id="kTb-5R-fMI"/>
                                 </constraints>
-                                <state key="normal" image="Eye Grey"/>
+                                <state key="normal" image="Eye"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -545,6 +545,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Eye" width="384" height="384"/>
         <image name="Eye Grey" width="48" height="48"/>
         <image name="LoginImage" width="512" height="512"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>

@@ -1041,6 +1041,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Eye") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Eye Grey") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Grey' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }

@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     var email : String!
     var password : String!
     var iconClick = true
+   
     
     @IBOutlet weak var buttonShowPassword: UIButton!
     
@@ -32,15 +33,16 @@ class LoginViewController: UIViewController {
     
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
-            passwordField.isSecureTextEntry = false
-            let image = UIImage.init(named: "Eye")
-            buttonShowPassword.setImage(image, for: .normal)
-        } else{
-            if gesture.state == UIGestureRecognizer.State.ended {
-                passwordField.isSecureTextEntry = true
-                let image = UIImage.init(named: "Eye Grey")
-                buttonShowPassword.setImage(image, for: .normal)
-            }
+            passwordField.isSecureTextEntry = true
+            
+            //BOTTONE NON PREMUTO
+            
+//            let origImage = UIImage(named: "Eye Grey")
+//            let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+            buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
+         //   buttonShowPassword.setImage(tintedImage, for: .normal)
+            
+         
         }
     }
     
