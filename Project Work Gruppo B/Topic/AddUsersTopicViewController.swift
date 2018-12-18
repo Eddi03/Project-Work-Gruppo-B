@@ -96,7 +96,7 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
         }
         else{
             cell.isSelected=false
-            cell.checkedImage.image = (UIImage(named: "UnChecked"))
+            cell.checkedImage.image = (UIImage(named: "UnCheckedList"))
         }
         return cell
     }

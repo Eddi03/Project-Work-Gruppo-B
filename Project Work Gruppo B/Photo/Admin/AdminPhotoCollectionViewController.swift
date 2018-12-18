@@ -195,7 +195,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 }
                 else{
                     cell.isSelected=false
-                    cell.checkedImage.image = (UIImage(named: "UnChecked"))
+                    cell.checkedImage.image = (UIImage(named: "UnCheckedPhoto"))
                 }}
             return cell}
         if indexPath.section == 2{
@@ -216,10 +216,16 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         //add the selected cell contents to _selectedCells arr when cell is selected
-        if indexPath.section == 1 && discarding{
-            imagesToDiscard.append(images[indexPath.item].id)
-            debugPrint(imagesToDiscard[0])
-            collectionView.reloadItems(at: [indexPath])
+        if indexPath.section == 1 {
+            if discarding{
+                imagesToDiscard.append(images[indexPath.item].id)
+                debugPrint(imagesToDiscard[0])
+                collectionView.reloadItems(at: [indexPath])
+            }
+            else{
+                let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
+                present(browser, animated: true, completion: {})
+            }
         }
         if indexPath.section == 3 && !discarding{
             DispatchQueue.main.async {

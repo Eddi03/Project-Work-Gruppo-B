@@ -46,22 +46,8 @@ class TopicListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //search.delegate = self
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
-     print(Topic.all())
-     NetworkManager.getTopics{ (success) in
-     if success {
-     self.topics = Topic.getTopicFromUser(idCurrentUser: NetworkManager.getMyID()!)
-     self.tableView.delegate = self
-     self.tableView.dataSource = self
-     print("id",NetworkManager.getMyID())
-     print("coseeeeeeeeeeeee", self.topics)
-     self.tableView.reloadData()
-     }
-     }
-     }*/
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
