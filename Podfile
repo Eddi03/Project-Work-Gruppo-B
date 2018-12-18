@@ -13,4 +13,6 @@ pod 'Firebase/Auth'
 pod 'RealmSwift'
 pod 'CodableFirebase'
 pod 'SKPhotoBrowser'
+pod 'MessageKit'
+pod 'RNCryptor'
 end

@@ -933,7 +933,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
-                                    <barButtonItem systemItem="compose" id="Q63-nO-ece"/>
+                                    <barButtonItem systemItem="compose" id="Q63-nO-ece">
+                                        <connections>
+                                            <action selector="chatAction:" destination="sis-qU-jM9" id="zmT-nm-0aS"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -955,11 +959,27 @@
                         <outlet property="myCollectionView" destination="kQL-rW-11D" id="7vs-vK-RmQ"/>
                         <segue destination="5gf-a3-9uN" kind="show" identifier="segueToAddPhoto" id="bJq-ky-xUc"/>
                         <segue destination="NLY-rQ-r0c" kind="show" identifier="segueToAlbumDetails" id="sBK-We-11w"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="wcY-AB-box"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMO-fq-Cyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4230" y="-79"/>
+        </scene>
+        <!--Basic Chat View Controller-->
+        <scene sceneID="lh6-Ij-Rdg">
+            <objects>
+                <viewController id="ZBs-6D-Ao9" customClass="BasicChatViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nC3-Bb-9ff">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Imi-VU-8VC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4c3-Vk-jFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3349.5999999999999" y="393.55322338830587"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jOt-tk-tby">
@@ -993,22 +1013,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpF-Wn-2ag">
-                                <rect key="frame" x="25" y="555" width="325" height="40"/>
-                                <color key="backgroundColor" red="0.34263712169999999" green="0.3646582961" blue="0.83229595420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="2hK-da-tt7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Foto Scartate">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-5q-cOH">
                                 <rect key="frame" x="25" y="611" width="325" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1047,12 +1051,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tJ2-5q-cOH" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="06v-Ng-umN"/>
-                            <constraint firstItem="tJ2-5q-cOH" firstAttribute="top" secondItem="dpF-Wn-2ag" secondAttribute="bottom" constant="16" id="2fE-Ug-Y5R"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="YY6-Zg-llU" secondAttribute="trailing" constant="25" id="647-Ii-Noh"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="x8x-Vv-fat" secondAttribute="trailing" constant="25" id="6ra-2p-n8Y"/>
                             <constraint firstItem="eto-Pb-A87" firstAttribute="top" secondItem="wbY-iW-ngZ" secondAttribute="bottom" constant="40" id="9ng-hV-JZb"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="bottom" secondItem="tJ2-5q-cOH" secondAttribute="bottom" constant="16" id="F2H-4c-hPa"/>
-                            <constraint firstItem="dpF-Wn-2ag" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="HuP-aZ-dYZ"/>
                             <constraint firstItem="x8x-Vv-fat" firstAttribute="top" secondItem="YY6-Zg-llU" secondAttribute="bottom" constant="8" id="MdX-Tk-qHu"/>
                             <constraint firstItem="Jd8-bg-53c" firstAttribute="top" secondItem="fW9-7A-9i4" secondAttribute="bottom" constant="16" id="MlR-jP-KRL"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="Jd8-bg-53c" secondAttribute="trailing" constant="25" id="PHq-dC-7yM"/>
@@ -1060,7 +1062,6 @@
                             <constraint firstItem="Jd8-bg-53c" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="WMM-er-0S2"/>
                             <constraint firstItem="x8x-Vv-fat" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="cMc-YL-TE7"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="eto-Pb-A87" secondAttribute="trailing" constant="25" id="etx-RR-qqo"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="dpF-Wn-2ag" secondAttribute="trailing" constant="25" id="gi9-x1-nSV"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="fW9-7A-9i4" secondAttribute="trailing" constant="25" id="jrO-Eg-YfY"/>
                             <constraint firstItem="eto-Pb-A87" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="kvf-BI-xjb"/>
                             <constraint firstItem="YY6-Zg-llU" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="lFo-IU-Q2z"/>
@@ -1254,7 +1255,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
-                                    <barButtonItem systemItem="compose" id="cVF-6s-kr7"/>
+                                    <barButtonItem systemItem="compose" id="cVF-6s-kr7">
+                                        <connections>
+                                            <action selector="actionChat:" destination="Uuv-H2-PHi" id="sz0-DR-WHc"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -1276,6 +1281,7 @@
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
                         <segue destination="rZE-FN-jFn" kind="show" identifier="segueToAdminAlbumDetails" id="QtQ-V2-cRc"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="Hvb-XA-OU6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jO-uF-xi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1330,22 +1336,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXj-2O-9Ek">
-                                <rect key="frame" x="25" y="499" width="325" height="40"/>
-                                <color key="backgroundColor" red="0.34263712169999999" green="0.3646582961" blue="0.83229595420000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Vxk-q1-V0H"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Foto Scartate">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-cj-Vro">
                                 <rect key="frame" x="25" y="555" width="325" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1390,7 +1380,6 @@
                             <constraint firstItem="xPo-qT-xLj" firstAttribute="leading" secondItem="aS3-4C-yVa" secondAttribute="leading" constant="25" id="AQU-ax-qcW"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="IM6-AM-x3H" secondAttribute="trailing" constant="25" id="CAD-FE-MZ4"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="xPo-qT-xLj" secondAttribute="trailing" constant="25" id="HTh-vz-kfd"/>
-                            <constraint firstItem="X2u-cj-Vro" firstAttribute="top" secondItem="KXj-2O-9Ek" secondAttribute="bottom" constant="16" id="JGS-Wk-TB1"/>
                             <constraint firstAttribute="trailing" secondItem="DIx-Cs-TmJ" secondAttribute="trailing" constant="25" id="KeK-2K-wyc"/>
                             <constraint firstItem="DIx-Cs-TmJ" firstAttribute="leading" secondItem="aS3-4C-yVa" secondAttribute="leading" constant="25" id="Lok-PT-dfg"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="8Hv-9h-p6e" secondAttribute="trailing" constant="25" id="Ron-Ec-Tm6"/>
@@ -1398,10 +1387,8 @@
                             <constraint firstItem="cN7-zK-wVm" firstAttribute="top" secondItem="xPo-qT-xLj" secondAttribute="bottom" constant="8" id="bns-yf-kLU"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="X2u-cj-Vro" secondAttribute="trailing" constant="25" id="bro-pI-EVL"/>
                             <constraint firstItem="cN7-zK-wVm" firstAttribute="leading" secondItem="aS3-4C-yVa" secondAttribute="leading" constant="25" id="bsV-k2-owS"/>
-                            <constraint firstItem="KXj-2O-9Ek" firstAttribute="leading" secondItem="aS3-4C-yVa" secondAttribute="leading" constant="25" id="dFy-E0-QKg"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="bottom" secondItem="8Hv-9h-p6e" secondAttribute="bottom" constant="16" id="ffd-dL-qIh"/>
                             <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="lya-Ds-Rox" secondAttribute="trailing" constant="25" id="h5I-4E-36j"/>
-                            <constraint firstItem="aS3-4C-yVa" firstAttribute="trailing" secondItem="KXj-2O-9Ek" secondAttribute="trailing" constant="25" id="hbb-ec-rFR"/>
                             <constraint firstItem="RhH-wZ-hAl" firstAttribute="top" secondItem="H6L-wU-1NO" secondAttribute="bottom" constant="16" id="iYn-Q8-g1h"/>
                             <constraint firstItem="IM6-AM-x3H" firstAttribute="top" secondItem="RhH-wZ-hAl" secondAttribute="bottom" constant="16" id="kAG-bC-gLQ"/>
                             <constraint firstItem="xPo-qT-xLj" firstAttribute="top" secondItem="aS3-4C-yVa" secondAttribute="top" constant="16" id="oPz-CH-yab"/>
@@ -1429,7 +1416,8 @@
         <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NdE-aM-OgF"/>
+        <segue reference="Hvb-XA-OU6"/>
+        <segue reference="Q1r-01-TMn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

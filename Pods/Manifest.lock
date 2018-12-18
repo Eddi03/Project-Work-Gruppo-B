@@ -117,6 +117,9 @@ PODS:
     - gRPC-RxLibrary (= 1.14.0)
   - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
+  - MessageInputBar/Core (0.4.1)
+  - MessageKit (2.0.0):
+    - MessageInputBar/Core
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -131,6 +134,7 @@ PODS:
   - Realm/Headers (3.11.1)
   - RealmSwift (3.11.1):
     - Realm (= 3.11.1)
+  - RNCryptor (5.0.3)
   - SKPhotoBrowser (6.0.0)
 
 DEPENDENCIES:
@@ -139,8 +143,10 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Storage
+  - MessageKit
   - R.swift
   - RealmSwift
+  - RNCryptor
   - SKPhotoBrowser
 
 SPEC REPOS:
@@ -164,12 +170,15 @@ SPEC REPOS:
     - gRPC-RxLibrary
     - GTMSessionFetcher
     - leveldb-library
+    - MessageInputBar
+    - MessageKit
     - nanopb
     - Protobuf
     - R.swift
     - R.swift.Library
     - Realm
     - RealmSwift
+    - RNCryptor
     - SKPhotoBrowser
 
 SPEC CHECKSUMS:
@@ -192,14 +201,17 @@ SPEC CHECKSUMS:
   gRPC-RxLibrary: 3c305f32155024b116b780f389323c73a28197e6
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
+  MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  RNCryptor: c93d19029dcf7ff160aca0f24d6c9e7b0d82f664
   SKPhotoBrowser: 76eb862685761707b5745fde7762757966565e07
 
-PODFILE CHECKSUM: 460cec69450ecab77cf1c1c637e51b19a1a85df1
+PODFILE CHECKSUM: 9c64b67360babd6e997691f6bc9f4b4d4a7debdb
 
 COCOAPODS: 1.5.3
