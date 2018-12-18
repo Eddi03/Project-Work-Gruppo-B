@@ -229,8 +229,7 @@ extension AlbumListViewController: UISearchBarDelegate {
 
 extension AlbumListViewController : AddAlbumDelegate{
     func addAlbum(album: Album) {
-        album.save()
-        albums = Album.all()
+        albums.insert(album, at: 0)
         tableView.reloadData()
     }
     
