@@ -27,7 +27,7 @@ import RealmSwift
         self.id = id
         self.image = image
         self.supervisor = supervisor ?? false
-        self.creationDate = Date().todayDate
+        self.creationDate = Date().dateToString
 
     }
     
@@ -50,7 +50,8 @@ import RealmSwift
         } catch {}
     }
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [User] {
-        return Array(realm.objects(User.self))
+        return Array(realm.objects(User.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
+        
     }
     static func getUserById(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
         return realm.object(ofType: User.self, forPrimaryKey: id)

@@ -27,7 +27,7 @@ import RealmSwift
         self.image = image
         self.info = info
         self.discarded = discarded ?? false
-        self.creationDate = Date().todayDate
+        self.creationDate = Date().dateToString
 
         self.id = id
         
@@ -70,7 +70,7 @@ import RealmSwift
     return listaPhotoOfCurrentAlbum
     }
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Photo] {
-        return Array(realm.objects(Photo.self))
+        return Array(realm.objects(Photo.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
