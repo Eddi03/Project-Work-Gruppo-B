@@ -31,7 +31,6 @@ class TopicListViewController: UIViewController {
         }
     }
     
-    
     @IBOutlet weak var labelEmptyTopic: UILabel!
     @IBOutlet weak var search: UISearchBar!{
         didSet{
