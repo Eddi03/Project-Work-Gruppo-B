@@ -10,9 +10,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        buttonShowPassword.isHidden = true
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         buttonShowPassword.addGestureRecognizer(longGesture)
         buttonShowPassword.imageView?.tintColor = UIColor.gray
@@ -21,8 +23,16 @@ class LoginViewController: UIViewController {
     var email : String!
     var password : String!
     var iconClick = true
+   
     
     @IBOutlet weak var buttonShowPassword: UIButton!
+    
+    @IBAction func eyeAction(_ sender: Any) {
+        buttonShowPassword.isHidden = false
+    }
+    @IBAction func eyeOffAction(_ sender: Any) {
+        buttonShowPassword.isHidden = true
+    }
     
     @IBOutlet var passwordField: UITextField! {
         didSet {
@@ -33,19 +43,40 @@ class LoginViewController: UIViewController {
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
             passwordField.isSecureTextEntry = false
-            let image = UIImage.init(named: "Eye")
-            buttonShowPassword.setImage(image, for: .normal)
-        } else{
+            
+            let img = UIImage(named: "Eye")
+            
+            buttonShowPassword.setImage(img, for: .normal)
+            
+            print("PRE MEN DO")
+        }else{
             if gesture.state == UIGestureRecognizer.State.ended {
                 passwordField.isSecureTextEntry = true
-                let image = UIImage.init(named: "Eye Grey")
-                buttonShowPassword.setImage(image, for: .normal)
+                
+                //BOTTONE NON PREMUTO
+                
+                let origImage = UIImage(named: "Eye Gray")
+               
+                buttonShowPassword.setImage(origImage, for: .normal)
+                
+                
+                //  buttonShowPassword.tintColor = .red
+                // buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
+                //   buttonShowPassword.setImage(tintedImage, for: .normal)
+                
+                print("PRE MEN DO")
             }
         }
     }
     
     @IBAction func showPasswordAction(_ sender: Any) {
 
+    }
+    
+    @IBOutlet weak var orLabel: UILabel!{
+        didSet {
+            orLabel.text = R.string.localizable.kOrLabel()
+        }
     }
     
     @IBOutlet weak var navBarBack: UINavigationItem! {

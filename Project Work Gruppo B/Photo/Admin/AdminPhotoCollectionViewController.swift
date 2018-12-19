@@ -87,32 +87,32 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     }
     
     @IBAction func archiviaAction(_ sender: Any) {
-        //lo fa solo se prima l'operatore ha messo completed a true
-        if album.completed {
-            
-            let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
-            let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
-            alert.addAction(actionNo)
-            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
-                NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
-                    if success {
-                        print("eliminato il completed album")
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                })
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
-                self.album.changeData(completed: false)
-                NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
-                    if success {
-                        print("modificato il completed album")
-                    }
-                })
-                
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+//        //lo fa solo se prima l'operatore ha messo completed a true
+//        if album.completed {
+//            
+//        let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
+//        let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
+//        alert.addAction(actionNo)
+//        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+//            NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
+//                if success {
+//                    print("eliminato il completed album")
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+//            self.album.changeData(completed: false)
+//            NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
+//                if success {
+//                    print("modificato il completed album")
+//                }
+//            })
+//            
+//        }))
+//        
+//        self.present(alert, animated: true, completion: nil)
+//        }
     }
     
     
@@ -188,12 +188,13 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     func updateLabelSize(cell : LabelItemCell!){
         let maxSize = CGSize(width: myCollectionView.frame.width, height: 40)
         let size = cell.text.sizeThatFits(maxSize)
-        cell.text.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        cell.text.frame = CGRect(origin: CGPoint(x: 10, y: 10), size: size)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "NORMALE O QUASI"
+            cell.text.text = "Foto caricate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
@@ -217,7 +218,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "SCARTO"
+            cell.text.text = "Foto scartate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
@@ -316,11 +318,15 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationn = segue.destination as? BasicChatViewController{
-            debugPrint(album.id)
-            destinationn.albumIds = album.id
+        if let destinationSegue = segue.destination as? DetailAdminAlbumViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
+        }
+
+        if let destinationSegue = segue.destination as? BasicChatViewController{
+            destinationSegue.albumIds = album.id
         }
     }
     

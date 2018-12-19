@@ -14,6 +14,7 @@ kCopyright = "Copyright (c) 2018 ITS - Tutti i diritti Riservati";
 kWelcomeLabel = "Benvenuto, ";
 kLoginButton = "Accedi";
 kSignUpButton = "Registrati";
+kOrLabel = "Oppure";
 
 // Authentication Storyboard - LOGIN
 kLoginTitle = "Accedi";

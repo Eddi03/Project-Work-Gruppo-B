@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sZB-gk-hML">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,6 +126,7 @@
                     <navigationItem key="navigationItem" id="CJZ-9N-x2Y"/>
                     <connections>
                         <outlet property="loginButton" destination="CQ4-JP-tpJ" id="gkm-ND-Aeu"/>
+                        <outlet property="orLabel" destination="CgS-GS-rdH" id="NVX-E1-aEH"/>
                         <outlet property="registerButton" destination="ODZ-rX-lAK" id="HHA-dt-F42"/>
                         <outlet property="titleAppLabel" destination="Rb5-JL-83Q" id="i7c-Hd-qGn"/>
                         <outlet property="welcomeLabel" destination="t2F-07-sE6" id="rpc-77-3WK"/>
@@ -166,6 +167,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeAction:" destination="wsE-1e-CVY" eventType="editingDidBegin" id="gOp-zg-18P"/>
+                                    <action selector="eyeOffAction:" destination="wsE-1e-CVY" eventType="editingDidEnd" id="t31-e4-gjS"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tii-0b-rfb">
                                 <rect key="frame" x="25" y="229" width="325" height="40"/>
@@ -230,7 +235,8 @@
                                     <constraint firstAttribute="width" constant="26" id="GMI-Ug-vrF"/>
                                     <constraint firstAttribute="height" constant="24" id="OTV-dm-2oV"/>
                                 </constraints>
-                                <state key="normal" image="Eye Grey"/>
+                                <color key="tintColor" red="0.93432741119999996" green="0.13570952720000001" blue="0.1094629954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="Eye Gray"/>
                                 <connections>
                                     <action selector="showPasswordAction:" destination="wsE-1e-CVY" eventType="touchUpInside" id="S70-Ut-fcr"/>
                                 </connections>
@@ -278,6 +284,7 @@
                         <outlet property="loginButton" destination="tii-0b-rfb" id="FQY-F8-ah3"/>
                         <outlet property="navBarBack" destination="yW5-m7-37X" id="Lyw-jS-X3m"/>
                         <outlet property="navbarTitle" destination="yW5-m7-37X" id="5Cv-ob-FPO"/>
+                        <outlet property="orLabel" destination="V0n-KC-RzM" id="KKL-WU-o2I"/>
                         <outlet property="passwordField" destination="u3h-lB-17d" id="dsn-a6-NAH"/>
                         <outlet property="resetPasswordButton" destination="Nac-ne-l9h" id="zzG-U6-mrv"/>
                         <segue destination="mOt-A6-kQL" kind="show" identifier="segueToOptions" id="q38-Zx-U2c"/>
@@ -324,6 +331,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeOffAction:" destination="Ctk-q0-gBC" eventType="editingDidEnd" id="hTL-E8-lga"/>
+                                    <action selector="eyeOnAction:" destination="Ctk-q0-gBC" eventType="editingDidBegin" id="2u2-Vd-SeT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Conferma password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oIE-s8-MSH" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                 <rect key="frame" x="25" y="232" width="291" height="20"/>
@@ -335,6 +346,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeOffRepeatAction:" destination="Ctk-q0-gBC" eventType="editingDidEnd" id="xg1-tp-NQ5"/>
+                                    <action selector="eyeOnRepeatAction:" destination="Ctk-q0-gBC" eventType="editingDidBegin" id="iUX-oZ-3FX"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O3-M2-DXJ">
                                 <rect key="frame" x="25" y="284" width="325" height="40"/>
@@ -381,7 +396,7 @@
                                     <constraint firstAttribute="width" constant="26" id="IWU-Hd-rqG"/>
                                     <constraint firstAttribute="height" constant="24" id="aF2-GP-gJx"/>
                                 </constraints>
-                                <state key="normal" image="Eye Grey"/>
+                                <state key="normal" image="Eye Gray"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-xa-uuT">
                                 <rect key="frame" x="324" y="228" width="26" height="24"/>
@@ -389,7 +404,7 @@
                                     <constraint firstAttribute="height" constant="24" id="WPk-uF-JJU"/>
                                     <constraint firstAttribute="width" constant="26" id="kTb-5R-fMI"/>
                                 </constraints>
-                                <state key="normal" image="Eye Grey"/>
+                                <state key="normal" image="Eye Gray"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -606,7 +621,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Eye Grey" width="48" height="48"/>
+        <image name="Eye Gray" width="48" height="48"/>
         <image name="LoginImage" width="512" height="512"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
