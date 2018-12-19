@@ -239,17 +239,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
 }
 extension PhotoCollectionViewController: AddPhotoDelegate{
     func addPhoto() {
-        self.setupImages { (success) in
-            if success{
-                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint("aaa",self.images.count, self.imagesDiscarded.count)
-                self.convertImageToBrowser()
-                DispatchQueue.main.async {
-                    self.myCollectionView.reloadData()
-                }
-            }
-        }
+       myCollectionView.reloadData()
     }
     
     

@@ -33,9 +33,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction))
-        
-        myCollectionView.delegate=self
-        myCollectionView.dataSource=self
         myCollectionView.allowsMultipleSelection = true
         
     }
@@ -54,12 +51,16 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 if i == self.imagesToDiscard.count-1{
                     self.setupImages{ (success) in
                         if success{
-                            self.imagesToDiscard = []
-                            self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                            self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                            self.convertImageToBrowser()
-                            debugPrint("scarta",self.images.count, self.imagesDiscarded.count)
+                            
+                            
+                            self.myCollectionView.delegate=self
+                            self.myCollectionView.dataSource=self
                             DispatchQueue.main.async {
+                                self.imagesToDiscard = []
+                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                                self.convertImageToBrowser()
+                                debugPrint("scarta",self.images.count, self.imagesDiscarded.count)
                                 self.myCollectionView.reloadData()
                             }
                         }
@@ -154,11 +155,14 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         super.viewWillAppear(animated)
         self.setupImages{ (success) in
             if success{
-                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                debugPrint("aaa",self.images.count, self.imagesDiscarded.count)
-                self.convertImageToBrowser()
+                self.myCollectionView.delegate=self
+                self.myCollectionView.dataSource=self
                 DispatchQueue.main.async {
+                    self.imagesToDiscard = []
+                    self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                    self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                    self.convertImageToBrowser()
+                    debugPrint("aaaa",self.images.count, self.imagesDiscarded.count)
                     self.myCollectionView.reloadData()
                 }
                 
@@ -246,11 +250,15 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
                 self.setupImages{ (success) in
                     if success{
-                        self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                        self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                        self.convertImageToBrowser()
-                        debugPrint("togli scarto",self.images.count, self.imagesDiscarded.count)
+                        self.myCollectionView.delegate=self
+                        self.myCollectionView.dataSource=self
                         DispatchQueue.main.async {
+                            
+                            self.imagesToDiscard = []
+                            self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                            self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                            self.convertImageToBrowser()
+                            debugPrint("leva",self.images.count, self.imagesDiscarded.count)
                             self.myCollectionView.reloadData()
                         }
                     }
