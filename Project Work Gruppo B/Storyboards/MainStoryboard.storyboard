@@ -575,7 +575,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Cerca Qui" translatesAutoresizingMaskIntoConstraints="NO" id="FEp-nk-2rV">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Cerca Qui" translatesAutoresizingMaskIntoConstraints="NO" id="FEp-nk-2rV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
