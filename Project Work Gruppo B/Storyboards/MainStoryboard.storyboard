@@ -931,7 +931,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B7p-No-Cia"/>
-                                    <barButtonItem systemItem="compose" id="Q63-nO-ece"/>
+                                    <barButtonItem title="Archivia" id="ZUD-GM-q1e">
+                                        <connections>
+                                            <action selector="archiviaAction:" destination="sis-qU-jM9" id="cQi-Yf-wCU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
+                                    <barButtonItem systemItem="compose" id="Q63-nO-ece">
+                                        <connections>
+                                            <action selector="chatAction:" destination="sis-qU-jM9" id="zmT-nm-0aS"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -953,13 +963,29 @@
                         <outlet property="myCollectionView" destination="kQL-rW-11D" id="7vs-vK-RmQ"/>
                         <segue destination="5gf-a3-9uN" kind="show" identifier="segueToAddPhoto" id="bJq-ky-xUc"/>
                         <segue destination="NLY-rQ-r0c" kind="show" identifier="segueToAlbumDetails" id="sBK-We-11w"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="wcY-AB-box"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMO-fq-Cyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4230" y="-79"/>
         </scene>
-        <!--DettaglI Album View Controller-->
+        <!--Basic Chat View Controller-->
+        <scene sceneID="lh6-Ij-Rdg">
+            <objects>
+                <viewController id="ZBs-6D-Ao9" customClass="BasicChatViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nC3-Bb-9ff">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Imi-VU-8VC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4c3-Vk-jFW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3349.5999999999999" y="393.55322338830587"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="jOt-tk-tby">
             <objects>
                 <viewController id="NLY-rQ-r0c" customClass="DettaglIAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -1235,7 +1261,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qsJ-gf-eud"/>
-                                    <barButtonItem systemItem="compose" id="cVF-6s-kr7"/>
+                                    <barButtonItem title="Archivia" id="8a4-Wi-z33">
+                                        <connections>
+                                            <action selector="archiviaAction:" destination="Uuv-H2-PHi" id="Tbb-ZA-aYO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
+                                    <barButtonItem systemItem="compose" id="cVF-6s-kr7">
+                                        <connections>
+                                            <action selector="actionChat:" destination="Uuv-H2-PHi" id="sz0-DR-WHc"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -1257,6 +1293,7 @@
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
                         <segue destination="rZE-FN-jFn" kind="show" identifier="segueToAdminAlbumDetails" id="QtQ-V2-cRc"/>
+                        <segue destination="ZBs-6D-Ao9" kind="show" identifier="SegueBasicChatViewController" id="Hvb-XA-OU6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jO-uF-xi1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1398,7 +1435,8 @@
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NdE-aM-OgF"/>
+        <segue reference="Hvb-XA-OU6"/>
+        <segue reference="Q1r-01-TMn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.34263712167739868" green="0.36465829610824585" blue="0.83229595422744751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

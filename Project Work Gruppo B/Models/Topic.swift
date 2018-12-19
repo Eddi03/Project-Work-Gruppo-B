@@ -124,8 +124,4 @@ import RealmSwift
         return Array(albums)
     }
     
-//    func getAlbum(id: String) ->[String]{
-//        return Array(albums)
-//    }
-    
 }

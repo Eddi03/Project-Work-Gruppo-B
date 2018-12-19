@@ -94,19 +94,6 @@ class AddTopicViewController: UIViewController {
         topic = Topic(title: titleTopic, info: infoTopic)
         self.performSegue(withIdentifier: R.segue.addTopicViewController.segueToAddUser, sender: self)
         
-        
-        /*topic = Topic(title: titleAlbum, info: infoAlbum, completed: nil)
-         NetworkManager.addAlbum(album: album) { (success) in
-         if success{
-         self.album.save()
-         self.performSegue(withIdentifier: "segueToAddUserToAlbum", sender: self)
-         }else{
-         self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "operazione non riuscita"), animated: true, completion: nil)
-         }
-         
-         }
-         */
-        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddUsersTopicViewController{

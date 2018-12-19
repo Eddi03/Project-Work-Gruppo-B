@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0B7057CECCE54E5A94304BEA /* Pods_Project_Work_Gruppo_B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60745EA08D4615827C601718 /* Pods_Project_Work_Gruppo_B.framework */; };
+		374A871F21C9015F00F5F818 /* FirebaseChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A871E21C9015F00F5F818 /* FirebaseChat.swift */; };
+		374A872321C901C900F5F818 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A872221C901C900F5F818 /* Message.swift */; };
+		374A872521C905A900F5F818 /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A872421C905A900F5F818 /* Cryptor.swift */; };
+		374A872721C90FBD00F5F818 /* BasicChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A872621C90FBC00F5F818 /* BasicChatViewController.swift */; };
+		374A872921C90FD500F5F818 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A872821C90FD400F5F818 /* ChatViewController.swift */; };
+		374A872B21C9113400F5F818 /* GenericSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A872A21C9113300F5F818 /* GenericSettings.swift */; };
 		3756697E21B673A2003F1089 /* TopicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756697D21B673A2003F1089 /* TopicListViewController.swift */; };
 		3756698021B6A1F0003F1089 /* TopicTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756697F21B6A1F0003F1089 /* TopicTableViewCells.swift */; };
 		3756698221B6B405003F1089 /* AddTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3756698121B6B405003F1089 /* AddTopicViewController.swift */; };
@@ -73,6 +79,12 @@
 /* Begin PBXFileReference section */
 		12DAA032FF12C5F3DEA04CC8 /* Pods-Project Work Gruppo B.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Work Gruppo B.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B.debug.xcconfig"; sourceTree = "<group>"; };
 		20AE7E646B28A5D7C7532568 /* Pods-Project Work Gruppo B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Work Gruppo B.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Work Gruppo B/Pods-Project Work Gruppo B.release.xcconfig"; sourceTree = "<group>"; };
+		374A871E21C9015F00F5F818 /* FirebaseChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChat.swift; sourceTree = "<group>"; };
+		374A872221C901C900F5F818 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		374A872421C905A900F5F818 /* Cryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryptor.swift; sourceTree = "<group>"; };
+		374A872621C90FBC00F5F818 /* BasicChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicChatViewController.swift; sourceTree = "<group>"; };
+		374A872821C90FD400F5F818 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		374A872A21C9113300F5F818 /* GenericSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericSettings.swift; sourceTree = "<group>"; };
 		3756697D21B673A2003F1089 /* TopicListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListViewController.swift; sourceTree = "<group>"; };
 		3756697F21B6A1F0003F1089 /* TopicTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCells.swift; sourceTree = "<group>"; };
 		3756698121B6B405003F1089 /* AddTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +171,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374A871D21C8F73000F5F818 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				374A872621C90FBC00F5F818 /* BasicChatViewController.swift */,
+				374A872821C90FD400F5F818 /* ChatViewController.swift */,
+				374A871E21C9015F00F5F818 /* FirebaseChat.swift */,
+				374A872221C901C900F5F818 /* Message.swift */,
+				374A872421C905A900F5F818 /* Cryptor.swift */,
+				374A872A21C9113300F5F818 /* GenericSettings.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		3756697C21B67375003F1089 /* Topic */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +252,7 @@
 		6CB3171C21AE89EF0037FE62 /* Project Work Gruppo B */ = {
 			isa = PBXGroup;
 			children = (
+				374A871D21C8F73000F5F818 /* Chat */,
 				6CACF7FD21BEABE600E0ECB2 /* Localizable */,
 				7FFB574C21AED762002E8DB2 /* Models */,
 				7FFB575421AED7EF002E8DB2 /* Authentication */,
@@ -542,8 +568,11 @@
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
@@ -563,8 +592,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
@@ -589,11 +621,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				962A215F21B6A07A002727A4 /* AddPhotoViewController.swift in Sources */,
+				374A872521C905A900F5F818 /* Cryptor.swift in Sources */,
+				374A872B21C9113400F5F818 /* GenericSettings.swift in Sources */,
 				963C3E2521C18ACA0059E359 /* PhotoCollectionViewCells.swift in Sources */,
 				96377C4821B5653F009CADBD /* Photo.swift in Sources */,
 				7FE273B721B7EA91003CC4EA /* AccountViewController.swift in Sources */,
 				96377C4621B5653F009CADBD /* Album.swift in Sources */,
 				96F2122421C179FA0084B1E6 /* Image.swift in Sources */,
+				374A872321C901C900F5F818 /* Message.swift in Sources */,
 				7FFB575A21AED80C002E8DB2 /* RegisterViewController.swift in Sources */,
 				3756698221B6B405003F1089 /* AddTopicViewController.swift in Sources */,
 				7FFB575821AED80C002E8DB2 /* LoginViewController.swift in Sources */,
@@ -605,6 +640,7 @@
 				3756698A21B6CD94003F1089 /* AlbumTableViewCells.swift in Sources */,
 				6C82799521C90C0B0059F08A /* kTextFiledPlaceHolder.swift in Sources */,
 				3756698E21B6E5BF003F1089 /* AddUsersTopicViewController.swift in Sources */,
+				374A871F21C9015F00F5F818 /* FirebaseChat.swift in Sources */,
 				9614347721B7E87800A45C01 /* PhotoCollectionViewController.swift in Sources */,
 				7FFB575321AED7C2002E8DB2 /* NetworkManager.swift in Sources */,
 				3756698621B6CB60003F1089 /* AlbumListViewController.swift in Sources */,
@@ -614,12 +650,14 @@
 				6C5366BF21BFC7C2006FE583 /* InfoTopicViewController.swift in Sources */,
 				6CB3171E21AE89EF0037FE62 /* AppDelegate.swift in Sources */,
 				7FC61E6E21B6836300F42F15 /* StartViewController.swift in Sources */,
+				374A872721C90FBD00F5F818 /* BasicChatViewController.swift in Sources */,
 				7FFB574B21AED757002E8DB2 /* User.swift in Sources */,
 				7FFB575221AED7C2002E8DB2 /* GeneralUtils.swift in Sources */,
 				3756697E21B673A2003F1089 /* TopicListViewController.swift in Sources */,
 				7FFB575121AED7C2002E8DB2 /* Extension.swift in Sources */,
 				3756698021B6A1F0003F1089 /* TopicTableViewCells.swift in Sources */,
 				96377C3E21AEE094009CADBD /* R.generated.swift in Sources */,
+				374A872921C90FD500F5F818 /* ChatViewController.swift in Sources */,
 				96377C3A21AEDCD7009CADBD /* RealmUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,14 +24,15 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     var discarding : Bool = false
     private var barButtonItem : UIBarButtonItem!
     
+    @IBAction func actionChat(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction))
-        
-        myCollectionView.delegate=self
-        myCollectionView.dataSource=self
         myCollectionView.allowsMultipleSelection = true
         
     }
@@ -40,21 +41,34 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAdminAlbumDetails, sender: self)
     }
     @objc func saveAction(){
-        for img in imagesToDiscard{
-            DispatchQueue.main.async {
-                let photo = Photo.getPhotoById(id: img)
-                photo?.changeData(discarded: true)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
-                    
-                    self.setupImages()
+        self.navigationItem.rightBarButtonItem = nil
+        self.discardImagesOutlet.tintColor = UIColor.blue
+        self.discarding = false
+        for i in 0...imagesToDiscard.count-1{
+            let photo = Photo.getPhotoById(id: self.imagesToDiscard[i])
+            photo?.changeData(discarded: true)
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                if i == self.imagesToDiscard.count-1{
+                    self.setupImages{ (success) in
+                        if success{
+                            
+                            
+                            self.myCollectionView.delegate=self
+                            self.myCollectionView.dataSource=self
+                            DispatchQueue.main.async {
+                                self.imagesToDiscard = []
+                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                                self.convertImageToBrowser()
+                                debugPrint("scarta",self.images.count, self.imagesDiscarded.count)
+                                self.myCollectionView.reloadData()
+                            }
+                        }
+                    }
                 }
             }
+            
         }
-        
-        self.navigationItem.rightBarButtonItem = nil
-        discardImagesOutlet.tintColor = UIColor.blue
-        imagesToDiscard = []
-        discarding = false
     }
     
     @IBAction func discardImagesAction(_ sender: Any) {
@@ -110,47 +124,50 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             self.imagesToBrowser.append(imageToBrowser)
         }
     }
-    func setupImages(){
+    func setupImages(completion: @escaping (Bool)->Void){
         NetworkManager.getPhotos(completion: {   success in
             if success {
-                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.images = []
+                self.imagesDiscarded = []
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id)
                 if !(photos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in photos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
-                                img.save()
-                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                                self.convertImageToBrowser()
-                                self.myCollectionView.reloadData()
-                            })
-                        }
+                    for i in 0...photos.count-1{
+                        
+                        NetworkManager.dowloadImage(withURL: photos[i].image!, completion: { (image) in
+                            let img = Image(image: image?.pngData(), info: photos[i].info, discarded: photos[i].discarded, id: photos[i].id)
+                            img.save()
+                            if i == photos.count-1{
+                                completion(true)
+                            }
+                        })
                     }
                 }
-                let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                if !(discardedPhotos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in discardedPhotos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info,discarded: true, id: i.id)
-                                img.save()
-                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                                self.myCollectionView.reloadData()
-                            })
-                        }
-                    }
+                else{
+                    completion(false)
                 }
             }else{
+                completion(false)
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myCollectionView.reloadData()
-        setupImages()
+        self.setupImages{ (success) in
+            if success{
+                self.myCollectionView.delegate=self
+                self.myCollectionView.dataSource=self
+                DispatchQueue.main.async {
+                    self.imagesToDiscard = []
+                    self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                    self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                    self.convertImageToBrowser()
+                    debugPrint("aaaa",self.images.count, self.imagesDiscarded.count)
+                    self.myCollectionView.reloadData()
+                }
+                
+            }
+        }
     }
     
     
@@ -196,7 +213,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                 }
                 else{
                     cell.isSelected=false
-                    cell.checkedImage.image = (UIImage(named: "UnChecked"))
+                    cell.checkedImage.image = (UIImage(named: "UnCheckedPhoto"))
                 }}
             return cell}
         if indexPath.section == 2{
@@ -218,19 +235,36 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         
         //add the selected cell contents to _selectedCells arr when cell is selected
-        if indexPath.section == 1 && discarding{
-            imagesToDiscard.append(images[indexPath.item].id)
-            debugPrint(imagesToDiscard[0])
-            collectionView.reloadItems(at: [indexPath])
+        if indexPath.section == 1 {
+            if discarding{
+                imagesToDiscard.append(images[indexPath.item].id)
+                debugPrint(imagesToDiscard[0])
+                collectionView.reloadItems(at: [indexPath])
+            }
+            else{
+                let browser = SKPhotoBrowser(photos: imagesToBrowser, initialPageIndex: indexPath.row)
+                present(browser, animated: true, completion: {})
+            }
         }
         if indexPath.section == 3 && !discarding{
-            DispatchQueue.main.async {
-                let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
-                photo?.changeData(discarded: false)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
-                    self.setupImages()
+            let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
+            photo?.changeData(discarded: false)
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                self.setupImages{ (success) in
+                    if success{
+                        self.myCollectionView.delegate=self
+                        self.myCollectionView.dataSource=self
+                        DispatchQueue.main.async {
+                            
+                            self.imagesToDiscard = []
+                            self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                            self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                            self.convertImageToBrowser()
+                            debugPrint("leva",self.images.count, self.imagesDiscarded.count)
+                            self.myCollectionView.reloadData()
+                        }
+                    }
                 }
-                
             }
         }
     }
@@ -289,6 +323,10 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         if let destinationSegue = segue.destination as? DetailAdminAlbumViewController{
             destinationSegue.topic = topic
             destinationSegue.album = album
+        }
+
+        if let destinationSegue = segue.destination as? BasicChatViewController{
+            destinationSegue.albumIds = album.id
         }
     }
     

@@ -60,6 +60,21 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>MessageInputBar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>MessageKit-MessageKitAssets.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
+		</dict>
+		<key>MessageKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>Pods-Project Work Gruppo B.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -80,6 +95,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>18</integer>
+		</dict>
+		<key>RNCryptor.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>26</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>

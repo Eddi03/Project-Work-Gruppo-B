@@ -126,7 +126,7 @@ class NetworkManager : NSObject{
                     do{
                         debugPrint(document)
                         try FirebaseDecoder().decode(User.self, from: document).save()
-                        debugPrint(User.getUserById(withid: uid)!)
+                        debugPrint(User.getUserById(withid: uid))
                         completion(true)
                     }catch{
                         print(error)
@@ -168,10 +168,7 @@ class NetworkManager : NSObject{
             }
             
             guard let user = authResult?.user else {
-                //VICTOR DICE CHE E' INUTILE
-                /*
-                UIApplication.topViewController()?.present(GeneralUtils.share.alertError(title: "Error", message: error?.localizedDescription), animated: true, completion: nil)
-                */
+               
                 completion(false)
                 return
             }
@@ -489,10 +486,7 @@ class NetworkManager : NSObject{
                 
                 addTopic(topic: topic, completion: {success in
                     if success{
-                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum, discarded: true){
-                            photo.delete()
-                        }
-                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum, discarded: false){
+                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum){
                             photo.delete()
                         }
                         Album.getAlbumById(id: idAlbum)?.delete()
