@@ -44,18 +44,9 @@ class LoginViewController: UIViewController {
         if gesture.state == UIGestureRecognizer.State.began {
             passwordField.isSecureTextEntry = false
             
-            //BOTTONE PREMUTO
+            let img = UIImage(named: "Eye")
             
-//            let blu = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
-//            let origImage = UIImage(named: "Eye Grey")
-//            let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
-//            tintedImage?.maskWithColor(color: blu)
-//            buttonShowPassword.setImage(tintedImage, for: .normal)
-//            buttonShowPassword.tintColor = blu
-            
-          //  buttonShowPassword.tintColor = .red
-           // buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
-         //   buttonShowPassword.setImage(tintedImage, for: .normal)
+            buttonShowPassword.setImage(img, for: .normal)
             
             print("PRE MEN DO")
         }else{
@@ -64,7 +55,7 @@ class LoginViewController: UIViewController {
                 
                 //BOTTONE NON PREMUTO
                 
-                let origImage = UIImage(named: "Eye Grey")
+                let origImage = UIImage(named: "Eye Gray")
                
                 buttonShowPassword.setImage(origImage, for: .normal)
                 

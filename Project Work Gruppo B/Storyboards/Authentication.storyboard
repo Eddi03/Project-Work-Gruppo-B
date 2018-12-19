@@ -236,7 +236,7 @@
                                     <constraint firstAttribute="height" constant="24" id="OTV-dm-2oV"/>
                                 </constraints>
                                 <color key="tintColor" red="0.93432741119999996" green="0.13570952720000001" blue="0.1094629954" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="Eye Grey"/>
+                                <state key="normal" image="Eye Gray"/>
                                 <connections>
                                     <action selector="showPasswordAction:" destination="wsE-1e-CVY" eventType="touchUpInside" id="S70-Ut-fcr"/>
                                 </connections>
@@ -331,6 +331,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeOffAction:" destination="Ctk-q0-gBC" eventType="editingDidEnd" id="hTL-E8-lga"/>
+                                    <action selector="eyeOnAction:" destination="Ctk-q0-gBC" eventType="editingDidBegin" id="2u2-Vd-SeT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Conferma password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oIE-s8-MSH" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
                                 <rect key="frame" x="25" y="232" width="291" height="20"/>
@@ -342,6 +346,10 @@
                                         <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eyeOffRepeatAction:" destination="Ctk-q0-gBC" eventType="editingDidEnd" id="xg1-tp-NQ5"/>
+                                    <action selector="eyeOnRepeatAction:" destination="Ctk-q0-gBC" eventType="editingDidBegin" id="iUX-oZ-3FX"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7O3-M2-DXJ">
                                 <rect key="frame" x="25" y="284" width="325" height="40"/>
@@ -388,7 +396,7 @@
                                     <constraint firstAttribute="width" constant="26" id="IWU-Hd-rqG"/>
                                     <constraint firstAttribute="height" constant="24" id="aF2-GP-gJx"/>
                                 </constraints>
-                                <state key="normal" image="Eye"/>
+                                <state key="normal" image="Eye Gray"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-xa-uuT">
                                 <rect key="frame" x="324" y="228" width="26" height="24"/>
@@ -396,7 +404,7 @@
                                     <constraint firstAttribute="height" constant="24" id="WPk-uF-JJU"/>
                                     <constraint firstAttribute="width" constant="26" id="kTb-5R-fMI"/>
                                 </constraints>
-                                <state key="normal" image="Eye"/>
+                                <state key="normal" image="Eye Gray"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -613,8 +621,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Eye" width="384" height="384"/>
-        <image name="Eye Grey" width="48" height="48"/>
+        <image name="Eye Gray" width="48" height="48"/>
         <image name="LoginImage" width="512" height="512"/>
         <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
