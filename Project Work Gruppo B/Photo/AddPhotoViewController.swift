@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+protocol AddPhotoDelegate{
+    func addPhoto()
+}
 class AddPhotoViewController: UIViewController {
+    
     private var pickerController:UIImagePickerController?
 
     @IBOutlet var textOutlet: UITextField!
     @IBOutlet var imageOutlet: UIButton!
     @IBOutlet weak var addOutlet: UIButton!
+    var addPhotoDelegate : AddPhotoDelegate!
     var topic : Topic!
     var album : Album!
     var imagePhoto : Data?
@@ -46,7 +50,10 @@ class AddPhotoViewController: UIViewController {
         NetworkManager.uploadPhoto(withData: imagePhoto!, topicId: topic.id, albumId: album.id, photoId: id) { (URLImage) in
             let photo = Photo(image: URLImage, info: self.textOutlet.text ?? "", discarded: false,id: id)
             NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo, updateTopic: false,updateAlbum: updateAlbum, completion: { (success) in
-                self.navigationController?.popViewController(animated: true)
+                if success{
+                    self.addPhotoDelegate.addPhoto()
+                    self.navigationController?.popViewController(animated: true)
+                }
             })
 
             }

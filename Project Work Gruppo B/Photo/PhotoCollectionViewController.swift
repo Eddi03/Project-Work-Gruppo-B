@@ -74,10 +74,22 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCollectionView.reloadData()
-        setupImages()
+        self.setupImages{ (success) in
+            if success{
+                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                debugPrint("aaa",self.images.count, self.imagesDiscarded.count)
+                self.convertImageToBrowser()
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+                
+            }
+        }
         
     }
-    func setupImages(){
+    
+    func setupImages(completion: @escaping (Bool)->Void){
         NetworkManager.getPhotos(completion: {   success in
             if success {
                 self.images = []
@@ -90,20 +102,20 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
                             let img = Image(image: image?.pngData(), info: photos[i].info, discarded: photos[i].discarded, id: photos[i].id)
                             img.save()
                             if i == photos.count-1{
-                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                                self.convertImageToBrowser()
-                                self.myCollectionView.reloadData()
+                                completion(true)
                             }
                         })
                     }
                 }
+                else{
+                    completion(false)
+                }
             }else{
+                completion(false)
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
     }
-    
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -213,19 +225,35 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         if let destinationSegue = segue.destination as? AddPhotoViewController{
             destinationSegue.album = album
             destinationSegue.topic = topic
+            destinationSegue.addPhotoDelegate = self
             if let scarted = scartedImage{
                 destinationSegue.scarted = scarted
             }
         }
-        if let destinationn = segue.destination as? BasicChatViewController{
-            debugPrint(album.id)
-            destinationn.albumIds = album.id
+        if let destinationSegue = segue.destination as? BasicChatViewController{
+            destinationSegue.albumIds = album.id
         }
     }
     
     
 }
-
+extension PhotoCollectionViewController: AddPhotoDelegate{
+    func addPhoto() {
+        self.setupImages { (success) in
+            if success{
+                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                debugPrint("aaa",self.images.count, self.imagesDiscarded.count)
+                self.convertImageToBrowser()
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+}
 
 //
 //struct DeviceInfo {
