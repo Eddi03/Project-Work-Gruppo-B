@@ -74,45 +74,48 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCollectionView.reloadData()
+        self.setupImages{ (success) in
+            if success{
+                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                debugPrint("aaa",self.images.count, self.imagesDiscarded.count)
+                self.convertImageToBrowser()
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
+                
+            }
+        }
+        
+    }
+    
+    func setupImages(completion: @escaping (Bool)->Void){
         NetworkManager.getPhotos(completion: {   success in
             if success {
-                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.images = []
+                self.imagesDiscarded = []
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id)
                 if !(photos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in photos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
-                                img.save()
-                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                                self.convertImageToBrowser()
-                                self.myCollectionView.reloadData()
-                            })
-                        }
+                    for i in 0...photos.count-1{
+                        
+                        NetworkManager.dowloadImage(withURL: photos[i].image!, completion: { (image) in
+                            let img = Image(image: image?.pngData(), info: photos[i].info, discarded: photos[i].discarded, id: photos[i].id)
+                            img.save()
+                            if i == photos.count-1{
+                                completion(true)
+                            }
+                        })
                     }
                 }
-                let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                if !(discardedPhotos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in discardedPhotos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info,discarded: true, id: i.id)
-                                img.save()
-                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                                self.myCollectionView.reloadData()
-                            })
-                        }
-                    }
+                else{
+                    completion(false)
                 }
             }else{
+                completion(false)
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
-        
-
     }
-    
     
     //MARK: CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -222,19 +225,25 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         if let destinationSegue = segue.destination as? AddPhotoViewController{
             destinationSegue.album = album
             destinationSegue.topic = topic
+            destinationSegue.addPhotoDelegate = self
             if let scarted = scartedImage{
                 destinationSegue.scarted = scarted
             }
         }
-        if let destinationn = segue.destination as? BasicChatViewController{
-            debugPrint(album.id)
-            destinationn.albumIds = album.id
+        if let destinationSegue = segue.destination as? BasicChatViewController{
+            destinationSegue.albumIds = album.id
         }
     }
     
     
 }
-
+extension PhotoCollectionViewController: AddPhotoDelegate{
+    func addPhoto() {
+       myCollectionView.reloadData()
+    }
+    
+    
+}
 
 //
 //struct DeviceInfo {
