@@ -17,6 +17,9 @@ class AddUsersTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

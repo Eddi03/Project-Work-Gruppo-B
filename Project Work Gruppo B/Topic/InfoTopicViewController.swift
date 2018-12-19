@@ -36,6 +36,9 @@ class InfoTopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
 
         var idUser = NetworkManager.getMyID()
         var user = User.getUserById(withid: idUser!)

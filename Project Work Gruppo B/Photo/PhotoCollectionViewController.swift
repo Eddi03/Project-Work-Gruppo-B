@@ -31,7 +31,9 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
         
         myCollectionView.delegate=self
         myCollectionView.dataSource=self

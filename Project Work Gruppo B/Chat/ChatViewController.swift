@@ -36,6 +36,9 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()

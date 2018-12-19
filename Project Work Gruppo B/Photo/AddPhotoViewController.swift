@@ -22,8 +22,13 @@ class AddPhotoViewController: UIViewController {
     var album : Album!
     var imagePhoto : Data?
     var scarted : Image?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         if let scartedImage = scarted{
             imageOutlet.setImage(UIImage(data: scartedImage.image!), for: .normal)
             textOutlet.text = scartedImage.info

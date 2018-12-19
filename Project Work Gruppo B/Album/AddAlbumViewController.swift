@@ -35,8 +35,9 @@ class AddAlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
         
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func saveAction(_ sender: Any) {

@@ -14,6 +14,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         showPasswordButton.isHidden = true
         showConfirmPasswordButton.isHidden = true
         

@@ -53,7 +53,9 @@ class AddTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
     }
     
     

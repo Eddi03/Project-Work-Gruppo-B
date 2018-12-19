@@ -26,6 +26,9 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         //let spinner = UIViewController.displaySpinner(onView: self.view)
         
         self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;

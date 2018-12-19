@@ -50,6 +50,9 @@ class SaveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         //self.title = R.string.localizable.kNavBarFinishSignUpTitle()
         self.navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
         

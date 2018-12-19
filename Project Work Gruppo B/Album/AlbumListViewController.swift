@@ -43,6 +43,10 @@ class AlbumListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         //albums.append(Album(title: "Coop", info: "cnd hduif", completed: nil))
        search.delegate = self
       

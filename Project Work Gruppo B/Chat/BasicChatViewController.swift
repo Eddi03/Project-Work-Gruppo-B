@@ -53,6 +53,10 @@ final class BasicChatViewController: ChatViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let navBar = self.navigationController?.navigationBar
+        navBar?.barTintColor = UIColor.white
+        
         debugPrint(albumIds)
         self.albumId = albumIds
         print(self.albumId)
