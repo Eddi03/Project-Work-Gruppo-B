@@ -23,9 +23,9 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     var imagesToDiscard = [String]()
     var discarding : Bool = false
     private var barButtonItem : UIBarButtonItem!
-
+    
     @IBAction func actionChat(_ sender: Any) {
-          self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
+        self.performSegue(withIdentifier: "SegueBasicChatViewController", sender: self)
     }
     
     
@@ -33,9 +33,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction))
-        
-        myCollectionView.delegate=self
-        myCollectionView.dataSource=self
         myCollectionView.allowsMultipleSelection = true
         
     }
@@ -44,21 +41,34 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         self.performSegue(withIdentifier: R.segue.adminPhotoCollectionViewController.segueToAdminAlbumDetails, sender: self)
     }
     @objc func saveAction(){
-        for img in imagesToDiscard{
-            DispatchQueue.main.async {
-                let photo = Photo.getPhotoById(id: img)
-                photo?.changeData(discarded: true)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
-                    
-                    self.setupImages()
+        self.navigationItem.rightBarButtonItem = nil
+        self.discardImagesOutlet.tintColor = UIColor.blue
+        self.discarding = false
+        for i in 0...imagesToDiscard.count-1{
+            let photo = Photo.getPhotoById(id: self.imagesToDiscard[i])
+            photo?.changeData(discarded: true)
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                if i == self.imagesToDiscard.count-1{
+                    self.setupImages{ (success) in
+                        if success{
+                            
+                            
+                            self.myCollectionView.delegate=self
+                            self.myCollectionView.dataSource=self
+                            DispatchQueue.main.async {
+                                self.imagesToDiscard = []
+                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                                self.convertImageToBrowser()
+                                debugPrint("scarta",self.images.count, self.imagesDiscarded.count)
+                                self.myCollectionView.reloadData()
+                            }
+                        }
+                    }
                 }
             }
+            
         }
-        
-        self.navigationItem.rightBarButtonItem = nil
-        discardImagesOutlet.tintColor = UIColor.blue
-        imagesToDiscard = []
-        discarding = false
     }
     
     @IBAction func discardImagesAction(_ sender: Any) {
@@ -77,32 +87,32 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     }
     
     @IBAction func archiviaAction(_ sender: Any) {
-        //lo fa solo se prima l'operatore ha messo completed a true
-        if album.completed {
-            
-            let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
-            let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
-            alert.addAction(actionNo)
-            alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
-                NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
-                    if success {
-                        print("eliminato il completed album")
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                })
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
-                self.album.changeData(completed: false)
-                NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
-                    if success {
-                        print("modificato il completed album")
-                    }
-                })
-                
-            }))
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+//        //lo fa solo se prima l'operatore ha messo completed a true
+//        if album.completed {
+//            
+//        let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
+//        let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
+//        alert.addAction(actionNo)
+//        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+//            NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
+//                if success {
+//                    print("eliminato il completed album")
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+//            self.album.changeData(completed: false)
+//            NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
+//                if success {
+//                    print("modificato il completed album")
+//                }
+//            })
+//            
+//        }))
+//        
+//        self.present(alert, animated: true, completion: nil)
+//        }
     }
     
     
@@ -114,47 +124,50 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             self.imagesToBrowser.append(imageToBrowser)
         }
     }
-    func setupImages(){
+    func setupImages(completion: @escaping (Bool)->Void){
         NetworkManager.getPhotos(completion: {   success in
             if success {
-                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.images = []
+                self.imagesDiscarded = []
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id)
                 if !(photos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in photos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
-                                img.save()
-                                self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
-                                self.convertImageToBrowser()
-                                self.myCollectionView.reloadData()
-                            })
-                        }
+                    for i in 0...photos.count-1{
+                        
+                        NetworkManager.dowloadImage(withURL: photos[i].image!, completion: { (image) in
+                            let img = Image(image: image?.pngData(), info: photos[i].info, discarded: photos[i].discarded, id: photos[i].id)
+                            img.save()
+                            if i == photos.count-1{
+                                completion(true)
+                            }
+                        })
                     }
                 }
-                let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                if !(discardedPhotos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in discardedPhotos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info,discarded: true, id: i.id)
-                                img.save()
-                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                                self.myCollectionView.reloadData()
-                            })
-                        }
-                    }
+                else{
+                    completion(false)
                 }
             }else{
+                completion(false)
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myCollectionView.reloadData()
-        setupImages()
+        self.setupImages{ (success) in
+            if success{
+                self.myCollectionView.delegate=self
+                self.myCollectionView.dataSource=self
+                DispatchQueue.main.async {
+                    self.imagesToDiscard = []
+                    self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                    self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                    self.convertImageToBrowser()
+                    debugPrint("aaaa",self.images.count, self.imagesDiscarded.count)
+                    self.myCollectionView.reloadData()
+                }
+                
+            }
+        }
     }
     
     
@@ -175,12 +188,13 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     func updateLabelSize(cell : LabelItemCell!){
         let maxSize = CGSize(width: myCollectionView.frame.width, height: 40)
         let size = cell.text.sizeThatFits(maxSize)
-        cell.text.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        cell.text.frame = CGRect(origin: CGPoint(x: 10, y: 10), size: size)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "NORMALE O QUASI"
+            cell.text.text = "Foto caricate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
@@ -204,7 +218,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
-            cell.text.text = "SCARTO"
+            cell.text.text = "Foto scartate"
+            cell.text.textColor = UIColor.darkGray
             updateLabelSize(cell: cell)
             return cell
         }
@@ -232,13 +247,24 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             }
         }
         if indexPath.section == 3 && !discarding{
-            DispatchQueue.main.async {
-                let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
-                photo?.changeData(discarded: false)
-                NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
-                    self.setupImages()
+            let photo = Photo.getPhotoById(id: self.imagesDiscarded[indexPath.item].id)
+            photo?.changeData(discarded: false)
+            NetworkManager.addPhoto(topic: self.topic, album: self.album, photo: photo!, updateTopic: false, updateAlbum: false) { (success) in
+                self.setupImages{ (success) in
+                    if success{
+                        self.myCollectionView.delegate=self
+                        self.myCollectionView.dataSource=self
+                        DispatchQueue.main.async {
+                            
+                            self.imagesToDiscard = []
+                            self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                            self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
+                            self.convertImageToBrowser()
+                            debugPrint("leva",self.images.count, self.imagesDiscarded.count)
+                            self.myCollectionView.reloadData()
+                        }
+                    }
                 }
-                
             }
         }
     }
@@ -294,9 +320,13 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationn = segue.destination as? BasicChatViewController{
-            debugPrint(album.id)
-            destinationn.albumIds = album.id
+        if let destinationSegue = segue.destination as? DetailAdminAlbumViewController{
+            destinationSegue.topic = topic
+            destinationSegue.album = album
+        }
+
+        if let destinationSegue = segue.destination as? BasicChatViewController{
+            destinationSegue.albumIds = album.id
         }
     }
     

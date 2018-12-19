@@ -54,15 +54,13 @@ import RealmSwift
         return realm.object(ofType: Photo.self, forPrimaryKey: id)
     }
     
-    static func getPhotoFromAlbum(idCurrentAlbum: String,discarded: Bool) ->[Photo]{
+    static func getPhotoFromAlbum(idCurrentAlbum: String) ->[Photo]{
         var listaPhotoOfCurrentAlbum : [Photo] = []
         for album in Album.all(){
             if idCurrentAlbum == album.id{
                 for idPhoto in album.getPhotos(){
                     if let photo = Photo.getPhotoById(id: idPhoto){
-                        if photo.discarded == discarded{
-                            listaPhotoOfCurrentAlbum.append(photo)
-                        }
+                        listaPhotoOfCurrentAlbum.append(photo)
                     }
                 }
             }

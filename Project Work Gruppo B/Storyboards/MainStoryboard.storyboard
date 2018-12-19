@@ -145,7 +145,7 @@
                                     <outlet property="delegate" destination="ABr-h1-HAy" id="cqm-uJ-JbD"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" text="" placeholder="Cerca Album" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-Bc-4oy">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Cerca Album" translatesAutoresizingMaskIntoConstraints="NO" id="cLY-Bc-4oy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -193,10 +193,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Cerca Topic" translatesAutoresizingMaskIntoConstraints="NO" id="qMb-1w-rcq">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Cerca Topic" translatesAutoresizingMaskIntoConstraints="NO" id="qMb-1w-rcq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <color key="barTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-dO-sOe">
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
@@ -571,7 +575,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" text="" placeholder="Cerca Qui" translatesAutoresizingMaskIntoConstraints="NO" id="FEp-nk-2rV">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Cerca Qui" translatesAutoresizingMaskIntoConstraints="NO" id="FEp-nk-2rV">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -612,14 +616,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="puU-9X-5cU">
-                                                    <rect key="frame" x="16" y="10" width="100" height="100"/>
+                                                    <rect key="frame" x="16" y="22.5" width="75" height="75"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="ChZ-lc-NJp"/>
-                                                        <constraint firstAttribute="width" constant="100" id="nlM-t4-lVI"/>
+                                                        <constraint firstAttribute="height" constant="75" id="ChZ-lc-NJp"/>
+                                                        <constraint firstAttribute="width" constant="75" id="nlM-t4-lVI"/>
                                                     </constraints>
                                                 </imageView>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="utente" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWk-rl-Qot">
-                                                    <rect key="frame" x="148" y="49" width="56" height="22"/>
+                                                    <rect key="frame" x="123" y="49" width="56" height="22"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -984,7 +988,7 @@
         <!--View Controller-->
         <scene sceneID="jOt-tk-tby">
             <objects>
-                <viewController id="NLY-rQ-r0c" sceneMemberID="viewController">
+                <viewController id="NLY-rQ-r0c" customClass="DettaglIAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDr-f9-ueN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1028,6 +1032,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="archiviaAlbumAction:" destination="NLY-rQ-r0c" eventType="touchUpInside" id="tVw-Mf-4Va"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato da: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-7A-9i4">
                                 <rect key="frame" x="25" y="294" width="325" height="24"/>
@@ -1090,11 +1097,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed">
-                                <rect key="frame" x="25" y="315" width="325" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
+                                <rect key="frame" x="25" y="315" width="325" height="20"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                        <color key="value" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-fn-NyI">
                                 <rect key="frame" x="99.5" y="89" width="176" height="176"/>
@@ -1108,7 +1120,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="25" y="348" width="325" height="40"/>
+                                <rect key="frame" x="25" y="351" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
@@ -1126,7 +1138,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
-                                <rect key="frame" x="25" y="331" width="325" height="1"/>
+                                <rect key="frame" x="25" y="334" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
@@ -1288,10 +1300,10 @@
             </objects>
             <point key="canvasLocation" x="4229.6000000000004" y="802.848575712144"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Admin Album View Controller-->
         <scene sceneID="A86-Dn-L1H">
             <objects>
-                <viewController id="rZE-FN-jFn" sceneMemberID="viewController">
+                <viewController id="rZE-FN-jFn" customClass="DetailAdminAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ic-tc-375">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1335,6 +1347,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deleteAlbumAction:" destination="rZE-FN-jFn" eventType="touchUpInside" id="Uj9-ZP-6VZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-cj-Vro">
                                 <rect key="frame" x="25" y="555" width="325" height="40"/>
@@ -1351,6 +1366,9 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="archiviaAlbumAction:" destination="rZE-FN-jFn" eventType="touchUpInside" id="opL-ah-DgJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato da: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhH-wZ-hAl">
                                 <rect key="frame" x="25" y="294" width="325" height="24"/>
@@ -1411,9 +1429,10 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61" height="48"/>
+        <image name="Folder Icon" width="61.5" height="48"/>
+        <image name="Photo Placeholder" width="175" height="175"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hvb-XA-OU6"/>

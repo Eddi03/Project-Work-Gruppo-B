@@ -486,10 +486,7 @@ class NetworkManager : NSObject{
                 
                 addTopic(topic: topic, completion: {success in
                     if success{
-                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum, discarded: true){
-                            photo.delete()
-                        }
-                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum, discarded: false){
+                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum){
                             photo.delete()
                         }
                         Album.getAlbumById(id: idAlbum)?.delete()

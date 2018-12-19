@@ -52,8 +52,8 @@ struct R: Rswift.Validatable {
   struct image {
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
-    /// Image `Eye Grey`.
-    static let eyeGrey = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye Grey")
+    /// Image `Eye Gray`.
+    static let eyeGray = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye Gray")
     /// Image `Eye`.
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye")
     /// Image `Folder Icon`.
@@ -74,9 +74,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.checked, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "Eye Grey", bundle: ..., traitCollection: ...)`
-    static func eyeGrey(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.eyeGrey, compatibleWith: traitCollection)
+    /// `UIImage(named: "Eye Gray", bundle: ..., traitCollection: ...)`
+    static func eyeGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.eyeGray, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "Eye", bundle: ..., traitCollection: ...)`
@@ -172,7 +172,7 @@ struct R: Rswift.Validatable {
       /// Segue identifier `SegueBasicChatViewController`.
       static let segueBasicChatViewController: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, BasicChatViewController> = Rswift.StoryboardSegueIdentifier(identifier: "SegueBasicChatViewController")
       /// Segue identifier `segueToAdminAlbumDetails`.
-      static let segueToAdminAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdminAlbumDetails")
+      static let segueToAdminAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, DetailAdminAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAdminAlbumDetails")
       
       /// Optionally returns a typed version of segue `SegueBasicChatViewController`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -184,7 +184,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `segueToAdminAlbumDetails`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAdminAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, UIKit.UIViewController>? {
+      static func segueToAdminAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, AdminPhotoCollectionViewController, DetailAdminAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.adminPhotoCollectionViewController.segueToAdminAlbumDetails, segue: segue)
       }
       
@@ -270,7 +270,7 @@ struct R: Rswift.Validatable {
       /// Segue identifier `segueToAddPhoto`.
       static let segueToAddPhoto: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, AddPhotoViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAddPhoto")
       /// Segue identifier `segueToAlbumDetails`.
-      static let segueToAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, UIKit.UIViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumDetails")
+      static let segueToAlbumDetails: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, PhotoCollectionViewController, DettaglIAlbumViewController> = Rswift.StoryboardSegueIdentifier(identifier: "segueToAlbumDetails")
       
       /// Optionally returns a typed version of segue `SegueBasicChatViewController`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
@@ -289,7 +289,7 @@ struct R: Rswift.Validatable {
       /// Optionally returns a typed version of segue `segueToAlbumDetails`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func segueToAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, UIKit.UIViewController>? {
+      static func segueToAlbumDetails(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, PhotoCollectionViewController, DettaglIAlbumViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.photoCollectionViewController.segueToAlbumDetails, segue: segue)
       }
       
@@ -446,7 +446,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 51 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 52 localization keys.
     struct localizable {
       /// en translation: Account
       /// 
@@ -572,6 +572,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en, it
       static let kAlertErrorOkButton = Rswift.StringResource(key: "kAlertErrorOkButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static let kOrLabel = Rswift.StringResource(key: "kOrLabel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en", "it"], comment: nil)
       /// en translation: Password
       /// 
       /// Locales: en, it
@@ -870,6 +874,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("kAlertErrorOkButton", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Or
+      /// 
+      /// Locales: en, it
+      static func kOrLabel(_: Void = ()) -> String {
+        return NSLocalizedString("kOrLabel", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Password
       /// 
       /// Locales: en, it
@@ -1060,7 +1071,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Eye Grey") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Grey' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Eye Gray") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Gray' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       
@@ -1094,6 +1105,7 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Photo Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "UnChecked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UnChecked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
