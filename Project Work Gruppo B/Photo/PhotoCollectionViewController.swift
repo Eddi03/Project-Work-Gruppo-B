@@ -74,43 +74,34 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         myCollectionView.reloadData()
+        setupImages()
+        
+    }
+    func setupImages(){
         NetworkManager.getPhotos(completion: {   success in
             if success {
-                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                self.images = []
+                self.imagesDiscarded = []
+                let photos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id)
                 if !(photos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in photos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info, discarded: false, id: i.id)
-                                img.save()
+                    for i in 0...photos.count-1{
+                        
+                        NetworkManager.dowloadImage(withURL: photos[i].image!, completion: { (image) in
+                            let img = Image(image: image?.pngData(), info: photos[i].info, discarded: photos[i].discarded, id: photos[i].id)
+                            img.save()
+                            if i == photos.count-1{
                                 self.images = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: false)
+                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
                                 self.convertImageToBrowser()
                                 self.myCollectionView.reloadData()
-                            })
-                        }
-                    }
-                }
-                let discardedPhotos = Photo.getPhotoFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                if !(discardedPhotos.isEmpty){
-                    DispatchQueue.main.async {
-                        for i in discardedPhotos{
-                            
-                            NetworkManager.dowloadImage(withURL: i.image!, completion: { (image) in
-                                let img = Image(image: image?.pngData(), info: i.info,discarded: true, id: i.id)
-                                img.save()
-                                self.imagesDiscarded = Image.getImageFromAlbum(idCurrentAlbum: self.album.id, discarded: true)
-                                self.myCollectionView.reloadData()
-                            })
-                        }
+                            }
+                        })
                     }
                 }
             }else{
                 GeneralUtils.share.alertError(title: "errore", message: "")
             }
         })
-        
-
     }
     
     
