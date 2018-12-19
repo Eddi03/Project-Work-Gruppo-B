@@ -67,9 +67,12 @@ class FirebaseChatDatabase: NSObject {
             
             guard let datas = snapshot.data()?.values else { completion(true); return }
             
-            for data in datas {
+            for (index, data) in datas.enumerated() {
                 do {
                     try FirebaseDecoder().decode(Message.self, from: data).save()
+                    if index == datas.count - 1 {
+                      completion(true)
+                    }
                 } catch let error {
                     UIApplication.topViewController()?.present(GeneralUtils.share.alertBuilder(title: "errore", message: error.localizedDescription, closeAction: { _ in
                         completion(false)
