@@ -95,6 +95,10 @@ internal struct Msg: MessageType {
         return Array(realm.objects(Message.self).sorted(by: { $0.sentDate.compare($1.sentDate) == .orderedAscending }))
     }
     
+    static func all2(in realm: Realm = try! Realm(configuration: RealmUtils.config), withTopic id: String) -> [Message] {
+        return Array(realm.objects(Message.self).filter({$0.idAlbum == id}).sorted(by: { $0.sentDate.compare($1.sentDate) == .orderedAscending }))
+    }
+    
     func remove(in realm: Realm = try! Realm()) {
         do {
             try realm.write {
@@ -111,11 +115,7 @@ internal struct Msg: MessageType {
                 //print(msg.sentDate)
             }
         }
-        //var dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        //listaMsg.sorted(by: { $0.sentDate < $1.sentDate  })
-        
-            return listaMsg
+        return listaMsg
     }
     
 }
