@@ -16,6 +16,7 @@ internal struct Msg: MessageType {
     var sender: Sender
     var sentDate: Date
     var kind: MessageKind
+
     
     private init(kind: MessageKind, sender: Sender, messageId: String, date: Date) {
         self.kind = kind

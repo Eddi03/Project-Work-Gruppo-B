@@ -47,6 +47,7 @@ class ChatViewController: MessagesViewController {
         
         FirebaseChatDatabase.listenerMessages(chanelID: albumId, directChat: false) { success in
             self.loadFirstMessages()
+            
         }
         
     }
