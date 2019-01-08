@@ -75,23 +75,6 @@ class AlbumListViewController: UIViewController {
     }
     
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-       
-            let archivia = archiviaAction(at: indexPath)
-            return UISwipeActionsConfiguration(actions: [archivia])
-        }
-        
-        func archiviaAction(at indexPath: IndexPath) -> UIContextualAction{
-            let album = albums[indexPath.row]
-            let action = UIContextualAction(style: .normal, title: "Archivia") { (action, view, completion) in
-                completion(true)
-            }
-           // action.image = 🗂
-            action.backgroundColor = .orange
-            return action
-            
-        }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationSegue = segue.destination as? AddAlbumViewController{
             destinationSegue.addAlbumDelegate = self
