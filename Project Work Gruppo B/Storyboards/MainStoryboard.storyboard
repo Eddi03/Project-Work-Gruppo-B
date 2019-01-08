@@ -931,12 +931,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="B7p-No-Cia"/>
-                                    <barButtonItem title="Archivia" id="ZUD-GM-q1e">
-                                        <connections>
-                                            <action selector="archiviaAction:" destination="sis-qU-jM9" id="cQi-Yf-wCU"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L2B-Jh-eKA"/>
                                     <barButtonItem systemItem="compose" id="Q63-nO-ece">
                                         <connections>
                                             <action selector="chatAction:" destination="sis-qU-jM9" id="zmT-nm-0aS"/>
@@ -985,7 +979,7 @@
             </objects>
             <point key="canvasLocation" x="3349.5999999999999" y="393.55322338830587"/>
         </scene>
-        <!--View Controller-->
+        <!--DettaglI Album View Controller-->
         <scene sceneID="jOt-tk-tby">
             <objects>
                 <viewController id="NLY-rQ-r0c" customClass="DettaglIAlbumViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -1261,12 +1255,6 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qsJ-gf-eud"/>
-                                    <barButtonItem title="Archivia" id="8a4-Wi-z33">
-                                        <connections>
-                                            <action selector="archiviaAction:" destination="Uuv-H2-PHi" id="Tbb-ZA-aYO"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="lvB-dK-Fie"/>
                                     <barButtonItem systemItem="compose" id="cVF-6s-kr7">
                                         <connections>
                                             <action selector="actionChat:" destination="Uuv-H2-PHi" id="sz0-DR-WHc"/>
@@ -1429,10 +1417,10 @@
     </scenes>
     <resources>
         <image name="Checked" width="243" height="243"/>
-        <image name="Folder Icon" width="61.5" height="48"/>
-        <image name="Photo Placeholder" width="175" height="175"/>
+        <image name="Folder Icon" width="61" height="48"/>
+        <image name="Photo Placeholder" width="262" height="262"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hvb-XA-OU6"/>

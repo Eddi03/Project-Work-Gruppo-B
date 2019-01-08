@@ -38,6 +38,7 @@ class AddPhotoViewController: UIViewController {
         
         guard imagePhoto != nil else{
             debugPrint("error")
+            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "seleziona una foto"), animated: true)
             return
         }
         
