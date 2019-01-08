@@ -49,6 +49,7 @@ class TopicListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        search.delegate = self
         self.tableView.reloadData()
         NetworkManager.getTopics{ (success) in
             if success {
