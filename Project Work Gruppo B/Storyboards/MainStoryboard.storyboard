@@ -1080,6 +1080,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZvJ-fS-iAd"/>
                     </view>
+                    <connections>
+                        <outlet property="creatoField" destination="Jd8-bg-53c" id="cac-1B-nVh"/>
+                        <outlet property="descrizioneField" destination="wbY-iW-ngZ" id="6hx-W9-NNb"/>
+                        <outlet property="titoloField" destination="x8x-Vv-fat" id="A9q-Ud-62x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sC-j6-a8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1411,6 +1416,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aS3-4C-yVa"/>
                     </view>
+                    <connections>
+                        <outlet property="creatoField" destination="IM6-AM-x3H" id="RK9-Ol-mBb"/>
+                        <outlet property="descrizioneField" destination="DIx-Cs-TmJ" id="uU4-Dg-Y5X"/>
+                        <outlet property="titoloField" destination="cN7-zK-wVm" id="SwB-QW-Ajc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oN8-Yb-pWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
