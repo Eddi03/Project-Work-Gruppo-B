@@ -27,8 +27,9 @@ import MapKit
 import MessageKit
 import MessageInputBar
 
+var blu: UIColor = UIColor(red: 89, green: 87, blue: 187, alpha: 0.5)
+
 final class BasicChatViewController: ChatViewController {
-  
     
     var albumIds : String!{
         didSet{
@@ -83,7 +84,7 @@ extension BasicChatViewController: MessagesDisplayDelegate {
     // MARK: - All Messages
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ?  UIColor.blue : UIColor.lightGray
+        return isFromCurrentSender(message: message) ?  .init(red: 89/255, green: 87/255, blue: 187/255, alpha: 1) : UIColor.lightGray
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
