@@ -84,7 +84,7 @@ extension BasicChatViewController: MessagesDisplayDelegate {
     // MARK: - All Messages
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ?  .init(red: 89/255, green: 87/255, blue: 187/255, alpha: 1) : UIColor.lightGray
+        return isFromCurrentSender(message: message) ?  .init(red: 115/255, green: 131/255, blue: 191/255, alpha: 1) : UIColor.lightGray
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
