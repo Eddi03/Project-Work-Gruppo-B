@@ -48,8 +48,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 11 images.
   struct image {
+    /// Image `Album Icon`.
+    static let albumIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Album Icon")
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
     /// Image `Eye Gray`.
@@ -62,12 +64,19 @@ struct R: Rswift.Validatable {
     static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
     /// Image `Photo Placeholder`.
     static let photoPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "Photo Placeholder")
+    /// Image `Topic Icon`.
+    static let topicIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Topic Icon")
     /// Image `UnCheckedList`.
     static let unCheckedList = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckedList")
     /// Image `UnCheckedPhoto`.
     static let unCheckedPhoto = Rswift.ImageResource(bundle: R.hostingBundle, name: "UnCheckedPhoto")
     /// Image `User Placeholder`.
     static let userPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "User Placeholder")
+    
+    /// `UIImage(named: "Album Icon", bundle: ..., traitCollection: ...)`
+    static func albumIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.albumIcon, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "Checked", bundle: ..., traitCollection: ...)`
     static func checked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -97,6 +106,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Photo Placeholder", bundle: ..., traitCollection: ...)`
     static func photoPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.photoPlaceholder, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Topic Icon", bundle: ..., traitCollection: ...)`
+    static func topicIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.topicIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "UnCheckedList", bundle: ..., traitCollection: ...)`
@@ -1103,10 +1117,11 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Album Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Album Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Folder Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Folder Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "Photo Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "UnChecked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UnChecked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Topic Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Topic Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
         if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
       }
