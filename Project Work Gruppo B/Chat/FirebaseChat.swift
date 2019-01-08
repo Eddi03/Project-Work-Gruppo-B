@@ -88,7 +88,7 @@ class FirebaseChatDatabase: NSObject {
         
         guard let id = NetworkManager.getMyID() else { completion(false); return }
         
-        messageListener = db.collection("Chat").document(chanelID).collection(directChat ? "Private" : "Tasks").whereField("topicId", isEqualTo: chanelID).addSnapshotListener { querySnapshot, error in
+        messageListener = db.collection("Chat").document(chanelID).collection(directChat ? "Private" : "Tasks").whereField("idAlbum", isEqualTo: chanelID).addSnapshotListener { querySnapshot, error in
         
                 guard let snapshot = querySnapshot else {
                 UIApplication.topViewController()?.present(GeneralUtils.share.alertBuilder(title:"Errore", message: error?.localizedDescription, closeAction: { _ in
