@@ -263,11 +263,11 @@ extension ChatViewController: MessageInputBarDelegate {
                     if success {
                         do {
                             let text = try Cryptor.share.decryptMessage(encryptedMessage: message.messageText)
-                            self.insertMessage(Msg(text: text, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
+                           // self.insertMessage(Msg(text: text, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
                             inputBar.inputTextView.text = String()
                             self.messagesCollectionView.scrollToBottom(animated: true)
                         } catch {
-                            self.insertMessage(Msg(text: message.messageText, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
+                            //self.insertMessage(Msg(text: message.messageText, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
                             inputBar.inputTextView.text = String()
                             self.messagesCollectionView.scrollToBottom(animated: true)
                         }
