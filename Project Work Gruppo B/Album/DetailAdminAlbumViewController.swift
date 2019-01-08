@@ -13,10 +13,19 @@ class DetailAdminAlbumViewController: UIViewController {
     var album : Album!
     var topic : Topic!
     
+    @IBOutlet weak var titoloField: UILabel!
+    
+    @IBOutlet weak var descrizioneField: UILabel!
+    
+    @IBOutlet weak var creatoField: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        titoloField.text = album.title
+        descrizioneField.text = album.info
+        creatoField.text = "Creato il: "+album.creationDate
     }
     
 
