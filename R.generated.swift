@@ -52,14 +52,14 @@ struct R: Rswift.Validatable {
   struct image {
     /// Image `Album Icon`.
     static let albumIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Album Icon")
+    /// Image `Archivied`.
+    static let archivied = Rswift.ImageResource(bundle: R.hostingBundle, name: "Archivied")
     /// Image `Checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "Checked")
     /// Image `Eye Gray`.
     static let eyeGray = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye Gray")
     /// Image `Eye`.
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye")
-    /// Image `Folder Icon`.
-    static let folderIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Folder Icon")
     /// Image `LoginImage`.
     static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
     /// Image `Photo Placeholder`.
@@ -78,6 +78,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.albumIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "Archivied", bundle: ..., traitCollection: ...)`
+    static func archivied(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.archivied, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "Checked", bundle: ..., traitCollection: ...)`
     static func checked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.checked, compatibleWith: traitCollection)
@@ -91,11 +96,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Eye", bundle: ..., traitCollection: ...)`
     static func eye(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.eye, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: "Folder Icon", bundle: ..., traitCollection: ...)`
-    static func folderIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.folderIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "LoginImage", bundle: ..., traitCollection: ...)`

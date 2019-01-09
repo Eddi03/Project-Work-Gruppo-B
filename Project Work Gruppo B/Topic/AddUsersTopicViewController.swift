@@ -12,6 +12,7 @@ class AddUsersTopicViewController: UIViewController {
     var addTopicDelegate : AddTopicDelegate!
     var users : [User] = []
     var usersToAdd : [String] = []
+    var currentUsers : [String] = []
     var topic : Topic!
     
     
@@ -25,6 +26,7 @@ class AddUsersTopicViewController: UIViewController {
             if success {
                 self.users = User.all()
                 self.removeCurrentUser()
+                self.getCurrentUsers()
                 print("lista utenti", self.users)
                 self.tableView.reloadData()
             }else{
@@ -32,6 +34,12 @@ class AddUsersTopicViewController: UIViewController {
             }
         })
     }
+    func getCurrentUsers(){
+        var a : [String] = []
+        a = topic.getUsers()
+        a.remove(at: a.firstIndex(of: NetworkManager.getMyID()!)!)
+        self.currentUsers = a
+        self.usersToAdd = a   }
     func removeCurrentUser(){
         var a : [User] = []
         let id = NetworkManager.getMyID()
@@ -48,6 +56,12 @@ class AddUsersTopicViewController: UIViewController {
     @IBAction func addTopicAction(_ sender: Any) {
         guard !usersToAdd.isEmpty else{
             return
+        }
+        for i in currentUsers{
+            guard let position = topic.getUsers().firstIndex(of: i) else{
+                return
+            }
+            topic.removeUser(index: position)
         }
         for i in usersToAdd{
             topic.addingUser(id: i)
@@ -91,7 +105,7 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
         cell.checkedImage.isHidden = false
         if usersToAdd.contains(users[indexPath.item].id) {
             cell.isSelected=true
-            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             cell.checkedImage.image = (UIImage(named: "Checked"))
         }
         else{

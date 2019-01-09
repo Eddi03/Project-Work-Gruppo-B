@@ -30,7 +30,7 @@ class AddPhotoViewController: UIViewController {
         }
         
         imageOutlet.clipsToBounds = true
-        imageOutlet.layer.cornerRadius = 88
+        imageOutlet.layer.cornerRadius = 8
         
         // Do any additional setup after loading the view.
     }

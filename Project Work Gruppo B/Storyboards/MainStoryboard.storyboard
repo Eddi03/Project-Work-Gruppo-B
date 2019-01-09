@@ -1018,7 +1018,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-5q-cOH">
                                 <rect key="frame" x="25" y="611" width="325" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.58012623595647583" blue="0.0128663158320097" alpha="0.81498822773972601" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Pzj-mO-EM2"/>
                                 </constraints>
@@ -1102,7 +1102,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
-                                <rect key="frame" x="25" y="315" width="325" height="20"/>
+                                <rect key="frame" x="25" y="314" width="325" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1113,10 +1113,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-fn-NyI">
-                                <rect key="frame" x="99.5" y="89" width="176" height="176"/>
+                                <rect key="frame" x="100" y="89" width="175" height="175"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="176" id="ILH-nw-xV8"/>
-                                    <constraint firstAttribute="height" constant="176" id="lad-4R-waw"/>
+                                    <constraint firstAttribute="width" constant="175" id="ILH-nw-xV8"/>
+                                    <constraint firstAttribute="height" constant="175" id="lad-4R-waw"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Photo Placeholder"/>
                                 <connections>
@@ -1124,7 +1124,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="25" y="351" width="325" height="40"/>
+                                <rect key="frame" x="25" y="350" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
@@ -1142,7 +1142,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
-                                <rect key="frame" x="25" y="334" width="325" height="1"/>
+                                <rect key="frame" x="25" y="333" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
@@ -1332,7 +1332,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hv-9h-p6e">
                                 <rect key="frame" x="25" y="611" width="325" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.1984674733" blue="0.12139435780000001" alpha="0.87673305459999995" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.30788288940000003" blue="0.34993078649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Xzf-7U-rMJ"/>
                                 </constraints>
@@ -1351,7 +1351,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2u-cj-Vro">
                                 <rect key="frame" x="25" y="555" width="325" height="40"/>
-                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.58012623600000002" blue="0.012866315830000001" alpha="0.81498822770000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="bnf-vA-mEr"/>
                                 </constraints>
@@ -1432,8 +1432,8 @@
     </scenes>
     <resources>
         <image name="Album Icon" width="75" height="75"/>
-        <image name="Checked" width="243" height="243"/>
-        <image name="Photo Placeholder" width="262" height="262"/>
+        <image name="Checked" width="66" height="66"/>
+        <image name="Photo Placeholder" width="325" height="325"/>
         <image name="Topic Icon" width="75" height="75"/>
         <image name="UnChecked" width="26" height="26"/>
         <image name="User Placeholder" width="256" height="256"/>

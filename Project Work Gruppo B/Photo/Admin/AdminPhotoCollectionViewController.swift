@@ -78,14 +78,11 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         }else{
         if discarding{
             discarding = false
-            discardImagesOutlet.tintColor = UIColor.green
             imagesToDiscard = []
             self.navigationItem.rightBarButtonItem = nil
         }
         else{
             discarding = true
-            discardImagesOutlet.tintColor = UIColor.blue
-            
             self.navigationItem.rightBarButtonItem = barButtonItem
             
         }

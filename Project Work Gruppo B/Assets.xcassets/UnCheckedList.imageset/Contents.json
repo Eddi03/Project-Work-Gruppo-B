@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "GroupUnCheck.png",
+      "filename" : "GroupUnCheckPhoto.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "GroupUnCheck-1.png",
+      "filename" : "GroupUnCheckPhoto-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "GroupUnCheck-2.png",
+      "filename" : "GroupUnCheckPhoto-2.png",
       "scale" : "3x"
     }
   ],
