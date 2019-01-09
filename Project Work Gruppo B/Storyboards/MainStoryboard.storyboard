@@ -136,6 +136,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="albumIcon" destination="CzI-DQ-xX9" id="71k-uK-13l"/>
                                             <outlet property="info" destination="Hpx-1B-5uO" id="XWp-5A-MP0"/>
                                             <outlet property="title" destination="Jbk-NB-qza" id="5xP-cY-eza"/>
                                         </connections>
@@ -1432,8 +1433,8 @@
     </scenes>
     <resources>
         <image name="Album Icon" width="75" height="75"/>
-        <image name="Checked" width="66" height="66"/>
-        <image name="Photo Placeholder" width="325" height="325"/>
+        <image name="Checked" width="33" height="33"/>
+        <image name="Photo Placeholder" width="162" height="162"/>
         <image name="Topic Icon" width="75" height="75"/>
         <image name="UnChecked" width="26" height="26"/>
         <image name="User Placeholder" width="256" height="256"/>

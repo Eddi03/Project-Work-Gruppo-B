@@ -10,8 +10,10 @@ import UIKit
 
 class AlbumTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var albumIcon: UIImageView!
     @IBOutlet weak var title: UITextField!
     @IBOutlet weak var info: UITextField!
+    
     static var kIdentifier = "AlbumTableViewCell"
     override func awakeFromNib() {
         super.awakeFromNib()
