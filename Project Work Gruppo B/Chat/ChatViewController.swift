@@ -253,8 +253,6 @@ extension ChatViewController: MessageInputBarDelegate {
     
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         
-        
-        
         for component in inputBar.inputTextView.components {
             
             if let str = component as? String {

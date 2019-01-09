@@ -55,9 +55,18 @@ class DetailAdminAlbumViewController: UIViewController {
             }))
             
             self.present(alert, animated: true, completion: nil)
+        }else{
+            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "non effettuare l'operazione se prima l'operatore non lo ha archiviato"), animated: true)
+            
         }
     }
 
     @IBAction func deleteAlbumAction(_ sender: Any) {
+        NetworkManager.deleteAlbum(topic: topic, idAlbum: album.id, completion: { success in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class InfoTopicViewController: UIViewController {
 
+    @IBOutlet weak var titoloField: UITextField!
     @IBOutlet weak var deleteOutlet: UIButton!
     @IBOutlet weak var editOutlet: UIButton!
     @IBAction func goToEditMembersAction(_ sender: UIButton) {
@@ -37,6 +38,8 @@ class InfoTopicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        titoloField.text = topic?.title
+        
         var idUser = NetworkManager.getMyID()
         var user = User.getUserById(withid: idUser!)
         

@@ -480,9 +480,16 @@ class NetworkManager : NSObject{
             } else {
                 print("Document successfully removed!")
 
-                let albums = Album.getAlbumFromTopic(idCurrentTopic: topic.id)
-                let albumm = albums.firstIndex(of: Album.getAlbumById(id: idAlbum)!)
-                topic.removeAlbum(index: albumm!)
+                var albums = Album.getAlbumFromTopic(idCurrentTopic: topic.id)
+                //let albumm = albums.firstIndex(of: Album.getAlbumById(id: idAlbum)!)
+                for i in 0..<albums.count{
+                    if albums[i].id! == idAlbum{
+                        topic.removeAlbum(index: i)
+                    }
+                }
+                
+                print("ALBUM ELIMINATO", Album.getAlbumById(id: idAlbum))
+                print("TOPIC MODIFICATO",topic)
                 
                 addTopic(topic: topic, completion: {success in
                     if success{
