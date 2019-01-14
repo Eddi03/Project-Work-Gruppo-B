@@ -19,29 +19,36 @@ class SaveViewController: UIViewController {
             navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
         }
     }
+    
     @IBOutlet weak var registerButton: UIButton!{
         didSet {
             registerButton.setTitle(R.string.localizable.kSignUpButton(), for: .normal)
         }
     }
+    
     @IBOutlet var imageOutlet: UIButton!
     @IBOutlet var emailOutlet: UITextField!
+    
     @IBOutlet var nameOutlet: UITextField!{
         didSet{
             nameOutlet.placeholder = R.string.localizable.kFinishSignUpName()
         }
     }
+    
     @IBOutlet weak var adminLabel: UILabel!{
         didSet {
             adminLabel.text = R.string.localizable.kSwitchAdmin()
         }
     }
+    
     @IBOutlet var surnameOutlet: UITextField!{
         didSet{
             surnameOutlet.placeholder = R.string.localizable.kFinischSignUpSurname()
         }
     }
+    
     @IBOutlet var supervisorOutlet: UISwitch!
+    
     var imageUser : Data?
     var email : String! = Auth.auth().currentUser?.email
     var id :String! = Auth.auth().currentUser?.uid
@@ -52,13 +59,9 @@ class SaveViewController: UIViewController {
         
         //self.title = R.string.localizable.kNavBarFinishSignUpTitle()
         self.navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
-        
         emailOutlet.text = email
-      
         self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;
         self.imageOutlet.clipsToBounds = true;
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addImageAction(_ sender: Any) {
@@ -66,7 +69,6 @@ class SaveViewController: UIViewController {
         self.pickerController = UIImagePickerController()
         self.pickerController!.delegate = self
         self.pickerController!.allowsEditing = true
-        
         let alert = UIAlertController(title: nil, message: "Foto profilo", preferredStyle: .actionSheet)
         let cancel = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
         alert.addAction(cancel)
@@ -76,6 +78,7 @@ class SaveViewController: UIViewController {
             self.pickerController!.sourceType = .camera
             self.present(self.pickerController!, animated: true, completion: nil)
         }
+        
         alert.addAction(photo)
         #endif
         
@@ -83,58 +86,55 @@ class SaveViewController: UIViewController {
             self.pickerController!.sourceType = .photoLibrary
             self.present(self.pickerController!, animated: true, completion: nil)
         }
-        alert.addAction(camera)
         
+        alert.addAction(camera)
         present(alert, animated: true, completion: nil)
     }
     
-    
     @IBAction func saveAction(_ sender: Any) {
-    
         
         let name = nameOutlet.text
         let surname = surnameOutlet.text
         let supervisor = supervisorOutlet.isOn
         
-        if name != "" && surname != ""
-        {
-        
-        guard name != "" else{
-            debugPrint("error")
-            return
-        }
-        guard surname != "" else{
-            debugPrint("error")
-            return
-        }
-        if let image = imageUser{
-            NetworkManager.uploadImageProfile(withData: image, forUserID: id) { (URLImage) in
-                self.URLImage = URLImage
-                let user = User(email: self.email, name: name, surname: surname, id: self.id, image: URLImage,supervisor: supervisor)
-                user.save()
+        if name != "" && surname != "" {
+            
+            guard name != "" else{
+                debugPrint("error")
+                return
+            }
+            
+            guard surname != "" else{
+                debugPrint("error")
+                return
+            }
+            
+            if let image = imageUser{
+                NetworkManager.uploadImageProfile(withData: image, forUserID: id) { (URLImage) in
+                    self.URLImage = URLImage
+                    let user = User(email: self.email, name: name, surname: surname, id: self.id, image: URLImage,supervisor: supervisor)
+                    user.save()
+                    
+                    NetworkManager.addUser(user: user, completion: { (success) in
+                        self.performSegue(withIdentifier: "segueToOptions", sender: self)
+                    })
+                }
+            }
+            else{
                 
+                let user = User(email: email, name: name, surname: surname, id: id, image: URLImage,supervisor:supervisor)
                 
                 NetworkManager.addUser(user: user, completion: { (success) in
-                    self.performSegue(withIdentifier: "segueToOptions", sender: self)
+                    self.performSegue(withIdentifier: R.segue.saveViewController.segueToOptions, sender: self)
                 })
             }
         }
         else{
-            let user = User(email: email, name: name, surname: surname, id: id, image: URLImage,supervisor:supervisor)
-            
-            NetworkManager.addUser(user: user, completion: { (success) in
-                self.performSegue(withIdentifier: R.segue.saveViewController.segueToOptions, sender: self)
-            })
-        }
-    }
- 
-    else{
-        
             self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "uno o più campi sono vuoti"), animated: true, completion: nil)
-    
         }
     }
 }
+
 extension SaveViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -160,7 +160,6 @@ extension SaveViewController: UIImagePickerControllerDelegate, UINavigationContr
         if imageDimension > 1 {
             
             let img = image.resized(withPercentage: 0.5) ?? UIImage()
-            
             return checkImageSizeAndResize(image: img)
         }
         return image

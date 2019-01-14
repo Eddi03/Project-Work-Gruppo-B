@@ -14,20 +14,18 @@ import RealmSwift
     dynamic var image : Data?
     dynamic var info : String?
     dynamic var discarded : Bool = false
+    dynamic var id : String!
     
     override class func primaryKey() -> String? {
         return "id"
     }
-    dynamic var id : String!
+    
     convenience init(image: Data? = nil, info: String? = nil,discarded: Bool? = nil, id: String!) {
         self.init()
-        
         self.image = image
         self.info = info
         self.discarded = discarded ?? false
         self.id = id
-        
-        
     }
     
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
@@ -56,11 +54,14 @@ import RealmSwift
                 }
             }
         }
+        
         return listaImageOfCurrentAlbum
     }
+    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Image] {
         return Array(realm.objects(Image.self))
     }
+    
     func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -68,6 +69,7 @@ import RealmSwift
             }
         } catch {}
     }
+    
     static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -75,6 +77,4 @@ import RealmSwift
             }
         } catch {}
     }
-    
-    
 }

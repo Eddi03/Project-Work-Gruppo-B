@@ -9,17 +9,14 @@
 import UIKit
 import RealmSwift
 
-
 @objcMembers class Topic: Object, Codable {
     
     dynamic var title : String!
     dynamic var info: String!
     dynamic var id : String!
-
     dynamic var creationDate : String!
     var users : List<String> = List<String>()
     var albums : List<String> = List<String>()
-   
     
     convenience init(title : String? = nil, info : String? = nil) {
         self.init()
@@ -28,6 +25,7 @@ import RealmSwift
         self.info = info
         self.creationDate = Date().dateToString
     }
+    
     override class func primaryKey() -> String? {
         return "id"
     }
@@ -53,9 +51,9 @@ import RealmSwift
         } catch {}
     }
     
-    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Topic] {
-        return Array(realm.objects(Topic.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})    }
+        return Array(realm.objects(Topic.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
+    }
     
     static func getTopicFromUser(idCurrentUser: String)-> [Topic]{
         var listaTopicOfCurrentUser : [Topic] = []
@@ -66,34 +64,32 @@ import RealmSwift
                 }
             }
         }
-         return listaTopicOfCurrentUser.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
+        
+        return listaTopicOfCurrentUser.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
     
-    
     //UTENTI
+    func addingUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
+        do {
+            try realm.write {
+                users.append(id)
+            }
+        }catch {}
+    }
     
-    
-        func addingUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
-            do {
-                try realm.write {
-                    users.append(id)
-                }
-            }catch {}
-        }
-    
-        func removeUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
-            do {
-                try realm.write {
-                    self.users.remove(at: index)
-                }
-            }catch {}
-        }
+    func removeUser(in realm: Realm = try! Realm(configuration: RealmUtils.config), index: Int) {
+        do {
+            try realm.write {
+                self.users.remove(at: index)
+            }
+        }catch {}
+    }
     
     func getUsers() -> [String] {
         return Array(users)
     }
     
-   static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
+    static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
                 realm.delete(realm.objects(Topic.self))
@@ -102,7 +98,6 @@ import RealmSwift
     }
     
     // ALBUM
-    
     func addingAlbum(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
         do {
             try realm.write {
@@ -118,10 +113,8 @@ import RealmSwift
             }
         }catch {}
     }
-   
     
     func getAlbums() -> [String] {
         return Array(albums)
     }
-    
 }

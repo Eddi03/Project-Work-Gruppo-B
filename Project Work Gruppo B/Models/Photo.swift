@@ -15,32 +15,30 @@ import RealmSwift
     dynamic var info : String?
     dynamic var dateCreated : String?
     dynamic var discarded : Bool = false
-    
     dynamic var creationDate : String!
+    dynamic var id : String!
+    
     override class func primaryKey() -> String? {
         return "id"
     }
-    dynamic var id : String!
+    
     convenience init(image: String? = nil, info: String? = nil, dateCreated: String? = nil, discarded: Bool? = nil,id: String!) {
         self.init()
-        
         self.image = image
         self.info = info
         self.discarded = discarded ?? false
         self.creationDate = Date().dateToString
-
         self.id = id
-        
-        
     }
+    
     func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), discarded : Bool = false) {
         do {
             try realm.write {
                 self.discarded = discarded 
             }
         }catch {}
-        
     }
+    
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -51,6 +49,7 @@ import RealmSwift
     
     static func getPhotoById(id: String)-> Photo?{
         let realm = try! Realm()
+        
         return realm.object(ofType: Photo.self, forPrimaryKey: id)
     }
     
@@ -65,11 +64,14 @@ import RealmSwift
                 }
             }
         }
-    return listaPhotoOfCurrentAlbum.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
+        
+        return listaPhotoOfCurrentAlbum.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
+    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Photo] {
         return Array(realm.objects(Photo.self)).sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate})
     }
+    
     func delete(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -77,6 +79,7 @@ import RealmSwift
             }
         } catch {}
     }
+    
     static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -84,6 +87,4 @@ import RealmSwift
             }
         } catch {}
     }
-    
-    
 }

@@ -12,7 +12,6 @@ import RNCryptor
 class Cryptor: NSObject {
     
     static let share = Cryptor()
-    
     private let key = "WsiHRxmMp8WrgFfRzmtLmyKAdeFd"
     
     func encryptMessage(message: String, encryptionKey: String? = nil) throws -> String {
@@ -20,7 +19,6 @@ class Cryptor: NSObject {
         let cipherData = RNCryptor.encrypt(data: messageData, withPassword: encryptionKey ?? key)
         return cipherData.base64EncodedString()
     }
-    
     func decryptMessage(encryptedMessage: String, encryptionKey: String? = nil) throws -> String {
         
         let encryptedData = Data.init(base64Encoded: encryptedMessage)!
@@ -29,12 +27,10 @@ class Cryptor: NSObject {
         
         return decryptedString
     }
-    
     func generateEncryptionKey(withPassword password:String) throws -> String {
         let randomData = RNCryptor.randomData(ofLength: 32)
         let cipherData = RNCryptor.encrypt(data: randomData, withPassword: password)
+        
         return cipherData.base64EncodedString()
     }
-    
 }
-

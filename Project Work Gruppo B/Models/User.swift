@@ -16,7 +16,6 @@ import RealmSwift
     dynamic var image : String!
     dynamic var supervisor : Bool = false
     dynamic var id : String!
-    
     dynamic var creationDate : String!
     
     convenience init(email : String? = nil, name : String? = nil, surname : String? = nil, id : String? = nil, image : String? = nil, supervisor : Bool? = nil) {
@@ -30,8 +29,6 @@ import RealmSwift
         self.creationDate = Date().dateToString
 
     }
-    
-    
     
     func getFullName() -> String{
         var s = String(name)
@@ -56,7 +53,6 @@ import RealmSwift
     static func getUserById(in realm: Realm = try! Realm(configuration: RealmUtils.config), withid id: String) -> User? {
         return realm.object(ofType: User.self, forPrimaryKey: id)
     }
-    
     static func deleteAll(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -65,4 +61,3 @@ import RealmSwift
         } catch {}
     }
 }
-
