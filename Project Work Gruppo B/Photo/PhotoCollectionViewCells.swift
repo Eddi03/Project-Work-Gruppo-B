@@ -18,6 +18,8 @@ class PhotoItemCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet var number: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -53,6 +55,7 @@ class AdminPhotoItemCell: UICollectionViewCell {
             img.clipsToBounds=true
         }
     }
+    @IBOutlet var number: UILabel!
     
     @IBOutlet var checkedImage: UIImageView!
     
@@ -60,11 +63,7 @@ class AdminPhotoItemCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        img.frame = self.bounds
-    }
+  
     
     
 }
