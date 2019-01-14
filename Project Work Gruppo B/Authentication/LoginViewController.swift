@@ -10,7 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
- 
+    var email : String!
+    var password : String!
+    var iconClick = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +22,11 @@ class LoginViewController: UIViewController {
         buttonShowPassword.imageView?.tintColor = UIColor.gray
     }
     
-    var email : String!
-    var password : String!
-    var iconClick = true
-   
-    
     @IBOutlet weak var buttonShowPassword: UIButton!
-    
     @IBAction func eyeAction(_ sender: Any) {
         buttonShowPassword.isHidden = false
     }
+    
     @IBAction func eyeOffAction(_ sender: Any) {
         buttonShowPassword.isHidden = true
     }
@@ -42,29 +39,21 @@ class LoginViewController: UIViewController {
     
     @objc func longPressShowPassword(gesture: UILongPressGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
+            
             passwordField.isSecureTextEntry = false
-            
             let img = UIImage(named: "Eye")
-            
             buttonShowPassword.setImage(img, for: .normal)
-            
-            print("PRE MEN DO")
+            print("PREMENDO")
+        
         }else{
+            
             if gesture.state == UIGestureRecognizer.State.ended {
                 passwordField.isSecureTextEntry = true
                 
                 //BOTTONE NON PREMUTO
-                
                 let origImage = UIImage(named: "Eye Gray")
-               
                 buttonShowPassword.setImage(origImage, for: .normal)
-                
-                
-                //  buttonShowPassword.tintColor = .red
-                // buttonShowPassword.tintColor = UIColor(red: 89/255, green: 87/255, blue: 187/255, alpha: 1)
-                //   buttonShowPassword.setImage(tintedImage, for: .normal)
-                
-                print("PRE MEN DO")
+                print("PREMENDO")
             }
         }
     }
@@ -84,16 +73,19 @@ class LoginViewController: UIViewController {
             navBarBack.title = R.string.localizable.kNavBarBackToHome()
         }
     }
+    
     @IBOutlet weak var navbarTitle: UINavigationItem! {
         didSet {
             navbarTitle.title = R.string.localizable.kLoginButton()
         }
     }
+    
     @IBOutlet weak var loginButton: UIButton! {
         didSet {
             loginButton.setTitle(R.string.localizable.kLoginButton(), for: .normal)
         }
     }
+    
     @IBOutlet var emailField: UITextField! {
         didSet {
             emailField.placeholder = R.string.localizable.kLoginEmailTextField()
@@ -109,10 +101,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
         
         let spinner = UIViewController.displaySpinner(onView: self.view)
-
         email = emailField.text
         password = passwordField.text
-
+        
         NetworkManager.login(email: email, password: password){ (success) in
             UIViewController.removeSpinner(spinner: spinner)
             if success{
@@ -126,15 +117,16 @@ class LoginViewController: UIViewController {
         resetPassword()
     }
     
-    
     func resetPassword(){
         
         //1. Create the alert controller.
         let alert = UIAlertController(title: "Reset Password", message: "Immetti la tua email", preferredStyle: .alert)
+        
         //2. Add the text field. You can configure it however you need.
         alert.addTextField { (textField) in
             textField.placeholder = "email"
         }
+        
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
@@ -148,6 +140,7 @@ class LoginViewController: UIViewController {
             self.present(alert2, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
         // 4. Present the alert.
         self.present(alert, animated: true, completion: nil)
     }

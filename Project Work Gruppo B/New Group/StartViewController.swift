@@ -12,8 +12,6 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var titleAppLabel: UILabel! {
@@ -70,5 +68,4 @@ class StartViewController: UIViewController {
     @IBAction func toRegisterAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: R.segue.startViewController.toRegisterSegue, sender: self)
     }
-
 }

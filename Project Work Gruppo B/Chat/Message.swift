@@ -17,26 +17,21 @@ internal struct Msg: MessageType {
     var sentDate: Date
     var kind: MessageKind
 
-    
     private init(kind: MessageKind, sender: Sender, messageId: String, date: Date) {
         self.kind = kind
         self.sender = sender
         self.messageId = messageId
         self.sentDate = date
     }
-    
     init(custom: Any?, sender: Sender, messageId: String, date: Date) {
         self.init(kind: .custom(custom), sender: sender, messageId: messageId, date: date)
     }
-    
     init(text: String, sender: Sender, messageId: String, date: Date) {
         self.init(kind: .text(text), sender: sender, messageId: messageId, date: date)
     }
-    
     init(attributedText: NSAttributedString, sender: Sender, messageId: String, date: Date) {
         self.init(kind: .attributedText(attributedText), sender: sender, messageId: messageId, date: date)
     }
-    
     //    init(image: UIImage, sender: Sender, messageId: String, date: Date) {
     //        let mediaItem = ImageMediaItem(image: image)
     //        self.init(kind: .photo(mediaItem), sender: sender, messageId: messageId, date: date)
@@ -51,13 +46,10 @@ internal struct Msg: MessageType {
     //        let locationItem = CoordinateItem(location: location)
     //        self.init(kind: .location(locationItem), sender: sender, messageId: messageId, date: date)
     //    }
-    
     init(emoji: String, sender: Sender, messageId: String, date: Date) {
         self.init(kind: .emoji(emoji), sender: sender, messageId: messageId, date: date)
     }
-    
 }
-
 
 @objcMembers class Message: Object, Codable {
     
@@ -71,7 +63,6 @@ internal struct Msg: MessageType {
     override class func primaryKey() -> String? {
         return "id"
     }
-    
     convenience init(id: String,idAlbum: String, messageText: String, senderName: String, senderId: String, sentDate: Date) {
         self.init()
         self.id = id
@@ -80,9 +71,7 @@ internal struct Msg: MessageType {
         self.senderId = senderId
         self.sentDate = sentDate
         self.messageText = messageText
-        
     }
-    
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
         do {
             try realm.write {
@@ -90,15 +79,12 @@ internal struct Msg: MessageType {
             }
         } catch {}
     }
-    
     static func all(in realm: Realm = try! Realm(configuration: RealmUtils.config)) -> [Message] {
         return Array(realm.objects(Message.self).sorted(by: { $0.sentDate.compare($1.sentDate) == .orderedAscending }))
     }
-    
     static func all2(in realm: Realm = try! Realm(configuration: RealmUtils.config), withTopic id: String) -> [Message] {
         return Array(realm.objects(Message.self).filter({$0.idAlbum == id}).sorted(by: { $0.sentDate.compare($1.sentDate) == .orderedAscending }))
     }
-    
     func remove(in realm: Realm = try! Realm()) {
         do {
             try realm.write {
@@ -106,7 +92,6 @@ internal struct Msg: MessageType {
             }
         } catch {}
     }
-    
     static func getMessagesByAlbumId(idAlbum:String) -> [Message]{
         var listaMsg : [Message]=[]
         for msg in Message.all(){
@@ -117,6 +102,4 @@ internal struct Msg: MessageType {
         }
         return listaMsg
     }
-    
 }
-

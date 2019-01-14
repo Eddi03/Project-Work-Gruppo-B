@@ -9,24 +9,23 @@ import UIKit
 import MessageKit
 import MessageInputBar
 
-
 class ChatViewController: MessagesViewController {
     
     var messages: [Msg] = []
-    
     var albumId : String!
-    
     let refreshControl = UIRefreshControl()
-   /*
-    init(withReference reference: ChatReference!) {
-        super.init(nibName: nil, bundle: nil)
-        self.reference = reference
-    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    */
+    /*
+     init(withReference reference: ChatReference!) {
+     super.init(nibName: nil, bundle: nil)
+     self.reference = reference
+     }
+     
+     required init?(coder aDecoder: NSCoder) {
+     fatalError("init(coder:) has not been implemented")
+     }
+     */
+    
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
@@ -35,7 +34,6 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureMessageCollectionView()
         configureMessageInputBar()
         loadFirstMessages()
@@ -44,14 +42,9 @@ class ChatViewController: MessagesViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear	(animated)
-        
         FirebaseChatDatabase.listenerMessages(chanelID: albumId, directChat: false) { success in
             self.loadFirstMessages()
-            
         }
-    
-        
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -62,9 +55,7 @@ class ChatViewController: MessagesViewController {
     func loadFirstMessages() {
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                
                 self.messages = []
-                
                 for message in Message.all2(withTopic: self.albumId){
                     do {
                         let text = try Cryptor.share.decryptMessage(encryptedMessage: message.messageText)
@@ -73,6 +64,7 @@ class ChatViewController: MessagesViewController {
                         self.messages.append(Msg(text: message.messageText, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
                     }
                 }
+                
                 self.messagesCollectionView.reloadData()
                 self.messagesCollectionView.scrollToBottom()
             }
@@ -102,28 +94,22 @@ class ChatViewController: MessagesViewController {
     //    }
     
     func configureMessageCollectionView() {
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messageCellDelegate = self
-        
         scrollsToBottomOnKeyboardBeginsEditing = true // default false
         maintainPositionOnKeyboardFrameChanged = true // default false
-        
         //        messagesCollectionView.addSubview(refreshControl)
         //        refreshControl.addTarget(self, action: #selector(loadMoreMessages), for: .valueChanged)
     }
     
     func configureMessageInputBar() {
         messageInputBar.delegate = self
-        
         guard let color = GenericSettings.getObject()?.customPrimaryColor else { return }
-        
         messageInputBar.inputTextView.tintColor = UIColor.gray
         messageInputBar.sendButton.tintColor = UIColor.blue
     }
     
     // MARK: - Helpers
-    
     func insertMessage(_ message: Msg) {
         messages.append(message)
         // Reload last section to update header/footer labels and insert a new one
@@ -140,20 +126,14 @@ class ChatViewController: MessagesViewController {
     }
     
     func isLastSectionVisible() -> Bool {
-        
         guard !messages.isEmpty else { return false }
-        
         let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
-        
         return messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath)
     }
     
     // MARK: - MessagesDataSource
-    
 }
-
 extension ChatViewController: MessagesDataSource {
-    
     func currentSender() -> Sender {
         if let id = NetworkManager.getMyID(), let name = User.getUserById(withid: id)?.name.first, let surname = User.getUserById(withid: id)?.surname.first {
             return Sender(id: id, displayName: "\(name)\(surname)")
@@ -183,18 +163,14 @@ extension ChatViewController: MessagesDataSource {
     }
     
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        
         //        let dateString = formatter.string(from: message.sentDate)
         //        return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
         return nil
     }
-    
 }
 
 // MARK: - MessageCellDelegate
-
 extension ChatViewController: MessageCellDelegate {
-    
     func didTapAvatar(in cell: MessageCollectionViewCell) {
         print("Avatar tapped")
     }
@@ -218,13 +194,10 @@ extension ChatViewController: MessageCellDelegate {
     func didTapAccessoryView(in cell: MessageCollectionViewCell) {
         print("Accessory view tapped")
     }
-    
 }
 
 // MARK: - MessageLabelDelegate
-
 extension ChatViewController: MessageLabelDelegate {
-    
     func didSelectAddress(_ addressComponents: [String: String]) {
         print("Address Selected: \(addressComponents)")
     }
@@ -244,24 +217,19 @@ extension ChatViewController: MessageLabelDelegate {
     func didSelectTransitInformation(_ transitInformation: [String: String]) {
         print("TransitInformation Selected: \(transitInformation)")
     }
-    
 }
 
 // MARK: - MessageInputBarDelegate
-
 extension ChatViewController: MessageInputBarDelegate {
-    
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
-        
         for component in inputBar.inputTextView.components {
-            
             if let str = component as? String {
                 let message = Message(id: UUID().uuidString,idAlbum: albumId, messageText: str, senderName: currentSender().displayName, senderId: currentSender().id, sentDate: Date())
                 FirebaseChatDatabase.sendMessage(chanelID: albumId, directChat: false, message: message) { success in
                     if success {
                         do {
                             let text = try Cryptor.share.decryptMessage(encryptedMessage: message.messageText)
-                           // self.insertMessage(Msg(text: text, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
+                            // self.insertMessage(Msg(text: text, sender: Sender(id: message.senderId, displayName: message.senderName), messageId: message.id, date: message.sentDate))
                             inputBar.inputTextView.text = String()
                             self.messagesCollectionView.scrollToBottom(animated: true)
                         } catch {
@@ -269,10 +237,8 @@ extension ChatViewController: MessageInputBarDelegate {
                             inputBar.inputTextView.text = String()
                             self.messagesCollectionView.scrollToBottom(animated: true)
                         }
-                        
                     }
                 }
-                
             } else if let img = component as? UIImage {
                 //                let message = Message(image: img, sender: currentSender(), messageId: UUID().uuidString, date: Date())
                 //                FirebaseChatDatabase.sendMessage(chanelID: id, directChat: false, message: message) { message in
@@ -283,10 +249,6 @@ extension ChatViewController: MessageInputBarDelegate {
                 //                    }
                 //                }
             }
-            
         }
-        
     }
-    
 }
-

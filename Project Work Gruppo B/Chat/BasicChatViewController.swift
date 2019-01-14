@@ -30,7 +30,6 @@ import MessageInputBar
 var blu: UIColor = UIColor(red: 89, green: 87, blue: 187, alpha: 0.5)
 
 final class BasicChatViewController: ChatViewController {
-    
     var albumIds : String!{
         didSet{
             debugPrint(albumIds)
@@ -48,8 +47,6 @@ final class BasicChatViewController: ChatViewController {
         
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        
-        
     }
     
     override func viewDidLoad() {
@@ -58,17 +55,12 @@ final class BasicChatViewController: ChatViewController {
         self.albumId = albumIds
         print(self.albumId)
     }
-    
-    
-
 }
 
 // MARK: - MessagesDisplayDelegate
-
 extension BasicChatViewController: MessagesDisplayDelegate {
     
     // MARK: - Text Messages
-    
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : .darkText
     }
@@ -82,7 +74,6 @@ extension BasicChatViewController: MessagesDisplayDelegate {
     }
     
     // MARK: - All Messages
-    
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ?  .init(red: 115/255, green: 131/255, blue: 191/255, alpha: 1) : UIColor.lightGray
     }
@@ -114,7 +105,6 @@ extension BasicChatViewController: MessagesDisplayDelegate {
     }
     
     // MARK: - Location Messages
-    
     func annotationViewForLocation(message: MessageType, at indexPath: IndexPath, in messageCollectionView: MessagesCollectionView) -> MKAnnotationView? {
         let annotationView = MKAnnotationView(annotation: nil, reuseIdentifier: nil)
         let pinImage = #imageLiteral(resourceName: "ic_map_marker")
@@ -136,13 +126,10 @@ extension BasicChatViewController: MessagesDisplayDelegate {
         
         return LocationMessageSnapshotOptions(showsBuildings: true, showsPointsOfInterest: true, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     }
-    
 }
 
 // MARK: - MessagesLayoutDelegate
-
 extension BasicChatViewController: MessagesLayoutDelegate {
-    
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 18
     }
@@ -154,6 +141,4 @@ extension BasicChatViewController: MessagesLayoutDelegate {
     func messageBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 16
     }
-    
-    
 }

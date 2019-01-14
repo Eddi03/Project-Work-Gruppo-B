@@ -368,7 +368,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cognome" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-K5-uu9" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
-                                <rect key="frame" x="25" y="222" width="325" height="20"/>
+                                <rect key="frame" x="25" y="239" width="325" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -390,7 +390,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doN-L5-bna">
-                                <rect key="frame" x="25" y="306" width="325" height="40"/>
+                                <rect key="frame" x="25" y="291" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.44993203879999999" green="0.51526027919999995" blue="0.74960976840000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="LpX-gb-we6"/>
@@ -415,7 +415,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-bg-oSl">
-                                <rect key="frame" x="25" y="241" width="325" height="1"/>
+                                <rect key="frame" x="25" y="258" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.44993203879999999" green="0.51526027919999995" blue="0.74960976840000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MoZ-gK-Qhs"/>
@@ -426,10 +426,10 @@
                         <constraints>
                             <constraint firstItem="rRM-bg-oSl" firstAttribute="leading" secondItem="KNQ-K5-uu9" secondAttribute="leading" id="5FF-Bc-lDJ"/>
                             <constraint firstItem="KNQ-K5-uu9" firstAttribute="leading" secondItem="wSY-7T-kX9" secondAttribute="leading" constant="25" id="9P7-1A-1hs"/>
-                            <constraint firstItem="KNQ-K5-uu9" firstAttribute="top" secondItem="4ny-ve-qh1" secondAttribute="bottom" constant="15" id="AUR-mx-EN1"/>
+                            <constraint firstItem="KNQ-K5-uu9" firstAttribute="top" secondItem="4ny-ve-qh1" secondAttribute="bottom" constant="32" id="AUR-mx-EN1"/>
                             <constraint firstItem="rRM-bg-oSl" firstAttribute="trailing" secondItem="KNQ-K5-uu9" secondAttribute="trailing" id="CsK-Cp-8Jl"/>
                             <constraint firstItem="doN-L5-bna" firstAttribute="leading" secondItem="wSY-7T-kX9" secondAttribute="leading" constant="25" id="D5t-F4-cgg"/>
-                            <constraint firstItem="doN-L5-bna" firstAttribute="top" secondItem="KNQ-K5-uu9" secondAttribute="bottom" constant="64" id="DPL-dF-UaX"/>
+                            <constraint firstItem="doN-L5-bna" firstAttribute="top" secondItem="KNQ-K5-uu9" secondAttribute="bottom" constant="32" id="DPL-dF-UaX"/>
                             <constraint firstItem="g7L-8y-9bh" firstAttribute="top" secondItem="wSY-7T-kX9" secondAttribute="top" constant="16" id="FgT-Gk-t6f"/>
                             <constraint firstItem="4ny-ve-qh1" firstAttribute="top" secondItem="g7L-8y-9bh" secondAttribute="bottom" constant="32" id="LPJ-MM-OUw"/>
                             <constraint firstItem="2yi-Bx-YTJ" firstAttribute="leading" secondItem="4ny-ve-qh1" secondAttribute="leading" id="OFq-y1-841"/>
@@ -1117,7 +1117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Descrizione" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-AQ-bed" customClass="kTextFiledPlaceHolder" customModule="Project_Work_Gruppo_B" customModuleProvider="target">
-                                <rect key="frame" x="25" y="314" width="325" height="20"/>
+                                <rect key="frame" x="25" y="289" width="325" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1128,10 +1128,10 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-fn-NyI">
-                                <rect key="frame" x="100" y="89" width="175" height="175"/>
+                                <rect key="frame" x="112.5" y="89" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="ILH-nw-xV8"/>
-                                    <constraint firstAttribute="height" constant="175" id="lad-4R-waw"/>
+                                    <constraint firstAttribute="width" constant="150" id="ILH-nw-xV8"/>
+                                    <constraint firstAttribute="height" constant="150" id="lad-4R-waw"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="Photo Placeholder"/>
                                 <connections>
@@ -1139,7 +1139,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70M-Qc-wMP">
-                                <rect key="frame" x="25" y="350" width="325" height="40"/>
+                                <rect key="frame" x="25" y="341" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EjK-4h-lOT"/>
@@ -1157,7 +1157,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpP-86-82x">
-                                <rect key="frame" x="25" y="333" width="325" height="1"/>
+                                <rect key="frame" x="25" y="308" width="325" height="1"/>
                                 <color key="backgroundColor" red="0.33870691060000002" green="0.36052471400000002" blue="0.82444512839999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="uhm-Aa-vry"/>
@@ -1172,7 +1172,7 @@
                             <constraint firstItem="6zP-fn-NyI" firstAttribute="centerX" secondItem="EBI-LZ-Qww" secondAttribute="centerX" id="Fq5-O8-OjI"/>
                             <constraint firstItem="6zP-fn-NyI" firstAttribute="top" secondItem="cr4-cZ-zPh" secondAttribute="top" constant="25" id="OSJ-ki-vg5"/>
                             <constraint firstItem="cr4-cZ-zPh" firstAttribute="trailing" secondItem="70M-Qc-wMP" secondAttribute="trailing" constant="25" id="VBh-al-dD5"/>
-                            <constraint firstItem="70M-Qc-wMP" firstAttribute="top" secondItem="hZJ-AQ-bed" secondAttribute="bottom" constant="16" id="Xro-n4-OMn"/>
+                            <constraint firstItem="70M-Qc-wMP" firstAttribute="top" secondItem="hZJ-AQ-bed" secondAttribute="bottom" constant="32" id="Xro-n4-OMn"/>
                             <constraint firstItem="cr4-cZ-zPh" firstAttribute="trailing" secondItem="hZJ-AQ-bed" secondAttribute="trailing" constant="25" id="ZZA-4c-IxM"/>
                             <constraint firstItem="hZJ-AQ-bed" firstAttribute="leading" secondItem="cr4-cZ-zPh" secondAttribute="leading" constant="25" id="blw-TK-i0S"/>
                             <constraint firstItem="hZJ-AQ-bed" firstAttribute="centerX" secondItem="EBI-LZ-Qww" secondAttribute="centerX" id="k4c-tM-LpZ"/>
@@ -1461,11 +1461,11 @@
     </scenes>
     <resources>
         <image name="Album Icon" width="75" height="75"/>
-        <image name="Checked" width="33" height="33"/>
-        <image name="Photo Placeholder" width="162" height="162"/>
+        <image name="Checked" width="66" height="66"/>
+        <image name="Photo Placeholder" width="325" height="325"/>
         <image name="Topic Icon" width="75" height="75"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wcY-AB-box"/>

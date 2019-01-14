@@ -16,17 +16,16 @@ class RegisterViewController: UIViewController {
         
         showPasswordButton.isHidden = true
         showConfirmPasswordButton.isHidden = true
-        
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         let secondLongGesture = UILongPressGestureRecognizer(target: self, action: #selector(secondLongPressShowPassword))
         showPasswordButton.addGestureRecognizer(longGesture)
         showConfirmPasswordButton.addGestureRecognizer(secondLongGesture)
-        
     }
     
     var email : String!
     var password : String!
     var repeatPassword : String!
+    
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var repeatPasswordField: UITextField!
@@ -45,9 +44,8 @@ class RegisterViewController: UIViewController {
     
     @IBAction func eyeOffRepeatAction(_ sender: Any) {
         showConfirmPasswordButton.isHidden = true
-
+        
     }
-    
     
     @IBOutlet weak var buttonOutlet: UIButton!{
         didSet{
@@ -65,29 +63,27 @@ class RegisterViewController: UIViewController {
                 let img = UIImage(named: "Eye")
                 showPasswordButton.setImage(img, for: .normal)
                 passwordField.isSecureTextEntry = false
-
+                
             }else {
-              
+                
                 let img = UIImage(named: "Eye Gray")
                 showPasswordButton.setImage(img, for: .normal)
                 passwordField.isSecureTextEntry = true
                 
-                }
             }
         }
-    
-    
+    }
     
     @objc func secondLongPressShowPassword(gesture: UILongPressGestureRecognizer){
         if showConfirmPasswordButton.isTouchInside {
             if gesture.state == UIGestureRecognizer.State.began {
-               
+                
                 let img = UIImage(named: "Eye")
                 showConfirmPasswordButton.setImage(img, for: .normal)
                 repeatPasswordField.isSecureTextEntry = false
             }else {
                 if gesture.state == UIGestureRecognizer.State.ended{
-                 
+                    
                     let img = UIImage(named: "Eye Gray")
                     showConfirmPasswordButton.setImage(img, for: .normal)
                     repeatPasswordField.isSecureTextEntry = true
@@ -97,8 +93,7 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    
-   // if showConfirmPasswordButton.isTouchInside {
+    // if showConfirmPasswordButton.isTouchInside {
     //                if gesture.state == UIGestureRecognizer.State.began {
     //                    repeatPasswordField.isSecureTextEntry = false
     //                }else {
@@ -118,11 +113,9 @@ class RegisterViewController: UIViewController {
     @IBAction func registerAction(_ sender: Any) {
         
         let spinner = UIViewController.displaySpinner(onView: self.view)
-        
         email = emailField.text
         password = passwordField.text
         repeatPassword = repeatPasswordField.text
-        
         
         NetworkManager.signup(email: email, password: password){ (success) in
             UIViewController.removeSpinner(spinner: spinner)
@@ -131,4 +124,4 @@ class RegisterViewController: UIViewController {
             }
         }
     }
- }
+}

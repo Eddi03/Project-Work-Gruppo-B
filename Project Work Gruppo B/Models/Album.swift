@@ -16,7 +16,6 @@ import RealmSwift
     dynamic var id : String!
     dynamic var completed : Bool = false
     dynamic var creationDate : String!
-
     var photos : List<String> = List<String>()
     
     convenience init(title : String? = nil, info : String? = nil, completed : Bool = false) {
@@ -27,10 +26,10 @@ import RealmSwift
         self.completed = completed
         self.creationDate = Date().dateToString
     }
+    
     override class func primaryKey() -> String? {
         return "id"
     }
-    
     
     func changeData(in realm: Realm = try! Realm(configuration: RealmUtils.config), completed : Bool = false) {
         do {
@@ -38,7 +37,6 @@ import RealmSwift
                 self.completed = completed
             }
         }catch {}
-        
     }
     
     func save(in realm: Realm = try! Realm(configuration: RealmUtils.config)) {
@@ -56,12 +54,10 @@ import RealmSwift
             }
         } catch {}
     }
-
     
     func getPhotos() -> [String] {
         return Array(photos)
     }
-
     
     func addingPhoto(in realm: Realm = try! Realm(configuration: RealmUtils.config), id : String) {
         do {
@@ -91,7 +87,6 @@ import RealmSwift
         } catch {}
     }
     
-    
     static func getAlbumById(id: String)-> Album?{
         let realm = try! Realm()
         return realm.object(ofType: Album.self, forPrimaryKey: id)
@@ -105,13 +100,12 @@ import RealmSwift
                 for idAlbum in topic.getAlbums(){
                     let album = Album.getAlbumById(id: idAlbum)
                     //if album?.completed == true {
-                        listaAlbumOfCurrentTopic.append(album ?? Album())
+                    listaAlbumOfCurrentTopic.append(album ?? Album())
                     //}
                 }
             }
         }
+        
         return listaAlbumOfCurrentTopic.sorted(by: {$0.creationDate.stringToDate > $1.creationDate.stringToDate}) 
     }
-    
-    
 }
