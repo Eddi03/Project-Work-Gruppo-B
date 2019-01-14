@@ -12,10 +12,12 @@ import FirebaseFirestore
 import Firebase
 import CodableFirebase
 
+import FBSDKLoginKit
 
 class NetworkManager : NSObject{
     private static var ref : DocumentReference!
     
+    private static var fbLoginManager : FBSDKLoginManager?
     private static var db: Firestore?
     private static var storageRef : StorageReference?
     
@@ -23,7 +25,54 @@ class NetworkManager : NSObject{
         FirebaseApp.configure()
         db = Firestore.firestore()
         storageRef = Storage.storage().reference()
+        
+        fbLoginManager = FBSDKLoginManager()
     }
+    static func facebookSignUp(completion: @escaping (Bool)-> ()){
+        fbLoginManager?.logIn(withReadPermissions: ["public_profile", "email"], from: UIApplication.topViewController()) { (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = FBSDKAccessToken.current() else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if let error = error {
+                    print("Login error: \(error.localizedDescription)")
+                    completion(false)
+                    return
+                }
+                guard let user = user else{
+                    completion(false)
+                    return
+                }
+                
+                debugPrint("aaaa",user)
+                completion(true)
+            })
+            
+        }
+    }
+    static func getFacebookData(completion: @escaping ([String:Any]) -> ()){
+        FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "first_name,last_name"])?.start(completionHandler: { (connection, result, error) in
+            if let error = error{
+                print(error)
+                return
+            }
+            guard let result = result else{
+                return
+            }
+            completion(result as! [String : Any])
+        })
+    }
+    
     
     static func getMyID() -> String? {
         return Auth.auth().currentUser?.uid

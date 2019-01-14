@@ -259,6 +259,9 @@
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="facebookLoginAction:" destination="wsE-1e-CVY" eventType="touchUpInside" id="Q6g-f4-ke4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -640,9 +643,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Eye Gray" width="48" height="48"/>
-        <image name="LoginImage" width="512" height="512"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="Eye Gray" width="30" height="30"/>
+        <image name="LoginImage" width="256" height="256"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="q38-Zx-U2c"/>

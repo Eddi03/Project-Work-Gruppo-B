@@ -59,6 +59,13 @@ class SaveViewController: UIViewController {
         
         //self.title = R.string.localizable.kNavBarFinishSignUpTitle()
         self.navBarTitleSignUp.title = R.string.localizable.kNavBarFinishSignUpTitle()
+        if let name = Auth.auth().currentUser?.displayName{
+            NetworkManager.getFacebookData { (data) in
+                self.nameOutlet.text = data["first_name"] as? String
+                self.surnameOutlet.text = data["last_name"] as? String
+            }
+            
+        }
         emailOutlet.text = email
         self.imageOutlet.layer.cornerRadius = self.imageOutlet.frame.size.width / 2;
         self.imageOutlet.clipsToBounds = true;
