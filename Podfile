@@ -15,4 +15,7 @@ pod 'CodableFirebase'
 pod 'SKPhotoBrowser'
 pod 'MessageKit'
 pod 'RNCryptor'
+pod 'FacebookCore'
+pod 'FacebookLogin'
+pod 'FacebookShare'
 end
