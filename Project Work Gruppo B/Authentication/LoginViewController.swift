@@ -92,6 +92,12 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func facebookLoginAction(_ sender: Any) {
+        NetworkManager.facebookSignUp { (success) in
+            self.performSegue(withIdentifier: R.segue.loginViewController.segueToOptions, sender: self)
+        }
+    }
+    
     @IBOutlet weak var resetPasswordButton: UIButton! {
         didSet {
             resetPasswordButton.setTitle(R.string.localizable.kResetPasswordButton(), for: .normal)
