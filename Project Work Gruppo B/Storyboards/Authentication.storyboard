@@ -249,14 +249,13 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTs-RA-0OV">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTs-RA-0OV">
                                 <rect key="frame" x="25" y="229" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.44993203879999999" green="0.51526027919999995" blue="0.74960976840000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ilr-2h-Xie"/>
                                     <constraint firstAttribute="height" constant="40" id="xAo-z9-V70"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="FBIcon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -298,6 +297,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Accedi" id="yW5-m7-37X"/>
                     <connections>
+                        <outlet property="FBButton" destination="PTs-RA-0OV" id="F6d-eS-lR7"/>
                         <outlet property="buttonShowPassword" destination="t1O-fo-htm" id="qQ8-uO-HtU"/>
                         <outlet property="emailField" destination="oB8-FL-hNn" id="Fp8-Cl-pI6"/>
                         <outlet property="loginButton" destination="tii-0b-rfb" id="FQY-F8-ah3"/>
@@ -643,9 +643,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Eye Gray" width="30" height="30"/>
-        <image name="LoginImage" width="256" height="256"/>
-        <image name="User Placeholder" width="256" height="256"/>
+        <image name="Eye Gray" width="48" height="48"/>
+        <image name="FBIcon" width="40" height="40"/>
+        <image name="LoginImage" width="512" height="512"/>
+        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="q38-Zx-U2c"/>

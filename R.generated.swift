@@ -48,7 +48,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 11 images.
+  /// This `R.image` struct is generated, and contains static references to 12 images.
   struct image {
     /// Image `Album Icon`.
     static let albumIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "Album Icon")
@@ -60,6 +60,8 @@ struct R: Rswift.Validatable {
     static let eyeGray = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye Gray")
     /// Image `Eye`.
     static let eye = Rswift.ImageResource(bundle: R.hostingBundle, name: "Eye")
+    /// Image `FBIcon`.
+    static let fbIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "FBIcon")
     /// Image `LoginImage`.
     static let loginImage = Rswift.ImageResource(bundle: R.hostingBundle, name: "LoginImage")
     /// Image `Photo Placeholder`.
@@ -96,6 +98,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "Eye", bundle: ..., traitCollection: ...)`
     static func eye(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.eye, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "FBIcon", bundle: ..., traitCollection: ...)`
+    static func fbIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.fbIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "LoginImage", bundle: ..., traitCollection: ...)`
@@ -1083,9 +1090,10 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Eye Gray") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Gray' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Eye Gray") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Gray' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "FBIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FBIcon' is used in storyboard 'Authentication', but couldn't be loaded.") }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       

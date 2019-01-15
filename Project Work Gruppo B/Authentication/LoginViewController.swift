@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressShowPassword))
         buttonShowPassword.addGestureRecognizer(longGesture)
         buttonShowPassword.imageView?.tintColor = UIColor.gray
+        FBButton.clipsToBounds = true
+        FBButton.layer.cornerRadius = 20
     }
     
     @IBOutlet weak var buttonShowPassword: UIButton!
@@ -92,6 +94,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var FBButton: UIButton!
     @IBAction func facebookLoginAction(_ sender: Any) {
         NetworkManager.facebookSignUp { (success) in
             self.performSegue(withIdentifier: R.segue.loginViewController.segueToOptions, sender: self)
