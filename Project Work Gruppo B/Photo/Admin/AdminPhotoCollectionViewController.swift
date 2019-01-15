@@ -32,8 +32,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        barButtonItem = UIBarButtonItem(title: "Scarta", style: .plain, target: self, action: #selector(saveAction))
+        barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveAction))
         myCollectionView.allowsMultipleSelection = true
         
     }
@@ -73,9 +72,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
     }
     
     @IBAction func discardImagesAction(_ sender: Any) {
-        if images.isEmpty{
-            self.present(GeneralUtils.share.alertError(title: "Attenzione", message: "non ci sono foto da scartare"), animated: true)
-        }else{
         if discarding{
             discarding = false
             imagesToDiscard = []
@@ -84,12 +80,37 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         else{
             discarding = true
             self.navigationItem.rightBarButtonItem = barButtonItem
-            
         }
-     }
     }
     
-    
+    @IBAction func archiviaAction(_ sender: Any) {
+//        //lo fa solo se prima l'operatore ha messo completed a true
+//        if album.completed {
+//            
+//        let alert = UIAlertController(title: "Album completo", message: "Vuoi segnare l'album come completo?", preferredStyle: .alert)
+//        let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
+//        alert.addAction(actionNo)
+//        alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
+//            NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
+//                if success {
+//                    print("eliminato il completed album")
+//                    self.dismiss(animated: true, completion: nil)
+//                }
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+//            self.album.changeData(completed: false)
+//            NetworkManager.addAlbum(topic: self.topic, album: self.album, bool: false, completion: {success in
+//                if success {
+//                    print("modificato il completed album")
+//                }
+//            })
+//            
+//        }))
+//        
+//        self.present(alert, animated: true, completion: nil)
+//        }
+    }
     
     
     func convertImageToBrowser(){
@@ -191,6 +212,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                     cell.isSelected=false
                     cell.checkedImage.image = (UIImage(named: "UnCheckedPhoto"))
                 }}
+            
+            cell.number.text = String(indexPath.item)
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
@@ -203,6 +226,8 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
             let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: AdminPhotoItemCell.kIdentifier, for: indexPath) as! AdminPhotoItemCell
             cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
             cell.checkedImage.isHidden = true
+            
+            cell.number.text = String(indexPath.item)
             return cell
         }
         return UICollectionViewCell()

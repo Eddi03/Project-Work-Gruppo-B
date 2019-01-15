@@ -136,6 +136,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         if indexPath.section == 1{
         let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
             cell.img.image=UIImage(data: images[indexPath.item].image!)
+            cell.number.text = String(indexPath.item)
             return cell}
         if indexPath.section == 2{
             let cell = myCollectionView.dequeueReusableCell(withReuseIdentifier: LabelItemCell.kIdentifier, for: indexPath) as! LabelItemCell
@@ -147,6 +148,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDelegate,
         if indexPath.section == 3{
             let cell=myCollectionView.dequeueReusableCell(withReuseIdentifier: PhotoItemCell.kIdentifier, for: indexPath) as! PhotoItemCell
             cell.img.image=UIImage(data: imagesDiscarded[indexPath.item].image!)
+            cell.number.text = String(indexPath.item)
             return cell}
         return UICollectionViewCell()
     }
