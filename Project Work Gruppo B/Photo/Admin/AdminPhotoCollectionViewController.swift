@@ -299,6 +299,7 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         if let destinationSegue = segue.destination as? DetailAdminAlbumViewController{
             destinationSegue.topic = topic
             destinationSegue.album = album
+            
         }
 
         if let destinationSegue = segue.destination as? BasicChatViewController{

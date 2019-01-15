@@ -1177,7 +1177,7 @@
             </objects>
             <point key="canvasLocation" x="5276" y="-87"/>
         </scene>
-        <!--Title-->
+        <!--Admin Photo Collection View Controller-->
         <scene sceneID="WMo-nV-ag9">
             <objects>
                 <viewController storyboardIdentifier="Schiavo" id="Uuv-H2-PHi" customClass="AdminPhotoCollectionViewController" customModule="Project_Work_Gruppo_B" customModuleProvider="target" sceneMemberID="viewController">
@@ -1287,7 +1287,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkQ-4U-EIr"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="cot-Of-GNf"/>
+                    <navigationItem key="navigationItem" id="cot-Of-GNf"/>
                     <connections>
                         <outlet property="discardImagesOutlet" destination="J4f-Zs-wTD" id="Acn-Nv-QRl"/>
                         <outlet property="myCollectionView" destination="boL-gN-pXt" id="h1x-ZT-iN9"/>
