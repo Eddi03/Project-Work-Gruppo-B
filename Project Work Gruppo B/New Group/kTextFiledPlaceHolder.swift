@@ -11,8 +11,8 @@ import UIKit
 enum placeholderDirection: String {
     case placeholderUp = "up"
     case placeholderDown = "down"
+    
 }
-
 class kTextFiledPlaceHolder: UITextField {
     var enableMaterialPlaceHolder : Bool = true
     var placeholderAttributes = NSDictionary()
@@ -21,22 +21,18 @@ class kTextFiledPlaceHolder: UITextField {
     var difference: CGFloat = 25.0
     var directionMaterial = placeholderDirection.placeholderUp
     var isUnderLineAvailabe : Bool = true
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         Initialize ()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         Initialize ()
     }
-    
     func Initialize(){
         self.clipsToBounds = false
         self.addTarget(self, action: #selector(kTextFiledPlaceHolder.textFieldDidChange), for: .editingChanged)
         self.EnableMaterialPlaceHolder(enableMaterialPlaceHolder: true)
-        
         if isUnderLineAvailabe {
             let underLine = UIImageView()
             underLine.backgroundColor = UIColor.init(red: 125/255, green: 123/255, blue: 223/255, alpha: 1.0)
@@ -46,16 +42,14 @@ class kTextFiledPlaceHolder: UITextField {
             underLine.clipsToBounds = true
             self.addSubview(underLine)
         }
-        
         defaultFont = self.font!
+        
     }
-    
     @IBInspectable var placeHolderColor: UIColor? = UIColor.lightGray {
         didSet {
             self.attributedPlaceholder = NSAttributedString(string: self.placeholder! as String, attributes:[NSAttributedString.Key.foregroundColor: placeHolderColor!])
         }
     }
-    
     override internal var placeholder:String?  {
         didSet {
             //  NSLog("placeholder = \(placeholder)")
@@ -65,8 +59,8 @@ class kTextFiledPlaceHolder: UITextField {
             //self.attributedPlaceholder = NSAttributedString(string: newValue!, attributes:atts)
             self.EnableMaterialPlaceHolder(enableMaterialPlaceHolder: self.enableMaterialPlaceHolder)
         }
+        
     }
-    
     override internal var attributedText:NSAttributedString?  {
         didSet {
             //  NSLog("text = \(text)")
@@ -76,9 +70,9 @@ class kTextFiledPlaceHolder: UITextField {
                 let string = NSString(string : self.placeholder!)
                 self.placeholderText(string)
             }
+            
         }
     }
-    
     @objc func textFieldDidChange(){
         if self.enableMaterialPlaceHolder {
             if (self.text == nil) || (self.text?.characters.count)! > 0 {
@@ -88,7 +82,6 @@ class kTextFiledPlaceHolder: UITextField {
                 let fontSize = self.font!.pointSize;
                 self.lblPlaceHolder.font = UIFont.init(name: (self.font?.fontName)!, size: fontSize)
             }
-            
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {() -> Void in
                 if (self.text == nil) || (self.text?.characters.count)! <= 0 {
                     self.lblPlaceHolder.font = self.defaultFont
@@ -106,7 +99,6 @@ class kTextFiledPlaceHolder: UITextField {
             })
         }
     }
-    
     func EnableMaterialPlaceHolder(enableMaterialPlaceHolder: Bool){
         self.enableMaterialPlaceHolder = enableMaterialPlaceHolder
         self.lblPlaceHolder = UILabel()
@@ -118,18 +110,15 @@ class kTextFiledPlaceHolder: UITextField {
         self.lblPlaceHolder.attributedText = self.attributedPlaceholder
         //self.lblPlaceHolder.sizeToFit()
     }
-    
     func placeholderText(_ placeholder: NSString){
         let atts  = [NSAttributedString.Key.foregroundColor.rawValue: UIColor.lightGray, NSAttributedString.Key.font.rawValue: UIFont.labelFontSize] as [String : Any]?
         // self.attributedPlaceholder = NSAttributedString(string: placeholder as String , attributes: atts)
         self.EnableMaterialPlaceHolder(enableMaterialPlaceHolder: self.enableMaterialPlaceHolder)
     }
-    
     override func becomeFirstResponder()->(Bool){
         let returnValue = super.becomeFirstResponder()
         return returnValue
     }
-    
     override func resignFirstResponder()->(Bool){
         let returnValue = super.resignFirstResponder()
         return returnValue

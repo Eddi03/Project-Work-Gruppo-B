@@ -44,7 +44,6 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
         self.navigationItem.rightBarButtonItem = nil
         self.discardImagesOutlet.tintColor = UIColor.blue
         self.discarding = false
-        if !imagesToDiscard.isEmpty{
         for i in 0...imagesToDiscard.count-1{
             let photo = Photo.getPhotoById(id: self.imagesToDiscard[i])
             photo?.changeData(discarded: true)
@@ -68,13 +67,12 @@ class AdminPhotoCollectionViewController: UIViewController, UICollectionViewDele
                     }
                 }
             }
-            }
             
         }
     }
     
     @IBAction func discardImagesAction(_ sender: Any) {
-        if discarding || images.isEmpty{
+        if discarding{
             discarding = false
             imagesToDiscard = []
             self.navigationItem.rightBarButtonItem = nil
