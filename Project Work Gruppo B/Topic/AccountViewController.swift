@@ -36,6 +36,15 @@ class AccountViewController: UIViewController {
             
             self.nameOutlet.text = user.name
             self.surnameOutlet.text = user.surname
+            self.mailOutlet.text = user.email
+            
+            if user.supervisor {
+                self.switchOutlet.isOn = true
+            }
+            else {
+                self.switchOutlet.isOn = false
+            }
+            
             //UIViewController.removeSpinner(spinner: spinner)
             if user.image != nil{
                 
@@ -57,11 +66,13 @@ class AccountViewController: UIViewController {
         }
     }
     
-    
+    @IBOutlet weak var switchOutlet: UISwitch!
+    @IBOutlet weak var mailOutlet: UITextField!
     @IBOutlet weak var surnameOutlet: UITextField!
     @IBOutlet weak var nameOutlet: UITextField!
     @IBOutlet weak var imageOutlet: UIButton!
     @IBAction func changeImage(_ sender: UIButton) {
+        
         
         self.pickerController = UIImagePickerController()
         self.pickerController!.delegate = self
@@ -89,6 +100,7 @@ class AccountViewController: UIViewController {
     
         
     }
+   
     
     
     
