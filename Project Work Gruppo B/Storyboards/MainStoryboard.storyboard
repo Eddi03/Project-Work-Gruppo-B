@@ -1007,30 +1007,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-Zg-llU">
-                                <rect key="frame" x="25" y="80" width="325" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questo è il titolo dell'album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8x-Vv-fat">
-                                <rect key="frame" x="25" y="118" width="325" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrizione" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKr-mI-QXi">
-                                <rect key="frame" x="25" y="155" width="325" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questa è la descrizione dell'album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-iW-ngZ">
-                                <rect key="frame" x="25" y="190" width="325" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-5q-cOH">
                                 <rect key="frame" x="25" y="611" width="325" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.58012623595647583" blue="0.0128663158320097" alpha="0.81498822773972601" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1050,51 +1026,45 @@
                                     <action selector="archiviaAlbumAction:" destination="NLY-rQ-r0c" eventType="touchUpInside" id="tVw-Mf-4Va"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato da: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fW9-7A-9i4">
-                                <rect key="frame" x="25" y="294" width="325" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato il: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd8-bg-53c">
+                                <rect key="frame" x="25" y="583" width="325" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creato il: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jd8-bg-53c">
-                                <rect key="frame" x="25" y="334" width="325" height="22"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Album Icon" translatesAutoresizingMaskIntoConstraints="NO" id="JmY-Ne-1ho">
+                                <rect key="frame" x="150" y="96" width="75" height="75"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questo è il titolo dell'album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8x-Vv-fat">
+                                <rect key="frame" x="25" y="203" width="325" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altre Informazioni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eto-Pb-A87">
-                                <rect key="frame" x="25" y="251" width="325" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Questa è la descrizione dell'album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbY-iW-ngZ">
+                                <rect key="frame" x="25" y="240" width="325" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tJ2-5q-cOH" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="06v-Ng-umN"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="YY6-Zg-llU" secondAttribute="trailing" constant="25" id="647-Ii-Noh"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="x8x-Vv-fat" secondAttribute="trailing" constant="25" id="6ra-2p-n8Y"/>
-                            <constraint firstItem="eto-Pb-A87" firstAttribute="top" secondItem="wbY-iW-ngZ" secondAttribute="bottom" constant="40" id="9ng-hV-JZb"/>
+                            <constraint firstItem="wbY-iW-ngZ" firstAttribute="centerX" secondItem="ZvJ-fS-iAd" secondAttribute="centerX" id="1Ub-zj-buW"/>
+                            <constraint firstItem="x8x-Vv-fat" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="5Bd-vt-DBx"/>
+                            <constraint firstItem="Jd8-bg-53c" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="6mn-ih-wuP"/>
+                            <constraint firstItem="tJ2-5q-cOH" firstAttribute="top" secondItem="Jd8-bg-53c" secondAttribute="bottom" constant="10" id="DRg-Tb-5aV"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="bottom" secondItem="tJ2-5q-cOH" secondAttribute="bottom" constant="16" id="F2H-4c-hPa"/>
-                            <constraint firstItem="x8x-Vv-fat" firstAttribute="top" secondItem="YY6-Zg-llU" secondAttribute="bottom" constant="8" id="MdX-Tk-qHu"/>
-                            <constraint firstItem="Jd8-bg-53c" firstAttribute="top" secondItem="fW9-7A-9i4" secondAttribute="bottom" constant="16" id="MlR-jP-KRL"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="Jd8-bg-53c" secondAttribute="trailing" constant="25" id="PHq-dC-7yM"/>
                             <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="tJ2-5q-cOH" secondAttribute="trailing" constant="25" id="Qfq-NE-O61"/>
-                            <constraint firstItem="Jd8-bg-53c" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="WMM-er-0S2"/>
-                            <constraint firstItem="x8x-Vv-fat" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="cMc-YL-TE7"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="eto-Pb-A87" secondAttribute="trailing" constant="25" id="etx-RR-qqo"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="fW9-7A-9i4" secondAttribute="trailing" constant="25" id="jrO-Eg-YfY"/>
-                            <constraint firstItem="eto-Pb-A87" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="kvf-BI-xjb"/>
-                            <constraint firstItem="YY6-Zg-llU" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="lFo-IU-Q2z"/>
-                            <constraint firstItem="fW9-7A-9i4" firstAttribute="top" secondItem="eto-Pb-A87" secondAttribute="bottom" constant="16" id="n68-vk-fSm"/>
-                            <constraint firstItem="wbY-iW-ngZ" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="nhZ-n0-8Rc"/>
-                            <constraint firstItem="eKr-mI-QXi" firstAttribute="top" secondItem="x8x-Vv-fat" secondAttribute="bottom" constant="16" id="oJp-Ix-smT"/>
-                            <constraint firstItem="eKr-mI-QXi" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="qaH-e3-bSS"/>
-                            <constraint firstItem="YY6-Zg-llU" firstAttribute="top" secondItem="ZvJ-fS-iAd" secondAttribute="top" constant="16" id="szf-gK-ArK"/>
-                            <constraint firstItem="fW9-7A-9i4" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="tcB-Vj-aGq"/>
-                            <constraint firstItem="wbY-iW-ngZ" firstAttribute="top" secondItem="eKr-mI-QXi" secondAttribute="bottom" constant="8" id="tfU-Rj-396"/>
-                            <constraint firstAttribute="trailing" secondItem="wbY-iW-ngZ" secondAttribute="trailing" constant="25" id="xak-gJ-z57"/>
-                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="eKr-mI-QXi" secondAttribute="trailing" constant="25" id="zUQ-xo-Kbh"/>
+                            <constraint firstItem="wbY-iW-ngZ" firstAttribute="leading" secondItem="ZvJ-fS-iAd" secondAttribute="leading" constant="25" id="Wn1-x3-ReZ"/>
+                            <constraint firstItem="JmY-Ne-1ho" firstAttribute="top" secondItem="ZvJ-fS-iAd" secondAttribute="top" constant="32" id="fak-qg-XM2"/>
+                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="Jd8-bg-53c" secondAttribute="trailing" constant="25" id="kCt-uf-IBP"/>
+                            <constraint firstItem="x8x-Vv-fat" firstAttribute="top" secondItem="JmY-Ne-1ho" secondAttribute="bottom" constant="32" id="kW0-hg-0up"/>
+                            <constraint firstItem="JmY-Ne-1ho" firstAttribute="centerX" secondItem="xDr-f9-ueN" secondAttribute="centerX" id="oIw-L0-GH8"/>
+                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="wbY-iW-ngZ" secondAttribute="trailing" constant="25" id="xHd-OC-3v3"/>
+                            <constraint firstItem="wbY-iW-ngZ" firstAttribute="top" secondItem="x8x-Vv-fat" secondAttribute="bottom" constant="16" id="z4t-fx-qpO"/>
+                            <constraint firstItem="ZvJ-fS-iAd" firstAttribute="trailing" secondItem="x8x-Vv-fat" secondAttribute="trailing" constant="25" id="zsW-yU-xCa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZvJ-fS-iAd"/>
                     </view>
@@ -1106,7 +1076,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sC-j6-a8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5276" y="-810"/>
+            <point key="canvasLocation" x="5276" y="-810.0449775112445"/>
         </scene>
         <!--Add Photo View Controller-->
         <scene sceneID="u0X-yb-JGp">
