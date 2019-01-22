@@ -9,6 +9,10 @@ import UIKit
 import MessageKit
 import MessageInputBar
 
+
+
+
+
 class ChatViewController: MessagesViewController {
     
     var messages: [Msg] = []
@@ -32,12 +36,30 @@ class ChatViewController: MessagesViewController {
         return formatter
     }()
     
+
+    lazy var autocompleteManager: AutocompleteManager = { [unowned self] in
+        let manager = AutocompleteManager(for: self.messageInputBar.inputTextView)
+        manager.delegate = self
+        manager.dataSource = self
+        return manager
+        }()
+    
+    let users = ["nathantannar4", "SD10"]
+    
+    let hastags = ["MessageKit", "MessageInputBar"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMessageCollectionView()
-        configureMessageInputBar()
+
         loadFirstMessages()
         title = "Chat"
+        
+        autocompleteManager.register(prefix: "@", with: [.font: UIFont.preferredFont(forTextStyle: .body),.foregroundColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 1),.backgroundColor: UIColor(red: 0, green: 122/255, blue: 1, alpha: 0.1)])
+        autocompleteManager.register(prefix: "#")
+       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,13 +123,7 @@ class ChatViewController: MessagesViewController {
         //        messagesCollectionView.addSubview(refreshControl)
         //        refreshControl.addTarget(self, action: #selector(loadMoreMessages), for: .valueChanged)
     }
-    
-    func configureMessageInputBar() {
-        messageInputBar.delegate = self
-        guard let color = GenericSettings.getObject()?.customPrimaryColor else { return }
-        messageInputBar.inputTextView.tintColor = UIColor.gray
-        messageInputBar.sendButton.tintColor = UIColor.blue
-    }
+  
     
     // MARK: - Helpers
     func insertMessage(_ message: Msg) {
@@ -252,3 +268,63 @@ extension ChatViewController: MessageInputBarDelegate {
         }
     }
 }
+
+extension ChatViewController: AutocompleteManagerDelegate, AutocompleteManagerDataSource {
+    
+    // MARK: - AutocompleteManagerDataSource
+    
+    func autocompleteManager(_ manager: AutocompleteManager, autocompleteSourceFor prefix: String) -> [AutocompleteCompletion] {
+        if prefix == "@" {
+            return users.map { AutocompleteCompletion(text: $0) }
+        } else if prefix == "#" {
+            return hastags.map { AutocompleteCompletion(text: $0) }
+        }
+        return []
+    }
+    
+    func autocompleteManager(_ manager: AutocompleteManager, tableView: UITableView, cellForRowAt indexPath: IndexPath, for session: AutocompleteSession) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AutocompleteCell.reuseIdentifier, for: indexPath) as? AutocompleteCell else {
+            fatalError("Oops, some unknown error occurred")
+        }
+        cell.textLabel?.attributedText = manager.attributedText(matching: session, fontSize: 15)
+        return cell
+    }
+    
+    // MARK: - AutocompleteManagerDelegate
+    
+    func autocompleteManager(_ manager: AutocompleteManager, shouldBecomeVisible: Bool) {
+        setAutocompleteManager(active: shouldBecomeVisible)
+    }
+    
+    // Optional
+    func autocompleteManager(_ manager: AutocompleteManager, shouldRegister prefix: String, at range: NSRange) -> Bool {
+        return true
+    }
+    
+    // Optional
+    func autocompleteManager(_ manager: AutocompleteManager, shouldUnregister prefix: String) -> Bool {
+        return true
+    }
+    
+    // Optional
+    func autocompleteManager(_ manager: AutocompleteManager, shouldComplete prefix: String, with text: String) -> Bool {
+        return true
+    }
+    
+    // MARK: - AutocompleteManagerDelegate Helper
+    
+    func setAutocompleteManager(active: Bool) {
+        
+        let topStackView = messageInputBar.topStackView
+        if active && !topStackView.arrangedSubviews.contains(autocompleteManager.tableView) {
+            topStackView.insertArrangedSubview(autocompleteManager.tableView, at: topStackView.arrangedSubviews.count)
+            topStackView.layoutIfNeeded()
+        } else if !active && topStackView.arrangedSubviews.contains(autocompleteManager.tableView) {
+            topStackView.removeArrangedSubview(autocompleteManager.tableView)
+            topStackView.layoutIfNeeded()
+        }
+    }
+    
+}
+
