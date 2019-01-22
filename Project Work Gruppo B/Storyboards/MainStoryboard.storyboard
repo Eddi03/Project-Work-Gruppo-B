@@ -638,6 +638,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkedImage" destination="y1F-fr-aer" id="2AC-2t-xcS"/>
+                                            <outlet property="imageProfile" destination="puU-9X-5cU" id="rYj-lI-rQm"/>
                                             <outlet property="name" destination="wWk-rl-Qot" id="bxH-HP-LFb"/>
                                         </connections>
                                     </tableViewCell>
@@ -1368,11 +1369,11 @@
     </scenes>
     <resources>
         <image name="Album Icon" width="75" height="75"/>
-        <image name="Checked" width="66" height="66"/>
-        <image name="Photo Placeholder" width="325" height="325"/>
+        <image name="Checked" width="33" height="33"/>
+        <image name="Photo Placeholder" width="162" height="162"/>
         <image name="Topic Icon" width="75" height="75"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wcY-AB-box"/>

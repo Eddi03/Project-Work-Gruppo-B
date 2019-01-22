@@ -147,6 +147,10 @@ extension AlbumListViewController : UITableViewDelegate, UITableViewDataSource {
                     cell.backgroundColor = colore
                     cell.albumIcon.image = UIImage(named: "Archivied")
                 }
+                else{
+                    cell.backgroundColor = UIColor.clear
+                    cell.albumIcon.image = UIImage(named:"Album Icon")
+                }
             }
             return cell
         case ADD_ALBUM:

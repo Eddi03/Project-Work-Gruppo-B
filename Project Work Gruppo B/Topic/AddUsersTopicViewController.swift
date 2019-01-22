@@ -14,6 +14,7 @@ class AddUsersTopicViewController: UIViewController {
     var usersToAdd : [String] = []
     var currentUsers : [String] = []
     var topic : Topic!
+    var images : [Image] = []
     
     
     override func viewDidLoad() {
@@ -37,7 +38,9 @@ class AddUsersTopicViewController: UIViewController {
     func getCurrentUsers(){
         var a : [String] = []
         a = topic.getUsers()
-        a.remove(at: a.firstIndex(of: NetworkManager.getMyID()!)!)
+        if a.count>0{
+            a.remove(at: a.firstIndex(of: NetworkManager.getMyID()!)!)
+        }
         self.currentUsers = a
         self.usersToAdd = a   }
     func removeCurrentUser(){
@@ -97,6 +100,21 @@ extension AddUsersTopicViewController : UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AddUsersTableViewCell.kIdentifier, for: indexPath) as! AddUsersTableViewCell
+        
+        if let image = Image.getImageById(id: self.users[indexPath.row].id){
+            cell.imageProfile.image = UIImage(data: image.image!)
+        }else{
+            if let imageProfile = self.users[indexPath.row].image{
+                NetworkManager.dowloadImage(withURL: imageProfile, completion: { (image) in
+                    let img = Image(image: image?.pngData(),id: self.users[indexPath.row].id)
+                    img.save()
+                    self.images = Image.all()
+                })
+            }else{
+                cell.imageProfile.image = UIImage(named: "User Placeholder")
+            }
+        }
+        
         
         
         cell.name.text = self.users[indexPath.row].getFullName()
