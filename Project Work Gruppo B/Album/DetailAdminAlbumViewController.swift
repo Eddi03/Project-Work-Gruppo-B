@@ -37,7 +37,7 @@ class DetailAdminAlbumViewController: UIViewController {
             let actionNo = UIAlertAction(title: "Annulla", style: .cancel, handler: nil)
             alert.addAction(actionNo)
             alert.addAction(UIAlertAction(title: "Si", style: .default, handler: { action in
-                NetworkManager.deleteAlbum(topic: self.topic, idAlbum: self.album.id, completion: {success in
+                NetworkManager.deleteAlbum(topic: self.topic, album: self.album, completion: {success in
                     if success {
                         print("eliminato il completed album")
                         self.dismiss(animated: true, completion: nil)
@@ -62,7 +62,7 @@ class DetailAdminAlbumViewController: UIViewController {
     }
 
     @IBAction func deleteAlbumAction(_ sender: Any) {
-        NetworkManager.deleteAlbum(topic: topic, idAlbum: album.id, completion: { success in
+        NetworkManager.deleteAlbum(topic: topic, album: album, completion: { success in
             if success {
                 self.dismiss(animated: true, completion: nil)
             }
