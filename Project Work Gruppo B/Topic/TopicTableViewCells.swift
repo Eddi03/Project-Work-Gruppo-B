@@ -81,6 +81,12 @@ class AddUsersTableViewCell: UITableViewCell {
     
     @IBOutlet var checkedImage: UIImageView!
     
+    @IBOutlet var imageProfile: UIImageView!{
+        didSet{
+            imageProfile.cornerRadius = imageProfile.frame.width/2
+        imageProfile.clipsToBounds = true
+        }
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -16,11 +16,6 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 0 colors.
-  struct color {
-    fileprivate init() {}
-  }
-  
   /// This `R.file` struct is generated, and contains static references to 2 files.
   struct file {
     /// Resource file `GoogleService-Info.plist`.
@@ -40,11 +35,6 @@ struct R: Rswift.Validatable {
       return fileResource.bundle.url(forResource: fileResource)
     }
     
-    fileprivate init() {}
-  }
-  
-  /// This `R.font` struct is generated, and contains static references to 0 fonts.
-  struct font {
     fileprivate init() {}
   }
   
@@ -135,11 +125,6 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.userPlaceholder, compatibleWith: traitCollection)
     }
     
-    fileprivate init() {}
-  }
-  
-  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
-  struct nib {
     fileprivate init() {}
   }
   
@@ -1066,16 +1051,12 @@ struct _R: Rswift.Validatable {
     try storyboard.validate()
   }
   
-  struct nib {
-    fileprivate init() {}
-  }
-  
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try mainStoryboard.validate()
       try authentication.validate()
-      try whiteStoryboard.validate()
       try launchScreen.validate()
+      try mainStoryboard.validate()
+      try whiteStoryboard.validate()
     }
     
     struct authentication: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -1090,10 +1071,12 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Eye Gray") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Gray' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "FBIcon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FBIcon' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Eye Gray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Eye Gray' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "FBIcon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'FBIcon' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoginImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "User Placeholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'Authentication', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
         if _R.storyboard.authentication().saveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'saveViewController' could not be loaded from storyboard 'Authentication' as 'SaveViewController'.") }
       }
       
@@ -1107,7 +1090,9 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
       
       static func validate() throws {
-        if UIKit.UIImage(named: "LoginImage") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "LoginImage", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'LoginImage' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
       }
       
       fileprivate init() {}
@@ -1125,12 +1110,14 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "Album Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Album Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Photo Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "UnChecked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UnChecked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "Topic Icon") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Topic Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "User Placeholder") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Album Icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Album Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Checked", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Checked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Photo Placeholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Photo Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "Topic Icon", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Topic Icon' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "UnChecked", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'UnChecked' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "User Placeholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'User Placeholder' is used in storyboard 'MainStoryboard', but couldn't be loaded.") }
+        if #available(iOS 11.0, *) {
+        }
         if _R.storyboard.mainStoryboard().schiavo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'schiavo' could not be loaded from storyboard 'MainStoryboard' as 'AdminPhotoCollectionViewController'.") }
       }
       
@@ -1149,6 +1136,8 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
+        if #available(iOS 11.0, *) {
+        }
         if _R.storyboard.whiteStoryboard().viewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'viewController' could not be loaded from storyboard 'WhiteStoryboard' as 'ViewController'.") }
       }
       

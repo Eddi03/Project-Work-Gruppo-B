@@ -379,7 +379,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doN-L5-bna">
-                                <rect key="frame" x="25" y="268" width="325" height="40"/>
+                                <rect key="frame" x="25" y="321" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.44993203879999999" green="0.51526027919999995" blue="0.74960976840000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mDY-NP-Ejk"/>
@@ -466,6 +466,7 @@
                             <constraint firstItem="MB4-98-wAj" firstAttribute="top" secondItem="wSY-7T-kX9" secondAttribute="top" constant="3" id="6Qf-zX-ily"/>
                             <constraint firstItem="g7L-8y-9bh" firstAttribute="top" secondItem="wSY-7T-kX9" secondAttribute="top" constant="16" id="6dr-Vw-UDH"/>
                             <constraint firstAttribute="trailing" secondItem="KNQ-K5-uu9" secondAttribute="trailing" constant="25" id="6vd-10-CY5"/>
+                            <constraint firstItem="wSY-7T-kX9" firstAttribute="trailing" secondItem="Ndg-Ce-khJ" secondAttribute="trailing" constant="48" id="90r-LX-f9Y"/>
                             <constraint firstItem="4ny-ve-qh1" firstAttribute="leading" secondItem="g7L-8y-9bh" secondAttribute="trailing" constant="16" id="BM5-uv-fmu"/>
                             <constraint firstItem="RlR-oM-xUV" firstAttribute="top" secondItem="KNQ-K5-uu9" secondAttribute="bottom" constant="3" id="Cth-rf-O4K"/>
                             <constraint firstItem="wSY-7T-kX9" firstAttribute="trailing" secondItem="doN-L5-bna" secondAttribute="trailing" constant="25" id="E2M-mG-IE1"/>
@@ -507,10 +508,12 @@
                     <connections>
                         <outlet property="buttonOutlet" destination="doN-L5-bna" id="fFI-vz-nJ9"/>
                         <outlet property="imageOutlet" destination="g7L-8y-9bh" id="sMd-Bx-1QE"/>
+                        <outlet property="mailOutlet" destination="aBw-0G-Dtz" id="LlK-sy-XmT"/>
                         <outlet property="nameOutlet" destination="4ny-ve-qh1" id="coY-BA-4IZ"/>
                         <outlet property="nameTextFieldOutlet" destination="4ny-ve-qh1" id="dv5-7z-X8f"/>
                         <outlet property="navBarLogout" destination="r4Z-Qt-P7Y" id="ax1-J8-Nl8"/>
                         <outlet property="surnameOutlet" destination="KNQ-K5-uu9" id="zmM-FI-N1G"/>
+                        <outlet property="switchOutlet" destination="Ndg-Ce-khJ" id="Qw0-YF-lg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7H-J6-C6E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -682,6 +685,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkedImage" destination="y1F-fr-aer" id="2AC-2t-xcS"/>
+                                            <outlet property="imageProfile" destination="puU-9X-5cU" id="rYj-lI-rQm"/>
                                             <outlet property="name" destination="wWk-rl-Qot" id="bxH-HP-LFb"/>
                                         </connections>
                                     </tableViewCell>
@@ -1412,11 +1416,11 @@
     </scenes>
     <resources>
         <image name="Album Icon" width="75" height="75"/>
-        <image name="Checked" width="66" height="66"/>
-        <image name="Photo Placeholder" width="325" height="325"/>
+        <image name="Checked" width="33" height="33"/>
+        <image name="Photo Placeholder" width="162" height="162"/>
         <image name="Topic Icon" width="75" height="75"/>
         <image name="UnChecked" width="26" height="26"/>
-        <image name="User Placeholder" width="42.421173095703125" height="42.421173095703125"/>
+        <image name="User Placeholder" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wcY-AB-box"/>
