@@ -516,7 +516,7 @@ class NetworkManager : NSObject{
                     completion(false)
                     return //mi fa uscire dalla funzione
                 }
-            }
+            } 
             completion(true)
         }
     }
