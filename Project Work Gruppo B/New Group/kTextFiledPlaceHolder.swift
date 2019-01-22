@@ -35,8 +35,8 @@ class kTextFiledPlaceHolder: UITextField {
         self.EnableMaterialPlaceHolder(enableMaterialPlaceHolder: true)
         if isUnderLineAvailabe {
             let underLine = UIImageView()
-            underLine.backgroundColor = UIColor.init(red: 197/255.0, green: 197/255.0, blue: 197/255.0, alpha: 0.8)
-            //            underLine.frame = CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 1)
+            underLine.backgroundColor = UIColor.init(red: 125/255, green: 123/255, blue: 223/255, alpha: 1.0)
+            //underLine.frame = CGRectMake(0, self.frame.size.height-1, self.frame.size.width, 1)
             underLine.frame = CGRect(x: 0, y: self.frame.size.height-1, width : self.frame.size.width, height : 1)
             
             underLine.clipsToBounds = true
@@ -66,8 +66,7 @@ class kTextFiledPlaceHolder: UITextField {
             //  NSLog("text = \(text)")
         }
         willSet {
-            if (self.placeholder != nil) && (self.text != "")
-            {
+            if (self.placeholder != nil) && (self.text != "") {
                 let string = NSString(string : self.placeholder!)
                 self.placeholderText(string)
             }
@@ -96,7 +95,7 @@ class kTextFiledPlaceHolder: UITextField {
                     }
                     
                 }
-                }, completion: {(finished: Bool) -> Void in
+            }, completion: {(finished: Bool) -> Void in
             })
         }
     }
@@ -113,7 +112,7 @@ class kTextFiledPlaceHolder: UITextField {
     }
     func placeholderText(_ placeholder: NSString){
         let atts  = [NSAttributedString.Key.foregroundColor.rawValue: UIColor.lightGray, NSAttributedString.Key.font.rawValue: UIFont.labelFontSize] as [String : Any]?
-       // self.attributedPlaceholder = NSAttributedString(string: placeholder as String , attributes: atts)
+        // self.attributedPlaceholder = NSAttributedString(string: placeholder as String , attributes: atts)
         self.EnableMaterialPlaceHolder(enableMaterialPlaceHolder: self.enableMaterialPlaceHolder)
     }
     override func becomeFirstResponder()->(Bool){
