@@ -16,6 +16,9 @@ class AccountViewController: UIViewController {
             navBarLogout.title = R.string.localizable.kNavBarAccountLogout()
         }
     }
+    
+    @IBOutlet weak var nameTextFieldOutlet: kTextFiledPlaceHolder!
+    
     var user : User!
     private var pickerController:UIImagePickerController?
     var URLImage : String?
@@ -25,6 +28,7 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //let spinner = UIViewController.displaySpinner(onView: self.view)
         
@@ -37,6 +41,7 @@ class AccountViewController: UIViewController {
             self.nameOutlet.text = user.name
             self.surnameOutlet.text = user.surname
             //UIViewController.removeSpinner(spinner: spinner)
+            
             if user.image != nil{
                 
                 NetworkManager.dowloadImage(withURL: user.image!, completion: { (image) in
@@ -89,13 +94,8 @@ class AccountViewController: UIViewController {
     
         
     }
-    
-    
-    
-    
-    
+
     @IBAction func buttonAction(_ sender: UIButton) {
-        
         
         let currentName = nameOutlet.text
         let currentSurname = surnameOutlet.text
@@ -123,7 +123,6 @@ class AccountViewController: UIViewController {
                 self.URLImage = URLImage
                 let pippo = User(email: self.user.email, name: currentName, surname: currentSurname, id: self.user.id, image: URLImage, supervisor: self.user.supervisor)
                 
-                
                 NetworkManager.addUser(user: pippo, completion: { (success) in
                     self.dismiss(animated: true, completion: {
                         
@@ -144,11 +143,6 @@ class AccountViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
     @IBAction func logoutAction(_ sender: UIBarButtonItem) {
         NetworkManager.logOut()
         let storyboard = UIStoryboard(name: "WhiteStoryboard", bundle: nil)
@@ -157,7 +151,6 @@ class AccountViewController: UIViewController {
     }
     
 }
-
 
 extension AccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
