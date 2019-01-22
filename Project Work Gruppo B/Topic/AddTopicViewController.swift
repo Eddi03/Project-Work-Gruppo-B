@@ -75,9 +75,6 @@ class AddTopicViewController: UIViewController {
             }
         })
         
-            
-        
-        addTopicDelegate.addTopic(topic: topic)
         self.navigationController?.popToRootViewController(animated: true)
         
     }

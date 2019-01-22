@@ -18,7 +18,7 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>CodableFirebase.xcscheme</key>
+		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -81,21 +81,21 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>FirebaseStorage.xcscheme</key>
+		<key>MessageKit-MessageKitAssets.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>11</integer>
 		</dict>
-		<key>GTMSessionFetcher.xcscheme</key>
+		<key>MessageKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
-		<key>GoogleUtilities.xcscheme</key>
+		<key>Pods-Project Work Gruppo B.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -123,7 +123,7 @@
 			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
-		<key>Pods-Project Work Gruppo B.xcscheme</key>
+		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

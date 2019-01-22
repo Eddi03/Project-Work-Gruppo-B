@@ -81,6 +81,7 @@ class AddUsersTableViewCell: UITableViewCell {
     
     @IBOutlet var checkedImage: UIImageView!
     
+    @IBOutlet var imageProfile: UIImageView!
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

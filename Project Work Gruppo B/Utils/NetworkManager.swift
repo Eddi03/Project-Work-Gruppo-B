@@ -521,37 +521,26 @@ class NetworkManager : NSObject{
         }
     }
     
-    static func deleteAlbum(topic: Topic,idAlbum: String, completion: @escaping (Bool)->Void){
-        db?.collection("Albums").document(idAlbum).delete() { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-                completion(false)
-            } else {
-                print("Document successfully removed!")
+    static func deleteAlbum(topic: Topic,album: Album, completion: @escaping (Bool)->Void){
+        
 
                 var albums = Album.getAlbumFromTopic(idCurrentTopic: topic.id)
                 //let albumm = albums.firstIndex(of: Album.getAlbumById(id: idAlbum)!)
-                for i in 0..<albums.count{
-                    if albums[i].id! == idAlbum{
-                        topic.removeAlbum(index: i)
-                    }
-                }
-                
-                print("ALBUM ELIMINATO", Album.getAlbumById(id: idAlbum))
+//                for i in 0..<albums.count{
+//                    if albums[i].id! == idAlbum{
+//                        topic.removeAlbum(index: i)
+//                    }
+//                }
+                let position = albums.firstIndex(of: album)
+                topic.removeAlbum(index: position!)
+                print("ALBUM ELIMINATO", Album.getAlbumById(id: album.id))
                 print("TOPIC MODIFICATO",topic)
                 
                 addTopic(topic: topic, completion: {success in
-                    if success{
-                        for var photo in Photo.getPhotoFromAlbum(idCurrentAlbum: idAlbum){
-                            photo.delete()
-                        }
-                        Album.getAlbumById(id: idAlbum)?.delete()
-                    }
+                    completion(true)
+                    
                 })
-                
-                completion(true)
-            }
-        }
+        
     }
     
     // FOTO
